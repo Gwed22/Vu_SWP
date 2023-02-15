@@ -1,6 +1,15 @@
-E:\PRJ301\finalProjectBanHang (2) (1)\src\main\java\com\models\Order.java
-E:\PRJ301\finalProjectBanHang (2) (1)\src\main\java\com\models\ProductOrders.java
-E:\PRJ301\finalProjectBanHang (2) (1)\src\main\java\com\models\Categories.java
-E:\PRJ301\finalProjectBanHang (2) (1)\src\main\java\com\models\Products.java
-E:\PRJ301\finalProjectBanHang (2) (1)\src\main\java\com\db\DBConnection.java
-E:\PRJ301\finalProjectBanHang (2) (1)\src\main\java\com\models\Account.java
+D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\models\Account.java
+D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\models\ChatSession.java
+D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\models\Category.java
+D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\models\Brand.java
+D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\models\Message.java
+D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\models\Products.java
+D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\models\Order.java
+D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\models\Comment.java
+D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\models\SecurityQuestion.java
+D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\db\DBConnection.java
+D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\models\OrderItem.java
+D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\models\Sale.java
+D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\models\SecurityAnswer.java
+D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\models\Role.java
+D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\models\Consignment.java

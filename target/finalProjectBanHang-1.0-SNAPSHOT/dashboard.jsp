@@ -4,10 +4,8 @@
     Author     : DELL
 --%>
 <%@page import="java.sql.ResultSet"%>
-<%@page import="com.dao.OrderDAO"%>
 <%@page import="java.util.List"%>
 <%@page import="com.models.Products"%>
-<%@page import="com.dao.DAO"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -112,21 +110,8 @@
                                         <div class="col-xs-3 mar-bot-15 text-left">
 
                                         </div>
-                                        <%
-                                            OrderDAO ordao = new OrderDAO();
-                                            ResultSet result = ordao.getAll();
-                                            int size = 0;
-                                            while (result.next()) {
-                                                size++;
-                                            }
-                                            ResultSet result2 = ordao.totalSale();
-                                            float sale = 0;
-                                            while (result2.next()) {
-                                                sale = result2.getFloat("TotalSale");
-                                            }
-                                        %>
                                         <div class="col-xs-9 cus-gh-hd-pro">
-                                            <h2 class="text-right no-margin"><%= size%></h2>
+                                            <h2 class="text-right no-margin"></h2>
                                         </div>
                                     </div>
                                     <div class="progress progress-mini">
@@ -143,7 +128,7 @@
 
                                         </div>
                                         <div class="col-xs-9 cus-gh-hd-pro">
-                                            <h2 class="text-right no-margin">$<%= sale*0.1%></h2>
+                                            <h2 class="text-right no-margin"></h2>
                                         </div>
                                     </div>
                                     <div class="progress progress-mini">
@@ -159,7 +144,7 @@
 
                                         </div>
                                         <div class="col-xs-9 cus-gh-hd-pro">
-                                            <h2 class="text-right no-margin">$<%= sale%></h2>
+                                            <h2 class="text-right no-margin"></h2>
                                         </div>
                                     </div>
                                     <div class="progress progress-mini">
@@ -173,52 +158,8 @@
             </div>
             <br>
             <br>
-            <div class="section-admin container-fluid">
-                <div class="row admin text-center">
-                    <div class="col-md-12">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
-                                    <h4 class="text-center text-uppercase"><b>HOT PRODUCTS</b></h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <%
-                DAO dao = new DAO();
-                List<Products> listP = dao.getAllProduct();
-            %>
-            <div class="product-new-list-area">
-                <div class="container-fluid">
-                    <div class="row">
-
-
-                        <c:forEach items="${listP}" var="o" begin="0" end="3">
-                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 margin">
-                                <div class="single-new-trend mg-t-30">
-                                    <h3 style="color: white">$${o.getProductPrice()}</h3>
-                                    <img src="${o.getProductImg()}" alt="">
-                                    <br>
-                                    <br>
-                                    <h4 style="color: white">${o.getProductName()}</h4>
-                                    <br>
-                                    <div class="overlay-content">
-                                        <div class="pro-rating">
-                                            <i class="fa fa-star color"></i>
-                                            <i class="fa fa-star color"></i>
-                                            <i class="fa fa-star color"></i>
-                                            <i class="fa fa-star color"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </c:forEach>
-                    </div>
-                </div>
-            </div>
+            
+            
             <br>
             <div class="footer-copyright-area">
 

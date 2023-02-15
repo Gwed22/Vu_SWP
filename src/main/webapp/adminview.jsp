@@ -4,10 +4,8 @@
     Author     : DELL
 --%>
 <%@page import="java.sql.ResultSet"%>
-<%@page import="com.dao.OrderDAO"%>
 <%@page import="java.util.List"%>
 <%@page import="com.models.Products"%>
-<%@page import="com.dao.DAO"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
