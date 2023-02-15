@@ -8,7 +8,7 @@ package com.models;
  *
  * @author PC
  */
-public class ProductOrders {
+public class OrderItem {
     private int p_ID;
     private String p_Name;
     private String p_Img;
@@ -20,12 +20,12 @@ public class ProductOrders {
     private int OrderID;
     private int IsDelivery;
 
-    public ProductOrders() {
+    public OrderItem() {
     }
 
    
 
-    public ProductOrders(int p_ID, String p_Name, String p_Img, double p_Price, String OrderDate, String ShippingDate, String ShippingAddress, int Quantity, int OrderID, int IsDelivery) {
+    public OrderItem(int p_ID, String p_Name, String p_Img, double p_Price, String OrderDate, String ShippingDate, String ShippingAddress, int Quantity, int OrderID, int IsDelivery) {
         this.p_ID = p_ID;
         this.p_Name = p_Name;
         this.p_Img = p_Img;
