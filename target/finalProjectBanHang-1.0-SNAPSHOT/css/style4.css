@@ -413,7 +413,7 @@ a.readmore_bt {
 /*--------------------------------------------------------------------- header area ---------------------------------------------------------------------*/
 
 .header {
-    
+
     font-family: poppins;
     padding: 0px 0px;
     margin: 20px 0px 10px 0px;
@@ -803,6 +803,20 @@ ul.top_icon li a {
 .header-search form .search-btn:hover {
     background: #111111;
 }
+
+.cart-form {
+    border: none;
+    text-align: center;
+
+}
+
+.img-cart {
+    width: 20%;
+    height: 20%;
+    margin-top: 20px;
+}
+
+
 
 .cart-box {
     float: right;
@@ -1913,7 +1927,7 @@ ul.social_icon li a:hover {
 }
 .titlepage {
     display: flex;
-    
+
     padding-bottom: 30px;
 }
 .laptop {
@@ -1984,6 +1998,42 @@ ul.social_icon li a:hover {
     margin-right: 10px;
 }
 
+.cart-shop {
+    width: 100%;
+    background: #fff;
+    text-align: center;
+    padding: 20px 0px 20px 0px;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+.total-foot {
+    font-size: 30px;    
+    border-top: #ceccc6 solid thin;
+}
+.total-inline {
+     border-top: #ceccc6 solid thin;
+     
+}
+.inline {
+    padding: 10px;
+    padding-bottom: 10px;
+}
+
+.send-payment {
+    font-family: poppins;
+    max-width: 200px;
+    margin: 50px 0px 0px auto;
+    display: block;
+    background: #f25252;
+    color: #fff;
+    padding: 12px 0px;
+    width: 100%;
+    font-size: 17px;
+   
+    border-radius: 10px;
+}
+
 /** end brand **/
 
 /** contact **/
@@ -2029,7 +2079,7 @@ ul.social_icon li a:hover {
 
 .textarea {
     font-family: poppins;
-    border: #ff0000 solid 2px;
+    border: #000 solid 2px;
     margin-bottom: 30px;
     padding: 13px 20px;
     width: 100%;
@@ -2038,14 +2088,16 @@ ul.social_icon li a:hover {
 
 .send {
     font-family: poppins;
-    max-width: 212px;
+    max-width: 100px;
     margin: 0 auto;
     display: block;
-    background: #000;
+    background: #f25252;
     color: #fff;
     padding: 12px 0px;
     width: 100%;
     font-size: 17px;
+    margin-bottom: 20px;
+    border-radius: 10px;
 }
 
 .send:hover {
@@ -2178,8 +2230,8 @@ ul.location_icon span {
 }
 .brand_color .titlepage {
     margin: 40px 0px 0px 450px;
-    
-    
+
+
     font-size: 50px;
 }
 
