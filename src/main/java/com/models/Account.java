@@ -10,7 +10,7 @@ package com.models;
  */
 public class Account {
 
-    private int AccountID;
+    private int accountID;
     private String name;
     private String phone;
     private String password;
@@ -22,8 +22,8 @@ public class Account {
     public Account() {
     }
 
-    public Account(int AccountID, String name, String phone, String password, String gender, String address, int sq_id, int role_id) {
-        this.AccountID = AccountID;
+    public Account(int accountID, String name, String phone, String password, String gender, String address, int sq_id, int role_id) {
+        this.accountID = accountID;
         this.name = name;
         this.phone = phone;
         this.password = password;
@@ -34,11 +34,11 @@ public class Account {
     }
 
     public int getAccountID() {
-        return AccountID;
+        return accountID;
     }
 
-    public void setAccountID(int AccountID) {
-        this.AccountID = AccountID;
+    public void setAccountID(int accountID) {
+        this.accountID = accountID;
     }
 
     public String getName() {
@@ -99,7 +99,7 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Account{" + "AccountID=" + AccountID + ", name=" + name + ", phone=" + phone + ", password=" + password + ", gender=" + gender + ", address=" + address + ", sq_id=" + sq_id + ", role_id=" + role_id + '}';
+        return "Account{" + "accountID=" + accountID + ", name=" + name + ", phone=" + phone + ", password=" + password + ", gender=" + gender + ", address=" + address + ", sq_id=" + sq_id + ", role_id=" + role_id + '}';
     }
     
     

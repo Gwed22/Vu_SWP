@@ -11,92 +11,87 @@ import java.sql.Date;
  * @author PC
  */
 public class Order {
-  
-    private int OrderID; 
-    private Date OrderDate;
-    private Date ShippingDate;
-    private String ShippingAddress;
-    private int isDelivery;
-    private int UserID;
-    private int ProductID;
-    private int Quantity;
+
+    private int orderID;
+    private Date orderDate;
+    private Date deliveryDate;
+    private String status;
+    private String note;
+    private int accountID;
+    private String address;
 
     public Order() {
     }
 
-    public Order(int OrderID, Date OrderDate, Date ShippingDate, String ShippingAddress, int isDelivery, int UserID, int ProductID, int Quantity) {
-        this.OrderID = OrderID;
-        this.OrderDate = OrderDate;
-        this.ShippingDate = ShippingDate;
-        this.ShippingAddress = ShippingAddress;
-        this.isDelivery = isDelivery;
-        this.UserID = UserID;
-        this.ProductID = ProductID;
-        this.Quantity = Quantity;
+    public Order(int orderID, Date orderDate, Date deliveryDate, String status, String note, int accountID, String address) {
+        this.orderID = orderID;
+        this.orderDate = orderDate;
+        this.deliveryDate = deliveryDate;
+        this.status = status;
+        this.note = note;
+        this.accountID = accountID;
+        this.address = address;
     }
 
     public int getOrderID() {
-        return OrderID;
+        return orderID;
     }
 
-    public void setOrderID(int OrderID) {
-        this.OrderID = OrderID;
+    public void setOrderID(int orderID) {
+        this.orderID = orderID;
     }
-    
+
     public Date getOrderDate() {
-        return OrderDate;
+        return orderDate;
     }
 
-    public void setOrderDate(Date OrderDate) {
-        this.OrderDate = OrderDate;
+    public void setOrderDate(Date orderDate) {
+        this.orderDate = orderDate;
     }
 
-    public Date getShippingDate() {
-        return ShippingDate;
+    public Date getDeliveryDate() {
+        return deliveryDate;
     }
 
-    public void setShippingDate(Date ShippingDate) {
-        this.ShippingDate = ShippingDate;
+    public void setDeliveryDate(Date deliveryDate) {
+        this.deliveryDate = deliveryDate;
     }
 
-    public String getShippingAddress() {
-        return ShippingAddress;
+    public String getStatus() {
+        return status;
     }
 
-    public void setShippingAddress(String ShippingAddress) {
-        this.ShippingAddress = ShippingAddress;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public int getIsDelivery() {
-        return isDelivery;
+    public String getNote() {
+        return note;
     }
 
-    public void setIsDelivery(int isDelivery) {
-        this.isDelivery = isDelivery;
+    public void setNote(String note) {
+        this.note = note;
     }
 
-    public int getUserID() {
-        return UserID;
+    public int getAccountID() {
+        return accountID;
     }
 
-    public void setUserID(int UserID) {
-        this.UserID = UserID;
+    public void setAccountID(int accountID) {
+        this.accountID = accountID;
     }
 
-    public int getProductID() {
-        return ProductID;
+    public String getAddress() {
+        return address;
     }
 
-    public void setProductID(int ProductID) {
-        this.ProductID = ProductID;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public int getQuantity() {
-        return Quantity;
+    @Override
+    public String toString() {
+        return "Order{" + "orderID=" + orderID + ", orderDate=" + orderDate + ", deliveryDate=" + deliveryDate + ", status=" + status + ", note=" + note + ", accountID=" + accountID + ", address=" + address + '}';
     }
 
-    public void setQuantity(int Quantity) {
-        this.Quantity = Quantity;
-    }    
-    
 }

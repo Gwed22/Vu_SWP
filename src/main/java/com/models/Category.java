@@ -9,23 +9,23 @@ package com.models;
  * @author PC
  */
 public class Category {
-    private int cId;
+    private int cID;
     private String cName;
 
     public Category() {
     }
 
-    public Category(int cId, String cName) {
-        this.cId = cId;
+    public Category(int cID, String cName) {
+        this.cID = cID;
         this.cName = cName;
     }
 
-    public int getcId() {
-        return cId;
+    public int getcID() {
+        return cID;
     }
 
-    public void setcId(int cId) {
-        this.cId = cId;
+    public void setcID(int cID) {
+        this.cID = cID;
     }
 
     public String getcName() {
@@ -38,6 +38,6 @@ public class Category {
 
     @Override
     public String toString() {
-        return "Category{" + "cId=" + cId + ", cName=" + cName + '}';
+        return "Category{" + "cID=" + cID + ", cName=" + cName + '}';
     }    
 }

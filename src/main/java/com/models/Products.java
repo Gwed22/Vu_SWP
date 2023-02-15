@@ -12,18 +12,19 @@ public class Products {
 
     private int productID;
     private int conID;
+    private String productImg;
     private float productPrice;
     private String poductDesc;
-    
 
     // Constructor
     public Products() {
 
     }
 
-    public Products(int productID, int conID, float productPrice, String poductDesc) {
+    public Products(int productID, int conID, String productImg, float productPrice, String poductDesc) {
         this.productID = productID;
         this.conID = conID;
+        this.productImg = productImg;
         this.productPrice = productPrice;
         this.poductDesc = poductDesc;
     }
@@ -60,6 +61,17 @@ public class Products {
         this.poductDesc = poductDesc;
     }
 
-   
+    public String getProductImg() {
+        return productImg;
+    }
+
+    public void setProductImg(String productImg) {
+        this.productImg = productImg;
+    }
+
+    @Override
+    public String toString() {
+        return "Products{" + "productID=" + productID + ", conID=" + conID + ", productImg=" + productImg + ", productPrice=" + productPrice + ", poductDesc=" + poductDesc + '}';
+    }
 
 }
