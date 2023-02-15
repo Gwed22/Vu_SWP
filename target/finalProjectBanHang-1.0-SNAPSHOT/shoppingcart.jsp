@@ -18,7 +18,7 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-        <link href="css/style3.css" rel="stylesheet" type="text/css"/>
+        <link href="css/style4.css" rel="stylesheet" type="text/css"/>
         <style>
             .gallery-wrap .img-big-wrap img {
                 height: 450px;
@@ -56,93 +56,54 @@
         </style>
     </head>
     <body>
-        <%
-            Account acc = (Account) session.getAttribute("acc");
-            if (acc != null) {
-        %>
+
         <jsp:include page="header.jsp"></jsp:include>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 border">
-                        <div class="container">
-                            <div class="card">
-                                <div class="row">
-                                    <aside>
-                                        <article class="gallery-wrap"> 
-                                            <div class="img-big-wrap">
-                                                <div> <a href="#"><img src="${detail.getProductImg()}"></a></div>
-                                        </div> <!-- slider-product.// -->
-                                        <div class="img-small-wrap">
-                                        </div> 
-                                        <!-- slider-nav.// -->
-                                    </article> 
-                                    <!-- gallery-wrap .end// -->
-                                </aside>
-                                <aside>
-                                    <article class="card-body p-5">
-                                        <h3 class="title mb-lg-3">${detail.getProductName()}</h3>
-                                        <p class="price-detail-wrap"> 
-                                            <span class="price h3 text-warning"> 
-                                                <span class="red">$</span><span class="red">${detail.getProductPrice()}</span>
-                                            </span> 
-                                        </p> <!-- price-detail-wrap .// -->
-                                        <dl class="item-property">
-                                            <dt>Description</dt>
-                                            <dd><p>
-                                                    ${detail.getProductDesc()}
-                                                </p></dd>
-                                        </dl>                                    
-
-                                    </article> <!-- card-body.// -->
-                                </aside> <!-- col.// -->
-                            </div> <!-- row.// -->
-                        </div> <!-- card.// -->
-                    </div>
+            <section >
+                <div class="cart-shop">
+                    <span>CART</span>
                 </div>
-                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                    <div class="contact">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-
-                                    <form class="main_form" action="order" method="post">
-                                        <div class="row">
-                                            <div style="display: none" class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                                Product Code:<input class="form-control" type="text" name="txtProductID" value="${detail.getProductID()}" readonly>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                                Name: <input class="form-control" placeholder="Your name" type="text" name="txtName" value="<%= acc.getLname()%> <%= acc.getFname()%>" readonly >
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                                Phone: <input class="form-control" placeholder="Phone number" type="text" name="txtPhone" value="<%= acc.getPhone()%>" readonly >
-                                            </div>
-                                            <div class=" col-md-12">
-                                                Quantity: <input class="form-control" placeholder="Quantity" type="number" name="txtQuantity" min="1" max="${detail.getQuantity()}" id="quantity"  required>
-                                            </div>
-
-                                            <div class="col-md-12">
-                                                Address: <textarea class="textarea" placeholder="Address" name="txtAddress" required></textarea>
-                                            </div>
-                                            <div class=" col-md-12">
-                                                <button class="send" type="submit" name="SendOrder">Order</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                <form action="" class="form-cart ">
+                    <table style="width: 100%; text-align: center;">
+                        <thead>
+                            <tr>
+                                <th>Product: </th>
+                                <th>Product Name: </th>
+                                <th>Quantity:  </th>
+                                <th>Price: </th>
+                                <th>Action: </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><img class="img-cart" src="images/1.png" alt="alt"/></td>
+                                <td><span>BA Nam</span></td>
+                                <td><input type="number" min="0" max="10" ></td>
+                                <td><span>$3000</span></td></td>
+                                <td><a href="#">Delete</a></td>                           
+                            </tr>
+                            <tr>
+                                <td><img class="img-cart" src="images/1.png" alt="alt"/></td>
+                                <td><span>BA Nam</span></td>
+                                <td><input type="number" min="0" max="10" ></td>
+                                <td><span>$3000</span></td></td>
+                                <td><a href="#">Delete</a></td>                           
+                            </tr>
+                            <tr>
+                                <td><img class="img-cart" src="images/1.png" alt="alt"/></td>
+                                <td><span>BA Nam</span></td>
+                                <td><input type="number" min="0" max="10" ></td>
+                                <td><span>$3000</span></td></td>
+                                <td><a href="#">Delete</a></td>                           
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="col-md-12">
+                        <button class="send" type="submit" name="SendOrder">Order</button>
                     </div>
-                </div>
-            </div>
-        </div>
+                </form>
+            </section>
         <jsp:include page="footer.jsp"></jsp:include>
-        <%
-            } else {
-                request.setAttribute("errorLogin", "Please login to buy!");
-                request.getRequestDispatcher("/account").forward(request, response);
-                
-            }
-        %>
+
     </body>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -182,6 +143,6 @@
             });
         });
 
-        
+
     </script>
 </html>

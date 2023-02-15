@@ -11,28 +11,25 @@ import java.sql.Date;
  * @author PC
  */
 public class Order {
-  
-    private int OrderID; 
+
+    private int OrderID;
     private Date OrderDate;
     private Date ShippingDate;
     private String ShippingAddress;
-    private int isDelivery;
-    private int UserID;
-    private int ProductID;
-    private int Quantity;
+    private String Status;
+    private int AccountID;
+    private String note;
 
     public Order() {
     }
 
-    public Order(int OrderID, Date OrderDate, Date ShippingDate, String ShippingAddress, int isDelivery, int UserID, int ProductID, int Quantity) {
+    public Order(int OrderID, Date OrderDate, Date ShippingDate, String ShippingAddress, String Status, int AccountID) {
         this.OrderID = OrderID;
         this.OrderDate = OrderDate;
         this.ShippingDate = ShippingDate;
         this.ShippingAddress = ShippingAddress;
-        this.isDelivery = isDelivery;
-        this.UserID = UserID;
-        this.ProductID = ProductID;
-        this.Quantity = Quantity;
+        this.Status = Status;
+        this.AccountID = AccountID;
     }
 
     public int getOrderID() {
@@ -42,7 +39,7 @@ public class Order {
     public void setOrderID(int OrderID) {
         this.OrderID = OrderID;
     }
-    
+
     public Date getOrderDate() {
         return OrderDate;
     }
@@ -67,36 +64,33 @@ public class Order {
         this.ShippingAddress = ShippingAddress;
     }
 
-    public int getIsDelivery() {
-        return isDelivery;
+    public String getStatus() {
+        return Status;
     }
 
-    public void setIsDelivery(int isDelivery) {
-        this.isDelivery = isDelivery;
+    public void setStatus(String Status) {
+        this.Status = Status;
     }
 
-    public int getUserID() {
-        return UserID;
+    public int getAccountID() {
+        return AccountID;
     }
 
-    public void setUserID(int UserID) {
-        this.UserID = UserID;
+    public void setAccountID(int AccountID) {
+        this.AccountID = AccountID;
     }
 
-    public int getProductID() {
-        return ProductID;
+    public String getNote() {
+        return note;
     }
 
-    public void setProductID(int ProductID) {
-        this.ProductID = ProductID;
+    public void setNote(String note) {
+        this.note = note;
     }
 
-    public int getQuantity() {
-        return Quantity;
+    @Override
+    public String toString() {
+        return "Order{" + "OrderID=" + OrderID + ", OrderDate=" + OrderDate + ", ShippingDate=" + ShippingDate + ", ShippingAddress=" + ShippingAddress + ", Status=" + Status + ", AccountID=" + AccountID + ", note=" + note + '}';
     }
-
-    public void setQuantity(int Quantity) {
-        this.Quantity = Quantity;
-    }    
     
 }
