@@ -126,7 +126,6 @@
 
             <!-- about -->
             <div class="about">
-
                 <div class="container titlepage">
                     <div class="col-lg-12 ">
                         <div class="title">
