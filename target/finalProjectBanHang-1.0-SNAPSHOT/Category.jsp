@@ -8,22 +8,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!--Start: Categories-->
-<div class="container-categories bg-dark container">
+<div class="container-categories color-black container">
     <!--Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-5">
+    <nav class="navbar navbar-expand-sm navbar-dark mdb-color lighten-3 mt-2 mb-3">
 
         <!-- Navbar brand -->
-        <span class="navbar-brand">Categories: </span>
-
-        <!-- Collapse button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-                aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
+        <span class="navbar-brand">Categories : </span>
         <!-- Collapsible content -->
         <div class="collapse navbar-collapse" id="basicExampleNav">
-
             <!-- Links -->
             <ul class="categories-item navbar-nav mr-auto">
                 <li class="nav-item ${tag == null ? "active" : ""}">
@@ -31,7 +23,6 @@
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
-
                 <c:forEach items="${listC}" var="o">
                     <li class="nav-item ${tag == o.getC_Id() ? "active" : ""}">
                         <a class="nav-link" href="category?c_Id=${o.getC_Id()}"> 
@@ -47,6 +38,8 @@
                 </c:forEach>
             </ul>
             <!-- Links -->
+            
+
         </div>
         <!-- Collapsible content -->
     </nav>

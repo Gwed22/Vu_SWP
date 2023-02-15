@@ -146,6 +146,7 @@ a,
     -ms-transition: all .3s ease-in-out;
     -o-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
+    margin-left: 10px;
 }
 
 img {
@@ -412,23 +413,32 @@ a.readmore_bt {
 /*--------------------------------------------------------------------- header area ---------------------------------------------------------------------*/
 
 .header {
-
+    
     font-family: poppins;
-    padding: 10px 0px;
-    margin-bottom: 5px;
+    padding: 0px 0px;
+    margin: 20px 0px 10px 0px;
 }
 
 .logo {
     float: initial;
     position: relative;
     padding-top: 5px;
+
 }
 
-nav.main-menu {
+.main-menu {
     display: flex;
-    background-color:#fff;
-    float: bottom;
-    position: relative;
+}
+
+.btn-search {
+    height: 40px;
+    background: linear-gradient(#ff391e, #f91e00);
+    border: 1px solid #ea1c00;
+    position: absolute;
+    border-radius: 0 30px 30px 0;
+    margin-left: 330px;
+    width: 40px;
+    color: white;
 }
 
 ul.top_icon {
@@ -460,9 +470,17 @@ ul.top_icon li a {
 
 .menu-area-main li.active a {
     color: #000;
-    padding-bottom: 10px;
+
 }
 
+.menu-area-main .cart {
+    margin-left: 20px;
+}
+
+.menu-area-main .sale,
+.build {
+    margin-right: 20px;
+}
 
 .right_cart_section {
     float: right;
@@ -483,6 +501,8 @@ ul.top_icon li a {
     padding-right: 0px;
 }
 .main-menu ul>li nth:child(7) a {
+
+
     padding-right: 0px;
 }
 
@@ -1029,40 +1049,35 @@ ul.top_icon li a {
     background-color: whitesmoke;
 }
 .nav-menu-left {
-     height: 100%;
-     
-     margin: 0px 20px 0px 40px;   
+    height: 100%;
+    margin: 0px 20px 0px 40px;
 }
 .nav-menu-left .header-menu {
-    
+    border-radius: 5px;
     background-color: #000;
     margin: 2px 2px 15px 2px;
 }
 .nav-menu-left .list-menu {
-    margin: 0px 0px 15px 10px;
+    margin: 0px 10px 15px 10px;
     font-size: 20px;
 }
 .nav-menu-left .header-menu .content-menu {
-    display: grid;
+    margin: 0px 10px 15px 10px;
     color: #fff;
-    margin-right: 35px;
-    justify-content: right;
+
+
     font-size: 20px;
 }
-
-/*.main-menu {
-    text-align: center;
-}*/
 
 .main-menu ul {
     margin: 0;
     list-style-type: none;
-    margin-bottom: 10px;
+
 }
 
 .main-menu ul>li {
-    display: inline-block;
-    position: relative;
+    /*display: inline-block;*/
+    /*position: relative;*/
 }
 
 .main-menu ul>li a {
@@ -1071,7 +1086,7 @@ ul.top_icon li a {
     display: block;
     font-weight: 500;
     color: #fff;
-    padding: 22px 30px;
+    padding: 22px 0px;
 }
 
 .main-menu ul li:last-child a {
@@ -1323,7 +1338,7 @@ ul.top_icon li a {
 /*--------------------------------------------------------------------- top banner area ---------------------------------------------------------------------*/
 .slider_section {
     display: flex;
-   
+
 }
 
 
@@ -1619,11 +1634,12 @@ input[type="radio"] .styled:checked+label::after {
 }
 
 .banner-main {
-/*    box-shadow: 10px 5px 20px 5px #888888;*/
+    /*    box-shadow: 10px 5px 20px 5px #888888;*/
     position: relative;
     font-family: poppins;
     padding: 0px;
     margin-top: 2px;
+
 }
 
 .banner-main .carousel-caption span {
@@ -1721,20 +1737,36 @@ ul.social_icon li a:hover {
 
 /** about **/
 .about {
-
+    background: #fff;
     margin-top: 50px;
-    padding-top: 100px ;
-    padding-bottom: 84px ;
-    border-top: #000 solid 6px;
+    padding-bottom: 80px ;
+
+}
+.content-title {
+    background: #ebebeb;
+    padding-top: 30px;
 }
 
+.content-about {
+    margin-top: 100px;
+}
+
+.item_context {
+    margin-bottom: 40px;
+
+}
 .about .about_img figure {
     margin: 0px;
 }
 
 .about .about_box {
     text-align: right;
-    padding-top: 130px;
+    margin-top: 50px;
+}
+
+.about .about_box_1 {
+    text-align: left;
+
 }
 
 .about .about_box h3 {
@@ -1752,13 +1784,14 @@ ul.social_icon li a:hover {
     line-height: 58px;
     color:#23242a;
     padding-bottom: 10px;
-    display: block
+    display: block;
 }
 
 .about .about_box p {
     font-size: 17px;
     line-height: 30px;
     color: #23242a;
+
 }
 
 .about_box_ span {
@@ -1785,13 +1818,16 @@ ul.social_icon li a:hover {
 .clients {
     background: #fff;
     padding: 60px 0px;
-    border-top: #000 solid 6px;
+
 }
+
 .clients .titlepage {
     padding-bottom: 0px;
+
 }
 .clients .titlepage h2 {
     color: #000;
+
 }
 
 .clients_red {
@@ -1862,22 +1898,29 @@ ul.social_icon li a:hover {
 
 /** brand **/
 .brand {
-    padding-top: 60px;
-    border-top: #000 solid 6px;
+    padding-top: 30px;
 }
 
 .brand-bg {
     background: #ebebeb;
     padding: 90px 0px;
     font-family: Myriad Pro;
+
 }
 
 .margin {
     margin-bottom: 30px;
 }
-
-
+.titlepage {
+    display: flex;
+    
+    padding-bottom: 30px;
+}
+.laptop {
+    margin-top: 30px;
+}
 .brand-bg .brand_box {
+
     background: #fff;
     text-align: center;
     padding: 80px 0px 30px 0px ;
@@ -1897,6 +1940,8 @@ ul.social_icon li a:hover {
     color: #ff0000;
 }
 
+
+
 .brand-bg .brand_box span {
     display: block;
     color: #19449b;
@@ -1910,33 +1955,26 @@ ul.social_icon li a:hover {
 
 .read-more {
     font-family: poppins;
-    max-width: 212px;
-    margin: 0 auto;
-    margin-top: 0px;
-    display: block;
-    background: #000;
-    color: #fff !important;
-    padding: 12px 0px;
+    max-width: 100%;
+    margin: 10px auto;
+    color: #000 ;
     width: 100%;
-    font-size: 17px;
+    font-size: 20px;
     text-align: center;
-    border-radius: 32px;
-    margin-top: 40px
 }
 
 .read-more:hover {
-    background: #ff0000;
+    color: blue;
 }
 
 .btn {
     display: inline-block;
     white-space: nowrap;
     vertical-align: middle;
-    user-select: none;
     border: 1px solid transparent;
     border-radius: 4px;
-    color: #fff;
-    background: #cb1c22;
+    color: #000;
+    background: #fff;
     outline: 0;
 
 }
@@ -1956,9 +1994,7 @@ ul.social_icon li a:hover {
     border-top: #000 solid 6px;
 }
 
-.titlepage {
-    padding-bottom: 60px;
-}
+
 
 .titlepage h2 {
     font-size: 50px;
@@ -1972,13 +2008,19 @@ ul.social_icon li a:hover {
     box-shadow: #000 0px 0px 19px 1px;
     padding: 40px;
 }
+.form-search {
+    border-radius: 10px;
+    display: flex;
+    margin-top: 10px;
+
+}
 
 .form-control {
-    border: #ff0000 solid 2px;
+    border: #000 solid 2px;
     border-radius: inherit;
     margin-bottom: 30px;
-    padding: 13px 20px;
     font-family: poppins;
+
 }
 .form-control:focus {
     box-shadow: inherit;
@@ -2131,11 +2173,14 @@ ul.location_icon span {
 /*--------------------------------------------------------------------- inner_page css ---------------------------------------------------------------------*/
 
 .brand_color {
-    background-color: #ddd;
+    background-color: #F8F8F8;
+    border-top: #000 solid 1px;
 }
 .brand_color .titlepage {
-    margin-top: 90px;
-    padding-bottom: 90px;
+    margin: 40px 0px 0px 450px;
+    
+    
+    font-size: 50px;
 }
 
 .brand_color .abouttitle h2 {

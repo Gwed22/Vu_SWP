@@ -46,19 +46,19 @@
         <jsp:include page="header.jsp"></jsp:include>
 
             <div class="slider_section row">
-                <div class="menu-left col-xl-2 col-lg-12 col-md-12 co-sm-11">
-                    <ol class="nav-menu-left">
-                        <li class="header-menu"><span class="content-menu">LIST</span></li>
-                        <li class="list-menu"><a href="/home">PC</a> </li>
-                        <li class="list-menu"><a href="/aboutus">LAPTOP</a> </li>
-                        <li class="list-menu"><a href="/allproduct">MOUSE</a></li>
-                        <li class="list-menu"><a href="/special">KEYBOARD</a></li>
-                        <li class="list-menu"><a href="/contact">Contact Us</a></li>
-                        <li class="list-menu"><a href="/special">Specials</a></li>
-                        <li class="list-menu"><a href="/contact">Contact Us</a></li>
-                        <li class="list-menu"><a href="/special">Specials</a></li>
-                        <li class="list-menu"><a href="/contact">Contact Us</a></li>
-                        
+                <div class="menu-left col-xl-2 col-lg-12 col-md-12 co-sm-11 ">
+                    <ol class="nav-menu-left ">
+                        <li class="header-menu"><span class="content-menu">LIST</span><i class="fa fa-bars" aria-hidden="true" style="color: white"></i></li>
+                        <li class="list-menu"><i class="fa fa-desktop" aria-hidden="true"></i><a href="#">PC</a></li>
+                        <li class="list-menu"><i class="fa fa-desktop" aria-hidden="true"></i><a href="#">PC</a></li>
+                        <li class="list-menu"><i class="fa fa-laptop" aria-hidden="true"></i><a href="#">LAPTOP ASUS</a> </li>
+                        <li class="list-menu"><i class="fa fa-laptop" aria-hidden="true"></i><a href="#">LAPTOP Dell</a></li>
+                        <li class="list-menu"><i class="fa fa-laptop" aria-hidden="true"></i><a href="#">LAPTOP HP</a> </li>
+                        <li class="list-menu"><i class="fa fa-mouse-pointer" aria-hidden="true"></i><a href="#"> MOUSE</a></li>
+                        <li class="list-menu"><i class="fa fa-keyboard-o" aria-hidden="true"></i><a href="#">KEYBOARD</a></li>
+                        <li class="list-menu"><i class="fa fa-headphones" aria-hidden="true"></i><a href="#"> HEADPHONE</a></li>
+
+
                     </ol>
                 </div>
                 <div id="myCarousel" class="carousel slide banner-main col-xl-9 col-lg-10 col-md-12 co-sm-11" data-ride="carousel">
@@ -126,36 +126,82 @@
 
             <!-- about -->
             <div class="about">
-                <div class="container">
+
+                <div class="container titlepage">
+                    <div class="col-lg-12 ">
+                        <div class="title">
+                            <h2>SIGNATURE PRODUCT</h2>
+                        </div>
+                    </div>
+                    
+
+                </div>
+                <div class="container content-about">
                     <div class="row">
-                        <div class="col-xl-5 col-lg-5 col-md-5 co-sm-l2">
+                        <div class="col-xl-3 col-lg-2 col-md-5 co-sm-l2 item_context">
                             <div class="about_img">
                                 <figure><img src="images/about.png" alt="img" /></figure>
                             </div>
                         </div>
-                        <div class="col-xl-7 col-lg-7 col-md-7 co-sm-l2">
+                        <div class="col-xl-9 col-lg-2 col-md-7 co-sm-l2 item_context">
                             <div class="about_box">
                                 <h3>About Us</h3>
                                 <span>ISUNG Shop</span>
                                 <p>ISUNG Digital Retail Joint Stock Company (hereinafter referred to as ISUNG Retail) is an associate company of Group 4 Vietnam, established on November 10, 2022 with the main brand name ISUNG Shop - Agent Officially authorized by Apple and Samsung in Vietnam at the highest level. </p>
                             </div>
-
+                        </div>
+                        <div class="col-xl-9 col-lg-2 col-md-7 co-sm-l2 item_context">
+                            <div class="about_box about_box_1">
+                                <h3>About Us</h3>
+                                <span>ISUNG Shop</span>
+                                <p>ISUNG Digital Retail Joint Stock Company (hereinafter referred to as ISUNG Retail) is an associate company of Group 4 Vietnam, established on November 10, 2022 with the main brand name ISUNG Shop - Agent Officially authorized by Apple and Samsung in Vietnam at the highest level. </p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-2 col-md-5 co-sm-l2 item_context">
+                            <div class="about_img">
+                                <figure><img src="images/about.png" alt="img" /></figure>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-2 col-md-5 co-sm-l2 item_context">
+                            <div class="about_img">
+                                <figure><img src="images/about.png" alt="img" /></figure>
+                            </div>
+                        </div>
+                        <div class="col-xl-9 col-lg-2 col-md-7 co-sm-l2 item_context">
+                            <div class="about_box">
+                                <h3>About Us</h3>
+                                <span>ISUNG Shop</span>
+                                <p>ISUNG Digital Retail Joint Stock Company (hereinafter referred to as ISUNG Retail) is an associate company of Group 4 Vietnam, established on November 10, 2022 with the main brand name ISUNG Shop - Agent Officially authorized by Apple and Samsung in Vietnam at the highest level. </p>
+                            </div>
+                        </div>
+                        <div class="col-xl-9 col-lg-2 col-md-7 co-sm-l2 item_context">
+                            <div class="about_box about_box_1">
+                                <h3>About Us</h3>
+                                <span>ISUNG Shop</span>
+                                <p>ISUNG Digital Retail Joint Stock Company (hereinafter referred to as ISUNG Retail) is an associate company of Group 4 Vietnam, established on November 10, 2022 with the main brand name ISUNG Shop - Agent Officially authorized by Apple and Samsung in Vietnam at the highest level. </p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-2 col-md-5 co-sm-l2 item_context">
+                            <div class="about_img">
+                                <figure><img src="images/about.png" alt="img" /></figure>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- end about -->
-
             <!-- brand -->
             <div class="brand">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="titlepage">
-                                <h2>BestSeller</h2>
-                            </div>
+                <div class="container titlepage">
+                    <div class="col-lg-12 ">
+                        <div class="title">
+                            <h2>Laptop BestSeller</h2>
                         </div>
                     </div>
+                    <div class="col-lg-8">
+                        <a class="read-more " href="/allproduct">See More</a>
+                    </div>
+
                 </div>
                 <div class="brand-bg">
                     <div class="container">
@@ -170,13 +216,36 @@
                                 </div>
                             </div>
                         </c:forEach>
-                        <div class="col-md-12">
-                            <a class="read-more" href="/allproduct">See More</a>
-                        </div>
-
+                    </div>                       
+                </div>
+            </div> 
+            <div class="container titlepage laptop">
+                <div class="col-lg-12 ">
+                    <div class="title">
+                        <h2>Computer BestSeller</h2>
                     </div>
                 </div>
+                <div class="col-lg-8">
+                    <a class="read-more " href="/allproduct">See More</a>
+                </div>
+
             </div>
+            <div class="brand-bg">
+                <div class="container">
+                    <div class="row">
+                        <c:forEach items="${listP}" var="o" begin="0" end="2">
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 margin">
+                                <div class="brand_box">
+                                    <img src="${o.getProductImg()}" alt="img" />
+                                    <h3>$<strong class="red">${o.getProductPrice()}</strong></h3>
+                                    <span>${o.getProductName()}</span>
+                                    <a href="/allproduct" class="btn btn-main">Buy now</a>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>                       
+                </div>
+            </div>  
         </div>
 
         <!-- end brand -->
@@ -264,38 +333,38 @@
             </div>
         </div>
         <!-- end clients -->
-        <!-- contact -->
-        <div class="contact">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="titlepage">
-                            <h2>Contact us</h2>
-                        </div>
-                        <form class="main_form" action="thankyou" method="post">
-                            <div class="row">
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                    <input class="form-control" placeholder="Your name" type="text" name="name" required>
+        <!--         contact 
+                <div class="contact">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="titlepage">
+                                    <h2>Contact us</h2>
                                 </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                    <input class="form-control" placeholder="Email" type="text" name="Email" required>
-                                </div>
-                                <div class=" col-md-12">
-                                    <input class="form-control" placeholder="Phone" type="text" name="Phone" required>
-                                </div>
-                                <div class="col-md-12">
-                                    <textarea class="textarea" placeholder="Message" name="mess" required></textarea>
-                                </div>
-                                <div class=" col-md-12">
-                                    <button class="send" type="submit">Send</button>
-                                </div>
+                                <form class="main_form" action="thankyou" method="post">
+                                    <div class="row">
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                            <input class="form-control" placeholder="Your name" type="text" name="name" required>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                            <input class="form-control" placeholder="Email" type="text" name="Email" required>
+                                        </div>
+                                        <div class=" col-md-12">
+                                            <input class="form-control" placeholder="Phone" type="text" name="Phone" required>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <textarea class="textarea" placeholder="Message" name="mess" required></textarea>
+                                        </div>
+                                        <div class=" col-md-12">
+                                            <button class="send" type="submit">Send</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- end contact -->
+                 end contact -->
 
         <!-- footer -->
         <jsp:include page="footer.jsp"></jsp:include>

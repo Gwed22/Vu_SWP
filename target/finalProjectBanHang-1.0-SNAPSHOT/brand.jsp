@@ -52,9 +52,9 @@
             <div class="brand_color">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-8">
                             <div class="titlepage">
-                                <h2>Our Brand</h2>
+                                <span>Our Brand</span>
                             </div>
                         </div>
                     </div>
@@ -63,21 +63,8 @@
 
             <!-- brand -->
             <div class="brand">
-            <jsp:include page="Category.jsp"></jsp:include>
-            <div style="margin-left: 190px">
-                <form action="search" class="form-inline">
-                    <div class="md-form my-0">
-                        <input class="form-control mr-sm-2"
-                               name="txt"
-                               type="text" 
-                               placeholder="Search" 
-                               aria-label="Search">
-                        <button style="margin-bottom: 30px" type="submit" class="btn btn-secondary"><i class="fa fa-search"></i>
-                        </button> 
-                    </div>
-                </form>
-            </div>
-                <div class="brand-bg">
+            <%--<jsp:include page="Category.jsp"></jsp:include>--%>
+                            <div class="brand-bg">
                     <div class="container">
                         <div class="row">
                         <c:forEach items="${listP}" var="o">

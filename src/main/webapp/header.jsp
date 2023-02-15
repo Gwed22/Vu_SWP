@@ -44,13 +44,13 @@
     </head>
 
     <body class="main-layout ">
-       
+
         <!-- header -->
         <header>
             <!-- header inner -->
-            <div class="header">
+            <div class="header ">
                 <div class="container">
-                    <div class="row">
+                    <div class="row ">
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
                             <div class="full">
                                 <div class="center-desk">
@@ -61,34 +61,38 @@
                             </div>
                         </div>
                         <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
-                            <div class="menu-area">
-                                <div class="limit-box">
-                                    <nav class="main-menu">
-                                        <ul class="menu-area-main">
-                                            <li class="active"> <a href="/home">Home</a> </li>
-                                            <li class="active"><a href="/aboutus">About</a> </li>
-                                            <li class="active"><a href="/allproduct">Brand</a></li>
-                                            <li class="active"><a href="/special">Specials</a></li>
-                                            <li class="active"><a href="/contact">Contact Us</a></li>
-                                                <c:if test="${sessionScope.acc == null}">
-                                                <li class="active"><a href="/account">Log in</a></li>
-                                                </c:if>
-
+                            <div class="menu-area">                                
+                                <header class="main-menu" >
+                                    <form action="search" class="form-search col-md-8">
+                                        <input class="form-control col-sm-8" name="txt"
+                                               type="text" 
+                                               placeholder="Search" 
+                                               aria-label="Search">
+                                        <button type="submit" class=" btn-secondary btn-search "><i class="fa fa-search"></i></button>
+                                    </form>
+                                    <ul class="menu-area-main col-md-12">
+                                        <li class="active build"><a href="/account"><i class="fa fa-cogs" aria-hidden="true"></i> BuildPC</a></li>
+                                        <li class="active sale"><a href="/account"><i class="fa fa-tags" aria-hidden="true"></i> Sales</a></li>
+                                        <c:if test="${sessionScope.acc == null}">
+                                            
+                                            <li class="active"><a href="/account"><i class="fa fa-user-circle-o" aria-hidden="true" ></i> LogIn</a></li>
+                                            </c:if>
                                             <c:if test="${sessionScope.acc != null}">
                                                 <c:if test="${sessionScope.IsAdmin == 1}">
-                                                    <li class="active"><a href="/admin">Admin</a></li>
-                                                    </c:if>
-                                                <li class="active"><a href="history">History</a></li>
-                                                <li class="active" style="color: white; font-size: 20px">Hello: ${sessionScope.acc.getLname()}</li>
-                                                <li class="active"><a href="logout">Log out</a></li>
+                                                <li class="active"><a href="/admin">Admin</a></li>
                                                 </c:if>
+                                            <li class="active"><a href="history">History</a></li>
+                                            <li class="active" style="color: white; font-size: 20px">Hello: ${sessionScope.acc.getLname()}</li>
+                                            <li class="active"><a href="logout">Log out</a></li>
+                                            </c:if>
+                                            
+                                            <li class="active cart"><a href="/account"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a></li>                                        
+                                    </ul>
+                                </header>
 
-                                        </ul>
-                                    </nav>
-                                </div>
                             </div>
                         </div>
-                       
+
                     </div>
                 </div>
             </div>
