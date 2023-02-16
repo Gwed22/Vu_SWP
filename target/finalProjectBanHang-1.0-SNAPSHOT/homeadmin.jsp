@@ -111,7 +111,7 @@
                                     </div>
                                     <br>
                                     <div class="col-xs-12 cus-gh-hd-pro">
-                                        <h2 class="text-center"><img src="images/pmanage.png" alt="alt"/></h2>
+                                        <h2 class="text-center"><img style="height: 200px" src="images/pmanage.png" alt="alt"/></h2>
                                     </div>
                                 </div>
 
@@ -127,26 +127,25 @@
                                     </div>
                                     <br>
                                     <div class="col-xs-12 cus-gh-hd-pro">
-                                        <h2 class="text-center"><img src="images/wmanage.jpg" alt="alt"/></h2>
+                                        <h2 class="text-center"><img style="height: 200px" src="images/wmanage.png" alt="alt"/></h2>
                                     </div>
                                 </div>
 
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <div class="admin-content analysis-progrebar-ctn res-mg-t-30">
-                                <h4 class="text-left text-uppercase"><b>Account Management</b></h4>
+                            <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
+                                <h4 class="text-left text-uppercase"><b>Product Management</b></h4>
                                 <div class="row vertical-center-box vertical-center-box-tablet">
-                                    <div class="text-left col-xs-3 mar-bot-15">
+                                    <div class="progress progress-mini">
+                                        <div style="width: 100%;" class="progress-bar bg-purple"></div>
+                                    </div>
+                                    <br>
+                                    <div class="col-xs-12 cus-gh-hd-pro">
+                                        <h2 class="text-center"><img style="height: 200px" src="images/amanage.png" alt="alt"/></h2>
+                                    </div>
+                                </div>
 
-                                    </div>
-                                    <div class="col-xs-9 cus-gh-hd-pro">
-                                        <h2 class="text-right no-margin"></h2>
-                                    </div>
-                                </div>
-                                <div class="progress progress-mini">
-                                    <div style="width: 100%;" class="progress-bar bg-purple"></div>
-                                </div>
                             </div>
                         </div>
                     </div>
