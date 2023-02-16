@@ -67,16 +67,16 @@
                             <div class="brand-bg">
                     <div class="container">
                         <div class="row">
-                        <c:forEach items="${listP}" var="o">
+                        <%--<c:forEach items="$" var="o">--%>
                             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 margin">
                                 <div class="brand_box">
-                                    <img src="${o.getProductImg()}" alt="img" />
-                                    <h3>$<strong class="red">${o.getProductPrice()}</strong></h3>
-                                    <span>${o.getProductName()}</span>
+                                    <img src="img/product/2.jpg" alt="img" />
+                                    <h3>$<strong class="red">1</strong></h3>
+                                    <span>Nam</span>
                                     <a href="order?pid=${o.getProductID()}" class="btn btn-main">Buy now</a>
                                 </div>
                             </div>
-                        </c:forEach>
+                        <%--</c:forEach>--%>
                     </div>
 
                 </div>
