@@ -33,12 +33,10 @@
                             <span class="mini-click-non">Tasks</span>
                         </a>
                         <ul class="submenu-angle" aria-expanded="true">
-                            <li><a title="Dashboard" href="/admin"><span class="mini-sub-pro">Dashboard</span></a></li>
-                            <li><a title="Product List" href="/productlist"><span class="mini-sub-pro">Product List</span></a></li>
-                            <li><a title="Add New Product" href="/addproduct"><span class="mini-sub-pro">Add New Product</span></a></li>
-                            <li><a title="Order List" href="/orderlist"><span class="mini-sub-pro">Order List</span></a></li>
-                            <li><a title="User List" href="/userlist"><span class="mini-sub-pro">User List</span></a></li>
-                            <li><a title="Admin List" href="/adminlist"><span class="mini-sub-pro">Admin List</span></a></li>
+                            <li><a title="Dashboard" href="#"><span class="mini-sub-pro">Dashboard</span></a></li>
+                            <li><a title="Product Management" href="#"><span class="mini-sub-pro">Product Management</span></a></li>
+                            <li><a title="Add Management" href="#"><span class="mini-sub-pro">Account Management</span></a></li>
+                            <li><a title="Warehouse Management" href="#"><span class="mini-sub-pro">Warehouse Management</span></a></li>
                         </ul>
                     </li>
                 </ul>

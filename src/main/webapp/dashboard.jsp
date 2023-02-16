@@ -103,55 +103,7 @@
                 <div class="row admin text-center">
                     <div class="col-md-12">
                         <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
-                                    <h4 class="text-left text-uppercase"><b>Orders</b></h4>
-                                    <div class="row vertical-center-box vertical-center-box-tablet">
-                                        <div class="col-xs-3 mar-bot-15 text-left">
-
-                                        </div>
-                                        <div class="col-xs-9 cus-gh-hd-pro">
-                                            <h2 class="text-right no-margin"></h2>
-                                        </div>
-                                    </div>
-                                    <div class="progress progress-mini">
-                                        <div style="width: 100%;" class="progress-bar bg-green"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <div class="admin-content analysis-progrebar-ctn res-mg-t-30">
-                                    <h4 class="text-left text-uppercase"><b>Revenue</b></h4>
-                                    <div class="row vertical-center-box vertical-center-box-tablet">
-                                        <div class="text-left col-xs-3 mar-bot-15">
-
-                                        </div>
-                                        <div class="col-xs-9 cus-gh-hd-pro">
-                                            <h2 class="text-right no-margin"></h2>
-                                        </div>
-                                    </div>
-                                    <div class="progress progress-mini">
-                                        <div style="width: 100%;" class="progress-bar bg-blue"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <div class="admin-content analysis-progrebar-ctn res-mg-t-30">
-                                    <h4 class="text-left text-uppercase"><b>Total Sales</b></h4>
-                                    <div class="row vertical-center-box vertical-center-box-tablet">
-                                        <div class="text-left col-xs-3 mar-bot-15">
-
-                                        </div>
-                                        <div class="col-xs-9 cus-gh-hd-pro">
-                                            <h2 class="text-right no-margin"></h2>
-                                        </div>
-                                    </div>
-                                    <div class="progress progress-mini">
-                                        <div style="width: 100%;" class="progress-bar bg-purple"></div>
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -161,9 +113,6 @@
             
             
             <br>
-            <div class="footer-copyright-area">
-
-            </div>
         </div>
 
         <!-- jquery
