@@ -146,7 +146,7 @@ a,
     -ms-transition: all .3s ease-in-out;
     -o-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
-    margin-left: 10px;
+
 }
 
 img {
@@ -542,6 +542,8 @@ ul.top_icon li a {
 }
 
 
+
+
 /*-- end header middle --*/
 
 .top-bar-info {
@@ -807,13 +809,14 @@ ul.top_icon li a {
 .cart-form {
     border: none;
     text-align: center;
-
+    
 }
 
 .img-cart {
     width: 20%;
     height: 20%;
     margin-top: 20px;
+    
 }
 
 
@@ -1044,6 +1047,32 @@ ul.top_icon li a {
 
 .line-cart {
     position: relative;
+}
+
+.build-pc {
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+
+.item-list {
+    border: 1px #e1e4e9 solid;
+    display: flex; 
+    font-size: 20px;
+    height: 100px;
+    width: 200%;
+    
+}
+
+.item-list-child {
+    margin-left: 100px;
+    margin-top: 30px;
+    float: left;
+    
+}
+
+.item-name {
+    border-right: 1px solid #e1e4e9; 
+    width: 240px;
 }
 
 .wish-box a span.icon span {
@@ -1934,27 +1963,24 @@ ul.social_icon li a:hover {
     margin-top: 30px;
 }
 .brand-bg .brand_box {
+    box-shadow: 5px 10px 5px #888888;
+    border-radius: 5px;
 
-    background: #fff;
-    text-align: center;
-    padding: 80px 0px 30px 0px ;
+
 }
-.brand-bg .brand_box > img {
-    height: 200px;
-    width: auto;
+.brand-bg .brand_box .img {
+    height: 100%;
+    width: 100%;
+    margin-right: 10px;
+    border-radius: 5px;
 }
 .brand-bg .brand_box h3 {
-
     font-size: 27px;
     font-weight: bold;
     color: #131313;
-    padding: 17px 0px 0px 0px;
+    padding: 10px 0px 0px 0px;
+    margin-left: 20px;
 }
-.red {
-    color: #ff0000;
-}
-
-
 
 .brand-bg .brand_box span {
     display: block;
@@ -1962,6 +1988,8 @@ ul.social_icon li a:hover {
     font-size: 16px;
     line-height: 16px;
     padding-bottom: 3px;
+    margin-top: 10px;
+    margin-left: 5px;
 }
 .brand-bg .brand_box i {
     padding: 0px 2px;
@@ -1994,7 +2022,7 @@ ul.social_icon li a:hover {
 }
 
 .btn-main {
-    width: 160px;
+    width: 100%;
     margin-right: 10px;
 }
 
@@ -2008,12 +2036,12 @@ ul.social_icon li a:hover {
 }
 
 .total-foot {
-    font-size: 30px;    
+    font-size: 30px;
     border-top: #ceccc6 solid thin;
 }
 .total-inline {
-     border-top: #ceccc6 solid thin;
-     
+    border-top: #ceccc6 solid thin;
+
 }
 .inline {
     padding: 10px;
@@ -2030,11 +2058,35 @@ ul.social_icon li a:hover {
     padding: 12px 0px;
     width: 100%;
     font-size: 17px;
-   
+
     border-radius: 10px;
 }
 
+.add-cart {
+    padding: 0;
+    margin-top: 150px;
+}
+
+.money {
+    font-size: 30px;
+}
+
 /** end brand **/
+
+.product-detail {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.product-name {
+    font-size: 40px;
+}
+
+.product-desc {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
 
 /** contact **/
 .contact {
@@ -2099,7 +2151,19 @@ ul.social_icon li a:hover {
     margin-bottom: 20px;
     border-radius: 10px;
 }
-
+.send-cart {
+    font-family: poppins;
+    max-width: 100px;
+    
+    
+    background: #f25252;
+    color: #fff;
+    padding: 12px 0px;
+    width: 100%;
+    font-size: 17px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
 .send:hover {
     background: #ff0000;
 }
