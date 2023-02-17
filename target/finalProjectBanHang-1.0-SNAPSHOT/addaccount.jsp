@@ -5,8 +5,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Register new account</title>
-        <script
-        src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <link rel="stylesheet"
               href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
         <link rel="stylesheet"
@@ -205,14 +204,14 @@
                     <br>
                     <br>
                     <div class="form-group row">
-                        <div class="offset-4 col-10">
-                            <button name="submit" type="submit" id ="button" class="btn btn-primary">Submit</button>
+                        <div class="offset-4">
+                            <button name="add" type="submit" id ="button" class="btn btn-primary">Add</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-
+    </div>
         <div class="form-text text-success">
             <h1 id="success"></h1>
         </div>     
