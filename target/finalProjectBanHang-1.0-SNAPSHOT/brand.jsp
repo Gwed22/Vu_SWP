@@ -25,7 +25,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="css/style4.css">
+        <link rel="stylesheet" href="css/style3.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -64,24 +64,88 @@
             <!-- brand -->
             <div class="brand">
             <%--<jsp:include page="Category.jsp"></jsp:include>--%>
-                            <div class="brand-bg">
-                    <div class="container">
-                        <div class="row">
+            <div class="brand-bg">
+                <div class="container-fluid">
+                    <div class="row ">
                         <%--<c:forEach items="$" var="o">--%>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 margin">
-                                <div class="brand_box">
-                                    <img src="img/product/2.jpg" alt="img" />
-                                    <h3>$<strong class="red">1</strong></h3>
-                                    <span>Nam</span>
-                                    <a href="order?pid=${o.getProductID()}" class="btn btn-main">Buy now</a>
-                                </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 margin">
+                            <div class="brand_box">
+                                <a href="productdetail.jsp"><img class="img" src="img/product/2.jpg" alt="img" /></a>
+                                <span>Nam</span>
+                                <h3>$<strong >1</strong></h3>
+
+                                <a href="order?pid=${o.getProductID()}" class="btn btn-main">Buy now</a>
                             </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 margin">
+                            <div class="brand_box">
+                                <a href="productdetail.jsp"><img class="img" src="img/product/2.jpg" alt="img" /></a>
+                                <span>Nam</span>
+                                <h3>$<strong >1</strong></h3>
+
+                                <a href="order?pid=${o.getProductID()}" class="btn btn-main">Buy now</a>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 margin">
+                            <div class="brand_box">
+                                <a href="productdetail.jsp"><img class="img" src="img/product/2.jpg" alt="img" /></a>
+                                <span>Nam</span>
+                                <h3>$<strong >1</strong></h3>
+
+                                <a href="order?pid=${o.getProductID()}" class="btn btn-main">Buy now</a>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 margin">
+                            <div class="brand_box">
+                                <a href="productdetail.jsp"><img class="img" src="img/product/2.jpg" alt="img" /></a>
+                                <span>Nam</span>
+                                <h3>$<strong >1</strong></h3>
+
+                                <a href="order?pid=${o.getProductID()}" class="btn btn-main">Buy now</a>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 margin">
+                            <div class="brand_box">
+                                <a href="productdetail.jsp"><img class="img" src="img/product/2.jpg" alt="img" /></a>
+                                <span>Nam</span>
+                                <h3>$<strong >1</strong></h3>
+
+                                <a href="order?pid=${o.getProductID()}" class="btn btn-main">Buy now</a>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 margin">
+                            <div class="brand_box">
+                                <a href="productdetail.jsp"><img class="img" src="img/product/2.jpg" alt="img" /></a>
+                                <span>Nam</span>
+                                <h3>$<strong >1</strong></h3>
+
+                                <a href="order?pid=${o.getProductID()}" class="btn btn-main">Buy now</a>
+                            </div>
+                        </div>
+                             <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 margin">
+                        <div class="brand_box">
+                            <a href="productdetail.jsp"><img class="img" src="img/product/2.jpg" alt="img" /></a>
+                            <span>Nam</span>
+                            <h3>$<strong >1</strong></h3>
+
+                            <a href="order?pid=${o.getProductID()}" class="btn btn-main">Buy now</a>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 margin">
+                        <div class="brand_box">
+                            <a href="productdetail.jsp"><img class="img" src="img/product/2.jpg" alt="img" /></a>
+                            <span>Nam</span>
+                            <h3>$<strong >1</strong></h3>
+
+                            <a href="order?pid=${o.getProductID()}" class="btn btn-main">Buy now</a>
+                        </div>
+                    </div>
                         <%--</c:forEach>--%>
                     </div>
 
                 </div>
             </div>
-        </div>
+        </div>            
 
         <!-- end brand -->
 
