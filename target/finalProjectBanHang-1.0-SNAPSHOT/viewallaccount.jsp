@@ -59,6 +59,16 @@
             </div>
             <div id="myCarousel" class="carousel slide banner-main col-xl-9 col-lg-10 col-md-12 co-sm-11" data-ride="carousel">
                 <div class="carousel-inner">
+                    <div>
+                        <form action="search" class="col-md-8">
+                            <input class="col-sm-8" name="txt"
+                                   type="text" 
+                                   placeholder="Search" 
+                                   aria-label="Search">
+                            <button type="submit" class=" btn-secondary btn-search "><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                    <br><br>
                     <table class="table table-striped">
                         <thead>
                             <tr>
