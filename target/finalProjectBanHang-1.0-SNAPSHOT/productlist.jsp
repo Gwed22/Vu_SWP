@@ -4,8 +4,9 @@
     Author     : DELL
 --%>
 
+
 <%@page import="java.sql.ResultSet"%>
-<%@page import="com.dao.ProductDAO"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -75,7 +76,7 @@
                 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
             <![endif]-->
 
-        <jsp:include page="headeradmin.jsp"></jsp:include>
+       
             <div class="breadcome-area">
                 <div class="container-fluid">
                     <div class="row">
@@ -102,41 +103,49 @@
         <div class="product-status mg-b-30">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                        <ul>
+                            <li style="margin: 20px; "> <a style="color: white; " href="##">Product Management</a> </li>
+                            <li style="margin: 20px; "> <a style="color: white; " href="##">Sale Management</a></li>
+                            <li style="margin: 20px; "> <a style="color: white; " href="##">Product Statistic </a> </li>
+                            <li style="margin: 20px; "> <a style="color: white; " href="##">Warehouse</a></li>
+                        </ul>
+                        
+                    </div>
+                    
+                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
                         <div class="product-status-wrap">
                             <h4>Products List</h4>
                             <div class="add-product">
-                                <a href="product-add.jsp">Add Product</a>
+                                <a href="">Add Product</a>
                             </div>
                             <table>
                                 <tr>
-                                    <th>Image</th>
+                                    <th>ID</th>
                                     <th>Name</th>
                                     <th>Price</th>
-                                    <th>Description</th>
+                                    <th>Image</th>
                                     <th>Category</th>
-                                    <th>Quantity</th>
+                                    <th>Brand</th>
                                     <th>Setting</th>
                                 </tr>
-                            <%
-                                ProductDAO dao = new ProductDAO();
-                                ResultSet rs = dao.getAll();
-                                while (rs.next()) {
-                            %>
+                           
                             <tr>
-                                <td><img src="<%= rs.getString("ProductImg")%>"/></td>
-                                <td><%= rs.getString("ProductName")%></td>
-                                <td>$<%= rs.getFloat("ProductPrice")%></td>
-                                <td><%= rs.getString("ProductDesc")%></td>
-                                <td><%= rs.getString("CategoryName")%></td>
-                                <td><%= rs.getInt("Quantity")%></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                
                                 <td>
-                                    <a href="/productedit?id=<%= rs.getInt("ProductID")%>"><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
-                                    <a href="/productedit?pid=<%= rs.getInt("ProductID")%>"><button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
+                                    <a href=""><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
+                                    <a href=""><button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
                                 </td>
                             </tr>
                             <%
-                                }
+                                //}
                             %>
 
                         </table>
