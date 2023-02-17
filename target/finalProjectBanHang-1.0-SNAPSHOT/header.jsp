@@ -24,7 +24,7 @@
         <!-- bootstrap css -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="css/style4.css">
+        <link rel="stylesheet" href="css/style3.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -86,7 +86,7 @@
                                             <li class="active"><a href="logout">Log out</a></li>
                                             </c:if>
                                             
-                                            <li class="active cart"><a href="/account"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a></li>                                        
+                                            <li class="active cart"><a href="shoppingcart.jsp"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a></li>                                        
                                     </ul>
                                 </header>
 

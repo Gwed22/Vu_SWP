@@ -18,7 +18,7 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-        <link href="css/style4.css" rel="stylesheet" type="text/css"/>
+        <link href="css/style3.css" rel="stylesheet" type="text/css"/>
         <style>
             .gallery-wrap .img-big-wrap img {
                 height: 450px;
@@ -62,45 +62,50 @@
                 <div class="cart-shop">
                     <span>CART</span>
                 </div>
-                <form action="" class="form-cart ">
-                    <table style="width: 100%; text-align: center;">
-                        <thead>
-                            <tr>
-                                <th>Product: </th>
-                                <th>Product Name: </th>
-                                <th>Quantity:  </th>
-                                <th>Price: </th>
-                                <th>Action: </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><img class="img-cart" src="images/1.png" alt="alt"/></td>
-                                <td><span>BA Nam</span></td>
-                                <td><input type="number" min="0" max="10" ></td>
-                                <td><span>$3000</span></td></td>
-                                <td><a href="#">Delete</a></td>                           
-                            </tr>
-                            <tr>
-                                <td><img class="img-cart" src="images/1.png" alt="alt"/></td>
-                                <td><span>BA Nam</span></td>
-                                <td><input type="number" min="0" max="10" ></td>
-                                <td><span>$3000</span></td></td>
-                                <td><a href="#">Delete</a></td>                           
-                            </tr>
-                            <tr>
-                                <td><img class="img-cart" src="images/1.png" alt="alt"/></td>
-                                <td><span>BA Nam</span></td>
-                                <td><input type="number" min="0" max="10" ></td>
-                                <td><span>$3000</span></td></td>
-                                <td><a href="#">Delete</a></td>                           
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="col-md-12">
-                        <button class="send" type="submit" name="SendOrder">Order</button>
+                <div class="container">
+                    <div clas="col-lg-12">
+                        <form action="">
+                            <table style="width: 100%; text-align: center;">
+                                <thead>
+                                    <tr >
+                                        <th style="padding-bottom: 20px;">Product: </th>
+                                        <th style="padding-bottom: 20px;">Product Name: </th>
+                                        <th style="padding-bottom: 20px;">Quantity:  </th>
+                                        <th style="padding-bottom: 20px;">Price: </th>
+                                        <th style="padding-bottom: 20px;">Action: </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="background-color: #fff; ">
+                                        <td><img class="img-cart" src="images/1.png" alt="alt"/></td>
+                                        <td><span>BA Nam</span></td>
+                                        <td><input type="number" min="0" max="10" ></td>
+                                        <td><span>$3000</span></td></td>
+                                        <td><a href="#">Delete</a></td>                           
+                                    </tr>
+                                    <tr style="background-color: #fff">
+                                        <td><img class="img-cart" src="images/1.png" alt="alt"/></td>
+                                        <td><span>BA Nam</span></td>
+                                        <td><input type="number" min="0" max="10" ></td>
+                                        <td><span>$3000</span></td></td>
+                                        <td><a href="#">Delete</a></td>                           
+                                    </tr>
+                                    <tr>
+                                        <td><img class="img-cart" src="images/1.png" alt="alt"/></td>
+                                        <td><span>BA Nam</span></td>
+                                        <td><input type="number" min="0" max="10" ></td>
+                                        <td><span>$3000</span></td></td>
+                                        <td><a href="#">Delete</a></td>                           
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="col-md-12">
+                                <button class="send" type="submit" name="SendOrder">Order</button>
+                            </div>
+                        </form>
                     </div>
-                </form>
+
+                </div>
             </section>
         <jsp:include page="footer.jsp"></jsp:include>
 

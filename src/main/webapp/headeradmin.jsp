@@ -27,18 +27,34 @@
         <div class="left-custom-menu-adp-wrap comment-scrollbar">
             <nav class="sidebar-nav left-sidebar-menu-pro">
                 <ul class="metismenu" id="menu1">
-                    <li class="active">
-                        <a class="has-arrow" href="dashboard.jsp">
-                            <i class="icon nalika-home icon-wrap"></i>
-                            <span class="mini-click-non">Tasks</span>
+                    <li>
+                        <a class="has-arrow" href="#">
+                            <i class="icon nalika-table icon-wrap"></i>
+                            <span class="mini-click-non">Product</span>
                         </a>
                         <ul class="submenu-angle" aria-expanded="true">
-                            <li><a title="Dashboard" href="/admin"><span class="mini-sub-pro">Dashboard</span></a></li>
-                            <li><a title="Product List" href="/productlist"><span class="mini-sub-pro">Product List</span></a></li>
-                            <li><a title="Add New Product" href="/addproduct"><span class="mini-sub-pro">Add New Product</span></a></li>
-                            <li><a title="Order List" href="/orderlist"><span class="mini-sub-pro">Order List</span></a></li>
-                            <li><a title="User List" href="/userlist"><span class="mini-sub-pro">User List</span></a></li>
-                            <li><a title="Admin List" href="/adminlist"><span class="mini-sub-pro">Admin List</span></a></li>
+                            <li><a href="#"><span class="mini-sub-pro">Product List</span></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="#">
+                            <i class="icon nalika-user icon-wrap"></i>
+                            <span class="mini-click-non">Account</span>
+                        </a>
+                        <ul class="submenu-angle" aria-expanded="true">
+                            <li><a href="#"><span class="mini-sub-pro">Account List</span></a></li>
+                            <li><a href="#"><span class="mini-sub-pro">Add Account</span></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="allconsignment.jsp">
+                            <i class="icon nalika-home icon-wrap"></i>
+                            <span class="mini-click-non">Warehouse</span>
+                        </a>
+                        <ul class="submenu-angle" aria-expanded="true">
+                            <li><a href="allconsignment.jsp"><span class="mini-sub-pro">Consignment List</span></a></li>
+                            <li><a href="addconsignment.jsp"><span class="mini-sub-pro">Add Consignment</span></a></li>
+                            <li><a href="#"><span class="mini-sub-pro">Product statistic</span></a></li>
                         </ul>
                     </li>
                 </ul>
@@ -52,7 +68,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="logo-pro">
-                    <a href="/admin"><img class="main-logo" src="img/logo/isung.png" alt="" /></a>
+                    <a href="/homeadmin"><img class="main-logo" src="img/logo/isung.png" alt="" /></a>
                 </div>
             </div>
         </div>
@@ -64,26 +80,24 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="header-top-wraper">
                             <div class="row">
-                                <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                <div class="col-lg-10 col-md-9 col-sm-12 col-xs-12">
                                     <div class="menu-switcher-pro">
                                         <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
                                             <i class="icon nalika-menu-task"></i>
                                         </button>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
-
-                                </div>
-                                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
                                     <div class="header-right-info">
                                         <ul class="nav navbar-nav mai-top-nav header-right-menu">
                                             <li class="nav-item">
                                                 <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
                                                     <i class="icon nalika-user nalika-user-rounded header-riht-inf" aria-hidden="true"></i>
-                                                    <span class="admin-name">${sessionScope.acc.getLname()} ${sessionScope.acc.getFname()}</span>
+                                                    <!--<span class="admin-name">${sessionScope.acc.getLname()} ${sessionScope.acc.getFname()}</span>-->
+                                                    <span class="admin-name">Hello </span>
                                                     <i class="icon nalika-down-arrow nalika-angle-dw nalika-icon"></i>
                                                 </a>
-                                                <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
+                                                <ul role="menu" class="dropdown-header-top author-log dropdown-menu">
                                                     <li><a href="/profile"><span class="icon nalika-user author-log-ic"></span> My Profile</a>
                                                     </li>
                                                     <li><a href="logout"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
@@ -99,3 +113,36 @@
                 </div>
             </div>
         </div>
+        <!--responsive part-->
+        <div class="mobile-menu-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="mobile-menu">
+                            <nav id="dropdown">
+                                <ul class="mobile-menu-nav">
+                                    <li><a data-toggle="collapse" data-target="#Charts" href="#">Product<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
+                                        <ul class="collapse dropdown-header-top">
+                                            <li><a href="">Product List</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a data-toggle="collapse" data-target="#Charts" href="#">Account<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
+                                        <ul class="collapse dropdown-header-top">
+                                            <li><a href="">Account List</a></li>
+                                            <li><a href="">Add Account</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a data-toggle="collapse" data-target="#Charts" href="#">Warehouse<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
+                                        <ul class="collapse dropdown-header-top">
+                                            <li><a href="">Consignment List</a></li>
+                                            <li><a href="">Add Consignment</a></li>
+                                            <li><a href="">Product Statistic</a></li>
+                                        </ul>
+                                    </li>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

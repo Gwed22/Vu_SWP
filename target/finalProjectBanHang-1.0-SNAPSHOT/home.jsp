@@ -12,14 +12,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1">
         <!-- site metas -->
-        <title>ISUNG</title>
+        <title>G3</title>
         <meta name="keywords" content="">
         <meta name="description" content="">
         <meta name="author" content="">
         <!-- bootstrap css -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="css/style4.css">
+        <link rel="stylesheet" href="css/style3.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
@@ -50,15 +50,12 @@
                     <ol class="nav-menu-left ">
                         <li class="header-menu"><span class="content-menu">LIST</span><i class="fa fa-bars" aria-hidden="true" style="color: white"></i></li>
                         <li class="list-menu"><i class="fa fa-desktop" aria-hidden="true"></i><a href="#">PC</a></li>
-                        <li class="list-menu"><i class="fa fa-desktop" aria-hidden="true"></i><a href="#">PC</a></li>
-                        <li class="list-menu"><i class="fa fa-laptop" aria-hidden="true"></i><a href="#">LAPTOP ASUS</a> </li>
-                        <li class="list-menu"><i class="fa fa-laptop" aria-hidden="true"></i><a href="#">LAPTOP Dell</a></li>
-                        <li class="list-menu"><i class="fa fa-laptop" aria-hidden="true"></i><a href="#">LAPTOP HP</a> </li>
+
+                        <li class="list-menu"><i class="fa fa-laptop" aria-hidden="true"></i><a href="#">LAPTOP </a> </li>
+
                         <li class="list-menu"><i class="fa fa-mouse-pointer" aria-hidden="true"></i><a href="#"> MOUSE</a></li>
                         <li class="list-menu"><i class="fa fa-keyboard-o" aria-hidden="true"></i><a href="#">KEYBOARD</a></li>
                         <li class="list-menu"><i class="fa fa-headphones" aria-hidden="true"></i><a href="#"> HEADPHONE</a></li>
-
-
                     </ol>
                 </div>
                 <div id="myCarousel" class="carousel slide banner-main col-xl-9 col-lg-10 col-md-12 co-sm-11" data-ride="carousel">
@@ -132,7 +129,7 @@
                             <h2>SIGNATURE PRODUCT</h2>
                         </div>
                     </div>
-                    
+
 
                 </div>
                 <div class="container content-about">
