@@ -1,6 +1,6 @@
 <%-- 
-    Document   : forgotpassword
-    Created on : Feb 17, 2023, 7:55:18 PM
+    Document   : resetpassword
+    Created on : Feb 18, 2023, 7:55:18 PM
     Author     : Admin
 --%>
 
@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Forgot Password</title>
+        <title>Reset Password</title>
         <!-- basic -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,15 +48,14 @@
                 justify-content: center;
             }
 
-            .button-next-back .next-button{
+            .button-next-back .login-button{
                 margin-right: 10%; 
-            }
-            .next-button a {
-                color:white;
             }
              .button-next-back .back-button{
                 margin-left: 10%; 
-
+            }
+            .back-button a{
+                color:white;
             }
             html {
                 overflow: hidden;
@@ -92,25 +91,16 @@
 
                         <form class="card-body cardbody-color p-lg-5">
 
+                       
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="phone" aria-describedby="numberPhone"
-                                       placeholder="Enter number phone">
+                                <input type="password" class="form-control" id="password" placeholder="Password" >
                             </div>
-                            <div class="mb-3">
-                                <select class="form-control">
-                                    <option>Security question</option>
-                                    <option>Answer 01</option>
-                                    <option>Answer 02</option>
-                                    <option>Answer 03</option>
-                                    <option>Answer 04</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <input type="password" class="form-control" id="answer" placeholder="Enter Answer" >
+                                <div class="mb-3">
+                                <input type="password" class="form-control" id="cf-password" placeholder="Confirm Password" >
                             </div>
                             <div class="button-next-back">
-                                <div class="next-button"><button type="submit" class="btn btn-color px-5  mb-5 w-100"><a href="/resetpassword.jsp">Next</a></button></div>
-                                <div class="back-button"><button type="submit" class="btn btn-color px-5 mb-5 w-100">Back</button></div>
+                                <div class="login-button"><button type="submit" class="btn btn-color px-5  mb-5 w-100">Login</button></div>
+                                <div class="back-button"><button type="submit" class="btn btn-color px-5 mb-5 w-100"><a href="/forgotpassword.jsp">Back</a></button></div>
                             </div>
                         </form>
                     </div>
