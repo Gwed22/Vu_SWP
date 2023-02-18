@@ -1,8 +1,3 @@
-<%-- 
-    Document   : formInsert
-    Created on : Sep 27, 2022, 9:38:19 AM
-    Author     : Vux
---%>
 
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.ResultSet"%>
