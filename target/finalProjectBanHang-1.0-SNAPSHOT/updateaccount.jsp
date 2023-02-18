@@ -1,3 +1,5 @@
+<%@page import="com.daos.AccountDAO"%>
+<%@page import="com.models.Account"%>
 <!DOCTYPE html>
 <html>
 
@@ -90,7 +92,28 @@
         </div>
         <div id="myCarousel" class="carousel slide banner-main col-xl-9 col-lg-10 col-md-12 co-sm-11" data-ride="carousel">
             <div class="carousel-inner">
-                <form>
+                <form method="post" action="/Account/Updatea">
+                    <%
+                        Account acc = (Account) session.getAttribute("acc_info");
+                    %>
+                    <div class="form-group row" id="Form1">
+                        <div class="col-lg-2"></div>
+                        <label class="col-2 col-form-label" for="id">Account ID</label>
+                        <div class="col-6">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fa fa-address-card"></i>
+                                    </div>
+                                </div>
+                                <input id="id" name="id" type="text"
+                                       aria-describedby="idHelpBlock"
+                                       class="form-control" value="<%= acc.getAccountID()%>" readonly>
+                            </div>
+                            <span id="idHelpBlock" class="form-text text-danger"></span>
+                        </div>
+                    </div>
+                    <br>
                     <div class="form-group row" id="Form1">
                         <div class="col-lg-2"></div>
                         <label class="col-2 col-form-label" for="username">Account Name</label>
@@ -103,12 +126,11 @@
                                 </div>
                                 <input id="username" name="username" placeholder="Please enter account name" type="text"
                                        aria-describedby="usernameHelpBlock"
-                                       class="form-control">
+                                       class="form-control" value="<%= acc.getName()%>">
                             </div>
                             <span id="usernameHelpBlock" class="form-text text-danger"></span>
                         </div>
                     </div>
-                    <br>
                     <br>
                     <div class="form-group row">
                         <div class="col-lg-2"></div>
@@ -120,14 +142,13 @@
                                         <i class="fa fa-key"></i>
                                     </div>
                                 </div>
-                                <input id="password1" name="password1" placeholder="Please enter password" type="password"
+                                <input id="password1" name="password1" placeholder="Please enter password" type="text"
                                        aria-describedby="password1HelpBlock"
-                                       class="form-control">
+                                       class="form-control" value="<%= acc.getPassword()%>">
                             </div>
                             <span id="password1HelpBlock" class="form-text text-danger"></span>
                         </div>
                     </div>
-                    <br>
                     <br>
                     <div class="form-group row">
                         <div class="col-lg-2"></div>
@@ -136,12 +157,11 @@
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                 </div>
-                                <input type="radio" name="rdoGD" value="Male"/> Male         
-                                <input class="offset-2" type="radio" name="rdoGD" value="Female"/> Female    
+                                <input type="radio" name="rdoGD" value="Male"<%= (acc.getGender().equals("Male")) ? "checked" : ""%>/> Male         
+                                <input class="offset-2" type="radio" name="rdoGD" value="Female" <%= (acc.getGender().equals("Female")) ? "checked" : ""%>/> Female    
                             </div>
                         </div>
                     </div>
-                    <br>
                     <br>
                     <div class="form-group row">
                         <div class="col-lg-2"></div>
@@ -154,7 +174,7 @@
                                     </div>
                                 </div>
                                 <select id="role" class="form-control">
-                                    <option selected>Choose role</option>
+                                    <option selected><%=acc.getRole_id()%></option>
                                     <option>...</option>
                                     <option>...</option>
                                     <option>...</option>
@@ -165,6 +185,27 @@
                         </div>
                     </div>
                     <br>
+                    <div class="form-group row">
+                        <div class="col-lg-2"></div>
+                        <label for="sq" class="col-2 col-form-label">Security ID</label>
+                        <div class="col-6">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fa fa-gears"></i>
+                                    </div>
+                                </div>
+                                <select id="sq" class="form-control">
+                                    <option selected><%=acc.getSq_id()%></option>
+                                    <option>...</option>
+                                    <option>...</option>
+                                    <option>...</option>
+                                    <option>...</option>
+                                </select>
+                            </div>
+                            <span id="sqHelpBlock" class="form-text text-danger"></span>
+                        </div>
+                    </div>
                     <br>
                     <div class="form-group row">
                         <div class="col-lg-2"></div>
@@ -178,12 +219,11 @@
                                 </div>
                                 <input id="phone" name="phone" placeholder="Please enter phone number" type="text"
                                        aria-describedby="phoneHelpBlock"
-                                       class="form-control">
+                                       class="form-control" value="<%=acc.getPhone()%>">
                             </div>
                             <span id="phoneHelpBlock" class="form-text text-danger"></span>
                         </div>
                     </div>
-                    <br>
                     <br>
                     <div class="form-group row">
                         <div class="col-lg-2"></div>
@@ -197,16 +237,15 @@
                                 </div>
                                 <textarea id="address" name="address" placeholder="Please enter address"
                                           aria-describedby="addressHelpBlock"
-                                          class="form-control"></textarea>
+                                          class="form-control"><%=acc.getAddress()%></textarea>
                             </div>
                             <span id="addressHelpBlock" class="form-text text-danger"></span>
                         </div>
                     </div>
                     <br>
-                    <br>
                     <div class="form-group row">
                         <div class="offset-4">
-                            <button name="update" type="submit" id ="button" class="btn btn-primary">Update</button>
+                            <button name="btnUpdate" type="submit" id ="button" class="btn btn-primary">Update</button>
                         </div>
                     </div>
                 </form>

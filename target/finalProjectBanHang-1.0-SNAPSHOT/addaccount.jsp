@@ -1,3 +1,10 @@
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="com.daos.AccountDAO"%>
+<%@page import="com.models.Account"%>
 <!DOCTYPE html>
 <html>
 
@@ -89,7 +96,27 @@
         </div>
         <div id="myCarousel" class="carousel slide banner-main col-xl-9 col-lg-10 col-md-12 co-sm-11" data-ride="carousel">
             <div class="carousel-inner">
-                <form>
+                <form method="post" action="/Account/Add">
+                    <%AccountDAO dao = new AccountDAO();
+                        int count = dao.getCountAccount()+10;%>
+                    <div class="form-group row" id="Form1">
+                        <div class="col-lg-2"></div>
+                        <label class="col-2 col-form-label" for="id">Account ID</label>
+                        <div class="col-6">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fa fa-address-card"></i>
+                                    </div>
+                                </div>
+                                <input id="id" name="id" type="text"
+                                       aria-describedby="idHelpBlock"
+                                       class="form-control" value="<%= count%>" readonly>
+                            </div>
+                            <span id="idHelpBlock" class="form-text text-danger"></span>
+                        </div>
+                    </div>
+                    <br>
                     <div class="form-group row" id="Form1">
                         <div class="col-lg-2"></div>
                         <label class="col-2 col-form-label" for="username">Account Name</label>
@@ -107,7 +134,6 @@
                             <span id="usernameHelpBlock" class="form-text text-danger"></span>
                         </div>
                     </div>
-                    <br>
                     <br>
                     <div class="form-group row">
                         <div class="col-lg-2"></div>
@@ -127,7 +153,6 @@
                         </div>
                     </div>
                     <br>
-                    <br>
                     <div class="form-group row">
                         <div class="col-lg-2"></div>
                         <label for="gender" class="col-2 col-form-label">Gender</label>
@@ -141,10 +166,9 @@
                         </div>
                     </div>
                     <br>
-                    <br>
                     <div class="form-group row">
                         <div class="col-lg-2"></div>
-                        <label for="role" class="col-2 col-form-label">Role</label>
+                        <label for="role" class="col-2 col-form-label">Role ID</label>
                         <div class="col-6">
                             <div class="input-group">
                                 <div class="input-group-prepend">
@@ -153,7 +177,7 @@
                                     </div>
                                 </div>
                                 <select id="role" class="form-control">
-                                    <option selected>Choose role</option>
+                                    <option selected>Choose role ID</option>
                                     <option>...</option>
                                     <option>...</option>
                                     <option>...</option>
@@ -164,6 +188,27 @@
                         </div>
                     </div>
                     <br>
+                    <div class="form-group row">
+                        <div class="col-lg-2"></div>
+                        <label for="sq" class="col-2 col-form-label">Security ID</label>
+                        <div class="col-6">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fa fa-gears"></i>
+                                    </div>
+                                </div>
+                                <select id="sq" class="form-control">
+                                    <option selected>Choose Security ID</option>
+                                    <option>...</option>
+                                    <option>...</option>
+                                    <option>...</option>
+                                    <option>...</option>
+                                </select>
+                            </div>
+                            <span id="sqHelpBlock" class="form-text text-danger"></span>
+                        </div>
+                    </div>
                     <br>
                     <div class="form-group row">
                         <div class="col-lg-2"></div>
@@ -183,7 +228,6 @@
                         </div>
                     </div>
                     <br>
-                    <br>
                     <div class="form-group row">
                         <div class="col-lg-2"></div>
                         <label for="address" class="col-2 col-form-label">Address</label>
@@ -202,20 +246,19 @@
                         </div>
                     </div>
                     <br>
-                    <br>
                     <div class="form-group row">
                         <div class="offset-4">
-                            <button name="add" type="submit" id ="button" class="btn btn-primary">Add</button>
+                            <button name="btnAdd" type="submit" id ="button" class="btn btn-primary">Add</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-        <div class="form-text text-success">
-            <h1 id="success"></h1>
-        </div>     
-        <div class="form-text text-danger">
-            <h2 id="fail"></h2>
-        </div>
+    <div class="form-text text-success">
+        <h1 id="success"></h1>
+    </div>     
+    <div class="form-text text-danger">
+        <h2 id="fail"></h2>
+    </div>
 </html>

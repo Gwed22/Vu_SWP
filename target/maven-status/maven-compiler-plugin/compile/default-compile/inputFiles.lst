@@ -1,33 +1,18 @@
-<<<<<<< HEAD
-D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\models\Account.java
-D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\models\ChatSession.java
-D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\models\Category.java
-D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\models\Brand.java
-D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\models\Message.java
-D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\models\Products.java
-D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\models\Order.java
-D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\models\Comment.java
-D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\models\SecurityQuestion.java
-D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\db\DBConnection.java
-D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\models\OrderItem.java
-D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\models\Sale.java
-D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\models\SecurityAnswer.java
-D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\models\Role.java
-D:\TRUCNHI\SP2023\SWP391\Clone\-SWP391\src\main\java\com\models\Consignment.java
-=======
-E:\PRJ301\finalProjectBanHang (2) (1)\src\main\java\com\models\Category.java
-E:\PRJ301\finalProjectBanHang (2) (1)\src\main\java\com\models\SecurityAnswer.java
-E:\PRJ301\finalProjectBanHang (2) (1)\src\main\java\com\models\SecurityQuestion.java
-E:\PRJ301\finalProjectBanHang (2) (1)\src\main\java\com\models\Order.java
-E:\PRJ301\finalProjectBanHang (2) (1)\src\main\java\com\models\Products.java
-E:\PRJ301\finalProjectBanHang (2) (1)\src\main\java\com\models\Account.java
-E:\PRJ301\finalProjectBanHang (2) (1)\src\main\java\com\models\OrderItem.java
-E:\PRJ301\finalProjectBanHang (2) (1)\src\main\java\com\models\Message.java
-E:\PRJ301\finalProjectBanHang (2) (1)\src\main\java\com\models\Brand.java
-E:\PRJ301\finalProjectBanHang (2) (1)\src\main\java\com\models\Role.java
-E:\PRJ301\finalProjectBanHang (2) (1)\src\main\java\com\models\ChatSession.java
-E:\PRJ301\finalProjectBanHang (2) (1)\src\main\java\com\models\Consignment.java
-E:\PRJ301\finalProjectBanHang (2) (1)\src\main\java\com\models\Sale.java
-E:\PRJ301\finalProjectBanHang (2) (1)\src\main\java\com\db\DBConnection.java
-E:\PRJ301\finalProjectBanHang (2) (1)\src\main\java\com\models\Comment.java
->>>>>>> 7bbb28a066e0f14df8fa48e0ae0121e57b44e514
+C:\Users\Dell\Desktop\-SWP391\src\main\java\com\models\OrderItem.java
+C:\Users\Dell\Desktop\-SWP391\src\main\java\com\models\Brand.java
+C:\Users\Dell\Desktop\-SWP391\src\main\java\com\models\SecurityQuestion.java
+C:\Users\Dell\Desktop\-SWP391\src\main\java\com\models\Products.java
+C:\Users\Dell\Desktop\-SWP391\src\main\java\com\controller\HomeController.java
+C:\Users\Dell\Desktop\-SWP391\src\main\java\com\models\Message.java
+C:\Users\Dell\Desktop\-SWP391\src\main\java\com\models\Comment.java
+C:\Users\Dell\Desktop\-SWP391\src\main\java\com\models\SecurityAnswer.java
+C:\Users\Dell\Desktop\-SWP391\src\main\java\com\models\Account.java
+C:\Users\Dell\Desktop\-SWP391\src\main\java\com\models\Role.java
+C:\Users\Dell\Desktop\-SWP391\src\main\java\com\models\Consignment.java
+C:\Users\Dell\Desktop\-SWP391\src\main\java\com\controller\viewAllAccountController.java
+C:\Users\Dell\Desktop\-SWP391\src\main\java\com\models\ChatSession.java
+C:\Users\Dell\Desktop\-SWP391\src\main\java\com\db\DBConnection.java
+C:\Users\Dell\Desktop\-SWP391\src\main\java\com\daos\AccountDAO.java
+C:\Users\Dell\Desktop\-SWP391\src\main\java\com\models\Sale.java
+C:\Users\Dell\Desktop\-SWP391\src\main\java\com\models\Order.java
+C:\Users\Dell\Desktop\-SWP391\src\main\java\com\models\Category.java

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : profile
-    Created on : Feb 17, 2023, 7:55:18 PM
+    Document   : resetpassword
+    Created on : Feb 18, 2023, 7:55:18 PM
     Author     : Admin
 --%>
 
@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Forgot Password</title>
+        <title>Reset Password</title>
         <!-- basic -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,7 +24,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="css/style5.css">
+        <link rel="stylesheet" href="css/style3.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -43,15 +43,28 @@
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
         <style>
+            .button-next-back{
+                display: flex;
+                justify-content: center;
+            }
 
+            .button-next-back .login-button{
+                margin-right: 10%; 
+            }
+             .button-next-back .back-button{
+                margin-left: 10%; 
+            }
+            .back-button a{
+                color:white;
+            }
             html {
                 overflow: hidden;
             }
-
-            .btn-color{
+            .button-next-back .btn-color{
                 background-color: #0e1c36;
                 color: #fff;
             }
+
             .profile-image-pic{
                 height: 200px;
                 width: 200px;
@@ -65,66 +78,32 @@
             a{
                 text-decoration: none;
             }
-         
-            .register-button{
-                margin-left: 70%;
-            }
         </style>
     </head>
     <body>
         <div class="container">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
-                    <h2 class="text-center text-dark mt-5">Profile</h2>
-                    <p class=" text-success" style="font-size: 25px;
-                       text-align: center">${errorLogin}</p>
+                    <h2 class="text-center text-dark mt-5">Forgot Password</h2>
+                    <p class=" text-success" style="font-size: 25px; text-align: center">${errorLogin}</p>
 
                     <div class="card my-auto">
 
                         <form class="card-body cardbody-color p-lg-5">
+
+                       
+                            <div class="mb-3">
+                                <input type="password" class="form-control" id="password" placeholder="Password" >
+                            </div>
                                 <div class="mb-3">
-                                    <input type="text" class="form-control" id="full-name"
-                                           placeholder="Full Name">
-                                </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" id="phone" aria-describedby="numberPhone"
-                                       placeholder="Enter number phone">
+                                <input type="password" class="form-control" id="cf-password" placeholder="Confirm Password" >
                             </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" id="password"
-                                       placeholder="Password">
+                            <div class="button-next-back">
+                                <div class="login-button"><button type="submit" class="btn btn-color px-5  mb-5 w-100">Login</button></div>
+                                <div class="back-button"><button type="submit" class="btn btn-color px-5 mb-5 w-100"><a href="/forgotpassword.jsp">Back</a></button></div>
                             </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" id="cf-password"
-                                       placeholder="Confirm Password">
-                            </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" id="address" "
-                                       placeholder="Address">
-                            </div>
-                            <div class="mb-3">
-                                <select class="form-control">
-                                    <option>Security question</option>
-                                    <option>Question 01</option>
-                                    <option>Question 02</option>
-                                    <option>Question 03</option>
-                                    <option>Question 04</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <select class="form-control">
-                                    <option>Security answer</option>
-                                    <option>Answer 01</option>
-                                    <option>Answer 02</option>
-                                    <option>Answer 03</option>
-                                    <option>Answer 04</option>
-                                </select>
-                            </div>
-                            <div class=""><button type="submit" class="btn btn-color  register-button"><a>Register</</button></div>
                         </form>
-
                     </div>
-
                 </div>
             </div>
 

@@ -4,7 +4,7 @@
     Author     : DELL
 --%>
 
-
+<%@page import="com.DAO.ProductDAO"%>
 <%@page import="java.sql.ResultSet"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -14,7 +14,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Product List</title>
+        <title>Sale Management</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- favicon
@@ -89,7 +89,7 @@
                                             <a href="home"><i class="icon nalika-home"></i></a>
                                         </div>
                                         <div class="breadcomb-ctn">
-                                            <h2>Product List</h2>
+                                            <h2>Sale Management</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -116,28 +116,36 @@
 
                 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
                     <div class="product-status-wrap">
-                        <h4>Products List</h4>
+                        <h4>Sale List</h4>
                         <div class="add-product">
-                            <a href="">Add Product</a>
+                            <a href="">Add Sale</a>
                         </div>
                         <table>
                             <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Price</th>
-                                <th>Image</th>
-                                <th>Category</th>
-                                <th>Brand</th>
-                                <th>Setting</th>
-                            </tr>
-
+                                    <th rowspan="2">ID</th>
+                                    <th rowspan="2">Product Name</th>
+                                    <th rowspan="2">Current Price</th>
+                                    <th rowspan="2">Sale Price</th>
+                                    <th>Sale Date</th>
+                                    <th rowspan="2">Description</th>
+                                    <th rowspan="2">Action</th>
+                                </tr>
+                                <tr>
+                                    <th>From</th>
+                                    <th>To</th>
+                                </tr>
+                            <%
+                                SaleDAO dao = new SaleDAO();
+                                ResultSet rs = dao.getAll();
+                                while (rs.next()) {
+                            %>
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td><%= rs.getInt("product_id")%></td>
+                                <td><%= rs.getString("product_name")%></td>
+                                <td><%= rs.getFloat("con_price")%></td>
+                                <td><%= rs.getString("product_img")%></td>
+                                <td><%= rs.getInt("c_id")%></td>
+                                <td><%= rs.getInt("brand_id")%></td>
 
                                 <td>
                                     <a href=""><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
@@ -145,8 +153,8 @@
                                 </td>
                             </tr>
                             <%
-                                //}
-%>
+                                }
+                            %>
 
                         </table>
                     </div>

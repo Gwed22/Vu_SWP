@@ -1,14 +1,9 @@
-<%-- 
-    Document   : formInsert
-    Created on : Sep 27, 2022, 9:38:19 AM
-    Author     : Vux
---%>
-
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>
+<%@page import="com.daos.AccountDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -23,11 +18,6 @@
               href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
         <link rel="stylesheet"
               href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script>
-            $(document).ready(function () {
-                $('#tb').DataTable();
-            });
-        </script>
     </head>
     <body>
         <%
@@ -53,14 +43,11 @@
         </div>
         <div class="slider_section row">
             <div class="menu-left col-xl-2 col-lg-12 col-md-12 co-sm-11 ">
-                <ul class="nav-menu-left" style="list-style-type: none">
-                    <li class="jumbotron text-center"><a href="#">Create New Account</a></li>
-                </ul>
             </div>
             <div id="myCarousel" class="carousel slide banner-main col-xl-9 col-lg-10 col-md-12 co-sm-11" data-ride="carousel">
                 <div class="carousel-inner">
                     <div>
-                        <form action="search" class="col-md-8">
+                        <form action="search" class="col-md-8" style="padding-left: 0px;">
                             <input class="col-sm-8" name="txt"
                                    type="text" 
                                    placeholder="Search" 
@@ -76,23 +63,62 @@
                                 <th scope="col">First Name</th>
                                 <th scope="col">Last Name</th>
                                 <th scope="col">Phone</th>
-                                <th scope="col">Question ID</th>
-                                <th scope="col">Answer ID</th>
+                                <th scope="col">Password</th>
+                                <th scope="col">Gender</th>
                                 <th scope="col">Address</th>
+                                <th scope="col">Question ID</th>
+                                <th scope="col">Role</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <%                                
+                                AccountDAO dao = new AccountDAO();
+                                ResultSet rs = dao.getAllAccount();
+                                while (rs.next()) {
+
+                                    // Split full name into first and last name
+                                    String[] nameParts = rs.getString("full_name").split(" ");
+                                    String firstName = nameParts[0];
+                                    String lastName = "";
+                                    for (int i = 1; i < nameParts.length; i++) {
+                                        lastName += nameParts[i] + " ";
+                                        pageContext.setAttribute("ln", lastName);
+                                    }
+                            %>
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
+                                <td><%= rs.getInt("account_id")%></td>
+                                <td><%= firstName%></td>
+                                <td><%= pageContext.getAttribute("ln")%></td>
+                                <td><%= rs.getString("phone")%></td>
+                                <td><%= rs.getString("password")%></td>
+                                <td><%= rs.getString("gender")%></td>
+                                <td><%= rs.getString("address")%></td>
+                                <td><%= rs.getInt("sq_id")%></td>
+                                <td><%= rs.getInt("role_id")%></td>
+                                <td>
+                                    <a class="btn btn-outline-primary" href="/Account/Update/<%=rs.getString("account_id")%>">Update</a>
+                                    <a class="btn btn-outline-danger" href="/Account/Delete/<%=rs.getString("account_id")%>">Delete</a>
+                                </td>
+                            </tr>
+                            <%
+                                }
+                            %>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>                
+                                    <ul  style="padding-left: 0px">
+                                        <li class="btn btn-outline-info text-center"><a href="/Account/Add">Create New Account</a></li>
+                                    </ul>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

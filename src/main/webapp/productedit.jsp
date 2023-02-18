@@ -4,10 +4,10 @@
     Author     : DELL
 --%>
 
-<%@page import="com.dao.DAO"%>
+
 <%@page import="com.models.Products"%>
 <%@page import="java.sql.ResultSet"%>
-<%@page import="com.dao.CategoryDAO"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -76,11 +76,8 @@
         <!--[if lt IE 8]>
                 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
             <![endif]-->
-        <%
-            Products pro = (Products) session.getAttribute("p");
-
-        %>
-        <jsp:include page="headeradmin.jsp"></jsp:include>
+        
+        
             <div class="breadcome-area">
                 <div class="container-fluid">
                     <div class="row">
@@ -124,17 +121,17 @@
                                                         <p>Product ID</p>
                                                         <div class="input-group mg-b-pro-edt">
                                                             <span class="input-group-addon"><i class="icon nalika-edit" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control" placeholder="Product ID" name="txtID" value="<%= pro.getProductID()%>" readonly style="color: black">
+                                                            <input type="text" class="form-control" placeholder="Product ID" name="txtID" value="" readonly style="color: black">
                                                     </div>
                                                     <p>Product Name</p>
                                                     <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon"><i class="icon nalika-edit" aria-hidden="true"></i></span>
-                                                        <input type="text" class="form-control" placeholder="Product Name" name="txtName" value="<%= pro.getProductName()%>">
+                                                        <input type="text" class="form-control" placeholder="Product Name" name="txtName" value="">
                                                     </div>
                                                     <p>Product Price</p>
                                                     <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
-                                                        <input type="text" class="form-control" placeholder="Product Price" name="txtPrice" value="<%= pro.getProductPrice()%>">
+                                                        <input type="text" class="form-control" placeholder="Product Price" name="txtPrice" value="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -143,30 +140,20 @@
                                                     <p>Product Image</p>
                                                     <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon"><i class="icon nalika-new-file" aria-hidden="true"></i></span>
-                                                        <input type="text" class="form-control" placeholder="Product Image" name="txtImg" value="<%= pro.getProductImg()%>">
+                                                        <input type="text" class="form-control" placeholder="Product Image" name="txtImg" value="">
                                                     </div>
-                                                    <p>Quantity</p>
-                                                    <div class="input-group mg-b-pro-edt">
-                                                        <span class="input-group-addon"><i class="icon nalika-favorites" aria-hidden="true"></i></span>
-                                                        <input type="text" class="form-control" placeholder="Quantity" name="txtQuantity" value="<%= pro.getQuantity()%>">
-                                                    </div>
+                                                   
                                                     <p>Category</p>
                                                     <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon"><i class="icon nalika-like" aria-hidden="true"></i></span>
                                                         <!--<input type="text" class="form-control" placeholder="Category">-->
                                                         <select name="Category" class="form-control pro-edt-select form-control-primary">
                                                             <option value="opt1">Category</option>
-                                                            <%
-                                                                CategoryDAO Cdao = new CategoryDAO();
-                                                                ResultSet rs = Cdao.getAll();
-                                                                while (rs.next()) {
-                                                            %>
+                                                            
 
-                                                            <option value="<%= rs.getInt("CategoryID")%>" <%= (pro.getC_Id() == (rs.getInt("CategoryID"))) ? "selected" : ""%>><%= rs.getString("CategoryName")%></option>
+                                                            <option> value="" </option>
 
-                                                            <%
-                                                                }
-                                                            %>
+                                                           
                                                         </select>
                                                     </div>
                                                 </div>
@@ -176,15 +163,15 @@
                                                     <p>Product Description</p>
                                                     <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon"><i class="icon nalika-favorites-button" aria-hidden="true"></i></span>
-                                                        <input type="text" class="form-control" placeholder="Product Description" name="txtDesc" value="<%= pro.getProductDesc()%>">
+                                                        <input type="text" class="form-control" placeholder="Product Description" name="txtDesc" value="">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                                 <div class="text-right custom-pro-edt-ds">
-                                                    <button type="submit" name="btnEdit" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Save</button>
+                                                    <button type="submit" name="btnEdit" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Update</button>
                                                 </div>
                                             </div>
                                         </div>
