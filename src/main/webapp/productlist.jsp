@@ -76,21 +76,20 @@
                 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
             <![endif]-->
 
-       
-            <div class="breadcome-area">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="breadcome-list">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                        <div class="breadcomb-wp">
-                                            <div class="breadcomb-icon">
-                                                <a href="home"><i class="icon nalika-home"></i></a>
-                                            </div>
-                                            <div class="breadcomb-ctn">
-                                                <h2>Product List</h2>
-                                            </div>
+
+        <div class="breadcome-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="breadcome-list">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <div class="breadcomb-wp">
+                                        <div class="breadcomb-icon">
+                                            <a href="home"><i class="icon nalika-home"></i></a>
+                                        </div>
+                                        <div class="breadcomb-ctn">
+                                            <h2>Product List</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -100,37 +99,38 @@
                 </div>
             </div>
         </div>
-        <div class="product-status mg-b-30">
-            <div class="container-fluid">
-                <div class="row">
-                    
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                        <ul>
-                            <li style="margin: 20px; "> <a style="color: white; " href="##">Product Management</a> </li>
-                            <li style="margin: 20px; "> <a style="color: white; " href="##">Sale Management</a></li>
-                            <li style="margin: 20px; "> <a style="color: white; " href="##">Product Statistic </a> </li>
-                            <li style="margin: 20px; "> <a style="color: white; " href="##">Warehouse</a></li>
-                        </ul>
-                        
-                    </div>
-                    
-                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                        <div class="product-status-wrap">
-                            <h4>Products List</h4>
-                            <div class="add-product">
-                                <a href="">Add Product</a>
-                            </div>
-                            <table>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Price</th>
-                                    <th>Image</th>
-                                    <th>Category</th>
-                                    <th>Brand</th>
-                                    <th>Setting</th>
-                                </tr>
-                           
+    </div>
+    <div class="product-status mg-b-30">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <ul>
+                        <li style="margin: 20px; "> <a style="color: white; " href="##">Product Management</a> </li>
+                        <li style="margin: 20px; "> <a style="color: white; " href="##">Sale Management</a></li>
+                        <li style="margin: 20px; "> <a style="color: white; " href="##">Product Statistic </a> </li>
+                        <li style="margin: 20px; "> <a style="color: white; " href="##">Warehouse</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                    <div class="product-status-wrap">
+                        <h4>Products List</h4>
+                        <div class="add-product">
+                            <a href="">Add Product</a>
+                        </div>
+                        <table>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Image</th>
+                                <th>Category</th>
+                                <th>Brand</th>
+                                <th>Setting</th>
+                            </tr>
+
                             <tr>
                                 <td></td>
                                 <td></td>
@@ -138,7 +138,7 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                
+
                                 <td>
                                     <a href=""><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
                                     <a href=""><button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
@@ -146,7 +146,7 @@
                             </tr>
                             <%
                                 //}
-                            %>
+%>
 
                         </table>
                     </div>
