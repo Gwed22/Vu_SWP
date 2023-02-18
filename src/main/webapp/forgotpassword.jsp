@@ -1,7 +1,7 @@
 <%-- 
-    Document   : login
-    Created on : Oct 25, 2022, 6:21:20 PM
-    Author     : PC
+    Document   : forgotpassword
+    Created on : Feb 17, 2023, 7:55:18 PM
+    Author     : Admin
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login</title>
+        <title>Forgot Password</title>
         <!-- basic -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -43,13 +43,27 @@
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
         <style>
+            .button-next-back{
+                display: flex;
+                justify-content: center;
+            }
+
+            .button-next-back .next-button{
+                margin-right: 10%; 
+            }
+            .next-button a {
+                color:white;
+            }
+             .button-next-back .back-button{
+                margin-left: 10%; 
+
+            }
             html {
                 overflow: hidden;
             }
-            .btn-color{
+            .button-next-back .btn-color{
                 background-color: #0e1c36;
                 color: #fff;
-
             }
 
             .profile-image-pic{
@@ -57,8 +71,6 @@
                 width: 200px;
                 object-fit: cover;
             }
-
-
 
             .cardbody-color{
                 background-color: #ebf2fa;
@@ -70,86 +82,41 @@
         </style>
     </head>
     <body>
-
         <div class="container">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
-                    <h2 class="text-center text-dark mt-5">Login</h2>
+                    <h2 class="text-center text-dark mt-5">Forgot Password</h2>
                     <p class=" text-success" style="font-size: 25px; text-align: center">${errorLogin}</p>
 
                     <div class="card my-auto">
 
-                        <form class="card-body cardbody-color p-lg-5" action="account" method="post">
+                        <form class="card-body cardbody-color p-lg-5">
 
                             <div class="mb-3">
                                 <input type="text" class="form-control" id="phone" aria-describedby="numberPhone"
-                                       placeholder="Enter number phone" name="phone">
+                                       placeholder="Enter number phone">
                             </div>
-
                             <div class="mb-3">
-                                <input type="password" class="form-control" id="password" placeholder="Password" name="pass" >
+                                <select class="form-control">
+                                    <option>Security question</option>
+                                    <option>Answer 01</option>
+                                    <option>Answer 02</option>
+                                    <option>Answer 03</option>
+                                    <option>Answer 04</option>
+                                </select>
                             </div>
-                            <%
-                                if (session.getAttribute("notLogin") != null) {
-                            %>
-                            <div class="mb-3" style="display: none">
-                                <input type="text" class="form-control" name="a" value="allproduct">
+                            <div class="mb-3">
+                                <input type="password" class="form-control" id="answer" placeholder="Enter Answer" >
                             </div>
-                            <%
-                            } else {
-                            %>
-                            <div class="mb-3" style="display: none">
-                                <input type="text" class="form-control" name="a" value="home">
+                            <div class="button-next-back">
+                                <div class="next-button"><button type="submit" class="btn btn-color px-5  mb-5 w-100"><a href="/resetpassword.jsp">Next</a></button></div>
+                                <div class="back-button"><button type="submit" class="btn btn-color px-5 mb-5 w-100">Back</button></div>
                             </div>
-                            <%
-                                }
-
-                            %>
-                            <p class="text-danger">${mess}</p>
-                            <div class="text-center"><button type="submit" class="btn btn-color px-5 mb-5 w-100" name="btnLogin">Login</button></div>
-                            <div id="emailHelp" class="form-text text-center mb-5 text-dark"> <a href="/forgotpassword.jsp" class="text-dark fw-bold"> Forgot Password</a>
-                            </div>
-                            <div id="emailHelp" class="form-text text-center mb-5 text-dark">Not
-                                Registered? <a href="/register" class="text-dark fw-bold"> Create an
-                                    Account</a>
-                            </div>
-
                         </form>
-
                     </div>
-
                 </div>
             </div>
 
         </div>
-
     </body>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery-3.0.0.min.js"></script>
-    <script src="js/plugin.js"></script>
-    <!-- sidebar -->
-    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="js/custom.js"></script>
-    <!-- javascript -->
-    <script src="js/owl.carousel.js"></script>
-    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $(".fancybox").fancybox({
-                openEffect: "none",
-                closeEffect: "none"
-            });
-
-            $(".zoom").hover(function () {
-
-                $(this).addClass('transition');
-            }, function () {
-
-                $(this).removeClass('transition');
-            });
-        });
-    </script>
-
 </html>
