@@ -1932,9 +1932,37 @@ ul.social_icon li a:hover {
 }
 
 
+#menu-tab {
+    width: 100%;
+    
+}
 
+ul.menu {
+    background: #c8c8c8;
+    display: block;
+    float: left;
+    list-style-type: none;
+    height: 54px;
+    padding: 12px;
+    font-weight: bold;
+    width: 100%;
+    
+}
 
+ul.menu li a {
+    margin: 10px;
+    padding-left: 0px;
+    text-decoration: none;
+    text-align: center;
+    position: relative;
+    margin-left: 50px;
+}
 
+ul.menu li {
+    display: inline;
+    font-size: 20px;
+    
+}
 
 
 
