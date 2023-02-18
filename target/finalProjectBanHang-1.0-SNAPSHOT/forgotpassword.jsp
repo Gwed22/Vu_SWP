@@ -51,6 +51,9 @@
             .button-next-back .next-button{
                 margin-right: 10%; 
             }
+            .next-button a {
+                color:white;
+            }
              .button-next-back .back-button{
                 margin-left: 10%; 
 
@@ -106,7 +109,7 @@
                                 <input type="password" class="form-control" id="answer" placeholder="Enter Answer" >
                             </div>
                             <div class="button-next-back">
-                                <div class="next-button"><button type="submit" class="btn btn-color px-5  mb-5 w-100">Next</button></div>
+                                <div class="next-button"><button type="submit" class="btn btn-color px-5  mb-5 w-100"><a href="/resetpassword.jsp">Next</a></button></div>
                                 <div class="back-button"><button type="submit" class="btn btn-color px-5 mb-5 w-100">Back</button></div>
                             </div>
                         </form>
