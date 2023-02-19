@@ -22,6 +22,11 @@ public class Account {
     public Account() {
     }
 
+    public Account(String phone, String password) {
+        this.phone = phone;
+        this.password = password;
+    }
+    
     public Account(int accountID, String name, String phone, String password, String gender, String address, int sq_id, int role_id) {
         this.accountID = accountID;
         this.name = name;

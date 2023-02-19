@@ -1,67 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>AddConsignmentController</servlet-name>
-        <servlet-class>com.controllers.AddConsignmentController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AllConsignmentController</servlet-name>
-        <servlet-class>com.controllers.AllConsignmentController</servlet-class>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>com.controller.LoginController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>AddConsignmentController</servlet-name>
-        <url-pattern>/addconsignment</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AllConsignmentController</servlet-name>
-        <url-pattern>/allconsignment</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>AllProductControl</servlet-name>
-        <servlet-class>com.controller.AllProductControl</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>SearchControl</servlet-name>
-        <servlet-class>com.controller.SearchControl</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>HomeControl</servlet-name>
-        <servlet-class>com.controller.HomeControl</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>AllProductControl</servlet-name>
-        <url-pattern>/allproduct</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SearchControl</servlet-name>
-        <url-pattern>/search</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>HomeControl</servlet-name>
-        <url-pattern>/home</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>Account</servlet-name>
-        <servlet-class>com.controller.viewAllAccountController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>HomeController</servlet-name>
-        <servlet-class>com.controller.HomeController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Account</servlet-name>
-        <url-pattern>/Account/*</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>HomeController</servlet-name>
-        <url-pattern>/</url-pattern>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/Login</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    <welcome-file-list>
-        <welcome-file>/</welcome-file>
+        <welcome-file-list>
+        <welcome-file>home</welcome-file>
     </welcome-file-list>
 </web-app>
