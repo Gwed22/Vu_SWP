@@ -24,7 +24,7 @@
         <!-- bootstrap css -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="css/style3.css">
+        <link rel="stylesheet" href="css/style5.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -64,7 +64,7 @@
                             <div class="menu-area">                                
                                 <header class="main-menu" >
                                     <form action="search" class="form-search col-md-8">
-                                        <input class="form-control col-sm-8" name="txt"
+                                        <input class="form-control col-sm-8" name="txtName"
                                                type="text" 
                                                placeholder="Search" 
                                                aria-label="Search">

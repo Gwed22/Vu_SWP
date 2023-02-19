@@ -12,23 +12,43 @@ public class Products {
 
     private int productID;
     private int conID;
-    private String productImg;
     private float productPrice;
     private String poductDesc;
+    private String productName;
+    private String productImg;
 
     // Constructor
     public Products() {
-
     }
 
-    public Products(int productID, int conID, String productImg, float productPrice, String poductDesc) {
+    
+
+    public Products(int productID, int conID, float productPrice, String poductDesc, String productName, String productImg) {
         this.productID = productID;
         this.conID = conID;
-        this.productImg = productImg;
         this.productPrice = productPrice;
         this.poductDesc = poductDesc;
+        this.productName = productName;
+        this.productImg = productImg;
     }
 
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getProductImg() {
+        return productImg;
+    }
+
+    public void setProductImg(String productImg) {
+        this.productImg = productImg;
+    }
+    
+     
     public int getProductID() {
         return productID;
     }
@@ -61,17 +81,11 @@ public class Products {
         this.poductDesc = poductDesc;
     }
 
-    public String getProductImg() {
-        return productImg;
-    }
-
-    public void setProductImg(String productImg) {
-        this.productImg = productImg;
-    }
-
     @Override
     public String toString() {
-        return "Products{" + "productID=" + productID + ", conID=" + conID + ", productImg=" + productImg + ", productPrice=" + productPrice + ", poductDesc=" + poductDesc + '}';
+        return "Products{" + "productID=" + productID + ", conID=" + conID + ", productPrice=" + productPrice + ", poductDesc=" + poductDesc + ", productName=" + productName + ", productImg=" + productImg + '}';
     }
+
+    
 
 }
