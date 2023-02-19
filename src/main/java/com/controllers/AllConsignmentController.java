@@ -38,7 +38,7 @@ public class AllConsignmentController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AllConsignmentController</title>");            
+            out.println("<title>Servlet AllConsignmentController</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet AllConsignmentController at " + request.getContextPath() + "</h1>");
@@ -76,7 +76,10 @@ public class AllConsignmentController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        ConsignmentDAO dao = new ConsignmentDAO();
+        ResultSet rs = dao.getAll();
+        request.setAttribute("listC", rs);
+        request.getRequestDispatcher("allconsignment.jsp").forward(request, response);
     }
 
     /**

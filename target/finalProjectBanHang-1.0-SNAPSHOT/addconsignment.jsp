@@ -6,6 +6,7 @@
 
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -75,19 +76,20 @@
             <![endif]-->
 
         <jsp:include page="headeradmin.jsp"></jsp:include>
-        <div class="breadcome-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="breadcome-list">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                    <div class="breadcomb-wp">
-                                        <div class="breadcomb-icon">
-                                            <a href="home"><i class="icon nalika-home"></i></a>
-                                        </div>
-                                        <div class="breadcomb-ctn">
-                                            <h2>Warehouse Management</h2>
+            <div class="breadcome-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="breadcome-list">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <div class="breadcomb-wp">
+                                            <div class="breadcomb-icon">
+                                                <a href="home"><i class="icon nalika-home"></i></a>
+                                            </div>
+                                            <div class="breadcomb-ctn">
+                                                <h2>Warehouse Management</h2>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -96,54 +98,55 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Single pro tab start-->
-        <div class="single-product-tab-area mg-b-30">
-            <!-- Single pro tab review Start-->
-            <div class="single-pro-review-area">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="review-tab-pro-inner">
-                                <ul id="myTab3" class="tab-review-design">
-                                    <li class="active"><a href="#"><i class="icon nalika-edit" aria-hidden="true"></i> Add New Consignment</a></li>
-                                </ul>
-                                <div id="myTabContent" class="tab-content custom-product-edit">
-                                    <div class="product-tab-list tab-pane fade active in" id="description">
-                                        <form action="addproduct" method="post">
-                                            <div class="row">
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                    <div class="review-content-section">
-                                                        <div class="input-group mg-b-pro-edt">
-                                                            <span class="input-group-addon"><i class="icon nalika-cloud" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control" placeholder="Product Name" name="txtName" required>
-                                                        </div>
-                                                        <div class="input-group mg-b-pro-edt">
-                                                            <span class="input-group-addon"><i class="icon nalika-credit-cards" aria-hidden="true"></i></span>
-                                                            <input type="number" min="1000" max="100000000" class="form-control" placeholder="Import Price" name="txtPrice" required>
-                                                        </div>
-                                                        <div class="input-group mg-b-pro-edt">
-                                                            <span class="input-group-addon"><i class="icon nalika-new-file" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control" placeholder="Product Image" name="txtImg" required>
-                                                        </div>
-                                                        <div class="input-group mg-b-pro-edt">
-                                                            <span class="input-group-addon"><i class="icon nalika-alarm-clock" aria-hidden="true"></i></span>
-                                                            <input type="date" class="form-control" placeholder="Import Date" name="txtDate" required>
+            <!-- Single pro tab start-->
+            <div class="single-product-tab-area mg-b-30">
+                <!-- Single pro tab review Start-->
+                <div class="single-pro-review-area">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="review-tab-pro-inner">
+                                    <ul id="myTab3" class="tab-review-design">
+                                        <li class="active"><a href="#"><i class="icon nalika-edit" aria-hidden="true"></i> Add New Consignment</a></li>
+                                    </ul>
+                                    <div id="myTabContent" class="tab-content custom-product-edit">
+                                        <div class="product-tab-list tab-pane fade active in" id="description">
+                                            <form action="addconsignment" method="post">
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="review-content-section">
+                                                            <div class="input-group mg-b-pro-edt">
+                                                                <span class="input-group-addon"><i class="icon nalika-cloud" aria-hidden="true"></i></span>
+                                                                <input type="text" class="form-control" placeholder="Product Name" name="txtName" required>
+                                                            </div>
+                                                            <div class="input-group mg-b-pro-edt">
+                                                                <span class="input-group-addon"><i class="icon nalika-credit-cards" aria-hidden="true"></i></span>
+                                                                <input type="number" min="1000" max="100000000" class="form-control" placeholder="Import Price" name="txtPrice" required>
+                                                            </div>
+                                                            <div class="input-group mg-b-pro-edt">
+                                                                <span class="input-group-addon"><i class="icon nalika-new-file" aria-hidden="true"></i></span>
+                                                                <input type="text" class="form-control" placeholder="Product Image" name="txtImg" required>
+                                                            </div>
+                                                            <div class="input-group mg-b-pro-edt">
+                                                                <span class="input-group-addon"><i class="icon nalika-alarm-clock" aria-hidden="true"></i></span>
+                                                                <input type="date" class="form-control" placeholder="Import Date" name="txtDate" required>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                    <div class="review-content-section">
-                                                        <div class="input-group mg-b-pro-edt">
-                                                            <span class="input-group-addon"><i class="icon nalika-favorites" aria-hidden="true"></i></span>
-                                                            <input type="number" min="10" max="1000" class="form-control" placeholder="Quantity" name="txtQuantity" required>
-                                                        </div>
-                                                        <div class="input-group mg-b-pro-edt">
-                                                            <span class="input-group-addon"><i class="icon nalika-table" aria-hidden="true"></i></span>
-                                                            <!--<input type="text" class="form-control" placeholder="Category">-->
-                                                            <select name="Category" class="form-control pro-edt-select form-control-primary">
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="review-content-section">
+                                                            <div class="input-group mg-b-pro-edt">
+                                                                <span class="input-group-addon"><i class="icon nalika-favorites" aria-hidden="true"></i></span>
+                                                                <input type="number" min="10" max="1000" class="form-control" placeholder="Quantity" name="txtQuantity" required>
+                                                            </div>
+                                                            <div class="input-group mg-b-pro-edt">
+                                                                <span class="input-group-addon"><i class="icon nalika-table" aria-hidden="true"></i></span>
+                                                                <!--<input type="text" class="form-control" placeholder="Category">-->
+                                                                <select name="Category" class="form-control pro-edt-select form-control-primary">
 
-                                                                <option value="">abc</option>
+                                                                <c:forEach items="${listC}" var="c">
+                                                                    <option value="${c.getcID()}">${c.getcName()}</option>
+                                                                </c:forEach>
 
                                                             </select>
                                                         </div>
@@ -152,7 +155,9 @@
                                                             <!--<input type="text" class="form-control" placeholder="Category">-->
                                                             <select name="Brand" class="form-control pro-edt-select form-control-primary">
 
-                                                                <option value="">abc</option>
+                                                                <c:forEach items="${listB}" var="b">
+                                                                    <option value="${b.getBrandID()}">${b.getBrandName()}</option>
+                                                                </c:forEach>
 
                                                             </select>
                                                         </div>

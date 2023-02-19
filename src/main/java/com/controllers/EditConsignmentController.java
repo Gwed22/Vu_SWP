@@ -7,6 +7,7 @@ package com.controllers;
 import com.DAOs.ConsignmentDAO;
 import com.models.Brand;
 import com.models.Category;
+import com.models.Consignment;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -19,7 +20,7 @@ import java.util.ArrayList;
  *
  * @author DELL
  */
-public class AddConsignmentController extends HttpServlet {
+public class EditConsignmentController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,10 +39,10 @@ public class AddConsignmentController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AddConsignmentController</title>");
+            out.println("<title>Servlet EditConsignmentController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AddConsignmentController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet EditConsignmentController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -59,12 +60,16 @@ public class AddConsignmentController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+
         ConsignmentDAO dao = new ConsignmentDAO();
+        Consignment c = dao.getConsignment(id);
         ArrayList<Category> listC = dao.getAllCategory();
         ArrayList<Brand> listB = dao.getAllBrand();
+        request.setAttribute("c", c);
         request.setAttribute("listC", listC);
         request.setAttribute("listB", listB);
-        request.getRequestDispatcher("addconsignment.jsp").forward(request, response);
+        request.getRequestDispatcher("editconsignment.jsp").forward(request, response);
     }
 
     /**
@@ -78,7 +83,8 @@ public class AddConsignmentController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (request.getParameter("btnAdd") != null) {
+        if (request.getParameter("btnEdit") != null) {
+            int id = Integer.parseInt(request.getParameter("txtID"));
             String name = request.getParameter("txtName");
             int cid = Integer.parseInt(request.getParameter("Category"));
             int quantity = Integer.parseInt(request.getParameter("txtQuantity"));
@@ -88,12 +94,12 @@ public class AddConsignmentController extends HttpServlet {
             String img = request.getParameter("txtImg");
 
             ConsignmentDAO dao = new ConsignmentDAO();
-            int count = dao.addConsignment(name, cid, quantity, bid, price, date, img);
+            int count = dao.updateConsignment(id, name, cid, quantity, bid, price, date, img);
             if (count > 0) {
-                request.setAttribute("message", "Add Successful");
+                request.setAttribute("message", "Update Successful");
                 request.getRequestDispatcher("/allconsignment").forward(request, response);
             } else {
-                request.setAttribute("message", "Add Failed");
+                request.setAttribute("message", "Update Failed");
                 request.getRequestDispatcher("/allconsignment").forward(request, response);
             }
         }

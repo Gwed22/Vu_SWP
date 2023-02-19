@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 com\daos\AccountDAO.class
 com\controllers\AllConsignmentController.class
+=======
+>>>>>>> 9f6198d352d5e14d2f166e99206d96bd66f2641c
 com\models\Products.class
 com\models\SecurityQuestion.class
 com\models\Order.class
@@ -10,6 +13,7 @@ com\controller\viewAllAccountController.class
 com\models\Comment.class
 com\models\SecurityAnswer.class
 com\models\ChatSession.class
+<<<<<<< HEAD
 com\controller\SearchControl.class
 com\models\Category.class
 com\models\Consignment.class
@@ -18,4 +22,10 @@ com\controller\HomeControl.class
 com\models\Role.class
 com\controller\HomeController.class
 com\controllers\AddConsignmentController.class
+=======
+com\models\Category.class
+com\models\Consignment.class
+com\DAOs\ConsignmentDAO.class
+com\models\Role.class
+>>>>>>> 9f6198d352d5e14d2f166e99206d96bd66f2641c
 com\models\Account.class
