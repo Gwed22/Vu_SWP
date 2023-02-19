@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
+        <servlet-name>AllConsignmentController</servlet-name>
+        <servlet-class>com.controllers.AllConsignmentController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchConsignmentController</servlet-name>
+        <servlet-class>com.controllers.SearchConsignmentController</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>AddConsignmentController</servlet-name>
         <servlet-class>com.controllers.AddConsignmentController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AllConsignmentController</servlet-name>
-        <servlet-class>com.controllers.AllConsignmentController</servlet-class>
+        <servlet-name>DeleteConsignmentController</servlet-name>
+        <servlet-class>com.controllers.DeleteConsignmentController</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>AddConsignmentController</servlet-name>
-        <url-pattern>/addconsignment</url-pattern>
-    </servlet-mapping>
+    <servlet>
+        <servlet-name>EditConsignmentController</servlet-name>
+        <servlet-class>com.controllers.EditConsignmentController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AllConsignmentController</servlet-name>
         <url-pattern>/allconsignment</url-pattern>
@@ -44,17 +52,25 @@
         <servlet-name>Account</servlet-name>
         <servlet-class>com.controller.viewAllAccountController</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>HomeController</servlet-name>
-        <servlet-class>com.controller.HomeController</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>Account</servlet-name>
         <url-pattern>/Account/*</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>HomeController</servlet-name>
-        <url-pattern>/</url-pattern>
+        <servlet-name>SearchConsignmentController</servlet-name>
+        <url-pattern>/searchconsignment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddConsignmentController</servlet-name>
+        <url-pattern>/addconsignment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteConsignmentController</servlet-name>
+        <url-pattern>/deleteconsignment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditConsignmentController</servlet-name>
+        <url-pattern>/editconsignment</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -62,6 +78,6 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>/</welcome-file>
+        <welcome-file>/home</welcome-file>
     </welcome-file-list>
 </web-app>

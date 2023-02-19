@@ -34,6 +34,18 @@ public class Consignment {
         this.productImg = productImg;
     }
 
+    public Consignment(int conID, String productName, int cID, int conQuantity, int brandID, float conPrice, Date importDate, String productImg) {
+        this.conID = conID;
+        this.productName = productName;
+        this.cID = cID;
+        this.conQuantity = conQuantity;
+        this.brandID = brandID;
+        this.conPrice = conPrice;
+        this.importDate = importDate;
+        this.productImg = productImg;
+    }
+
+    
     public int getConID() {
         return conID;
     }

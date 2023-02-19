@@ -68,25 +68,81 @@
         <!-- modernizr JS
                     ============================================ -->
         <script src="js1/vendor/modernizr-2.8.3.min.js"></script>
+        <style>
+            #bill-form {
+                position: fixed;
+                width: 100vw;
+                height: 100vh;
+                background-color: rgba(0, 0, 0, 0.6);
+                top: 0;
+                left: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                display: flex;
+                z-index: 999;
+            }
+            #bill-form-content {
+                padding-left: 15px;
+                width: 320px;
+                height: 160px;
+                background-color: white;
+                color: black;
+                border-radius: 5px;
+            }
+            #bill-form-content h2 {
+                font-size: 20px;
+                padding: 12px 0;
+                border-bottom: 1px solid #ddd;
+                position: relative;
+            }
+            #bill-form-content h2 span {
+                display: block;
+                position: absolute;
+                height: 30px;
+                padding: 0 6px;
+                border: 1px solid #ddd;
+                right: 12px;
+                cursor: pointer;
+                top: 50%;
+                transform: translateY(-50%);
+                line-height: 26px;
+                border-radius: 5px;
+                background-color: #1b2a47;
+                color: white;
+                font-size: 15px;
+            }
+        </style>
     </head>
 
     <body>
 
         <jsp:include page="headeradmin.jsp"></jsp:include>
-            <div class="breadcome-area">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="breadcome-list">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                        <div class="breadcomb-wp">
-                                            <div class="breadcomb-icon">
-                                                <a href="home"><i class="icon nalika-home"></i></a>
-                                            </div>
-                                            <div class="breadcomb-ctn">
-                                                <h2>Warehouse Management</h2>
-                                            </div>
+        <c:if test="${message != null}">
+            <div id="bill-form">
+                <div id="bill-form-content">
+                    <h2>Message<span id="bill-close">Close</span></h2>
+                    <br>
+                    <div class="row" style="margin: 0 5px 0 5px">
+                        <span style="font-size: 20px">${message}!</span>
+                    </div>
+                </div>
+            </div>
+        </c:if>
+        <div class="breadcome-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="breadcome-list">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <div class="breadcomb-wp">
+                                        <div class="breadcomb-icon">
+                                            <a href="home"><i class="icon nalika-home"></i></a>
+                                        </div>
+                                        <div class="breadcomb-ctn">
+                                            <h2>Warehouse Management</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -95,29 +151,30 @@
                     </div>
                 </div>
             </div>
-            <div class="product-status mg-b-30">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="product-status-wrap">
-                                <h4>Consignment List</h4>
-                                <div class="add-product">
-                                    <a href="product-add.jsp">Add Consignment</a>
-                                </div>
-                                <form role="search">
-                                    <input type="text" placeholder="Search..." class="form-control">
-                                </form>
-                                <table>
-                                    <tr>
-                                        <th>Image</th>
-                                        <th>Name</th>
-                                        <th>Category</th>
-                                        <th>Brand</th>
-                                        <th>Import cost</th>
-                                        <th>Quantity</th>
-                                        <th>Import Date</th>
-                                        <th>Setting</th>
-                                    </tr>
+        </div>
+        <div class="product-status mg-b-30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="product-status-wrap">
+                            <h4>Consignment List</h4>
+                            <div class="add-product">
+                                <a href="addconsignment">Add Consignment</a>
+                            </div>
+                            <form role="search" action="searchconsignment" method="get">
+                                <input type="text" placeholder="Search..." class="form-control" name="txtQuery">
+                            </form>
+                            <table>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Brand</th>
+                                    <th>Import cost</th>
+                                    <th>Quantity</th>
+                                    <th>Import Date</th>
+                                    <th>Setting</th>
+                                </tr>
                                 <%
                                     ResultSet rs = (ResultSet) request.getAttribute("listC");
                                     while (rs.next()) {
@@ -131,8 +188,8 @@
                                     <td><%= rs.getInt("con_quantity")%></td>
                                     <td><%= rs.getString("import_date")%></td>
                                     <td>
-                                        <a href="#"><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
-                                        <a href="#"><button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
+                                        <a href="editconsignment?id=<%= rs.getInt("con_id")%>"><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
+                                        <a href="deleteconsignment?id=<%= rs.getInt("con_id")%>" onclick="return confirm('Do you want to delete this consignment?')"><button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
                                     </td>
                                 </tr>
                                 <%
@@ -144,6 +201,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 
     <!-- jquery
@@ -190,16 +248,21 @@
                 ============================================ -->
     <script src="js1/main.js"></script>
     <script>
-        const formatter = new Intl.NumberFormat('vi-VN', {
-            style: 'currency',
-            currency: 'VND',
-            minimumFractionDigits: 0
-        })
+                                            const billclose = document.querySelector('#bill-close');
+                                            billclose.addEventListener("click", function () {
+                                                document.querySelector('#bill-form').style.display = "none";
+                                            });
 
-        var x = document.getElementsByClassName('money');
-        for (var i = 0; i < x.length; i++) {
-            x[i].innerHTML = formatter.format(x[i].innerHTML);
-        }
+                                            const formatter = new Intl.NumberFormat('vi-VN', {
+                                                style: 'currency',
+                                                currency: 'VND',
+                                                minimumFractionDigits: 0
+                                            })
+
+                                            var x = document.getElementsByClassName('money');
+                                            for (var i = 0; i < x.length; i++) {
+                                                x[i].innerHTML = formatter.format(x[i].innerHTML);
+                                            }
     </script>
 </body>
 
