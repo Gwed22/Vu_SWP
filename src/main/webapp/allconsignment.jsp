@@ -6,6 +6,7 @@
 
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -72,19 +73,20 @@
     <body>
 
         <jsp:include page="headeradmin.jsp"></jsp:include>
-        <div class="breadcome-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="breadcome-list">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                    <div class="breadcomb-wp">
-                                        <div class="breadcomb-icon">
-                                            <a href="home"><i class="icon nalika-home"></i></a>
-                                        </div>
-                                        <div class="breadcomb-ctn">
-                                            <h2>Warehouse Management</h2>
+            <div class="breadcome-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="breadcome-list">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <div class="breadcomb-wp">
+                                            <div class="breadcomb-icon">
+                                                <a href="home"><i class="icon nalika-home"></i></a>
+                                            </div>
+                                            <div class="breadcomb-ctn">
+                                                <h2>Warehouse Management</h2>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -93,44 +95,49 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="product-status mg-b-30">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="product-status-wrap">
-                            <h4>Consignment List</h4>
-                            <div class="add-product">
-                                <a href="product-add.jsp">Add Consignment</a>
-                            </div>
-                            <form role="search" class="">
-                                <input type="text" placeholder="Search..." class="form-control">
-                            </form>
-                            <table>
+            <div class="product-status mg-b-30">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="product-status-wrap">
+                                <h4>Consignment List</h4>
+                                <div class="add-product">
+                                    <a href="product-add.jsp">Add Consignment</a>
+                                </div>
+                                <form role="search">
+                                    <input type="text" placeholder="Search..." class="form-control">
+                                </form>
+                                <table>
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Name</th>
+                                        <th>Category</th>
+                                        <th>Brand</th>
+                                        <th>Import cost</th>
+                                        <th>Quantity</th>
+                                        <th>Import Date</th>
+                                        <th>Setting</th>
+                                    </tr>
+                                <%
+                                    ResultSet rs = (ResultSet) request.getAttribute("listC");
+                                    while (rs.next()) {
+                                %>
                                 <tr>
-                                    <th>Image</th>
-                                    <th>Name</th>
-                                    <th>Category</th>
-                                    <th>Brand</th>
-                                    <th>Import cost</th>
-                                    <th>Quantity</th>
-                                    <th>Import Date</th>
-                                    <th>Setting</th>
-                                </tr>
-                                <tr>
-                                    <td><img src="https://product.hstatic.net/1000026716/product/in3520nt-cnb-00060lb055-bk_b97c424017ec470bb03ed47b13fabd99.png"/></td>
-                                    <td>Dell Vostro 14 3000</td>
-                                    <td>Lapton</td>
-                                    <td>DELL</td>
-                                    <td>11000000</td>
-                                    <td>200</td>
-                                    <td>17-02-2023</td>
+                                    <td><img src="<%= rs.getString("product_img")%>"/></td>
+                                    <td><%= rs.getString("product_name")%></td>
+                                    <td><%= rs.getString("c_name")%></td>
+                                    <td><%= rs.getString("brand_name")%></td>
+                                    <td class="money"><%= rs.getFloat("con_price")%></td>
+                                    <td><%= rs.getInt("con_quantity")%></td>
+                                    <td><%= rs.getString("import_date")%></td>
                                     <td>
                                         <a href="#"><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
                                         <a href="#"><button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
                                     </td>
                                 </tr>
-
+                                <%
+                                    }
+                                %>
                             </table>
                         </div>
                     </div>
@@ -182,6 +189,18 @@
     <!-- main JS
                 ============================================ -->
     <script src="js1/main.js"></script>
+    <script>
+        const formatter = new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND',
+            minimumFractionDigits: 0
+        })
+
+        var x = document.getElementsByClassName('money');
+        for (var i = 0; i < x.length; i++) {
+            x[i].innerHTML = formatter.format(x[i].innerHTML);
+        }
+    </script>
 </body>
 
 </html>

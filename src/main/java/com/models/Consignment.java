@@ -19,18 +19,19 @@ public class Consignment {
     private int brandID;
     private float conPrice;
     private Date importDate;
+    private String productImg;
 
     public Consignment() {
     }
 
-    public Consignment(int conID, String productName, int cID, int conQuantity, int brandID, float conPrice, Date importDate) {
-        this.conID = conID;
+    public Consignment(String productName, int cID, int conQuantity, int brandID, float conPrice, Date importDate, String productImg) {
         this.productName = productName;
         this.cID = cID;
         this.conQuantity = conQuantity;
         this.brandID = brandID;
         this.conPrice = conPrice;
         this.importDate = importDate;
+        this.productImg = productImg;
     }
 
     public int getConID() {
@@ -87,6 +88,14 @@ public class Consignment {
 
     public void setImportDate(Date importDate) {
         this.importDate = importDate;
+    }
+
+    public String getProductImg() {
+        return productImg;
+    }
+
+    public void setProductImg(String productImg) {
+        this.productImg = productImg;
     }
 
     @Override
