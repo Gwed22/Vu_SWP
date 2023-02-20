@@ -66,7 +66,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>Order</servlet-name>
-        <servlet-class>com.controller.viewAllOrderController</servlet-class>
+        <servlet-class>com.controllers.viewAllOrderController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Order</servlet-name>
