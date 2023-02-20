@@ -119,5 +119,24 @@ public class AccountDAO {
         }
         return count;
     }
+   
 
+   public Account checkLogin(String phone, String password) {
+        ResultSet rs = null;
+
+        try {
+            PreparedStatement pst = conn.prepareStatement(" select * from Account where phone=? and password=?");
+            pst.setString(1, phone);
+            pst.setString(2, password);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                Account ac = new Account(rs.getInt("account_id"),rs.getString("full_name"),  rs.getString("phone"), rs.getString("password"), rs.getString("gender"), rs.getString("address"), rs.getInt("sq_id"), rs.getInt("role_id"));
+                return ac;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+               return null;
+    }
 }
+

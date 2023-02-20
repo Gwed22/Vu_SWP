@@ -58,8 +58,6 @@
                 object-fit: cover;
             }
 
-
-
             .cardbody-color{
                 background-color: #ebf2fa;
             }
@@ -70,7 +68,9 @@
         </style>
     </head>
     <body>
-
+        <%
+            if (session.getAttribute("login") == null) {
+        %>
         <div class="container">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
@@ -79,7 +79,7 @@
 
                     <div class="card my-auto">
 
-                        <form class="card-body cardbody-color p-lg-5" action="account" method="post">
+                        <form class="card-body cardbody-color p-lg-5" action="/Login" method="post">
 
                             <div class="mb-3">
                                 <input type="text" class="form-control" id="phone" aria-describedby="numberPhone"
@@ -87,42 +87,34 @@
                             </div>
 
                             <div class="mb-3">
-                                <input type="password" class="form-control" id="password" placeholder="Password" name="pass" >
+                                <input type="password" class="form-control" id="password" placeholder="Password" name="password" >
                             </div>
-                            <%
-                                if (session.getAttribute("notLogin") != null) {
-                            %>
+
                             <div class="mb-3" style="display: none">
                                 <input type="text" class="form-control" name="a" value="allproduct">
                             </div>
-                            <%
-                            } else {
-                            %>
+
                             <div class="mb-3" style="display: none">
                                 <input type="text" class="form-control" name="a" value="home">
                             </div>
-                            <%
-                                }
 
-                            %>
                             <p class="text-danger">${mess}</p>
-                            <div class="text-center"><button type="submit" class="btn btn-color px-5 mb-5 w-100" name="btnLogin">Login</button></div>
+                            <div class="text-center"><button type="submit" class="btn btn-color px-5 mb-5 w-100" name="submit">Login</button></div>
                             <div id="emailHelp" class="form-text text-center mb-5 text-dark"> <a href="/forgotpassword.jsp" class="text-dark fw-bold"> Forgot Password</a>
                             </div>
                             <div id="emailHelp" class="form-text text-center mb-5 text-dark">Not
                                 Registered? <a href="/register" class="text-dark fw-bold"> Create an
                                     Account</a>
                             </div>
-
                         </form>
-
                     </div>
-
                 </div>
             </div>
-
         </div>
-
+        <%    } else {
+                response.sendRedirect("login.jsp");
+            }
+        %>
     </body>
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>

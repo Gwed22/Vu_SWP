@@ -4,8 +4,8 @@ com\models\Products.class
 com\models\SecurityQuestion.class
 com\models\Order.class
 com\models\Sale.class
-com\db\DBConnection.class
 com\models\OrderItem.class
+com\controller\LoginController.class
 com\controllers\DeleteConsignmentController.class
 com\models\Brand.class
 com\controller\viewAllAccountController.class
