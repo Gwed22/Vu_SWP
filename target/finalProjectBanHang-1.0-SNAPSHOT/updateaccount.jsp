@@ -92,7 +92,7 @@
         </div>
         <div id="myCarousel" class="carousel slide banner-main col-xl-9 col-lg-10 col-md-12 co-sm-11" data-ride="carousel">
             <div class="carousel-inner">
-                <form method="post" action="/Account/Updatea">
+                <form method="post" action="/Account/Update">
                     <%
                         Account acc = (Account) session.getAttribute("acc_info");
                     %>

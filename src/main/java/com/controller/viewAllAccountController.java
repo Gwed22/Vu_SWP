@@ -73,7 +73,7 @@ public class viewAllAccountController extends HttpServlet {
                 String[] s = path.split("/");
                 String acc_id = s[s.length - 1];
                 AccountDAO dao = new AccountDAO();
-                Account acc = dao.getAccountByID(acc_id);
+                Account acc = dao.getAccountByID(Integer.parseInt(acc_id));
                 if (acc == null) {
                     response.sendRedirect("/Account");
                 } else {
@@ -90,7 +90,7 @@ public class viewAllAccountController extends HttpServlet {
                 String[] s = path.split("/");
                 String acc_id = s[s.length - 1];
                 AccountDAO dao = new AccountDAO();
-                Account acc = dao.getAccountByID(acc_id);
+                Account acc = dao.getAccountByID(Integer.parseInt(acc_id));
                 dao.deleteAccount(acc_id);
                 response.sendRedirect("/Account");
             } catch (SQLException ex) {
