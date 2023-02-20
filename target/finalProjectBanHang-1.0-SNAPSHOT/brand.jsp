@@ -60,34 +60,35 @@
                 <c:set var="bid" value="${requestScope.bid}" />
                 <ul class="menu">
                     <li><a class="${bid==0?"active":""}" href="allproduct?bid=${0}">ALL</a></li>
-                    <c:forEach items="${brand}" var="b">
-                    <li style="color: black;"><a class="${bid==bid?"active":""}" href="allproduct?bid=${b.getBrandID()}">${b.brandName}</a></li>
-                    </c:forEach>
+                        <c:forEach items="${brand}" var="b">
+                        <li style="color: black;"><a class="${bid==bid?"active":""}" href="allproduct?bid=${b.getBrandID()}">${b.brandName}</a></li>
+                        </c:forEach>
                 </ul>
 
             </div>
             <div class="brand-bg row">
+                <c:set var="pp" value="${requestScope.pp}" />
+                <c:set var="pb" value="${requestScope.pb}" />
                 <div class="tab-left col-xl-2" style="margin-left: 50px;">
-                    <ul class="tab-left-item">
-                        <li>Tang Dan</li>
-                        <li>Giam Dan</li>
-                        <li>Moi nhat</li>
-                        <li>Cu nhat</li>
-                        <li>Best seller</li>
+                    <form action="#" style="font-size: 20px;" id="f2">
+                        <input id="g0" type="checkbox" name="price" ${pb[0]?"checked":""} value="0" onclick="setCheck(this)" /> All<br/>
+                        <c:forEach begin="0" end="${1}" var="i">
+                            <input type="checkbox" name="cid" ${pb[i+1]?"checked":""} value="${(i+1)}" onclick="setCheck(this)" > ${pp[i]}<br/>
+                        </c:forEach>
 
-                    </ul>
+                    </form>
                 </div>
                 <div class="container">
                     <div class="row">
                         <c:forEach items="${listP}" var="o">
-                        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 margin">
-                            <div class="brand_box">
-                                <a href="productdetail.jsp"><img class="img" src="${o.getProductImg()}" alt="img" /></a>
-                                <span>${o.getProductName()}</span>
-                                <h3>$<strong >${o.getProductPrice()}</strong></h3>
-                                <a href="order?pid=${o.getProductID()}" class="btn btn-main">Buy now</a>
+                            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 margin">
+                                <div class="brand_box">
+                                    <a href="productdetail.jsp"><img class="img" src="${o.getProductImg()}" alt="img" /></a>
+                                    <span>${o.getProductName()}</span>
+                                    <h3>$<strong >${o.getProductPrice()}</strong></h3>
+                                    <a href="order?pid=${o.getProductID()}" class="btn btn-main">Buy now</a>
+                                </div>
                             </div>
-                        </div>
                         </c:forEach>
                     </div>
 
@@ -113,20 +114,36 @@
         <script src="js/owl.carousel.js"></script>
         <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
         <script>
-            $(document).ready(function () {
-                $(".fancybox").fancybox({
-                    openEffect: "none",
-                    closeEffect: "none"
-                });
+                                $(document).ready(function () {
+                                    $(".fancybox").fancybox({
+                                        openEffect: "none",
+                                        closeEffect: "none"
+                                    });
 
-                $(".zoom").hover(function () {
+                                    $(".zoom").hover(function () {
 
-                    $(this).addClass('transition');
-                }, function () {
+                                        $(this).addClass('transition');
+                                    }, function () {
 
-                    $(this).removeClass('transition');
-                });
-            });
+                                        $(this).removeClass('transition');
+                                    });
+                                });
+                                function setCheck(obj) {
+                                    var fries = document.getElementsByName('price');
+                                    if (obj.id === 'g0' && fries[0].checked === true) {
+                                        for (var i = 1; i < fries.length; i++) {
+                                            fries[0].checked === false;
+                                        }
+                                    } else {
+                                        for (var i = 1; i < fries.length; i++) {
+                                            if (fries[i].checked === true) {
+                                                fries[0].checked === false;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    document.getElementById('f2').submit();
+                                }
         </script>
     </body>
 

@@ -17,9 +17,9 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <!-- bootstrap css -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="css/style5.css">
+        <link rel="stylesheet" href="./css/style5.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
@@ -48,11 +48,9 @@
             <div class="slider_section row">
                 <div class="menu-left col-xl-2 col-lg-12 col-md-12 co-sm-11 ">
                     <ol class="nav-menu-left ">
-                        <li class="header-menu"><span class="content-menu">LIST</span><i class="fa fa-bars" aria-hidden="true" style="color: white"></i></li>
+                        <li class="header-menu"><i class="fa fa-bars" aria-hidden="true" style="color: white; margin-left: 10px;"></i><span class="content-menu">LIST</span></li>
                         <li class="list-menu"><i class="fa fa-desktop" aria-hidden="true"></i><a href="#">PC</a></li>
-
-                        <li class="list-menu"><i class="fa fa-laptop" aria-hidden="true"></i><a href="#">LAPTOP </a> </li>
-
+                        <li class="list-menu"><i class="fa fa-laptop" aria-hidden="true"></i><a href="#">LAPTOP</a> </li>
                         <li class="list-menu"><i class="fa fa-mouse-pointer" aria-hidden="true"></i><a href="#"> MOUSE</a></li>
                         <li class="list-menu"><i class="fa fa-keyboard-o" aria-hidden="true"></i><a href="#">KEYBOARD</a></li>
                         <li class="list-menu"><i class="fa fa-headphones" aria-hidden="true"></i><a href="#"> HEADPHONE</a></li>
@@ -120,7 +118,6 @@
                     </a>
                 </div>
             </div>
-
             <!-- about -->
             <div class="about">
                 <div class="container titlepage">
