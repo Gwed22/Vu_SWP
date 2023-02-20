@@ -12,17 +12,17 @@ public class OrderItem {
 
     private int orderItemID;
     private int orderID;
-    private int productID;
+    private int conID;
     private int pPrice;
     private int quantity;
 
     public OrderItem() {
     }
 
-    public OrderItem(int orderItemID, int orderID, int productID, int pPrice, int quantity) {
+    public OrderItem(int orderItemID, int orderID, int conID, int pPrice, int quantity) {
         this.orderItemID = orderItemID;
         this.orderID = orderID;
-        this.productID = productID;
+        this.conID = conID;
         
         this.pPrice = pPrice;
         this.quantity = quantity;
@@ -53,12 +53,12 @@ public class OrderItem {
         this.orderID = orderID;
     }
 
-    public int getProductID() {
-        return productID;
+    public int getConID() {
+        return conID;
     }
 
-    public void setProductID(int productID) {
-        this.productID = productID;
+    public void setConID(int conID) {
+        this.conID = conID;
     }
 
   

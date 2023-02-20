@@ -10,7 +10,6 @@ package com.models;
  */
 public class Products {
 
-    private int productID;
     private int conID;
     private float productPrice;
     private String poductDesc;
@@ -23,8 +22,7 @@ public class Products {
 
     
 
-    public Products(int productID, int conID, float productPrice, String poductDesc, String productName, String productImg) {
-        this.productID = productID;
+    public Products(int conID, float productPrice, String poductDesc, String productName, String productImg) {
         this.conID = conID;
         this.productPrice = productPrice;
         this.poductDesc = poductDesc;
@@ -46,15 +44,6 @@ public class Products {
 
     public void setProductImg(String productImg) {
         this.productImg = productImg;
-    }
-    
-     
-    public int getProductID() {
-        return productID;
-    }
-
-    public void setProductID(int productID) {
-        this.productID = productID;
     }
 
     public int getConID() {
@@ -83,7 +72,7 @@ public class Products {
 
     @Override
     public String toString() {
-        return "Products{" + "productID=" + productID + ", conID=" + conID + ", productPrice=" + productPrice + ", poductDesc=" + poductDesc + ", productName=" + productName + ", productImg=" + productImg + '}';
+        return "Products{" + "conID=" + conID + ", productPrice=" + productPrice + ", poductDesc=" + poductDesc + ", productName=" + productName + ", productImg=" + productImg + '}';
     }
 
     

@@ -56,10 +56,10 @@ public class ProductDAO {
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new Products(rs.getInt(1), rs.getInt(2), rs.getFloat(3),
-                        rs.getString(4),
-                        rs.getString(5),
-                        rs.getString(6)));
+//                list.add(new Products(rs.getInt(1), rs.getInt(2), rs.getFloat(3),
+//                        rs.getString(4),
+//                        rs.getString(5),
+//                        rs.getString(6)));
             }
         } catch (Exception e) {
             System.out.println("Not found emptity");
@@ -81,10 +81,10 @@ public class ProductDAO {
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new Products(rs.getInt(1), rs.getInt(2), rs.getFloat(3),
-                        rs.getString(4),
-                        rs.getString(5),
-                        rs.getString(6)));
+//                list.add(new Products(rs.getInt(1), rs.getInt(2), rs.getFloat(3),
+//                        rs.getString(4),
+//                        rs.getString(5),
+//                        rs.getString(6)));
             }
         } catch (Exception e) {
             System.out.println("Not found emptity");
@@ -104,10 +104,10 @@ public class ProductDAO {
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new Products(rs.getInt(1), rs.getInt(2), rs.getFloat(3),
-                        rs.getString(4),
-                        rs.getString(5),
-                        rs.getString(6)));
+//                list.add(new Products(rs.getInt(1), rs.getInt(2), rs.getFloat(3),
+//                        rs.getString(4),
+//                        rs.getString(5),
+//                        rs.getString(6)));
             }
         } catch (Exception e) {
             System.out.println("Not found emptity");
@@ -128,10 +128,10 @@ public class ProductDAO {
             ps.setString(1, "%" + txtSearch + "%");
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new Products(rs.getInt(1), rs.getInt(2), rs.getFloat(3),
-                        rs.getString(4),
-                        rs.getString(5),
-                        rs.getString(6)));
+//                list.add(new Products(rs.getInt(1), rs.getInt(2), rs.getFloat(3),
+//                        rs.getString(4),
+//                        rs.getString(5),
+//                        rs.getString(6)));
             }
         } catch (Exception e) {
             System.out.println("Not found emptity");
