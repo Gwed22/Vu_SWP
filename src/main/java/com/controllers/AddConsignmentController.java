@@ -4,7 +4,7 @@
  */
 package com.controllers;
 
-import com.daos.ConsignmentDAO;
+import com.dao.ConsignmentDAO;
 import com.models.Brand;
 import com.models.Category;
 import java.io.IOException;

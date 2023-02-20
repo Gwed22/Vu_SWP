@@ -4,7 +4,7 @@
  */
 package com.controller;
 
-import com.daos.OrderDAO;
+import com.dao.OrderDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
