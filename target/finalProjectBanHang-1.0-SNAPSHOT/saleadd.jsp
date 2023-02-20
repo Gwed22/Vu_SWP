@@ -6,6 +6,7 @@
 
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -118,13 +119,17 @@
                                 </ul>
                                 <div id="myTabContent" class="tab-content custom-product-edit">
                                     <div class="product-tab-list tab-pane fade active in" id="description">
-                                        <form action="addsale" method="post">
+                                        <form action="AddSale" method="post">
                                             <div class="row">
                                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                     <div class="review-content-section">
                                                         <div class="input-group mg-b-pro-edt">
                                                             <label>Product Name</label>
-                                                            <input type="text" class="form-control" placeholder="Product Name" name="txtProductName">
+                                                            <select name="txtConID" class="form-control pro-edt-select form-control-primary">
+                                                                <c:forEach items="${listCon}" var="con">
+                                                                    <option value="${con.getConID}">${con.getProductName()}</option>
+                                                                </c:forEach>
+                                                            </select>
                                                         </div>
                                                         <div class="input-group mg-b-pro-edt">
                                                             <label>Sale Start Date</label>>
@@ -149,6 +154,9 @@
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                     <div class="text-right custom-pro-edt-ds">
                                                         <button type="submit" name="btnAdd" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Add</button>
+                                                    </div>
+                                                    <div class="text-right custom-pro-edt-ds">
+                                                        <button type="reset" name="btnClear" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Clear</button>
                                                     </div>
                                                 </div>
                                             </div>

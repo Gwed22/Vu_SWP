@@ -5,9 +5,10 @@
 --%>
 
 <%@page import="com.models.Order"%>
-<%@page import="com.daos.OrderDAO"%>
+<%@page import="com.dao.OrderDAO"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="or" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -113,23 +114,20 @@
                                     <form method="post" action="/Order/Update">
                                         <div id="myTabContent" class="tab-content custom-product-edit">
                                             <div class="product-tab-list tab-pane fade active in" id="description">
-                                            <%
-                                                Order or = (Order) session.getAttribute("or_info");
-                                            %>
                                             <div class="row">
                                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                     <div class="review-content-section">
                                                         <div class="input-group mg-b-pro-edt" style="display: none">
                                                             <span class="input-group-addon"><i class="icon nalika-edit" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control" name="o_id" value="<%= or.getOrderID()%>"  readonly style="color: black">
+                                                            <input type="text" class="form-control" name="o_id" value="${or.getOrderID()}"  readonly style="color: black">
                                                         </div>
                                                         <div class="input-group mg-b-pro-edt" style="display: none">
                                                             <span class="input-group-addon"><i class="icon nalika-edit" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control"  name="o_date" value="<%= or.getOrderDate()%>"  readonly style="color: black">
+                                                            <input type="text" class="form-control"  name="o_date" value="${or.getOrderDate()}"  readonly style="color: black">
                                                         </div>
                                                         <div class="input-group mg-b-pro-edt">
                                                             <span class="input-group-addon"><i class="icon nalika-favorites" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control" value="<%= or.getDeliveryDate()%>" name="delivery_date" >
+                                                            <input type="text" class="form-control" value="${or.getDeliveryDate()}" name="delivery_date" >
                                                         </div>
                                                     </div>
                                                 </div>
@@ -137,19 +135,19 @@
                                                     <div class="review-content-section">
                                                         <div class="input-group mg-b-pro-edt" style="display: none">
                                                             <span class="input-group-addon"><i class="icon nalika-new-file" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control" placeholder="status" value="<%= or.getStatus()%>" name="status"  readonly style="color: black">
+                                                            <input type="text" class="form-control" placeholder="status" value="${or.getStatus()}" name="status"  readonly style="color: black">
                                                         </div>
                                                         <div class="input-group mg-b-pro-edt" style="display: none">
                                                             <span class="input-group-addon"><i class="icon nalika-new-file" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control" placeholder="note" name="note" value="<%= or.getNote()%>" readonly style="color: black">
+                                                            <input type="text" class="form-control" placeholder="note" name="note" value="${or.getNote()}" readonly style="color: black">
                                                         </div>
                                                         <div class="input-group mg-b-pro-edt" style="display: none">
                                                             <span class="input-group-addon"><i class="icon nalika-favorites-button" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control" placeholder="account_id" name="account_id" value="<%= or.getAccountID()%>" readonly style="color: black">
+                                                            <input type="text" class="form-control" placeholder="account_id" name="account_id" value="${or.getAccountID()}" readonly style="color: black">
                                                         </div>
                                                         <div class="input-group mg-b-pro-edt" style="display: none">
                                                             <span class="input-group-addon"><i class="icon nalika-favorites-button" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control" placeholder="account_id" name="address" value="<%= or.getAddress()%>" readonly style="color: black">
+                                                            <input type="text" class="form-control" placeholder="account_id" name="address" value="${or.getAddress()}" readonly style="color: black">
                                                         </div>
                                                     </div>
                                                 </div>
