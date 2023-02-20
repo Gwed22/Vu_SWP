@@ -1,10 +1,11 @@
 <%-- 
     Document   : product-list
     Created on : Oct 28, 2022, 11:41:24 PM
-    Author     : DELL
+    Author     : DELL 
 --%>
 
-<%@page import="com.dao.OrderDAO"%>
+<%@page import="com.daos.OrderDAO"%>
+<%@page import="com.models.Order"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
@@ -98,7 +99,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
             <div class="product-status mg-b-30">
                 <div class="container-fluid">
                     <div class="row">
@@ -110,28 +110,30 @@
                                         <th>Order ID</th>
                                         <th>Order Date</th>
                                         <th>Shipping Date</th>
-                                        <th>Shipping Address</th>
-                                        <th>Customer ID</th>
-                                        <th>Product ID</th>
-                                        <th>Quantity</th>
-                                        <th>Setting</th>
+                                        <th>Status</th>
+                                        <th>Note</th>
+                                        <th>Account ID</th>
+                                        <th>Address</th>
                                     </tr>
                                     <%
                                         OrderDAO dao = new OrderDAO();
-                                        ResultSet rs = dao.getAll();
+                                        ResultSet rs = dao.getAllOrder();
                                         while (rs.next()) {
                                     %>
                                     <tr>
-                                        <td><%= rs.getInt("OrderID")%></td>
-                                        <td><%= rs.getDate("OrderDate")%></td>
-                                        <td><%= rs.getDate("ShippingDate")%></td>
-                                        <td><%= rs.getString("ShippingAddress")%></td>
-                                        <td><%= rs.getString("UserName")%></td>
-                                        <td><%= rs.getString("ProductName")%></td>
-                                        <td><%= rs.getInt("Quantity")%></td>
+                                        <td><%= rs.getInt("o_id")%></td>
+                                        <td><%= rs.getDate("o_date")%></td>
+                                        <td><%= rs.getDate("delivery_date")%></td>
+                                        <td><%= rs.getString("status")%></td>
+                                        <td><%= rs.getString("note")%></td>
+                                        <td><%= rs.getInt("account_id")%></td>
+                                        <td><%= rs.getString("address")%></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                         <td>
-                                            <a href="/orderedit?id=<%= rs.getInt("OrderID")%>"><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
-                                            <a href="/order?oid=<%= rs.getInt("OrderID")%>"><button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
+                                            <a href="/Order/Update/<%= rs.getInt("o_id")%>"><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
+                                            <a href="/Order/Delete/<%= rs.getInt("o_id")%>"><button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
                                         </td>
                                     </tr>
                                     <%
@@ -147,8 +149,6 @@
             <div class="footer-copyright-area">
 
             </div>
-        </div>
-
         <!-- jquery
                     ============================================ -->
         <script src="js1/vendor/jquery-1.12.4.min.js"></script>
