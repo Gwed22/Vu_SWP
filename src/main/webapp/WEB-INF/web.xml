@@ -2,7 +2,7 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>LoginController</servlet-name>
-        <servlet-class>com.controller.LoginController</servlet-class>
+        <servlet-class>com.controllers.LoginController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -34,15 +34,15 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>AllProductControl</servlet-name>
-        <servlet-class>com.controller.AllProductControl</servlet-class>
+        <servlet-class>com.controllers.AllProductControl</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SearchControl</servlet-name>
-        <servlet-class>com.controller.SearchControl</servlet-class>
+        <servlet-class>com.controllers.SearchControl</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>HomeControl</servlet-name>
-        <servlet-class>com.controller.HomeControl</servlet-class>
+        <servlet-class>com.controllers.HomeControl</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AllProductControl</servlet-name>
@@ -58,15 +58,15 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>Account</servlet-name>
-        <servlet-class>com.controller.viewAllAccountController</servlet-class>
+        <servlet-class>com.controllers.viewAllAccountController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Account</servlet-name>
         <url-pattern>/Account/*</url-pattern>
     </servlet-mapping>
-        <servlet>
+    <servlet>
         <servlet-name>Order</servlet-name>
-        <servlet-class>com.controller.viewAllOrderController</servlet-class>
+        <servlet-class>com.controllers.viewAllOrderController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Order</servlet-name>
@@ -93,7 +93,7 @@
             30
         </session-timeout>
     </session-config>
-        <welcome-file-list>
+    <welcome-file-list>
         <welcome-file>home</welcome-file>
     </welcome-file-list>
 </web-app>

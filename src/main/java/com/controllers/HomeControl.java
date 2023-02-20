@@ -2,23 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package com.controller;
+package com.controllers;
 
-import com.dao.ProductDAO;
-import com.models.Products;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.List;
 
 /**
  *
  * @author PC
  */
-public class SearchControl extends HttpServlet {
+public class HomeControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,10 +34,10 @@ public class SearchControl extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet SearchControl</title>");            
+            out.println("<title>Servlet HomeControl</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet SearchControl at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet HomeControl at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -58,11 +55,7 @@ public class SearchControl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         String txtSearch = request.getParameter("txtName");
-        ProductDAO dao = new ProductDAO();
-        List<Products> list = dao.searchByName(txtSearch);
-        request.setAttribute("listP", list);
-        request.getRequestDispatcher("/brand.jsp").forward(request, response);
+        request.getRequestDispatcher("home.jsp").forward(request, response);
     }
 
     /**

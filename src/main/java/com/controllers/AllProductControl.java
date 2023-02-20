@@ -2,20 +2,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package com.controller;
+package com.controllers;
 
+import com.dao.ProductDAO;
+import com.models.Brand;
+import com.models.Products;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  *
  * @author PC
  */
-public class HomeControl extends HttpServlet {
+public class AllProductControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,10 +38,10 @@ public class HomeControl extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet HomeControl</title>");
+            out.println("<title>Servlet AllProductControl</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet HomeControl at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet AllProductControl at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -55,7 +59,26 @@ public class HomeControl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("home.jsp").forward(request, response);
+        ProductDAO dao = new ProductDAO();
+        List<Products> listP = dao.getAllProduct();
+        request.setAttribute("listP", listP);
+        List<Brand> list = dao.getAllBrand();
+        String[] pp = {"Price: Increase",
+            "Price: Decrease"};
+        boolean[] pb = new boolean[pp.length + 1];
+        pb[0] = true;
+        List<Products> incre = dao.getIncre();
+        List<Products> decre = dao.getDecre();
+        boolean[] child = new boolean[list.size() + 1];
+        child[0] = true;
+        request.setAttribute("data", list);
+        request.setAttribute("incre", incre);
+        request.setAttribute("decre", decre);
+        request.setAttribute("pp", pp);
+        request.setAttribute("pb", pb);
+        request.setAttribute("bid", 0);
+        request.setAttribute("child", child);
+        request.getRequestDispatcher("brand.jsp").forward(request, response);
     }
 
     /**
