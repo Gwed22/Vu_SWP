@@ -70,7 +70,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>Order</servlet-name>
-        <url-pattern>/Order/*</url-pattern>
+        <url-pattern>/order</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SearchConsignmentController</servlet-name>

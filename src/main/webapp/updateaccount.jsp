@@ -1,4 +1,4 @@
-<%@page import="com.daos.AccountDAO"%>
+<%@page import="com.dao.AccountDAO"%>
 <%@page import="com.models.Account"%>
 <!DOCTYPE html>
 <html>
@@ -173,12 +173,12 @@
                                         <i class="fa fa-gears"></i>
                                     </div>
                                 </div>
-                                <select id="role" class="form-control">
+                                <select name="role_id" id="role_id" class="form-control">
                                     <option selected><%=acc.getRole_id()%></option>
-                                    <option>...</option>
-                                    <option>...</option>
-                                    <option>...</option>
-                                    <option>...</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
                                 </select>
                             </div>
                             <span id="roleHelpBlock" class="form-text text-danger"></span>
@@ -195,12 +195,12 @@
                                         <i class="fa fa-gears"></i>
                                     </div>
                                 </div>
-                                <select id="sq" class="form-control">
+                                <select id="sq_id" name="sq_id" class="form-control">
                                     <option selected><%=acc.getSq_id()%></option>
-                                    <option>...</option>
-                                    <option>...</option>
-                                    <option>...</option>
-                                    <option>...</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
                                 </select>
                             </div>
                             <span id="sqHelpBlock" class="form-text text-danger"></span>

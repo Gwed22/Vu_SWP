@@ -67,6 +67,21 @@ public class viewAllAccountController extends HttpServlet {
             request.getRequestDispatcher("/viewallaccount.jsp").forward(request, response);
         } else if (path.endsWith("/Account/Add")) {
             request.getRequestDispatcher("/addaccount.jsp").forward(request, response);
+        } else if (path.startsWith("/Account/Search")) {
+            try {
+                String query = request.getParameter("query");
+                AccountDAO dao = new AccountDAO();
+                ResultSet rs = dao.getSearchAccount(query);
+                if (rs == null) {
+                    request.getRequestDispatcher("/viewallaccount.jsp").forward(request, response);
+                } else {
+                    HttpSession session = request.getSession();
+                    session.setAttribute("search", rs);
+                    request.getRequestDispatcher("/searchaccount.jsp").forward(request, response);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(viewAllAccountController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else if (path.startsWith("/Account/Update/")) {
             try {
                 ///KhachHang/Edit/123 => viewAllAccountController, Edit, 123
@@ -86,12 +101,11 @@ public class viewAllAccountController extends HttpServlet {
             }
         } else if (path.startsWith("/Account/Delete")) {
             try {
-                // /KhachHang/Edit/123 => viewAllAccountController, Edit, 123
                 String[] s = path.split("/");
                 String acc_id = s[s.length - 1];
                 AccountDAO dao = new AccountDAO();
                 Account acc = dao.getAccountByID(Integer.parseInt(acc_id));
-                dao.deleteAccount(acc_id);
+                dao.deleteAccount(Integer.parseInt(acc_id));
                 response.sendRedirect("/Account");
             } catch (SQLException ex) {
                 Logger.getLogger(viewAllAccountController.class.getName()).log(Level.SEVERE, null, ex);
@@ -115,8 +129,8 @@ public class viewAllAccountController extends HttpServlet {
                 AccountDAO dao = new AccountDAO();
                 //Them moi
                 String acc_id = request.getParameter("id");
-                int sq_id = 1;
-                int role_id = 1;
+                int sq_id = Integer.parseInt(request.getParameter("sq_id"));
+                int role_id = Integer.parseInt(request.getParameter("role_id"));
                 String full_name = request.getParameter("username");
                 String phone = request.getParameter("phone");
                 String gender = request.getParameter("rdoGD");
@@ -141,8 +155,8 @@ public class viewAllAccountController extends HttpServlet {
             try {
                 //doi moi
                 String acc_id = request.getParameter("id");
-                int sq_id = 1;
-                int role_id = 1;
+                int sq_id = Integer.parseInt(request.getParameter("sq_id"));
+                int role_id = Integer.parseInt(request.getParameter("role_id"));
                 String full_name = request.getParameter("username");
                 String phone = request.getParameter("phone");
                 String gender = request.getParameter("rdoGD");

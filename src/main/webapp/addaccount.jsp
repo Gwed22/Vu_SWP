@@ -3,7 +3,7 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>
-<%@page import="com.daos.AccountDAO"%>
+<%@page import="com.dao.AccountDAO"%>
 <%@page import="com.models.Account"%>
 <!DOCTYPE html>
 <html>
@@ -98,7 +98,7 @@
             <div class="carousel-inner">
                 <form method="post" action="/Account/Add">
                     <%AccountDAO dao = new AccountDAO();
-                        int count = dao.getCountAccount()+10;%>
+                        int count = dao.getCountAccount()+4;%>
                     <div class="form-group row" id="Form1">
                         <div class="col-lg-2"></div>
                         <label class="col-2 col-form-label" for="id">Account ID</label>
@@ -176,12 +176,11 @@
                                         <i class="fa fa-gears"></i>
                                     </div>
                                 </div>
-                                <select id="role" class="form-control">
-                                    <option selected>Choose role ID</option>
-                                    <option>...</option>
-                                    <option>...</option>
-                                    <option>...</option>
-                                    <option>...</option>
+                                <select name="role_id" id="role_id" class="form-control">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
                                 </select>
                             </div>
                             <span id="roleHelpBlock" class="form-text text-danger"></span>
@@ -198,12 +197,11 @@
                                         <i class="fa fa-gears"></i>
                                     </div>
                                 </div>
-                                <select id="sq" class="form-control">
-                                    <option selected>Choose Security ID</option>
-                                    <option>...</option>
-                                    <option>...</option>
-                                    <option>...</option>
-                                    <option>...</option>
+                                <select name="sq_id" id="sq_id" class="form-control">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
                                 </select>
                             </div>
                             <span id="sqHelpBlock" class="form-text text-danger"></span>

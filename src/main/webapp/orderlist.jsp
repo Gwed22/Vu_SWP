@@ -4,7 +4,7 @@
     Author     : DELL 
 --%>
 
-<%@page import="com.daos.OrderDAO"%>
+<%@page import="com.dao.OrderDAO"%>
 <%@page import="com.models.Order"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -132,8 +132,8 @@
                                         <td></td>
                                         <td></td>
                                         <td>
-                                            <a href="/Order/Update/<%= rs.getInt("o_id")%>"><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
-                                            <a href="/Order/Delete/<%= rs.getInt("o_id")%>"><button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
+                                            <a href="order?id=<%= rs.getInt("o_id")%>"><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
+                                            <a href="order?id=<%= rs.getInt("o_id")%>"><button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
                                         </td>
                                     </tr>
                                     <%

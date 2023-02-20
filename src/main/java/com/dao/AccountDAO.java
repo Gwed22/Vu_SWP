@@ -55,15 +55,14 @@ public class AccountDAO {
     public int addNewAccount(Account acc) {
         int count = 0;
         try {
-            PreparedStatement pst = conn.prepareStatement("insert into Accounts values(?,?,?,?,?,?,?,?)");
-            pst.setInt(1, acc.getAccountID());
-            pst.setString(2, "N'"+acc.getName()+"'");
-            pst.setString(3, acc.getPhone());
-            pst.setString(4, acc.getPassword());
-            pst.setString(5, "N'"+acc.getGender()+"'");
-            pst.setString(6, "N'"+acc.getAddress()+"'");
-            pst.setInt(7, acc.getSq_id());
-            pst.setInt(8, acc.getRole_id());
+            PreparedStatement pst = conn.prepareStatement("insert into Account values(?,?,?,?,?,?,?)");
+            pst.setString(1, acc.getName());
+            pst.setString(2, acc.getPhone());
+            pst.setString(3, acc.getPassword());
+            pst.setString(4, acc.getGender());
+            pst.setString(5, acc.getAddress());
+            pst.setInt(6, acc.getSq_id());
+            pst.setInt(7, acc.getRole_id());
             count = pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -94,11 +93,11 @@ public class AccountDAO {
         return false;
     }
 
-    public int deleteAccount(String acc_id) {
+    public int deleteAccount(int acc_id) {
         int count = 0;
         try {
-            PreparedStatement pst = conn.prepareStatement("delete from Account where account_id=?");
-            pst.setString(1, acc_id);
+            PreparedStatement pst = conn.prepareStatement("delete from [Account] where account_id=?");
+            pst.setInt(1, acc_id);
             count = pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -137,6 +136,12 @@ public class AccountDAO {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
                return null;
+    }
+   
+   public ResultSet getSearchAccount(String query) throws SQLException {
+        Statement st = conn.createStatement();
+        ResultSet rs = st.executeQuery("Select * from Account where full_name like'%" + query + "%'");
+        return rs;
     }
 }
 

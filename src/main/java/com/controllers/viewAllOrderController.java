@@ -12,12 +12,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import com.models.Order;
-import jakarta.servlet.http.HttpSession;
-import java.sql.ResultSet;
 
 /**
  *
@@ -64,48 +59,26 @@ public class viewAllOrderController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String path = request.getRequestURI(); //lay duong dan
-        if (path.endsWith("/Order")) {
-            request.getRequestDispatcher("/orderlist.jsp").forward(request, response);
-//        } else if (path.endsWith("/Order/Add")) {
-//            request.getRequestDispatcher("/addorder.jsp").forward(request, response);
-        } else if (path.startsWith("/Order/Update/")) {
-            ///KhachHang/Edit/123 => viewAllAccountController, Edit, 123
-            String[] s = path.split("/");
-            String o_id = s[s.length - 1];
-            OrderDAO dao = new OrderDAO();
-            Order or = dao.getOrder(Integer.parseInt(o_id));
-            if (or == null) {
-                response.sendRedirect("/Order");
-            } else {
-                HttpSession session = request.getSession();
-                session.setAttribute("or_info", or);
-                request.getRequestDispatcher("/orderedit.jsp").forward(request, response);
-            }
-//        } else if (path.startsWith("/Account/Delete")) {
-//            try {
-//                // /KhachHang/Edit/123 => viewAllAccountController, Edit, 123
-//                String[] s = path.split("/");
-//                String acc_id = s[s.length - 1];
-//                AccountDAO dao = new AccountDAO();
-//                Account acc = dao.getAccountByID(Integer.parseInt(acc_id));
-//                dao.deleteAccount(acc_id);
-//                response.sendRedirect("/Account");
-//            } catch (SQLException ex) {
-//                Logger.getLogger(viewAllOrderController.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-        }
+
+        int o_id = Integer.parseInt(request.getParameter("id"));
+        OrderDAO dao = new OrderDAO();
+        Order or = dao.getOrder(o_id);
+
+        request.setAttribute("or", or);
+        request.getRequestDispatcher("orderedit.jsp").forward(request, response);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+
+/**
+ * Handles the HTTP <code>POST</code> method.
+ *
+ * @param request servlet request
+ * @param response servlet response
+ * @throws ServletException if a servlet-specific error occurs
+ * @throws IOException if an I/O error occurs
+ */
+@Override
+protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 //        if (request.getParameter("btnAdd") != null) {
 //            try {
@@ -146,7 +119,7 @@ public class viewAllOrderController extends HttpServlet {
             com.models.Order or = new com.models.Order(Integer.parseInt(o_id), Date.valueOf(o_date), Date.valueOf(delivery_date), status, note, Integer.parseInt(account_id), address);
             OrderDAO dao = new OrderDAO();
             dao.updateOrder(or);
-            response.sendRedirect("/Order");
+            request.getRequestDispatcher("/orderlist.jsp").forward(request, response);
         }
     }
 
@@ -156,7 +129,7 @@ public class viewAllOrderController extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo() {
+public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 

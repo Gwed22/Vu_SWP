@@ -73,8 +73,7 @@
                         </thead>
                         <tbody>
                             <%                                
-                                AccountDAO dao = new AccountDAO();
-                                ResultSet rs = dao.getAllAccount();
+                                ResultSet rs = (ResultSet) session.getAttribute("search");
                                 while (rs.next()) {
 
                                     // Split full name into first and last name
