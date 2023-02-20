@@ -20,6 +20,8 @@ public class Consignment {
     private float conPrice;
     private Date importDate;
     private String productImg;
+    private float productPrice;
+    private String productDesc;
 
     public Consignment() {
     }
@@ -45,6 +47,20 @@ public class Consignment {
         this.productImg = productImg;
     }
 
+    public Consignment(int conID, String productName, int cID, int conQuantity, int brandID, float conPrice, Date importDate, String productImg, float productPrice, String productDesc) {
+        this.conID = conID;
+        this.productName = productName;
+        this.cID = cID;
+        this.conQuantity = conQuantity;
+        this.brandID = brandID;
+        this.conPrice = conPrice;
+        this.importDate = importDate;
+        this.productImg = productImg;
+        this.productPrice = productPrice;
+        this.productDesc = productDesc;
+    }
+
+    
     
     public int getConID() {
         return conID;
@@ -110,9 +126,22 @@ public class Consignment {
         this.productImg = productImg;
     }
 
-    @Override
-    public String toString() {
-        return "Consignment{" + "conID=" + conID + ", productName=" + productName + ", cID=" + cID + ", conQuantity=" + conQuantity + ", brandID=" + brandID + ", conPrice=" + conPrice + ", importDate=" + importDate + '}';
+    public float getProductPrice() {
+        return productPrice;
     }
+
+    public void setProductPrice(float productPrice) {
+        this.productPrice = productPrice;
+    }
+
+    public String getProductDesc() {
+        return productDesc;
+    }
+
+    public void setProductDesc(String productDesc) {
+        this.productDesc = productDesc;
+    }
+    
+    
 
 }
