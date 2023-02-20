@@ -2,6 +2,7 @@ D:\Project\ProjectSWP\-SWP391\src\main\java\com\models\Comment.java
 D:\Project\ProjectSWP\-SWP391\src\main\java\com\models\Role.java
 D:\Project\ProjectSWP\-SWP391\src\main\java\com\controller\LoginController.java
 D:\Project\ProjectSWP\-SWP391\src\main\java\com\models\ChatSession.java
+D:\Project\ProjectSWP\-SWP391\src\main\java\com\controllers\SearchConsignmentController.java
 D:\Project\ProjectSWP\-SWP391\src\main\java\com\models\Products.java
 D:\Project\ProjectSWP\-SWP391\src\main\java\com\models\Account.java
 D:\Project\ProjectSWP\-SWP391\src\main\java\com\models\Message.java
@@ -12,10 +13,10 @@ D:\Project\ProjectSWP\-SWP391\src\main\java\com\models\SecurityAnswer.java
 D:\Project\ProjectSWP\-SWP391\src\main\java\com\models\Category.java
 D:\Project\ProjectSWP\-SWP391\src\main\java\com\controller\SearchControl.java
 D:\Project\ProjectSWP\-SWP391\src\main\java\com\controller\viewAllAccountController.java
+D:\Project\ProjectSWP\-SWP391\src\main\java\com\controllers\DeleteConsignmentController.java
+D:\Project\ProjectSWP\-SWP391\src\main\java\com\controllers\EditConsignmentController.java
 D:\Project\ProjectSWP\-SWP391\src\main\java\com\models\OrderItem.java
-D:\Project\ProjectSWP\-SWP391\src\main\java\com\controller\HomeController.java
 D:\Project\ProjectSWP\-SWP391\src\main\java\com\controllers\AllConsignmentController.java
-D:\Project\ProjectSWP\-SWP391\src\main\java\com\daos\LoginDAO.java
 D:\Project\ProjectSWP\-SWP391\src\main\java\com\models\Sale.java
 D:\Project\ProjectSWP\-SWP391\src\main\java\com\models\Consignment.java
 D:\Project\ProjectSWP\-SWP391\src\main\java\com\controller\AllProductControl.java

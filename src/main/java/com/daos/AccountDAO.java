@@ -125,12 +125,12 @@ public class AccountDAO {
         ResultSet rs = null;
 
         try {
-            PreparedStatement pst = conn.prepareStatement(" select * from dbo.Account where phone=? and password=?");
+            PreparedStatement pst = conn.prepareStatement(" select * from Account where phone=? and password=?");
             pst.setString(1, phone);
             pst.setString(2, password);
             rs = pst.executeQuery();
             while (rs.next()) {
-                Account ac = new Account(rs.getString("phone"), rs.getString("password"));
+                Account ac = new Account(rs.getInt("account_id"),rs.getString("full_name"),  rs.getString("phone"), rs.getString("password"), rs.getString("gender"), rs.getString("address"), rs.getInt("sq_id"), rs.getInt("role_id"));
                 return ac;
             }
         } catch (SQLException ex) {
