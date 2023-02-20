@@ -36,11 +36,11 @@ public class AccountDAO {
         return rs;
     }
 
-    public Account getAccountByID(String acc_id) {
+    public Account getAccountByID(int acc_id) {
         Account acc = null;
         try {
             PreparedStatement pst = conn.prepareStatement("select * from Account where account_id=?");
-            pst.setString(1, acc_id);
+            pst.setInt(1, acc_id);
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
                 acc = new Account(rs.getInt("account_id"), rs.getString("full_name"), rs.getString("phone"), rs.getString("password"),

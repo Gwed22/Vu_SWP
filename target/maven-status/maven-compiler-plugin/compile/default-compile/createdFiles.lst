@@ -12,6 +12,7 @@ com\models\Brand.class
 com\controller\viewAllAccountController.class
 com\models\Comment.class
 com\models\SecurityAnswer.class
+com\daos\OrderItemDAO.class
 com\models\ChatSession.class
 com\controller\SearchControl.class
 com\daos\ConsignmentDAO.class
@@ -22,6 +23,7 @@ com\controller\AllProductControl.class
 com\controller\HomeControl.class
 com\controllers\EditConsignmentController.class
 com\models\Role.class
+com\daos\OrderDAO.class
 com\controllers\AddConsignmentController.class
 com\models\Account.class
 com\dao\ProductDAO.class
