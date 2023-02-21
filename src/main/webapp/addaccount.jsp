@@ -5,6 +5,7 @@
 <%@page import="java.sql.DriverManager"%>
 <%@page import="com.dao.AccountDAO"%>
 <%@page import="com.models.Account"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 
@@ -96,26 +97,7 @@
         </div>
         <div id="myCarousel" class="carousel slide banner-main col-xl-9 col-lg-10 col-md-12 co-sm-11" data-ride="carousel">
             <div class="carousel-inner">
-                <form method="post" action="/Account/Add">
-                    <%AccountDAO dao = new AccountDAO();
-                        int count = dao.getCountAccount()+4;%>
-                    <div class="form-group row" id="Form1">
-                        <div class="col-lg-2"></div>
-                        <label class="col-2 col-form-label" for="id">Account ID</label>
-                        <div class="col-6">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <i class="fa fa-address-card"></i>
-                                    </div>
-                                </div>
-                                <input id="id" name="id" type="text"
-                                       aria-describedby="idHelpBlock"
-                                       class="form-control" value="<%= count%>" readonly>
-                            </div>
-                            <span id="idHelpBlock" class="form-text text-danger"></span>
-                        </div>
-                    </div>
+                <form method="post" action="addaccount">
                     <br>
                     <div class="form-group row" id="Form1">
                         <div class="col-lg-2"></div>
@@ -176,11 +158,10 @@
                                         <i class="fa fa-gears"></i>
                                     </div>
                                 </div>
-                                <select name="role_id" id="role_id" class="form-control">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
+                                <select name="role_id" id="role_id" class="form-control" required>
+                                    <c:forEach items="${listRole}" var="a">
+                                        <option value="${a.getRoleID()}">${a.getRoleName()}</option>
+                                    </c:forEach>
                                 </select>
                             </div>
                             <span id="roleHelpBlock" class="form-text text-danger"></span>
@@ -197,11 +178,10 @@
                                         <i class="fa fa-gears"></i>
                                     </div>
                                 </div>
-                                <select name="sq_id" id="sq_id" class="form-control">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
+                                <select name="sq_id" id="sq_id" class="form-control" required>
+                                    <c:forEach items="${listSQ}" var="b">
+                                        <option value="${b.getSqID()}">${b.getSqContext()}</option>
+                                    </c:forEach>
                                 </select>
                             </div>
                             <span id="sqHelpBlock" class="form-text text-danger"></span>

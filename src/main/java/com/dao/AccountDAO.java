@@ -6,11 +6,15 @@ package com.dao;
 
 import com.models.Account;
 import com.db.DBConnection;
+import com.models.Brand;
+import com.models.Role;
+import com.models.SecurityQuestion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -70,6 +74,36 @@ public class AccountDAO {
         return count;
     }
 
+      public ArrayList<Role> getAllRole() {
+        ArrayList<Role> list = new ArrayList<>();
+        ResultSet rs = null;
+        try {
+            Statement st = conn.createStatement();
+            rs = st.executeQuery("select * from Role");
+            while (rs.next()) {
+                Role ro = new Role(rs.getInt("role_id"), rs.getString("role_name"));
+                list.add(ro);
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+      
+      public ArrayList<SecurityQuestion> getAllSQ() {
+        ArrayList<SecurityQuestion> list = new ArrayList<>();
+        ResultSet rs = null;
+        try {
+            Statement st = conn.createStatement();
+            rs = st.executeQuery("select * from SecurityQuestion");
+            while (rs.next()) {
+                SecurityQuestion sq = new SecurityQuestion(rs.getInt("sq_id"), rs.getString("sq_context"));
+                list.add(sq);
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+    
     public int updateAccount(Account acc) {
         int count = 0;
         try {

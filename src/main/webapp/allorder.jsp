@@ -7,6 +7,8 @@
 <%@page import="com.dao.OrderDAO"%>
 <%@page import="com.models.Order"%>
 <%@page import="java.sql.ResultSet"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -116,8 +118,7 @@
                                         <th>Address</th>
                                     </tr>
                                     <%
-                                        OrderDAO dao = new OrderDAO();
-                                        ResultSet rs = dao.getAllOrder();
+                                        ResultSet rs = (ResultSet) request.getAttribute("rs");
                                         while (rs.next()) {
                                     %>
                                     <tr>
@@ -132,8 +133,8 @@
                                         <td></td>
                                         <td></td>
                                         <td>
-                                            <a href="order?id=<%= rs.getInt("o_id")%>"><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
-                                            <a href="order?id=<%= rs.getInt("o_id")%>"><button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
+                                            <a href="editorder?id=<%= rs.getInt("o_id")%>"><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
+                                            <a href="deleteorder?id=<%= rs.getInt("o_id")%>"><button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
                                         </td>
                                     </tr>
                                     <%

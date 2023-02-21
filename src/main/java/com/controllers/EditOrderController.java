@@ -5,6 +5,7 @@
 package com.controllers;
 
 import com.dao.OrderDAO;
+import com.models.Order;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
@@ -12,13 +13,12 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import com.models.Order;
 
 /**
  *
  * @author Vux
  */
-public class viewAllOrderController extends HttpServlet {
+public class EditOrderController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,10 +37,10 @@ public class viewAllOrderController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet KhachHang</title>");
+            out.println("<title>Servlet EditOrderController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet KhachHang at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet EditOrderController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -58,55 +58,26 @@ public class viewAllOrderController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String path = request.getRequestURI(); //lay duong dan
 
-        int o_id = Integer.parseInt(request.getParameter("id"));
+        int id = Integer.parseInt(request.getParameter("id"));
         OrderDAO dao = new OrderDAO();
-        Order or = dao.getOrder(o_id);
+        Order or = dao.getOrder(id);
 
-        request.setAttribute("or", or);
-        request.getRequestDispatcher("orderedit.jsp").forward(request, response);
+        request.setAttribute("o", or);
+        request.getRequestDispatcher("/editorder.jsp").forward(request, response);
     }
 
-
-/**
- * Handles the HTTP <code>POST</code> method.
- *
- * @param request servlet request
- * @param response servlet response
- * @throws ServletException if a servlet-specific error occurs
- * @throws IOException if an I/O error occurs
- */
-@Override
-protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        if (request.getParameter("btnAdd") != null) {
-//            try {
-//                AccountDAO dao = new AccountDAO();
-//                //Them moi
-//                String acc_id = request.getParameter("id");
-//                int sq_id = 1;
-//                int role_id = 1;
-//                String full_name = request.getParameter("username");
-//                String phone = request.getParameter("phone");
-//                String gender = request.getParameter("rdoGD");
-//                String address = request.getParameter("address");
-//                String password = request.getParameter("password1");
-//
-//                com.models.Account acc = new com.models.Account(Integer.parseInt(acc_id), full_name, phone, password, gender, address, sq_id, role_id);
-//
-//                int count = dao.addNewAccount(acc);
-//                if (count > 0) {
-//                    response.sendRedirect(request.getContextPath() + "/Account");
-//                } else {
-//                    response.sendRedirect(request.getContextPath() + "/Account/Add");
-//
-//                }
-//            } catch (SQLException ex) {
-//                Logger.getLogger(viewAllOrderController.class
-//                        .getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
         if (request.getParameter("btnUpdate") != null) {
             //doi moi
             String o_id = request.getParameter("o_id");
@@ -119,7 +90,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
             com.models.Order or = new com.models.Order(Integer.parseInt(o_id), Date.valueOf(o_date), Date.valueOf(delivery_date), status, note, Integer.parseInt(account_id), address);
             OrderDAO dao = new OrderDAO();
             dao.updateOrder(or);
-            request.getRequestDispatcher("/orderlist.jsp").forward(request, response);
+            request.getRequestDispatcher("/allorder").forward(request, response);
         }
     }
 
@@ -129,7 +100,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
      * @return a String containing servlet description
      */
     @Override
-public String getServletInfo() {
+    public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 
