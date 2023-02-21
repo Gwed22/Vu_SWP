@@ -45,10 +45,10 @@ public class SaleDAO {
     public ResultSet searchSale(String query) {
         ResultSet rs = null;
         try {
-            PreparedStatement pst = conn.prepareStatement("select c.con_id, c.product_img, c.product_name, ca.c_name, b.brand_name, c.con_price, c.con_quantity, c.import_date \n"
-                    + "from Consignment c inner join Brand b on c.brand_id = b.brand_id \n"
-                    + "inner join Category ca on c.c_id = ca.c_id where c.product_name like ?");
-            pst.setString(1, "%" + query + "%");
+            PreparedStatement pst = conn.prepareStatement("SELECT s.sale_id, c.product_name, c.productPrice, s.sale_price, s.sale_start_date, s.sale_end_date, s.sale_description\n" +
+                                                          "FROM SALE s INNER JOIN Consignment c ON s.con_id=c.con_id\n" +
+                                                          "WHERE c.product_name like ?");
+            pst.setString(1, "'%" + query + "%'");
             rs = pst.executeQuery();
         } catch (SQLException ex) {
             Logger.getLogger(ConsignmentDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -61,25 +61,10 @@ public class SaleDAO {
         ResultSet rs = null;
         try {
             Statement st = conn.createStatement();
-            rs = st.executeQuery("select * from Consignment");
+            rs = st.executeQuery("Select * from Consignment");
             while (rs.next()) {
                 Consignment con = new Consignment(rs.getInt("con_id"), rs.getString("product_name"), rs.getInt("c_id"), rs.getInt("con_quantity"), rs.getInt("brand_id"), rs.getFloat("con_price"), rs.getDate("import_date"), rs.getString("product_img"), rs.getFloat("productPrice"), rs.getString("productDesc"));
                 list.add(con);
-            }
-        } catch (Exception e) {
-        }
-        return list;
-    }
-
-    public ArrayList<Brand> getAllBrand() {
-        ArrayList<Brand> list = new ArrayList<>();
-        ResultSet rs = null;
-        try {
-            Statement st = conn.createStatement();
-            rs = st.executeQuery("select * from Brand");
-            while (rs.next()) {
-                Brand b = new Brand(rs.getInt("brand_id"), rs.getString("brand_name"));
-                list.add(b);
             }
         } catch (Exception e) {
         }

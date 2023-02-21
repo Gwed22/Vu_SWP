@@ -119,7 +119,7 @@
                     <div class="product-status-wrap">
                         <h4>Sale List</h4>
                         <div class="add-product">
-                            <a href="">Add Sale</a>
+                            <a href="AddSale">Add Sale</a>
                         </div>
                         <form role="search" action="SearchSale" method="get">
                             <input type="text" placeholder="Search..." class="form-control" name="txtQuery">
@@ -151,8 +151,8 @@
                                 <td><%= rs.getDate("sale_end_date")%></td>
                                 <td><%= rs.getString("sale_description")%></td>
                                 <td>
-                                    <a href="updatesale?id=<%= rs.getInt("sale_id")%>"><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
-                                    <a href="deletesale?id=<%= rs.getInt("sale_id")%>" onclick="return confirm('Do you want to delete this sale?')"><button data-toggle="tooltip" title="Delete" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
+                                    <a href="EditSale?id=<%= rs.getInt("sale_id")%>"><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
+                                    <a href="DeleteSale?id=<%= rs.getInt("sale_id")%>" onclick="return confirm('Do you want to delete this sale?')"><button data-toggle="tooltip" title="Delete" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
                                 </td>
                             </tr>
                             <%
