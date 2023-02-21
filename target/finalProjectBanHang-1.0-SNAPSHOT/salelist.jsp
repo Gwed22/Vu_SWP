@@ -4,6 +4,7 @@
     Author     : DELL
 --%>
 
+<%@page import="com.dao.SaleDAO"%>
 <%@page import="com.DAO.ProductDAO"%>
 <%@page import="java.sql.ResultSet"%>
 
@@ -120,36 +121,38 @@
                         <div class="add-product">
                             <a href="">Add Sale</a>
                         </div>
+                        <form role="search" action="SearchSale" method="get">
+                            <input type="text" placeholder="Search..." class="form-control" name="txtQuery">
+                        </form>
                         <table>
                             <tr>
-                                    <th rowspan="2">ID</th>
-                                    <th rowspan="2">Product Name</th>
-                                    <th rowspan="2">Current Price</th>
-                                    <th rowspan="2">Sale Price</th>
-                                    <th>Sale Date</th>
-                                    <th rowspan="2">Description</th>
-                                    <th rowspan="2">Action</th>
-                                </tr>
-                                <tr>
-                                    <th>From</th>
-                                    <th>To</th>
-                                </tr>
+                                <th rowspan="2">ID</th>
+                                <th rowspan="2">Product Name</th>
+                                <th rowspan="2">Current Price</th>
+                                <th rowspan="2">Sale Price</th>
+                                <th>Sale Date</th>
+                                <th rowspan="2">Description</th>
+                                <th rowspan="2">Action</th>
+                            </tr>
+                            <tr>
+                                <th>From</th>
+                                <th>To</th>
+                            </tr>
                             <%
-                                SaleDAO dao = new SaleDAO();
-                                ResultSet rs = dao.getAll();
+                                ResultSet rs = (ResultSet) request.getAttribute("listSale");
                                 while (rs.next()) {
                             %>
                             <tr>
-                                <td><%= rs.getInt("product_id")%></td>
+                                <td><%= rs.getInt("sale_id")%></td>
                                 <td><%= rs.getString("product_name")%></td>
-                                <td><%= rs.getFloat("con_price")%></td>
-                                <td><%= rs.getString("product_img")%></td>
-                                <td><%= rs.getInt("c_id")%></td>
-                                <td><%= rs.getInt("brand_id")%></td>
-
+                                <td><%= rs.getFloat("productPrice")%></td>
+                                <td><%= rs.getFloat("sale_price")%></td>
+                                <td><%= rs.getDate("sale_start_date")%></td>
+                                <td><%= rs.getDate("sale_end_date")%></td>
+                                <td><%= rs.getString("sale_description")%></td>
                                 <td>
-                                    <a href=""><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
-                                    <a href=""><button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
+                                    <a href="updatesale?id=<%= rs.getInt("sale_id")%>"><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
+                                    <a href="deletesale?id=<%= rs.getInt("sale_id")%>" onclick="return confirm('Do you want to delete this sale?')"><button data-toggle="tooltip" title="Delete" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
                                 </td>
                             </tr>
                             <%
