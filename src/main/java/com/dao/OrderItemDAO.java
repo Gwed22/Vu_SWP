@@ -2,11 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.daos;
+package com.dao;
 
 import com.db.DBConnection;
-import com.models.Account;
-import com.models.Order;
+import com.models.OrderItem;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,70 +18,50 @@ import java.util.logging.Logger;
  *
  * @author Vux
  */
-public class OrderDAO {
+public class OrderItemDAO {
 
     private Connection conn = null;
 
-    public OrderDAO() {
+    public OrderItemDAO() {
         conn = DBConnection.getConnection();
     }
 
-    public ResultSet getAllOrder() {
+    public ResultSet getAllOrderItem() {
         ResultSet rs = null;
         try {
             Statement st = conn.createStatement();
-            rs = st.executeQuery("select * from [Order]");
+            rs = st.executeQuery("select * from OrderItem");
         } catch (SQLException ex) {
-            Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(OrderItemDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return rs;
     }
-//
+
 //    public ResultSet getSearchOrder(String query) throws SQLException {
 //        Statement st = conn.createStatement();
 //        ResultSet rs = st.executeQuery("Select * from Order where o_id like'%" + query + "%'");
 //        return rs;
 //    }
-    
+//    
 //    public ResultSet getSearchCate(String query) throws SQLException {
 //        Statement st = conn.createStatement();
 //        ResultSet rs = st.executeQuery("Select * from product where loaisp like'%" + query + "%'");
 //        return rs;
 //    }
 
-    public Order getOrder(int o_id) {
-        Order o = null;
+    public OrderItem getOrderItem(int o_id) {
+        OrderItem ot = null;
         try {
-            PreparedStatement pst = conn.prepareStatement("Select * from [Order] where o_id=?");
+            PreparedStatement pst = conn.prepareStatement("Select * from OrderItem where o_item_id=?");
             pst.setInt(1, o_id);
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
-                o = new Order(o_id, rs.getDate("o_date"), rs.getDate("delivery_date"), rs.getString("status"), rs.getString("note"), 
-                                    rs.getInt("account_id"), rs.getString("address"));
+                ot = new OrderItem(o_id, rs.getInt("o_id"), rs.getInt("product_id"), rs.getInt("price"), rs.getInt("quantity"));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(OrderItemDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return o;
-    }
-    
-        public int updateOrder(Order or) {
-        int count = 0;
-        try {
-            PreparedStatement pst = conn.prepareStatement("update [Order] set o_date=?, o_delivery=?, status=?, note=?, account_id=? address=? where o_id=?");
-            pst.setInt(8, or.getAccountID());
-            pst.setDate(1, or.getOrderDate());
-            pst.setDate(2, or.getDeliveryDate());
-            pst.setString(3, or.getStatus());
-            pst.setString(4, or.getNote());
-            pst.setInt(5, or.getAccountID());
-            pst.setString(6, or.getAddress());
-            pst.setInt(7, or.getOrderID());
-            count = pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return count;
+        return ot;
     }
 
 //    public int addNewOrder(Order o) {

@@ -2,24 +2,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package com.controller;
+package com.controllers;
 
-import com.dao.ProductDAO;
-import com.models.Brand;
-import com.models.Products;
+import com.dao.AccountDAO;
+import com.models.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.List;
+import jakarta.servlet.http.HttpSession;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
- * @author PC
+ * @author Admin
  */
-public class AllProductControl extends HttpServlet {
+public class LoginController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,10 +40,10 @@ public class AllProductControl extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AllProductControl</title>");
+            out.println("<title>Servlet LoginController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AllProductControl at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet LoginController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -59,26 +61,8 @@ public class AllProductControl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ProductDAO dao = new ProductDAO();
-        List<Products> listP = dao.getAllProduct();
-        request.setAttribute("listP", listP);
-        List<Brand> list = dao.getAllBrand();
-        String[] pp = {"Price: Increase",
-            "Price: Decrease"};
-        boolean[] pb = new boolean[pp.length + 1];
-        pb[0] = true;
-        List<Products> incre = dao.getIncre();
-        List<Products> decre = dao.getDecre();
-        boolean[] child = new boolean[list.size() + 1];
-        child[0] = true;
-        request.setAttribute("data", list);
-        request.setAttribute("incre", incre);
-        request.setAttribute("decre", decre);
-        request.setAttribute("pp", pp);
-        request.setAttribute("pb", pb);
-        request.setAttribute("bid", 0);
-        request.setAttribute("child", child);
-        request.getRequestDispatcher("brand.jsp").forward(request, response);
+               request.getRequestDispatcher("login.jsp").forward(request, response);
+
     }
 
     /**
@@ -92,7 +76,24 @@ public class AllProductControl extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String phone = request.getParameter("phone");
+        String pass = request.getParameter("password");
+        AccountDAO dao;
+        try {
+            dao = new AccountDAO();
+             Account acc = dao.checkLogin(phone, pass);
+        if (acc != null) {
+                HttpSession session = request.getSession();
+                session.setAttribute("login", request.getParameter("phone"));
+                session.setMaxInactiveInterval(259200);
+                response.sendRedirect("home.jsp");
+        } else {//nếu sai username hoặc password thì thông báo lỗi và chuyển tiếp qua đường dẫn /LogInFailController
+            response.sendRedirect("login.jsp");
+        }
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
     }
 
     /**

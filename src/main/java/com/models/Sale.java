@@ -17,18 +17,18 @@ public class Sale {
     private Timestamp saleEndDate;
     private float salePrice;
     private String saleDesc;
-    private int productID;
+    private int conID;
 
     public Sale() {
     }
 
-    public Sale(int saleID, Timestamp saleStartDate, Timestamp saleEndDate, float salePrice, String saleDesc, int productID) {
+    public Sale(int saleID, Timestamp saleStartDate, Timestamp saleEndDate, float salePrice, String saleDesc, int conID) {
         this.saleID = saleID;
         this.saleStartDate = saleStartDate;
         this.saleEndDate = saleEndDate;
         this.salePrice = salePrice;
         this.saleDesc = saleDesc;
-        this.productID = productID;
+        this.conID = conID;
     }
 
     public int getSaleID() {
@@ -71,17 +71,17 @@ public class Sale {
         this.saleDesc = saleDesc;
     }
 
-    public int getProductID() {
-        return productID;
+    public int getConID() {
+        return conID;
     }
 
-    public void setProductID(int productID) {
-        this.productID = productID;
+    public void setConID(int conID) {
+        this.conID = conID;
     }
 
     @Override
     public String toString() {
-        return "Sale{" + "saleID=" + saleID + ", saleStartDate=" + saleStartDate + ", saleEndDate=" + saleEndDate + ", salePrice=" + salePrice + ", saleDesc=" + saleDesc + ", productID=" + productID + '}';
+        return "Sale{" + "saleID=" + saleID + ", saleStartDate=" + saleStartDate + ", saleEndDate=" + saleEndDate + ", salePrice=" + salePrice + ", saleDesc=" + saleDesc + ", conID=" + conID + '}';
     }
 
 }

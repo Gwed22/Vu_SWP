@@ -12,21 +12,31 @@ public class OrderItem {
 
     private int orderItemID;
     private int orderID;
-    private int productID;
-    private int accountID;
+    private int conID;
+    private int pPrice;
     private int quantity;
 
     public OrderItem() {
     }
 
-    public OrderItem(int orderItemID, int orderID, int productID, int accountID, int quantity) {
+    public OrderItem(int orderItemID, int orderID, int conID, int pPrice, int quantity) {
         this.orderItemID = orderItemID;
         this.orderID = orderID;
-        this.productID = productID;
-        this.accountID = accountID;
+        this.conID = conID;
+        
+        this.pPrice = pPrice;
         this.quantity = quantity;
     }
 
+    public int getpPrice() {
+        return pPrice;
+    }
+
+    public void setpPrice(int pPrice) {
+        this.pPrice = pPrice;
+    }
+
+   
     public int getOrderItemID() {
         return orderItemID;
     }
@@ -43,21 +53,15 @@ public class OrderItem {
         this.orderID = orderID;
     }
 
-    public int getProductID() {
-        return productID;
+    public int getConID() {
+        return conID;
     }
 
-    public void setProductID(int productID) {
-        this.productID = productID;
+    public void setConID(int conID) {
+        this.conID = conID;
     }
 
-    public int getAccountID() {
-        return accountID;
-    }
-
-    public void setAccountID(int accountID) {
-        this.accountID = accountID;
-    }
+  
 
     public int getQuantity() {
         return quantity;
@@ -67,9 +71,6 @@ public class OrderItem {
         this.quantity = quantity;
     }
 
-    @Override
-    public String toString() {
-        return "OrderItem{" + "orderItemID=" + orderItemID + ", orderID=" + orderID + ", productID=" + productID + ", accountID=" + accountID + ", quantity=" + quantity + '}';
-    }
+    
 
 }

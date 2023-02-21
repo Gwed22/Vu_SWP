@@ -1103,6 +1103,7 @@ ul.top_icon li a {
 .nav-menu-left .list-menu {
     margin: 0px 10px 15px 10px;
     font-size: 20px;
+    
 }
 .nav-menu-left .header-menu .content-menu {
     margin: 0px 10px 15px 10px;
@@ -1110,6 +1111,10 @@ ul.top_icon li a {
 
 
     font-size: 20px;
+}
+
+.nav-menu-left .list-menu a {
+    margin-left: 5px;
 }
 
 .main-menu ul {
