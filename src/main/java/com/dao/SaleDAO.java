@@ -51,7 +51,7 @@ public class SaleDAO {
             pst.setString(1, "'%" + query + "%'");
             rs = pst.executeQuery();
         } catch (SQLException ex) {
-            Logger.getLogger(ConsignmentDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SaleDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return rs;
     }
