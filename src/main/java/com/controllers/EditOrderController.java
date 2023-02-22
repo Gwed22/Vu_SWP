@@ -4,7 +4,9 @@
  */
 package com.controllers;
 
+import com.dao.AccountDAO;
 import com.dao.OrderDAO;
+import com.models.Account;
 import com.models.Order;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,6 +15,9 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -59,12 +64,19 @@ public class EditOrderController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        int id = Integer.parseInt(request.getParameter("id"));
-        OrderDAO dao = new OrderDAO();
-        Order or = dao.getOrder(id);
+        try {
+            int id = Integer.parseInt(request.getParameter("id"));
+            OrderDAO dao = new OrderDAO();
+            Order or = dao.getOrder(id);
+            AccountDAO dao1 = new AccountDAO();
+            Account acc = dao1.getAccountByID(or.getAccountID());
 
-        request.setAttribute("o", or);
-        request.getRequestDispatcher("/editorder.jsp").forward(request, response);
+            request.setAttribute("acc", acc);
+            request.setAttribute("o", or);
+            request.getRequestDispatcher("/editorder.jsp").forward(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(EditOrderController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -85,11 +97,15 @@ public class EditOrderController extends HttpServlet {
             String delivery_date = request.getParameter("delivery_date");
             String status = request.getParameter("status");
             String note = request.getParameter("note");
+
+            OrderDAO dao = new OrderDAO();
+            Order o = dao.getOrder(Integer.parseInt(o_id));
+
             String account_id = request.getParameter("account_id");
             String address = request.getParameter("address");
-            com.models.Order or = new com.models.Order(Integer.parseInt(o_id), Date.valueOf(o_date), Date.valueOf(delivery_date), status, note, Integer.parseInt(account_id), address);
-            OrderDAO dao = new OrderDAO();
-            dao.updateOrder(or);
+            com.models.Order or = new com.models.Order(Integer.parseInt(o_id), Date.valueOf(o_date), Date.valueOf(delivery_date), status, note, o.getAccountID(), address);
+            OrderDAO dao1 = new OrderDAO();
+            dao1.updateOrder(or);
             request.getRequestDispatcher("/allorder").forward(request, response);
         }
     }

@@ -70,8 +70,7 @@ public class OrderDAO {
         public int updateOrder(Order or) {
         int count = 0;
         try {
-            PreparedStatement pst = conn.prepareStatement("update [Order] set o_date=?, o_delivery=?, status=?, note=?, account_id=? address=? where o_id=?");
-            pst.setInt(8, or.getAccountID());
+            PreparedStatement pst = conn.prepareStatement("update [Order] set o_date=?, delivery_date=?, status=?, note=?, account_id=?, address=? where o_id=?");
             pst.setDate(1, or.getOrderDate());
             pst.setDate(2, or.getDeliveryDate());
             pst.setString(3, or.getStatus());
