@@ -5,7 +5,6 @@
 --%>
 
 <%@page import="com.dao.SaleDAO"%>
-<%@page import="com.DAO.ProductDAO"%>
 <%@page import="java.sql.ResultSet"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
