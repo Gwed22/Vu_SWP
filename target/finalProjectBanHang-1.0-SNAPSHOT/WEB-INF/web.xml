@@ -28,6 +28,26 @@
         <servlet-name>AllOrderController</servlet-name>
         <servlet-class>com.controllers.AllOrderController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddSaleController</servlet-name>
+        <servlet-class>com.controllers.AddSaleController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AllSaleController</servlet-name>
+        <servlet-class>com.controllers.AllSaleController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteSaleController</servlet-name>
+        <servlet-class>com.controllers.DeleteSaleController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditSaleController</servlet-name>
+        <servlet-class>com.controllers.EditSaleController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchSaleController</servlet-name>
+        <servlet-class>com.controllers.SearchSaleController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -135,6 +155,26 @@
     <servlet-mapping>
         <servlet-name>AllOrderController</servlet-name>
         <url-pattern>/allorder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddSaleController</servlet-name>
+        <url-pattern>/AddSale</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AllSaleController</servlet-name>
+        <url-pattern>/salelist</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteSaleController</servlet-name>
+        <url-pattern>/DeleteSale</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditSaleController</servlet-name>
+        <url-pattern>/EditSale</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchSaleController</servlet-name>
+        <url-pattern>/SearchSale</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
