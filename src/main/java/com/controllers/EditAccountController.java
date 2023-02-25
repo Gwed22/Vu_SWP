@@ -8,7 +8,6 @@ import com.dao.AccountDAO;
 import com.models.Account;
 import com.models.Role;
 import com.models.SecurityQuestion;
-import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
