@@ -6,19 +6,18 @@ package com.controllers;
 
 import com.dao.SaleDAO;
 import com.models.Consignment;
-import com.models.Sale;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
 import java.util.ArrayList;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author DELL
+ * @author Admin
  */
 public class AddSaleController extends HttpServlet {
 
@@ -88,10 +87,10 @@ public class AddSaleController extends HttpServlet {
             int count = dao.addSale(sale_start_date, sale_end_date, sale_price, sale_description, con_id);
             if (count > 0) {
                 request.setAttribute("message", "Add Successful");
-                request.getRequestDispatcher("/AddSale").forward(request, response);
+                request.getRequestDispatcher("/salelist").forward(request, response);
             } else {
                 request.setAttribute("message", "Add Failed");
-                request.getRequestDispatcher("/AddSale").forward(request, response);
+                request.getRequestDispatcher("/salelist").forward(request, response);
             }
         }
     }

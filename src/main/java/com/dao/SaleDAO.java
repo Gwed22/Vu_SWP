@@ -5,7 +5,6 @@
 package com.dao;
 
 import com.db.DBConnection;
-import com.models.Brand;
 import com.models.Consignment;
 import com.models.Sale;
 import java.sql.Connection;
@@ -33,9 +32,8 @@ public class SaleDAO {
         ResultSet rs = null;
         try {
             Statement st = conn.createStatement();
-            rs = st.executeQuery("SELECT s.sale_id, c.product_name, c.productPrice, s.sale_price, s.sale_start_date, s.sale_end_date, s.sale_description \n" +
-                                 "FROM Sale s, Consignment c\n" +
-                                 "WHERE c.con_id=s.con_id");
+            rs = st.executeQuery("SELECT s.sale_id, c.product_name, c.productPrice, s.sale_price, s.sale_start_date, s.sale_end_date, s.sale_description\n" +
+                                 "FROM Sale s INNER JOIN Consignment c ON c.con_id=s.con_id");
         } catch (SQLException ex) {
             Logger.getLogger(SaleDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -47,11 +45,10 @@ public class SaleDAO {
         try {
             PreparedStatement pst = conn.prepareStatement("SELECT s.sale_id, c.product_name, c.productPrice, s.sale_price, s.sale_start_date, s.sale_end_date, s.sale_description\n" +
                                                           "FROM SALE s INNER JOIN Consignment c ON s.con_id=c.con_id\n" +
-                                                          "WHERE c.product_name like ?");
-            pst.setString(1, "'%" + query + "%'");
+                                                          "WHERE c.product_name like '%" + query + "%'");
             rs = pst.executeQuery();
         } catch (SQLException ex) {
-            Logger.getLogger(ConsignmentDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SaleDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return rs;
     }
@@ -108,7 +105,7 @@ public class SaleDAO {
             pst.setInt(1, sale_id);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                s = new Sale(rs.getInt("sale_id"), rs.getTimestamp("sale_start_date"), rs.getTimestamp("sale_end_date"), rs.getFloat("sale_price"), rs.getString("sale_description"), rs.getInt("con_id"));
+                s = new Sale(rs.getInt("sale_id"), rs.getDate("sale_start_date"), rs.getDate("sale_end_date"), rs.getFloat("sale_price"), rs.getString("sale_description"), rs.getInt("con_id"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(SaleDAO.class.getName()).log(Level.SEVERE, null, ex);
