@@ -8,7 +8,7 @@
 <%@page import="com.dao.OrderDAO"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="or" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -109,11 +109,12 @@
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="review-tab-pro-inner">
                                     <ul id="myTab3" class="tab-review-design">
-                                        <li class="active"><a href=><i class="icon nalika-edit" aria-hidden="true"></i> Edit Order</a></li>
+                                        <li class="active"><a href=""><i class="icon nalika-edit" aria-hidden="true"></i> Edit Order </a></li>
                                     </ul>
-                                    <form method="post" action="/Order/Update">
+                                    <form method="post" action="editorder">
                                         <div id="myTabContent" class="tab-content custom-product-edit">
                                             <div class="product-tab-list tab-pane fade active in" id="description">
+<<<<<<< HEAD:src/main/webapp/orderedit.jsp
                                             <div class="row">
                                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                     <div class="review-content-section">
@@ -128,11 +129,28 @@
                                                         <div class="input-group mg-b-pro-edt">
                                                             <span class="input-group-addon"><i class="icon nalika-favorites" aria-hidden="true"></i></span>
                                                             <input type="text" class="form-control" value="$//{or.getDeliveryDate()}" name="delivery_date" >
+=======
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="review-content-section">
+                                                            <div class="input-group mg-b-pro-edt">
+                                                                <span class="input-group-addon"><i class="icon nalika-edit"></i>  Order ID :  </span>
+                                                                <input type="text" class="form-control" id="o_id" name="o_id" value="${o.getOrderID()}"  readonly  style="color: black">
+                                                        </div>
+                                                        <div class="input-group mg-b-pro-edt">
+                                                            <span class="input-group-addon"><i class="icon nalika-edit"></i>  Order Date :  </span>
+                                                            <input type="date" class="form-control" id="o_date" name="o_date" value="${o.getOrderDate()}"  readonly  style="color: black">
+                                                        </div>
+                                                        <div class="input-group mg-b-pro-edt">
+                                                            <span class="input-group-addon"><i class="icon nalika-favorites"></i>  Delivery Date :  </span>
+                                                            <input type="date" style="background-color: #337ab7;" class="form-control" id="delivery_date" value="${o.getDeliveryDate()}" name="delivery_date">
+>>>>>>> 1dfc8c5028ac056ffd248305d03e881bf455ac2e:src/main/webapp/editorder.jsp
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                     <div class="review-content-section">
+<<<<<<< HEAD:src/main/webapp/orderedit.jsp
                                                         <div class="input-group mg-b-pro-edt" style="display: none">
                                                             <span class="input-group-addon"><i class="icon nalika-new-file" aria-hidden="true"></i></span>
                                                             <input type="text" class="form-control" placeholder="status" value="$//{or.getStatus()}" name="status"  readonly style="color: black">
@@ -148,6 +166,23 @@
                                                         <div class="input-group mg-b-pro-edt" style="display: none">
                                                             <span class="input-group-addon"><i class="icon nalika-favorites-button" aria-hidden="true"></i></span>
                                                             <input type="text" class="form-control" placeholder="account_id" name="address" value="$//{or.getAddress()}" readonly style="color: black">
+=======
+                                                        <div class="input-group mg-b-pro-edt">
+                                                            <span class="input-group-addon"><i class="icon nalika-new-file"></i>  Status :  </span>
+                                                            <input type="text" style="background-color: #337ab7;" class="form-control" placeholder="status" id="status" value="${o.getStatus()}" name="status">
+                                                        </div>
+                                                        <div class="input-group mg-b-pro-edt">
+                                                            <span class="input-group-addon"><i class="icon nalika-new-file" aria-hidden="true"></i>  Note :  </span>
+                                                            <input type="text" style="background-color: #337ab7;" class="form-control" placeholder="note" name="note" id="note" value="${o.getNote()}">
+                                                        </div>
+                                                        <div class="input-group mg-b-pro-edt">
+                                                            <span class="input-group-addon"><i class="icon nalika-favorites-button"></i>  Account Name :  </span>
+                                                            <input type="text" class="form-control" placeholder="account_id" name="account_id" id="account_id" value="${acc.getName()}" readonly  style="color: black">
+                                                        </div>
+                                                        <div class="input-group mg-b-pro-edt">
+                                                            <span class="input-group-addon"><i class="icon nalika-favorites-button" ></i>  Address :  </span>
+                                                            <input type="text" style="background-color: #337ab7;" class="form-control" placeholder="account_id" name="address" id="address" value="${o.getAddress()}">
+>>>>>>> 1dfc8c5028ac056ffd248305d03e881bf455ac2e:src/main/webapp/editorder.jsp
                                                         </div>
                                                     </div>
                                                 </div>

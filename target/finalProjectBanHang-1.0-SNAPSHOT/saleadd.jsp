@@ -4,6 +4,9 @@
     Author     : DELL
 --%>
 
+<%@page import="com.dao.SaleDAO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.models.Consignment"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -76,19 +79,20 @@
             <![endif]-->
 
         <jsp:include page="headeradmin.jsp"></jsp:include>
-        <div class="breadcome-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="breadcome-list">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                    <div class="breadcomb-wp">
-                                        <div class="breadcomb-icon">
-                                            <a href="home"><i class="icon nalika-home"></i></a>
-                                        </div>
-                                        <div class="breadcomb-ctn">
-                                            <h2>Add New Sale</h2>
+            <div class="breadcome-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="breadcome-list">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <div class="breadcomb-wp">
+                                            <div class="breadcomb-icon">
+                                                <a href="home"><i class="icon nalika-home"></i></a>
+                                            </div>
+                                            <div class="breadcomb-ctn">
+                                                <h2>Add New Sale</h2>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -97,11 +101,10 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Single pro tab start-->
-        <div class="single-product-tab-area mg-b-30">
-            <!-- Single pro tab review Start-->
-            <div class="single-pro-review-area">
+            <!-- Single pro tab start-->
+            <div class="single-product-tab-area mg-b-30">
+                <!-- Single pro tab review Start-->
+
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
@@ -112,10 +115,10 @@
                                 <li style="margin: 20px; "> <a style="color: white; " href="##">Warehouse</a></li>
                             </ul>
                         </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
                             <div class="review-tab-pro-inner">
                                 <ul id="myTab3" class="tab-review-design">
-                                    <li class="active"><a href="#"><i class="icon nalika-edit" aria-hidden="true"></i> ADD NEW SALE</a></li>
+                                    <li class="active"><a href="#"><i class="icon nalika-edit" aria-hidden="true"></i>ADD NEW SALE</a></li>
                                 </ul>
                                 <div id="myTabContent" class="tab-content custom-product-edit">
                                     <div class="product-tab-list tab-pane fade active in" id="description">
@@ -124,50 +127,48 @@
                                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                     <div class="review-content-section">
                                                         <div class="input-group mg-b-pro-edt">
-                                                            <label>Product Name</label>
+                                                            <label style="color: white; ">Product Name</label>
                                                             <select name="txtConID" class="form-control pro-edt-select form-control-primary">
-                                                                <c:forEach items="${listCon}" var="con">
-                                                                    <option value="${con.getConID}">${con.getProductName()}</option>
-                                                                </c:forEach>
-                                                            </select>
-                                                        </div>
-                                                        <div class="input-group mg-b-pro-edt">
-                                                            <label>Sale Start Date</label>>
-                                                            <input type="date" class="form-control" placeholder="Sale start date" name="txtSaleStartDate">
-                                                        </div>
-                                                        <div class="input-group mg-b-pro-edt">
-                                                            <label>Sale End Date</label>
-                                                            <input type="date" class="form-control" placeholder="Sale end date" name="txtSaleEndDate">
-                                                        </div>
-                                                        <div class="input-group mg-b-pro-edt">
-                                                            <label>Sale Price</label>
-                                                            <input type="text" class="form-control" placeholder="Sale price" name="txtSalePrice">
-                                                        </div>
-                                                        <div class="input-group mg-b-pro-edt">
-                                                            <label>Description</label>
-                                                            <input type="text" class="form-control" placeholder="Sale Description" name="txtDesc">
-                                                        </div>
+                                                            <c:forEach items="${listCon}" var="con">
+                                                                <option value="${con.getConID()}">${con.getProductName()}</option>
+                                                            </c:forEach>
+                                                        </select>
+                                                    </div>
+                                                    <div class="input-group mg-b-pro-edt">
+                                                        <label style="color: white; ">Sale Start Date</label>>
+                                                        <input type="date" class="form-control" placeholder="Sale start date" name="txtSaleStartDate">
+                                                    </div>
+                                                    <div class="input-group mg-b-pro-edt">
+                                                        <label style="color: white; ">Sale End Date</label>
+                                                        <input type="date" class="form-control" placeholder="Sale end date" name="txtSaleEndDate">
+                                                    </div>
+                                                    <div class="input-group mg-b-pro-edt">
+                                                        <label style="color: white; ">Sale Price</label>
+                                                        <input type="text" class="form-control" placeholder="Sale price" name="txtSalePrice">
+                                                    </div>
+                                                    <div class="input-group mg-b-pro-edt">
+                                                        <label style="color: white; ">Description</label>
+                                                        <input type="text" class="form-control" placeholder="Sale Description" name="txtDesc">
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                    <div class="text-right custom-pro-edt-ds">
-                                                        <button type="submit" name="btnAdd" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Add</button>
-                                                    </div>
-                                                    <div class="text-right custom-pro-edt-ds">
-                                                        <button type="reset" name="btnClear" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Clear</button>
-                                                    </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="text-right custom-pro-edt-ds">
+                                                    <button type="submit" name="btnAdd" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Add</button>
+                                                    <button type="reset" name="btnClear" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Clear</button>
                                                 </div>
                                             </div>
-                                        </form>
-                                    </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
         <div class="footer-copyright-area">
 

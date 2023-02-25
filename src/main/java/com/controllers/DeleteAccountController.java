@@ -4,9 +4,12 @@
  */
 package com.controllers;
 
-import com.dao.SaleDAO;
+import com.dao.AccountDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -14,9 +17,9 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Admin
+ * @author Vux
  */
-public class DeleteSaleController extends HttpServlet {
+public class DeleteAccountController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,10 +38,10 @@ public class DeleteSaleController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet DeleteSaleController</title>");            
+            out.println("<title>Servlet DeleteAccountController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet DeleteSaleController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet DeleteAccountController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -56,17 +59,21 @@ public class DeleteSaleController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int sale_id = Integer.parseInt(request.getParameter("id"));
-        SaleDAO dao = new SaleDAO();
-        int count = dao.deleteSale(sale_id);
-        if (count > 0) {
-            request.setAttribute("message", "Delete Successful");
-            request.getRequestDispatcher("/AllSale").forward(request, response);
-        } else {
-            request.setAttribute("message", "Delete Failed");
-            request.getRequestDispatcher("/AllSale").forward(request, response);
+        try {
+            int id = Integer.parseInt(request.getParameter("id"));
+            AccountDAO dao = new AccountDAO();
+            int count = dao.deleteAccount(id);
+            if (count > 0) {
+                request.setAttribute("message", "Delete Successful");
+                request.getRequestDispatcher("/allaccount").forward(request, response);
+            } else {
+                request.setAttribute("message", "Delete Failed");
+                request.getRequestDispatcher("/allaccount").forward(request, response);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DeleteAccountController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+ }
 
     /**
      * Handles the HTTP <code>POST</code> method.

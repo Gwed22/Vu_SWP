@@ -12,7 +12,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Add Account</title>
+        <title>Edit Account</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- favicon
@@ -169,57 +169,61 @@
                                 </ul>
                                 <div id="myTabContent" class="tab-content custom-product-edit">
                                     <div class="product-tab-list tab-pane fade active in" id="description">
-                                        <form action="addaccount" method="post">
-                                            <div class="row">
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                    <div class="review-content-section">
-                                                        <div class="input-group mg-b-pro-edt">
-                                                            <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control" placeholder="Account Name" name="username" required>
-                                                            <span id="usernameHelpBlock" class="form-text text-danger"></span>
-                                                        </div>
-                                                        <div class="input-group mg-b-pro-edt">
-                                                            <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control" placeholder="Password" name="password1" required>
-                                                            <span id="password1HelpBlock" class="form-text text-danger"></span>
-                                                        </div>
-                                                        <div class="input-group mg-b-pro-edt">
-                                                            <span class="input-group-addon"><i class="fa fa-check" aria-hidden="true"></i></span>
-                                                            <select name="gender" id="gender" class="form-control" required>
-                                                                <option value="Male">Male</option>
-                                                                <option value="Female">Female</option>
-                                                            </select>
-                                                            <span id="genderHelpBlock" class="form-text text-danger"></span>
-                                                        </div>
+                                        <form action="editaccount" method="post">
+                                        <%
+                                            Account acc = (Account) request.getAttribute("acc");
+                                        %>
+                                        <input type="text" class="form-control" placeholder="Account ID" value="<%=acc.getAccountID()%>" name="id" id="id" hidden>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <div class="review-content-section">
+                                                    <div class="input-group mg-b-pro-edt">
+                                                        <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                                        <input type="text" class="form-control" placeholder="Account Name" value="<%=acc.getName()%>" name="username" required>
+                                                        <span id="usernameHelpBlock" class="form-text text-danger"></span>
+                                                    </div>
+                                                    <div class="input-group mg-b-pro-edt">
+                                                        <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                                                        <input type="text" class="form-control" value="<%=acc.getPassword()%>" placeholder="Password" name="password1" required>
+                                                        <span id="password1HelpBlock" class="form-text text-danger"></span>
+                                                    </div>
+                                                    <div class="input-group mg-b-pro-edt">
+                                                        <span class="input-group-addon"><i class="fa fa-check" aria-hidden="true"></i></span>
+                                                        <select name="gender" class="form-control">
+                                                                <option  <%= (acc.getGender().equals("Male"))?"selected":""%>>Male</option>
+                                                                <option  <%= (acc.getGender().equals("Female"))?"selected":""%>>Female</option>
+                                                        </select>
+                                                        <span id="genderHelpBlock" class="form-text text-danger"></span>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                    <div class="input-group mg-b-pro-edt">
-                                                        <span class="input-group-addon"><i class="fa fa-gears" aria-hidden="true"></i></span>
-                                                        <select name="role_id" id="role_id" class="form-control" required>
-                                                        <c:forEach items="${listRole}" var="a">
-                                                            <option value="${a.getRoleID()}">${a.getRoleName()}</option>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <div class="input-group mg-b-pro-edt">
+                                                    <span class="input-group-addon"><i class="fa fa-gears" aria-hidden="true"></i></span>
+                                                    <select name="role_id" id="role_id" class="form-control">
+                                                        <c:forEach items="${listRole}" var="r">
+                                                            <option value="${r.getRoleID()}"<c:if test="${r.getRoleID() == acc.getRole_id()}">selected</c:if>>${r.getRoleName()}</option>
                                                         </c:forEach>
                                                     </select>
                                                     <span id="usernameHelpBlock" class="form-text text-danger"></span>
                                                 </div>
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"><i class="icon nalika-unlocked" aria-hidden="true"></i></span>
-                                                    <select name="sq_id" id="sq_id" class="form-control" required>
-                                                        <c:forEach items="${listSQ}" var="b">
-                                                            <option value="${b.getSqID()}">${b.getSqContext()}</option>
+                                                    <select name="sq_id" id="sq_id" class="form-control">
+                                                        <c:forEach items="${listSQ}" var="sq">
+                                                            <option value="${sq.getSqID()}"<c:if test="${sq.getSqID() == acc.getSq_id()}">selected</c:if>>${sq.getSqContext()}</option>
                                                         </c:forEach>
                                                     </select>
                                                     <span id="usernameHelpBlock" class="form-text text-danger"></span>
                                                 </div>
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></span>
-                                                    <input type="text" class="form-control" placeholder="Phone Number" name="phone" required>
+                                                    <input type="text" class="form-control" placeholder="Phone Number" value="<%=acc.getPhone()%>" name="phone" required>
                                                     <span id="phoneHelpBlock" class="form-text text-danger"></span>
                                                 </div>
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"><i class="fa fa-location-arrow" aria-hidden="true"></i></span>
-                                                    <input type="text" class="form-control" placeholder="Address" name="address" required>
+                                                    <input type="text" class="form-control" placeholder="Address" value="<%=acc.getAddress()%>" name="address" required>
                                                     <span id="addressHelpBlock" class="form-text text-danger"></span>
                                                 </div>
                                             </div>
@@ -235,7 +239,7 @@
                                             </div>
                                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                                 <div class="text-right custom-pro-edt-ds">
-                                                    <button type="submit" name="btnAdd" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Save</button>
+                                                    <button type="submit" name="btnUpdate" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Save</button>
                                                 </div>
                                             </div>
                                         </div>

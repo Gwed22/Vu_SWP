@@ -4,19 +4,25 @@
  */
 package com.controllers;
 
-import com.dao.SaleDAO;
+import com.dao.AccountDAO;
+import com.models.Role;
+import com.models.SecurityQuestion;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 
 /**
  *
- * @author Admin
+ * @author Vux
  */
-public class DeleteSaleController extends HttpServlet {
+public class AddAccountController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,10 +41,10 @@ public class DeleteSaleController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet DeleteSaleController</title>");            
+            out.println("<title>Servlet AddAccountController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet DeleteSaleController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet AddAccountController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -56,15 +62,17 @@ public class DeleteSaleController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int sale_id = Integer.parseInt(request.getParameter("id"));
-        SaleDAO dao = new SaleDAO();
-        int count = dao.deleteSale(sale_id);
-        if (count > 0) {
-            request.setAttribute("message", "Delete Successful");
-            request.getRequestDispatcher("/AllSale").forward(request, response);
-        } else {
-            request.setAttribute("message", "Delete Failed");
-            request.getRequestDispatcher("/AllSale").forward(request, response);
+        try {
+            AccountDAO dao = new AccountDAO();
+            ArrayList<Role> listR = dao.getAllRole();
+            ArrayList<SecurityQuestion> listSQ = dao.getAllSQ();
+            int c = dao.getCountAccount()+4;
+            request.setAttribute("count", c);
+            request.setAttribute("listRole", listR);
+            request.setAttribute("listSQ", listSQ);
+            request.getRequestDispatcher("addaccount.jsp").forward(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(AddAccountController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -79,7 +87,33 @@ public class DeleteSaleController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        if (request.getParameter("btnAdd") != null) {
+            try {
+                AccountDAO dao = new AccountDAO();
+                //Them moi
+                int sq_id = Integer.parseInt(request.getParameter("sq_id"));
+                int role_id = Integer.parseInt(request.getParameter("role_id"));
+                String full_name = request.getParameter("username");
+                String phone = request.getParameter("phone");
+                String gender = request.getParameter("gender");
+                String address = request.getParameter("address");
+                String password = request.getParameter("password1");
+
+                com.models.Account acc = new com.models.Account(sq_id,full_name, phone, password, gender, address, sq_id, role_id);
+
+                int count = dao.addNewAccount(acc);
+                if (count > 0) {
+                    request.setAttribute("message", "Add Successful");
+                    request.getRequestDispatcher("/allaccount").forward(request, response);
+                } else {
+                    request.setAttribute("message", "Add Failed");
+                    request.getRequestDispatcher("/allaccount").forward(request, response);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(AddAccountController.class
+                        .getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 
     /**

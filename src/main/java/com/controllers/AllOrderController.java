@@ -4,9 +4,10 @@
  */
 package com.controllers;
 
-import com.dao.SaleDAO;
+import com.dao.OrderDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -14,9 +15,9 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Admin
+ * @author Vux
  */
-public class DeleteSaleController extends HttpServlet {
+public class AllOrderController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,10 +36,10 @@ public class DeleteSaleController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet DeleteSaleController</title>");            
+            out.println("<title>Servlet AllOrderController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet DeleteSaleController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet AllOrderController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -56,16 +57,10 @@ public class DeleteSaleController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int sale_id = Integer.parseInt(request.getParameter("id"));
-        SaleDAO dao = new SaleDAO();
-        int count = dao.deleteSale(sale_id);
-        if (count > 0) {
-            request.setAttribute("message", "Delete Successful");
-            request.getRequestDispatcher("/AllSale").forward(request, response);
-        } else {
-            request.setAttribute("message", "Delete Failed");
-            request.getRequestDispatcher("/AllSale").forward(request, response);
-        }
+        OrderDAO dao = new OrderDAO();
+        ResultSet rs = dao.getAllOrder();
+        request.setAttribute("rs", rs);
+        request.getRequestDispatcher("allorder.jsp").forward(request, response);
     }
 
     /**
@@ -79,8 +74,10 @@ public class DeleteSaleController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-    }
+        OrderDAO dao = new OrderDAO();
+        ResultSet rs = dao.getAllOrder();
+        request.setAttribute("rs", rs);
+        request.getRequestDispatcher("allorder.jsp").forward(request, response);    }
 
     /**
      * Returns a short description of the servlet.

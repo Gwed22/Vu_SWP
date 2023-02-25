@@ -10,16 +10,15 @@ import com.models.Sale;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
-import java.sql.ResultSet;
 import java.util.ArrayList;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author DELL
+ * @author Admin
  */
 public class EditSaleController extends HttpServlet {
 
@@ -62,7 +61,6 @@ public class EditSaleController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int sale_id = Integer.parseInt(request.getParameter("id"));
-        
         SaleDAO dao = new SaleDAO();
         ArrayList<Consignment> listCon = dao.getAllConsignment();
         Sale s = dao.getSaleByID(sale_id);
@@ -94,10 +92,10 @@ public class EditSaleController extends HttpServlet {
             int count = dao.editSale(sale_id, sale_start_date, sale_end_date, sale_price, sale_description, con_id);
             if (count > 0) {
                 request.setAttribute("message", "Edit Successful");
-                request.getRequestDispatcher("/AddSale").forward(request, response);
+                request.getRequestDispatcher("/salelist").forward(request, response);
             } else {
                 request.setAttribute("message", "Edit Failed");
-                request.getRequestDispatcher("/AddSale").forward(request, response);
+                request.getRequestDispatcher("/salelist").forward(request, response);
             }
         }
     }

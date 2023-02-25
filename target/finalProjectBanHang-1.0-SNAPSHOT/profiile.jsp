@@ -43,84 +43,49 @@
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
         <style>
-
-            html {
-                overflow: hidden;
-            }
-
-            .btn-color{
+            
+             .edit-button .btn-color{
                 background-color: #0e1c36;
                 color: #fff;
             }
-            .profile-image-pic{
-                height: 200px;
-                width: 200px;
-                object-fit: cover;
-            }
-
-            .cardbody-color{
-                background-color: #ebf2fa;
-            }
-
-            a{
-                text-decoration: none;
-            }
-         
-            .register-button{
+            .edit-button{
                 margin-left: 70%;
             }
+
         </style>
     </head>
     <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 offset-md-3">
-                    <h2 class="text-center text-dark mt-5">Profile</h2>
-                    <p class=" text-success" style="font-size: 25px;
-                       text-align: center">${errorLogin}</p>
+        <jsp:include page="header.jsp"></jsp:include>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                        <h2 class="text-center text-dark mt-2">Profile</h2>
+                        <p class=" text-success" style="font-size: 25px;
+                           text-align: center">${errorLogin}</p>
 
                     <div class="card my-auto">
 
                         <form class="card-body cardbody-color p-lg-5">
+                            <div class="mb-3">
                                 <div class="mb-3">
-                                    <input type="text" class="form-control" id="full-name"
-                                           placeholder="Full Name">
+                                    <input type="text" class="form-control" id="account"
+                                           placeholder="Your Account" readonly>
                                 </div>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="name"
+                                       placeholder="Full Name">
+                            </div>
                             <div class="mb-3">
                                 <input type="text" class="form-control" id="phone" aria-describedby="numberPhone"
-                                       placeholder="Enter number phone">
+                                       placeholder="Enter number phone" readonly>
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="password"
-                                       placeholder="Password">
-                            </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" id="cf-password"
-                                       placeholder="Confirm Password">
-                            </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" id="address" "
+                                <input type="text" class="form-control" id="address "
                                        placeholder="Address">
                             </div>
-                            <div class="mb-3">
-                                <select class="form-control">
-                                    <option>Security question</option>
-                                    <option>Question 01</option>
-                                    <option>Question 02</option>
-                                    <option>Question 03</option>
-                                    <option>Question 04</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <select class="form-control">
-                                    <option>Security answer</option>
-                                    <option>Answer 01</option>
-                                    <option>Answer 02</option>
-                                    <option>Answer 03</option>
-                                    <option>Answer 04</option>
-                                </select>
-                            </div>
-                            <div class=""><button type="submit" class="btn btn-color  register-button"><a>Register</</button></div>
+                            <div class="edit-button"><button type="submit" class="btn btn-color"><a>Edit Profile</a></button></div>
                         </form>
 
                     </div>
@@ -129,5 +94,8 @@
             </div>
 
         </div>
+        <jsp:include page="footer.jsp"></jsp:include>
+
+
     </body>
 </html>

@@ -5,6 +5,7 @@
         <servlet-class>com.controllers.LoginController</servlet-class>
     </servlet>
     <servlet>
+<<<<<<< HEAD
         <servlet-name>CartController</servlet-name>
         <servlet-class>com.controllers.CartController</servlet-class>
     </servlet>
@@ -23,6 +24,50 @@
     <servlet>
         <servlet-name>PaymentController</servlet-name>
         <servlet-class>com.controllers.PaymentController</servlet-class>
+=======
+        <servlet-name>AllAccountController</servlet-name>
+        <servlet-class>com.controllers.AllAccountController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditAccountController</servlet-name>
+        <servlet-class>com.controllers.EditAccountController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteAccountController</servlet-name>
+        <servlet-class>com.controllers.DeleteAccountController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddAccountController</servlet-name>
+        <servlet-class>com.controllers.AddAccountController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditOrderController</servlet-name>
+        <servlet-class>com.controllers.EditOrderController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AllOrderController</servlet-name>
+        <servlet-class>com.controllers.AllOrderController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddSaleController</servlet-name>
+        <servlet-class>com.controllers.AddSaleController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AllSaleController</servlet-name>
+        <servlet-class>com.controllers.AllSaleController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteSaleController</servlet-name>
+        <servlet-class>com.controllers.DeleteSaleController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditSaleController</servlet-name>
+        <servlet-class>com.controllers.EditSaleController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchSaleController</servlet-name>
+        <servlet-class>com.controllers.SearchSaleController</servlet-class>
+>>>>>>> 1dfc8c5028ac056ffd248305d03e881bf455ac2e
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -35,6 +80,10 @@
     <servlet>
         <servlet-name>SearchConsignmentController</servlet-name>
         <servlet-class>com.controllers.SearchConsignmentController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchAccountController</servlet-name>
+        <servlet-class>com.controllers.SearchAccountController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddConsignmentController</servlet-name>
@@ -77,24 +126,20 @@
         <url-pattern>/home</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>Account</servlet-name>
-        <servlet-class>com.controllers.viewAllAccountController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Account</servlet-name>
-        <url-pattern>/Account/*</url-pattern>
-    </servlet-mapping>
-    <servlet>
         <servlet-name>Order</servlet-name>
         <servlet-class>com.controllers.viewAllOrderController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Order</servlet-name>
-        <url-pattern>/Order/*</url-pattern>
+        <url-pattern>/order</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SearchConsignmentController</servlet-name>
         <url-pattern>/searchconsignment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchAccountController</servlet-name>
+        <url-pattern>/searchaccount</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddConsignmentController</servlet-name>
@@ -109,6 +154,7 @@
         <url-pattern>/editconsignment</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+<<<<<<< HEAD
         <servlet-name>CartController</servlet-name>
         <url-pattern>/addtocart</url-pattern>
     </servlet-mapping>
@@ -127,6 +173,50 @@
     <servlet-mapping>
         <servlet-name>PaymentController</servlet-name>
         <url-pattern>/paymentprocess</url-pattern>
+=======
+        <servlet-name>AllAccountController</servlet-name>
+        <url-pattern>/allaccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditAccountController</servlet-name>
+        <url-pattern>/editaccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteAccountController</servlet-name>
+        <url-pattern>/deleteaccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddAccountController</servlet-name>
+        <url-pattern>/addaccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditOrderController</servlet-name>
+        <url-pattern>/editorder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AllOrderController</servlet-name>
+        <url-pattern>/allorder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddSaleController</servlet-name>
+        <url-pattern>/AddSale</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AllSaleController</servlet-name>
+        <url-pattern>/salelist</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteSaleController</servlet-name>
+        <url-pattern>/DeleteSale</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditSaleController</servlet-name>
+        <url-pattern>/EditSale</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchSaleController</servlet-name>
+        <url-pattern>/SearchSale</url-pattern>
+>>>>>>> 1dfc8c5028ac056ffd248305d03e881bf455ac2e
     </servlet-mapping>
     <session-config>
         <session-timeout>
