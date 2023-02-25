@@ -1,72 +1,20 @@
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.Connection"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.DriverManager"%>
 <%@page import="com.dao.AccountDAO"%>
 <%@page import="com.models.Account"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Edit Account</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- favicon
-                    ============================================ -->
-        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-        <!-- Google Fonts
-                    ============================================ -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
-        <!-- Bootstrap CSS
-                    ============================================ -->
-        <link rel="stylesheet" href="css1/bootstrap.min.css">
-        <!-- Bootstrap CSS
-                    ============================================ -->
-        <link rel="stylesheet" href="css1/font-awesome.min.css">
-        <!-- nalika Icon CSS
-                ============================================ -->
-        <link rel="stylesheet" href="css1/nalika-icon.css">
-        <!-- owl.carousel CSS
-                    ============================================ -->
-        <link rel="stylesheet" href="css1/owl.carousel.css">
-        <link rel="stylesheet" href="css1/owl.theme.css">
-        <link rel="stylesheet" href="css1/owl.transitions.css">
-        <!-- animate CSS
-                    ============================================ -->
-        <link rel="stylesheet" href="css1/animate.css">
-        <!-- normalize CSS
-                    ============================================ -->
-        <link rel="stylesheet" href="css1/normalize.css">
-        <!-- meanmenu icon CSS
-                    ============================================ -->
-        <link rel="stylesheet" href="css1/meanmenu.min.css">
-        <!-- main CSS
-                    ============================================ -->
-        <link rel="stylesheet" href="css1/main.css">
-        <!-- morrisjs CSS
-                    ============================================ -->
-        <link rel="stylesheet" href="css1/morrisjs/morris.css">
-        <!-- mCustomScrollbar CSS
-                    ============================================ -->
-        <link rel="stylesheet" href="css1/scrollbar/jquery.mCustomScrollbar.min.css">
-        <!-- metisMenu CSS
-                    ============================================ -->
-        <link rel="stylesheet" href="css1/metisMenu/metisMenu.min.css">
-        <link rel="stylesheet" href="css1/metisMenu/metisMenu-vertical.css">
-
-        <!-- style CSS
-                    ============================================ -->
-        <link rel="stylesheet" href="style.css">
-        <!-- responsive CSS
-                    ============================================ -->
-        <link rel="stylesheet" href="css1/responsive.css">
-        <!-- modernizr JS
-                    ============================================ -->
-        <script src="js1/vendor/modernizr-2.8.3.min.js"></script>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Register new account</title>
+        <script
+        src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link rel="stylesheet"
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <script>
             $(document).ready(function () {
 
@@ -110,142 +58,202 @@
                         $("#phoneHelpBlock").html("");
                     }
                 });
-//
-//                $("#button").click(function () {
-//                    var sdt = $.trim($("#phone").val());
-//                    var tk = $.trim($("#username").val());
-//                    var mk2 = $.trim($("#password1").val());
-//                    var addr = $.trim($("#address").val());
-//
-//                    if (tk != "" && addr != "" &&
-//                            mk1.length >= 6 || mk1.length <= 20 &&
-//                            patt_phone.test(sdt) == true) {
-//                        $("#success").html("Successful!");
-//                        return true; //false n?u không mu?n chuy?n trang
-//                    } else {
-//                        $("#fail").html("Input not valid!");
-//                        return false;
-//                    }
-//                });
+
+                $("#button").click(function () {
+                    var sdt = $.trim($("#phone").val());
+                    var tk = $.trim($("#username").val());
+                    var mk2 = $.trim($("#password1").val());
+                    var addr = $.trim($("#address").val());
+
+                    if (tk != "" && addr != "" &&
+                            mk1.length >= 6 || mk1.length <= 20 &&
+                            patt_phone.test(sdt) == true) {
+                        $("#success").html("Successful!");
+                        return true; //false n?u không mu?n chuy?n trang
+                    } else {
+                        $("#fail").html("Input not valid!");
+                        return false;
+                    }
+                });
 
             });
         </script>
         <style>
         </style>
     </head>
-    <jsp:include page="headeradmin.jsp"></jsp:include>
-        <div class="breadcome-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="breadcome-list">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                    <div class="breadcomb-wp">
-                                        <div class="breadcomb-icon">
-                                            <a href="home"><i class="icon nalika-home"></i></a>
-                                        </div>
-                                        <div class="breadcomb-ctn">
-                                            <h2>Account Management</h2>
-                                        </div>
+    <div class="jumbotron text-center">
+        <h1>Update Account</h1>
+    </div>
+    <div class="slider_section row">
+        <div class="menu-left col-xl-2 col-lg-12 col-md-12 co-sm-11 ">
+            <ul class="nav-menu-left" style="list-style-type: none">
+                <li class="jumbotron text-center"><a href="#">Product Management</a></li>
+                <li class="jumbotron text-center"><a href="#">Order Management</a></li>
+                <li class="jumbotron text-center"><a href="#">Account Management</a></li>
+            </ul>
+        </div>
+        <div id="myCarousel" class="carousel slide banner-main col-xl-9 col-lg-10 col-md-12 co-sm-11" data-ride="carousel">
+            <div class="carousel-inner">
+                <form method="post" action="editaccount">
+                    <%
+                        Account acc = (Account) request.getAttribute("acc");
+                    %>
+                    <div class="form-group row" id="Form1">
+                        <div class="col-lg-2"></div>
+                        <label class="col-2 col-form-label" for="account_id">Account ID</label>
+                        <div class="col-6">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fa fa-address-card"></i>
                                     </div>
                                 </div>
+                                <input id="id" name="id" placeholder="Please enter account_id " type="text"
+                                       aria-describedby="account_idHelpBlock"
+                                       class="form-control" value="<%= acc.getAccountID()%>">
+                            </div>
+                            <span id="usernameHelpBlock" class="form-text text-danger"></span>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row" id="Form1">
+                        <div class="col-lg-2"></div>
+                        <label class="col-2 col-form-label" for="username">Account Name</label>
+                        <div class="col-6">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fa fa-address-card"></i>
+                                    </div>
+                                </div>
+                                <input id="username" name="username" placeholder="Please enter account name" type="text"
+                                       aria-describedby="usernameHelpBlock"
+                                       class="form-control" value="<%= acc.getName()%>">
+                            </div>
+                            <span id="usernameHelpBlock" class="form-text text-danger"></span>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-lg-2"></div>
+                        <label for="password1" class="col-2 col-form-label">Password</label>
+                        <div class="col-6">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fa fa-key"></i>
+                                    </div>
+                                </div>
+                                <input id="password1" name="password1" placeholder="Please enter password" type="text"
+                                       aria-describedby="password1HelpBlock"
+                                       class="form-control" value="<%= acc.getPassword()%>">
+                            </div>
+                            <span id="password1HelpBlock" class="form-text text-danger"></span>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-lg-2"></div>
+                        <label for="gender" class="col-2 col-form-label">Gender</label>
+                        <div class="col-6">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                </div>
+                                <input type="radio" name="rdoGD" value="Male"<%= (acc.getGender().equals("Male")) ? "checked" : ""%>/> Male         
+                                <input class="offset-2" type="radio" name="rdoGD" value="Female" <%= (acc.getGender().equals("Female")) ? "checked" : ""%>/> Female    
                             </div>
                         </div>
                     </div>
-                </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-lg-2"></div>
+                        <label for="role" class="col-2 col-form-label">Role</label>
+                        <div class="col-6">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fa fa-gears"></i>
+                                    </div>
+                                </div>
+                                <select name="role_id" class="form-control">
+                                    <c:forEach items="${listRole}" var="r">
+                                        <option value="${r.getRoleID()}"<c:if test="${r.getRoleID() == acc.getRole_id()}">selected</c:if>>${r.getRoleName()}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                            <span id="roleHelpBlock" class="form-text text-danger"></span>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-lg-2"></div>
+                        <label for="sq" class="col-2 col-form-label">Security ID</label>
+                        <div class="col-6">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fa fa-gears"></i>
+                                    </div>
+                                </div>
+                                <select name="sq_id" class="form-control">
+                                    <c:forEach items="${listSQ}" var="sq">
+                                        <option value="${sq.getSqID()}"<c:if test="${sq.getSqID() == acc.getSq_id()}">selected</c:if>>${sq.getSqContext()}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                            <span id="sqHelpBlock" class="form-text text-danger"></span>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-lg-2"></div>
+                        <label for="phone" class="col-2 col-form-label">Phone</label>
+                        <div class="col-6">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fa fa-phone"></i>
+                                    </div>
+                                </div>
+                                <input id="phone" name="phone" placeholder="Please enter phone number" type="text"
+                                       aria-describedby="phoneHelpBlock"
+                                       class="form-control" value="<%=acc.getPhone()%>">
+                            </div>
+                            <span id="phoneHelpBlock" class="form-text text-danger"></span>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="col-lg-2"></div>
+                        <label for="address" class="col-2 col-form-label">Address</label>
+                        <div class="col-6">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fa fa-address-card"></i>
+                                    </div>
+                                </div>
+                                <textarea id="address" name="address" placeholder="Please enter address"
+                                          aria-describedby="addressHelpBlock"
+                                          class="form-control"><%=acc.getAddress()%></textarea>
+                            </div>
+                            <span id="addressHelpBlock" class="form-text text-danger"></span>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group row">
+                        <div class="offset-4">
+                            <button name="btnUpdate" type="submit" id ="button" class="btn btn-primary">Update</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-        <!-- Single pro tab start-->
-        <div class="single-product-tab-area mg-b-30">
-            <!-- Single pro tab review Start-->
-            <div class="single-pro-review-area">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="review-tab-pro-inner offset-3">
-                                <ul id="myTab3" class="tab-review-design">
-                                    <li class="active"><a href="#"><i class="icon nalika-edit" aria-hidden="true"></i> Add New Account</a></li>
-                                </ul>
-                                <div id="myTabContent" class="tab-content custom-product-edit">
-                                    <div class="product-tab-list tab-pane fade active in" id="description">
-                                        <form action="editaccount" method="post">
-                                        <%
-                                            Account acc = (Account) request.getAttribute("acc");
-                                        %>
-                                        <input type="text" class="form-control" placeholder="Account ID" value="<%=acc.getAccountID()%>" name="id" id="id" style="display: none">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                <div class="review-content-section">
-                                                    <div class="input-group mg-b-pro-edt">
-                                                        <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                                        <input type="text" class="form-control" placeholder="Account Name" value="<%=acc.getName()%>" name="username" required>
-                                                        <span id="usernameHelpBlock" class="form-text text-danger"></span>
-                                                    </div>
-                                                    <div class="input-group mg-b-pro-edt">
-                                                        <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
-                                                        <input type="text" class="form-control" value="<%=acc.getPassword()%>" placeholder="Password" name="password1" required>
-                                                        <span id="password1HelpBlock" class="form-text text-danger"></span>
-                                                    </div>
-                                                    <div class="input-group mg-b-pro-edt">
-                                                        <span class="input-group-addon"><i class="fa fa-check" aria-hidden="true"></i></span>
-                                                        <select name="gender" class="form-control">
-                                                            <option  <%= (acc.getGender().equals("Male")) ? "selected" : ""%>>Male</option>
-                                                            <option  <%= (acc.getGender().equals("Female")) ? "selected" : ""%>>Female</option>
-                                                        </select>
-                                                        <span id="genderHelpBlock" class="form-text text-danger"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                <div class="input-group mg-b-pro-edt">
-                                                    <span class="input-group-addon"><i class="fa fa-gears" aria-hidden="true"></i></span>
-                                                    <select name="role_id" id="role_id" class="form-control">
-                                                        <c:forEach items="${listRole}" var="r">
-                                                            <option value="${r.getRoleID()}"<c:if test="${r.getRoleID() == acc.getRole_id()}">selected</c:if>>${r.getRoleName()}</option>
-                                                        </c:forEach>
-                                                    </select>
-                                                    <span id="usernameHelpBlock" class="form-text text-danger"></span>
-                                                </div>
-                                                <div class="input-group mg-b-pro-edt">
-                                                    <span class="input-group-addon"><i class="icon nalika-unlocked" aria-hidden="true"></i></span>
-                                                    <select name="sq_id" id="sq_id" class="form-control">
-                                                        <c:forEach items="${listSQ}" var="sq">
-                                                            <option value="${sq.getSqID()}"<c:if test="${sq.getSqID() == acc.getSq_id()}">selected</c:if>>${sq.getSqContext()}</option>
-                                                        </c:forEach>
-                                                    </select>
-                                                    <span id="usernameHelpBlock" class="form-text text-danger"></span>
-                                                </div>
-                                                <div class="input-group mg-b-pro-edt">
-                                                    <span class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></span>
-                                                    <input type="text" class="form-control" placeholder="Phone Number" value="<%=acc.getPhone()%>" name="phone" required>
-                                                    <span id="phoneHelpBlock" class="form-text text-danger"></span>
-                                                </div>
-                                                <div class="input-group mg-b-pro-edt">
-                                                    <span class="input-group-addon"><i class="fa fa-location-arrow" aria-hidden="true"></i></span>
-                                                    <input type="text" class="form-control" placeholder="Address" value="<%=acc.getAddress()%>" name="address" required>
-                                                    <span id="addressHelpBlock" class="form-text text-danger"></span>
-                                                </div>
-                                            </div>
-                                        </div>                    
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 
-                                            </div>
-                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                <div class="text-right custom-pro-edt-ds">
-                                                    <button type="reset" name="btnClear" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Clear</button>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                                <div class="text-right custom-pro-edt-ds">
-                                                    <button type="submit" name="btnUpdate" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Save</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </html>
+        <div class="form-text text-success">
+            <h1 id="success"></h1>
+        </div>     
+        <div class="form-text text-danger">
+            <h2 id="fail"></h2>
+        </div>
+</html>

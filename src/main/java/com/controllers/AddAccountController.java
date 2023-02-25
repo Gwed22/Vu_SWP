@@ -95,7 +95,7 @@ public class AddAccountController extends HttpServlet {
                 int role_id = Integer.parseInt(request.getParameter("role_id"));
                 String full_name = request.getParameter("username");
                 String phone = request.getParameter("phone");
-                String gender = request.getParameter("gender");
+                String gender = request.getParameter("rdoGD");
                 String address = request.getParameter("address");
                 String password = request.getParameter("password1");
 

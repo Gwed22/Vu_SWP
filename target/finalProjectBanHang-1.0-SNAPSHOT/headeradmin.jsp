@@ -42,8 +42,8 @@
                             <span class="mini-click-non">Account</span>
                         </a>
                         <ul class="submenu-angle" aria-expanded="true">
-                            <li><a href="allaccount"><span class="mini-sub-pro">Account List</span></a></li>
-                            <li><a href="addaccount"><span class="mini-sub-pro">Add Account</span></a></li>
+                            <li><a href="#"><span class="mini-sub-pro">Account List</span></a></li>
+                            <li><a href="#"><span class="mini-sub-pro">Add Account</span></a></li>
                         </ul>
                     </li>
                     <li>
