@@ -74,7 +74,7 @@ public class AccountDAO {
         return count;
     }
 
-      public ArrayList<Role> getAllRole() {
+    public ArrayList<Role> getAllRole() {
         ArrayList<Role> list = new ArrayList<>();
         ResultSet rs = null;
         try {
@@ -88,8 +88,8 @@ public class AccountDAO {
         }
         return list;
     }
-      
-      public ArrayList<SecurityQuestion> getAllSQ() {
+
+    public ArrayList<SecurityQuestion> getAllSQ() {
         ArrayList<SecurityQuestion> list = new ArrayList<>();
         ResultSet rs = null;
         try {
@@ -103,7 +103,7 @@ public class AccountDAO {
         }
         return list;
     }
-    
+
     public int updateAccount(Account acc) {
         int count = 0;
         try {
@@ -152,9 +152,8 @@ public class AccountDAO {
         }
         return count;
     }
-   
 
-   public Account checkLogin(String phone, String password) {
+    public Account checkLogin(String phone, String password) {
         ResultSet rs = null;
 
         try {
@@ -163,19 +162,18 @@ public class AccountDAO {
             pst.setString(2, password);
             rs = pst.executeQuery();
             while (rs.next()) {
-                Account ac = new Account(rs.getInt("account_id"),rs.getString("full_name"),  rs.getString("phone"), rs.getString("password"), rs.getString("gender"), rs.getString("address"), rs.getInt("sq_id"), rs.getInt("role_id"));
+                Account ac = new Account(rs.getInt("account_id"), rs.getString("full_name"), rs.getString("phone"), rs.getString("password"), rs.getString("gender"), rs.getString("address"), rs.getInt("sq_id"), rs.getInt("role_id"));
                 return ac;
             }
         } catch (SQLException ex) {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-               return null;
+        return null;
     }
-   
-   public ResultSet getSearchAccount(String query) throws SQLException {
+
+    public ResultSet getSearchAccount(String query) throws SQLException {
         Statement st = conn.createStatement();
         ResultSet rs = st.executeQuery("Select * from Account where full_name like'%" + query + "%'");
         return rs;
     }
 }
-
