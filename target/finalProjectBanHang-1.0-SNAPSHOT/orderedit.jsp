@@ -119,15 +119,15 @@
                                                     <div class="review-content-section">
                                                         <div class="input-group mg-b-pro-edt" style="display: none">
                                                             <span class="input-group-addon"><i class="icon nalika-edit" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control" name="o_id" value="${or.getOrderID()}"  readonly style="color: black">
+                                                            <input type="text" class="form-control" name="o_id" value="$//{or.getOrderID()}"  readonly style="color: black">
                                                         </div>
                                                         <div class="input-group mg-b-pro-edt" style="display: none">
                                                             <span class="input-group-addon"><i class="icon nalika-edit" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control"  name="o_date" value="${or.getOrderDate()}"  readonly style="color: black">
+                                                            <input type="text" class="form-control"  name="o_date" value="$//{or.getOrderDate()}"  readonly style="color: black">
                                                         </div>
                                                         <div class="input-group mg-b-pro-edt">
                                                             <span class="input-group-addon"><i class="icon nalika-favorites" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control" value="${or.getDeliveryDate()}" name="delivery_date" >
+                                                            <input type="text" class="form-control" value="$//{or.getDeliveryDate()}" name="delivery_date" >
                                                         </div>
                                                     </div>
                                                 </div>
@@ -135,19 +135,19 @@
                                                     <div class="review-content-section">
                                                         <div class="input-group mg-b-pro-edt" style="display: none">
                                                             <span class="input-group-addon"><i class="icon nalika-new-file" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control" placeholder="status" value="${or.getStatus()}" name="status"  readonly style="color: black">
+                                                            <input type="text" class="form-control" placeholder="status" value="$//{or.getStatus()}" name="status"  readonly style="color: black">
                                                         </div>
                                                         <div class="input-group mg-b-pro-edt" style="display: none">
                                                             <span class="input-group-addon"><i class="icon nalika-new-file" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control" placeholder="note" name="note" value="${or.getNote()}" readonly style="color: black">
+                                                            <input type="text" class="form-control" placeholder="note" name="note" value="$//{or.getNote()}" readonly style="color: black">
                                                         </div>
                                                         <div class="input-group mg-b-pro-edt" style="display: none">
                                                             <span class="input-group-addon"><i class="icon nalika-favorites-button" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control" placeholder="account_id" name="account_id" value="${or.getAccountID()}" readonly style="color: black">
+                                                            <input type="text" class="form-control" placeholder="account_id" name="account_id" value="$//{or.getAccountID()}" readonly style="color: black">
                                                         </div>
                                                         <div class="input-group mg-b-pro-edt" style="display: none">
                                                             <span class="input-group-addon"><i class="icon nalika-favorites-button" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control" placeholder="account_id" name="address" value="${or.getAddress()}" readonly style="color: black">
+                                                            <input type="text" class="form-control" placeholder="account_id" name="address" value="$//{or.getAddress()}" readonly style="color: black">
                                                         </div>
                                                     </div>
                                                 </div>

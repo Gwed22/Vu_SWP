@@ -3,7 +3,7 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>
-<%@page import="com.daos.AccountDAO"%>
+<%@page import="com.dao.AccountDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

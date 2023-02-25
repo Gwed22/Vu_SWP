@@ -24,7 +24,7 @@
         <!-- bootstrap css -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="css/style5.css">
+        <link rel="stylesheet" href="css/style7.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -71,10 +71,9 @@
                                         <button type="submit" class=" btn-secondary btn-search "><i class="fa fa-search"></i></button>
                                     </form>
                                     <ul class="menu-area-main col-md-12">
-                                        <li class="active build"><a href="/account"><i class="fa fa-cogs" aria-hidden="true"></i> BuildPC</a></li>
+                                        <li class="active build"><a href="/account"><i class="fa fa-cogs" aria-hidden="true"></i> Build PC</a></li>
                                         <li class="active sale"><a href="/account"><i class="fa fa-tags" aria-hidden="true"></i> Sales</a></li>
-                                        <c:if test="${sessionScope.acc == null}">
-                                            
+                                        <c:if test="${sessionScope.acc == null}">                                           
                                             <li class="active"><a href="/account"><i class="fa fa-user-circle-o" aria-hidden="true" ></i> LogIn</a></li>
                                             </c:if>
                                             <c:if test="${sessionScope.acc != null}">
@@ -85,8 +84,8 @@
                                             <li class="active" style="color: white; font-size: 20px">Hello: ${sessionScope.acc.getLname()}</li>
                                             <li class="active"><a href="logout">Log out</a></li>
                                             </c:if>
-                                            
-                                            <li class="active cart"><a href="shoppingcart.jsp"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a></li>                                        
+                                            <c:set var="c" value="${sessionScope.size}"></c:set>
+                                            <li class="active cart"><a href="shopcart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <c:if test="${c != null}">${c}</c:if></a></li>                                        
                                     </ul>
                                 </header>
 

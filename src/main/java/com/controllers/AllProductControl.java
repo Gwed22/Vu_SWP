@@ -64,7 +64,7 @@ public class AllProductControl extends HttpServlet {
         request.setAttribute("listP", listP);
         List<Brand> list = dao.getAllBrand();
         String[] pp = {"Price: Increase",
-            "Price: Decrease"};
+                        "Price: Decrease"};
         boolean[] pb = new boolean[pp.length + 1];
         pb[0] = true;
         List<Products> incre = dao.getIncre();

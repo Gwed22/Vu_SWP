@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -19,7 +20,7 @@
         <!-- bootstrap css -->
         <link rel="stylesheet" href="./css/bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="./css/style5.css">
+        <link rel="stylesheet" href="./css/style7.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
@@ -49,162 +50,160 @@
                 <div class="menu-left col-xl-2 col-lg-12 col-md-12 co-sm-11 ">
                     <ol class="nav-menu-left ">
                         <li class="header-menu"><i class="fa fa-bars" aria-hidden="true" style="color: white; margin-left: 10px;"></i><span class="content-menu">LIST</span></li>
-                        <li class="list-menu"><i class="fa fa-desktop" aria-hidden="true"></i><a href="#">PC</a></li>
-                        <li class="list-menu"><i class="fa fa-laptop" aria-hidden="true"></i><a href="#">LAPTOP</a> </li>
-                        <li class="list-menu"><i class="fa fa-mouse-pointer" aria-hidden="true"></i><a href="#"> MOUSE</a></li>
-                        <li class="list-menu"><i class="fa fa-keyboard-o" aria-hidden="true"></i><a href="#">KEYBOARD</a></li>
-                        <li class="list-menu"><i class="fa fa-headphones" aria-hidden="true"></i><a href="#"> HEADPHONE</a></li>
-                    </ol>
-                </div>
-                <div id="myCarousel" class="carousel slide banner-main col-xl-9 col-lg-10 col-md-12 co-sm-11" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="first-slide" src="images/banner.jpg" alt="First slide">
-                            <div class="container">
-                                <div class="carousel-caption relative">
-                                    <span>All New Phones </span>
-                                    <h1>up to 25% Flat Sale</h1>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content
-                                        <br> of a page when looking at its layout. The point of using Lorem Ipsum is that</p>
-                                    <a class="buynow" href="/allproduct">See more</a>
-                                    <ul class="social_icon">
-                                        <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                                        <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="second-slide" src="images/banner.jpg" alt="Second slide">
-                            <div class="container">
-                                <div class="carousel-caption relative">
-                                    <span>All New Phones </span>
-                                    <h1>up to 25% Flat Sale</h1>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content
-                                        <br> of a page when looking at its layout. The point of using Lorem Ipsum is that</p>
-                                    <a class="buynow" href="/allproduct">See more</a>
-                                    <ul class="social_icon">
-                                        <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                                        <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="third-slide" src="images/banner.jpg" alt="Third slide">
-                            <div class="container">
-                                <div class="carousel-caption relative">
-                                    <span>All New Phones</span>
-                                    <h1>up to 25% Flat Sale</h1>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content
-                                        <br> of a page when looking at its layout. The point of using Lorem Ipsum is that</p>
-                                    <a class="buynow" href="/allproduct">See more</a>
-                                    <ul class="social_icon">
-                                        <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                                        <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
-                                    </ul>
-                                </div>
+                            <c:forEach items="${listCa}" var="ca" >
+                        <li class="list-menu"><a href="category?cid=${ca.getcID()}">${ca.getcName()}</a></li>
+                            </c:forEach>
+                </ol>
+            </div>
+
+            <div id="myCarousel" class="carousel slide banner-main col-xl-9 col-lg-10 col-md-12 co-sm-11" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="first-slide" src="images/banner.jpg" alt="First slide">
+                        <div class="container">
+                            <div class="carousel-caption relative">
+                                <span>All New Products </span>
+                                <h1>up to 25% Flat Sale</h1>
+                                <p>It is a long established fact that a reader will be distracted by the readable content
+                                    <br> of a page when looking at its layout. The point of using Lorem Ipsum is that</p>
+                                <a class="buynow" href="/allproduct">See more</a>
+                                <ul class="social_icon">
+                                    <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                                    <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                        <i class='fa fa-angle-left'></i>
-                    </a>
-                    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                        <i class='fa fa-angle-right'></i>
-                    </a>
+                    <div class="carousel-item">
+                        <img class="second-slide" src="images/banner.jpg" alt="Second slide">
+                        <div class="container">
+                            <div class="carousel-caption relative">
+                                <span>All New Products </span>
+                                <h1>up to 25% Flat Sale</h1>
+                                <p>It is a long established fact that a reader will be distracted by the readable content
+                                    <br> of a page when looking at its layout. The point of using Lorem Ipsum is that</p>
+                                <a class="buynow" href="/allproduct">See more</a>
+                                <ul class="social_icon">
+                                    <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                                    <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="third-slide" src="images/banner.jpg" alt="Third slide">
+                        <div class="container">
+                            <div class="carousel-caption relative">
+                                <span>All New Products</span>
+                                <h1>up to 25% Flat Sale</h1>
+                                <p>It is a long established fact that a reader will be distracted by the readable content
+                                    <br> of a page when looking at its layout. The point of using Lorem Ipsum is that</p>
+                                <a class="buynow" href="/allproduct">See more</a>
+                                <ul class="social_icon">
+                                    <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                                    <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                    <i class='fa fa-angle-left'></i>
+                </a>
+                <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                    <i class='fa fa-angle-right'></i>
+                </a>
+            </div>
+        </div>
+        <!-- about -->
+        <div class="about">
+            <div class="container titlepage">
+                <div class="col-lg-12 ">
+                    <div class="title">
+                        <h2>SIGNATURE PRODUCT</h2>
+                    </div>
                 </div>
             </div>
-            <!-- about -->
-            <div class="about">
-                <div class="container titlepage">
-                    <div class="col-lg-12 ">
-                        <div class="title">
-                            <h2>SIGNATURE PRODUCT</h2>
+            <div class="container content-about">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-2 col-md-5 co-sm-l2 item_context">
+                        <div class="about_img">
+                            <figure><img src="images/about.png" alt="img" /></figure>
                         </div>
                     </div>
-
-
+                    <div class="col-xl-9 col-lg-2 col-md-7 co-sm-l2 item_context">
+                        <div class="about_box">
+                            <h3>About Us</h3>
+                            <span>ISUNG Shop</span>
+                            <p>ISUNG Digital Retail Joint Stock Company (hereinafter referred to as ISUNG Retail) is an associate company of Group 4 Vietnam, established on November 10, 2022 with the main brand name ISUNG Shop - Agent Officially authorized by Apple and Samsung in Vietnam at the highest level. </p>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-2 col-md-7 co-sm-l2 item_context">
+                        <div class="about_box about_box_1">
+                            <h3>About Us</h3>
+                            <span>ISUNG Shop</span>
+                            <p>ISUNG Digital Retail Joint Stock Company (hereinafter referred to as ISUNG Retail) is an associate company of Group 4 Vietnam, established on November 10, 2022 with the main brand name ISUNG Shop - Agent Officially authorized by Apple and Samsung in Vietnam at the highest level. </p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-2 col-md-5 co-sm-l2 item_context">
+                        <div class="about_img">
+                            <figure><img src="images/about.png" alt="img" /></figure>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-2 col-md-5 co-sm-l2 item_context">
+                        <div class="about_img">
+                            <figure><img src="images/about.png" alt="img" /></figure>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-2 col-md-7 co-sm-l2 item_context">
+                        <div class="about_box">
+                            <h3>About Us</h3>
+                            <span>ISUNG Shop</span>
+                            <p>ISUNG Digital Retail Joint Stock Company (hereinafter referred to as ISUNG Retail) is an associate company of Group 4 Vietnam, established on November 10, 2022 with the main brand name ISUNG Shop - Agent Officially authorized by Apple and Samsung in Vietnam at the highest level. </p>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-2 col-md-7 co-sm-l2 item_context">
+                        <div class="about_box about_box_1">
+                            <h3>About Us</h3>
+                            <span>ISUNG Shop</span>
+                            <p>ISUNG Digital Retail Joint Stock Company (hereinafter referred to as ISUNG Retail) is an associate company of Group 4 Vietnam, established on November 10, 2022 with the main brand name ISUNG Shop - Agent Officially authorized by Apple and Samsung in Vietnam at the highest level. </p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-2 col-md-5 co-sm-l2 item_context">
+                        <div class="about_img">
+                            <figure><img src="images/about.png" alt="img" /></figure>
+                        </div>
+                    </div>
                 </div>
-                <div class="container content-about">
+            </div>
+        </div>
+        <!-- end about -->
+        <!-- brand -->
+        <div class="brand">
+            <div class="container titlepage">
+                <div class="col-lg-12 ">
+                    <div class="title">
+                        <h2>Laptop BestSeller</h2>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <a class="read-more " href="/category?cid=${1}">See More</a>
+                </div>
+
+            </div>
+            <div class="brand-bg" style="text-align: center;">
+                <div class="container">
                     <div class="row">
-                        <div class="col-xl-3 col-lg-2 col-md-5 co-sm-l2 item_context">
-                            <div class="about_img">
-                                <figure><img src="images/about.png" alt="img" /></figure>
-                            </div>
-                        </div>
-                        <div class="col-xl-9 col-lg-2 col-md-7 co-sm-l2 item_context">
-                            <div class="about_box">
-                                <h3>About Us</h3>
-                                <span>ISUNG Shop</span>
-                                <p>ISUNG Digital Retail Joint Stock Company (hereinafter referred to as ISUNG Retail) is an associate company of Group 4 Vietnam, established on November 10, 2022 with the main brand name ISUNG Shop - Agent Officially authorized by Apple and Samsung in Vietnam at the highest level. </p>
-                            </div>
-                        </div>
-                        <div class="col-xl-9 col-lg-2 col-md-7 co-sm-l2 item_context">
-                            <div class="about_box about_box_1">
-                                <h3>About Us</h3>
-                                <span>ISUNG Shop</span>
-                                <p>ISUNG Digital Retail Joint Stock Company (hereinafter referred to as ISUNG Retail) is an associate company of Group 4 Vietnam, established on November 10, 2022 with the main brand name ISUNG Shop - Agent Officially authorized by Apple and Samsung in Vietnam at the highest level. </p>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-2 col-md-5 co-sm-l2 item_context">
-                            <div class="about_img">
-                                <figure><img src="images/about.png" alt="img" /></figure>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-2 col-md-5 co-sm-l2 item_context">
-                            <div class="about_img">
-                                <figure><img src="images/about.png" alt="img" /></figure>
-                            </div>
-                        </div>
-                        <div class="col-xl-9 col-lg-2 col-md-7 co-sm-l2 item_context">
-                            <div class="about_box">
-                                <h3>About Us</h3>
-                                <span>ISUNG Shop</span>
-                                <p>ISUNG Digital Retail Joint Stock Company (hereinafter referred to as ISUNG Retail) is an associate company of Group 4 Vietnam, established on November 10, 2022 with the main brand name ISUNG Shop - Agent Officially authorized by Apple and Samsung in Vietnam at the highest level. </p>
-                            </div>
-                        </div>
-                        <div class="col-xl-9 col-lg-2 col-md-7 co-sm-l2 item_context">
-                            <div class="about_box about_box_1">
-                                <h3>About Us</h3>
-                                <span>ISUNG Shop</span>
-                                <p>ISUNG Digital Retail Joint Stock Company (hereinafter referred to as ISUNG Retail) is an associate company of Group 4 Vietnam, established on November 10, 2022 with the main brand name ISUNG Shop - Agent Officially authorized by Apple and Samsung in Vietnam at the highest level. </p>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-2 col-md-5 co-sm-l2 item_context">
-                            <div class="about_img">
-                                <figure><img src="images/about.png" alt="img" /></figure>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end about -->
-            <!-- brand -->
-            <div class="brand">
-                <div class="container titlepage">
-                    <div class="col-lg-12 ">
-                        <div class="title">
-                            <h2>Laptop BestSeller</h2>
-                        </div>
-                    </div>
-                    <div class="col-lg-8">
-                        <a class="read-more " href="/allproduct">See More</a>
-                    </div>
-
-                </div>
-                <div class="brand-bg">
-                    <div class="container">
-                        <div class="row">
-                        <c:forEach items="${listP}" var="o" begin="0" end="2">
+                        <c:forEach items="${listL}" var="o" begin="0" end="2">
                             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 margin">
                                 <div class="brand_box">
-                                    <img src="${o.getProductImg()}" alt="img" />
-                                    <h3>$<strong class="red">${o.getProductPrice()}</strong></h3>
-                                    <span>${o.getProductName()}</span>
+                                    <a href="productdetail?pid=${o.getConID()}"> <img src="${o.getProductImg()}" alt="img" /></a>
+                                    <span style="height: 30px;">${o.getProductName()}</span>
+                                    <h3><strong class="red"><fmt:formatNumber type="number" value="${o.getProductPrice()}" pattern="###,###,###.#" /></strong> VND</h3>
+
                                     <a href="/allproduct" class="btn btn-main">Buy now</a>
                                 </div>
                             </div>
@@ -218,20 +217,21 @@
                         <h2>Computer BestSeller</h2>
                     </div>
                 </div>
-                <div class="col-lg-8">
-                    <a class="read-more " href="/allproduct">See More</a>
+                <div class="col-lg-8">                   
+                    <a class="read-more " href="/category?cid=${2}">See More</a>
+
                 </div>
 
             </div>
             <div class="brand-bg">
-                <div class="container">
+                <div class="container " style="text-align: center;">
                     <div class="row">
-                        <c:forEach items="${listP}" var="o" begin="0" end="2">
+                        <c:forEach items="${listC}" var="o" begin="0" end="2">
                             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 margin">
                                 <div class="brand_box">
-                                    <img src="${o.getProductImg()}" alt="img" />
-                                    <h3>$<strong class="red">${o.getProductPrice()}</strong></h3>
+                                    <a href="productdetail?pid=${o.getConID()}"> <img src="${o.getProductImg()}" alt="img" /></a>
                                     <span>${o.getProductName()}</span>
+                                    <h3><strong class="red"><fmt:formatNumber type="number" value="${o.getProductPrice()}" pattern="###,###,###.#" /></strong> VND</h3>
                                     <a href="/allproduct" class="btn btn-main">Buy now</a>
                                 </div>
                             </div>

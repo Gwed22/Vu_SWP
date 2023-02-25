@@ -7,12 +7,15 @@ package com.dao;
 import com.dao.AccountDAO;
 import com.db.DBConnection;
 import com.models.Account;
+import com.models.Cart;
+import com.models.Item;
 import com.models.Order;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -44,13 +47,12 @@ public class OrderDAO {
 //        ResultSet rs = st.executeQuery("Select * from Order where o_id like'%" + query + "%'");
 //        return rs;
 //    }
-    
+
 //    public ResultSet getSearchCate(String query) throws SQLException {
 //        Statement st = conn.createStatement();
 //        ResultSet rs = st.executeQuery("Select * from product where loaisp like'%" + query + "%'");
 //        return rs;
 //    }
-
     public Order getOrder(int o_id) {
         Order o = null;
         try {
@@ -58,16 +60,16 @@ public class OrderDAO {
             pst.setInt(1, o_id);
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
-                o = new Order(o_id, rs.getDate("o_date"), rs.getDate("delivery_date"), rs.getString("status"), rs.getString("note"), 
-                                    rs.getInt("account_id"), rs.getString("address"));
+                o = new Order(o_id, rs.getDate("o_date"), rs.getDate("delivery_date"), rs.getString("status"), rs.getString("note"),
+                        rs.getInt("account_id"), rs.getString("address"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return o;
     }
-    
-        public int updateOrder(Order or) {
+
+    public int updateOrder(Order or) {
         int count = 0;
         try {
             PreparedStatement pst = conn.prepareStatement("update [Order] set o_date=?, o_delivery=?, status=?, note=?, account_id=? address=? where o_id=?");
@@ -86,21 +88,41 @@ public class OrderDAO {
         return count;
     }
 
-//    public int addNewOrder(Order o) {
-//        int count = 0;
-//        try {
-//            PreparedStatement pst = conn.prepareStatement("Insert into product values(?,?,?,?,?)");
-//            pst.setString(1, pd.masp);
-//            pst.setString(1, pd.tensp);
-//            pst.setString(2, pd.gia);
-//            pst.setString(3, pd.mota);
-//            pst.setString(4, pd.loaisp);
-//            count = pst.executeUpdate();
-//        } catch (SQLException ex) {
-//            Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        return count;
-//    }
+    public void addOrder(Account a, Cart c, Order or) {
+        LocalDate curtDate = java.time.LocalDate.now();
+        LocalDate curtDate1 = curtDate.plusDays(7);
+        String date = curtDate.toString();
+        String date1 = curtDate1.toString();
+
+        try {
+            String query = "insert into [Order] values (?,?,?,?,?,?,?)";
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setString(1, date);
+            pst.setString(2, date1);
+            pst.setString(3, "Processing...");
+            pst.setString(4, or.getNote());
+            pst.setInt(5, a.getAccountID());
+            pst.setString(6, or.getAddress());
+            pst.setDouble(7, c.getTotalMoney());
+            pst.executeUpdate();
+            String query1 = "select top 1 o_id from [Order] order by o_id desc";
+            PreparedStatement pst1 = conn.prepareStatement(query1);
+            ResultSet rs = pst1.executeQuery();
+            if (rs.next()) {
+                int oid = rs.getInt(1);
+                for (Item i : c.getItems()) {
+                    String query2 = "insert into [OrderItem] values (?,?,?,?)";
+                    PreparedStatement pst2 = conn.prepareStatement(query2);
+                    pst2.setInt(1, oid);
+                    pst2.setInt(2, i.getProduct().getConID());
+                    pst2.setInt(3, i.getQuantity());
+                    pst2.setDouble(4, i.getPrice());
+                    pst2.executeUpdate();
+                }
+            }
+        } catch (Exception e) {
+        }
+    }
 
 //    public int deleteProduct(String masp) {
 //        int count = 0;

@@ -4,6 +4,8 @@
     Author     : PC
 --%>
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,7 +13,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- basic -->
         <meta charset="utf-8">
-
         <!-- mobile metas -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1">
@@ -24,7 +25,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="css/style5.css">
+        <link rel="stylesheet" href="css/style7.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -46,26 +47,21 @@
         <jsp:include page="header.jsp"></jsp:include>
             <div class="product-detail">
                 <div class="container">
+                <c:set value="${product}" var="p"></c:set>
                     <div class="row">
-                        <div class="col-xl-6">
-                            <img src="img/product/1.jpg" width="80%" height="50%" alt="alt"/>
-                        </div>
-                        <div class="col-xl-4">
-                            <h1 class="product-name">Ten San Pham</h1>
-                            <span class="product-desc">Thong so ki thuat</span>
-                            <p class="product-desc">dsadasdasdascxzcxzcqwewqeqw</p>
-                            
-                            <div class="col-xl-8 add-cart">
-                                <form class="form" action="#">
-                                    <div class="money">Gia tien:  $3000</div>
-                                    <button class="send-cart" type="submit" name="SendOrder">Order</button>
-                                </form>
-
-                            </div>
-                        </div>
+                   <div class="col-xl-6">
+                            <img src="${p.productImg}" width="80%" height="50%" alt="alt"/>
+                    </div>
+                    <div class="col-xl-6">
+                        <h1 class="product-name">${p.productName}</h1>
+                        <span class="product-desc"><strong>Detailed description: </strong></span>
+                        <p class="product-desc"><strong>${p.poductDesc}</strong></p>               
+                        <div class="money add-cart" style="margin-bottom: 30px;">Price:  <fmt:formatNumber type="number" value="${p.productPrice}" pattern="###,###,###.#" />VND</div>
+                        <a class="send-cart" name="SendOrder" href="addtocart?pid=${p.conID}" >Add to carts</a>
                     </div>
                 </div>
             </div>
+        </div>
         <jsp:include page="footer.jsp"></jsp:include>
     </body>
 </html>

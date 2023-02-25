@@ -9,10 +9,9 @@ package com.models;
  * @author PC
  */
 public class OrderItem {
-
     private int orderItemID;
     private int orderID;
-    private int conID;
+    private int conID; 
     private int pPrice;
     private int quantity;
 
@@ -23,7 +22,6 @@ public class OrderItem {
         this.orderItemID = orderItemID;
         this.orderID = orderID;
         this.conID = conID;
-        
         this.pPrice = pPrice;
         this.quantity = quantity;
     }
