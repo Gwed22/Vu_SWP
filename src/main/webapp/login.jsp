@@ -24,7 +24,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="css/style7.css">
+        <link rel="stylesheet" href="css/style5.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -79,7 +79,7 @@
 
                     <div class="card my-auto">
 
-                        <form class="card-body cardbody-color p-lg-5" action="/Login" method="post">
+                        <form class="card-body cardbody-color p-lg-5" action="/login" method="post">
 
                             <div class="mb-3">
                                 <input type="text" class="form-control" id="phone" aria-describedby="numberPhone"
@@ -100,7 +100,7 @@
 
                             <p class="text-danger">${mess}</p>
                             <div class="text-center"><button type="submit" class="btn btn-color px-5 mb-5 w-100" name="submit">Login</button></div>
-                            <div id="emailHelp" class="form-text text-center mb-5 text-dark"> <a href="/forgotpassword.jsp" class="text-dark fw-bold"> Forgot Password</a>
+                            <div id="emailHelp" class="form-text text-center mb-5 text-dark"> <a href="confirmphone" class="text-dark fw-bold"> Forgot Password</a>
                             </div>
                             <div id="emailHelp" class="form-text text-center mb-5 text-dark">Not
                                 Registered? <a href="/register" class="text-dark fw-bold"> Create an

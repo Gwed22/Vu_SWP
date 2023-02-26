@@ -3,13 +3,13 @@
     Created on : Feb 17, 2023, 7:55:18 PM
     Author     : Admin
 --%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Register</title>
+        <title>Forgot Password</title>
         <!-- basic -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,7 +24,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="css/style7.css">
+        <link rel="stylesheet" href="css/style5.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -69,80 +69,114 @@
             .register-button{
                 margin-left: 70%;
             }
-            .gender-input{
-                display: flex;
-                margin-left: 28%;
-            }
-            .gender-input .gender-male{
-                margin: 0 30% 0 0;
-                text-align: center;
-            }
-            .container {
-                margin-bottom: 10%;
-            }
         </style>
+
+
+        <script>
+            function checkValid() {
+                var patt_phone = /^0[1-9]\d{8,10}$/;
+                var name = document.getElementById("full-name").value;
+                var phone = document.getElementById("phone").value;
+                var password = document.getElementById("password").value;
+                var password1 = document.getElementById("password1").value;
+                var address = document.getElementById("address").value;
+                var security_answer = document.getElementById("security_answer").value;
+                var mess = "";
+                if (!patt_phone.test(phone)) {
+                    mess += "The phone is invalid!\n";
+                }
+                if (name.length > 50) {
+                    //  alert("The name cannot be null! The name cannot be greater than 50 characters! ");
+                    mess += "The name cannot be greater than 50 characters!\n";
+                    //return false;
+                }
+                if (password.length > 50) {
+                    //  alert("The name cannot be null! The name cannot be greater than 50 characters! ");
+                    mess += "The password cannot be greater than 50 characters!\n";
+                    //return false;
+                }
+                if (password1 !== password) {
+                    //  alert("The name cannot be null! The name cannot be greater than 50 characters! ");
+                    mess += "The confirm password must be the same as the password as above!\n";
+                    //return false;
+                }
+                if (security_answer.length > 100) {
+                    // alert("The address cannot be null! The address cannot be greater than 100 characters!");
+                    mess += "The security answer cannot be greater than 100 characters!\n";
+                    //return false;
+                }
+                if (address.length > 100) {
+                    // alert("The address cannot be null! The address cannot be greater than 100 characters!");
+                    mess += "The address cannot be greater than 100 characters!\n";
+                    //return false;
+                }
+                if (mess !== "") {
+                    alert(mess);
+                    return false;
+                }
+            }
+        </script>
     </head>
     <body>
         <div class="container">
+
             <div class="row">
                 <div class="col-md-6 offset-md-3">
-                    <h2 class="text-center text-dark mt-2">Register</h2>
-                    <p class=" text-success" style="font-size: 25px;
-                       text-align: center">${errorLogin}</p>
+                    <h2 class="text-center text-dark mt-5">Register</h2>
+
 
                     <div class="card my-auto">
 
-                        <form class="card-body cardbody-color p-lg-5">
+                        <form class="card-body cardbody-color p-lg-5" action="register" method="post">       
+
                             <div class="mb-3">
                                 <input type="text" class="form-control" id="full-name"
-                                       placeholder="Full Name">
+                                       placeholder="Full Name" name="txtName" required="">
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="phone" aria-describedby="numberPhone"
-                                       placeholder="Enter number phone">
+                                <input type="number" class="form-control" id="phone" aria-describedby="numberPhone"
+                                       placeholder="Enter number phone" name="txtPhone" required="">
                             </div>
                             <div class="mb-3">
-                                <div class="gender-input">
-                                    <div class="gender-male">
-                                        <input  type="radio" id="male" name="gender" value="gender" >
-                                        <label for="html">Male</label>
-                                    </div>
-                                    <div class="gender-female">
-                                        <input type="radio" id="female" name="gender" value="gender" >
-                                        <label for="html">Female</label>
-                                    </div>
-                                </div>
+                                <input type="radio" id="gender-male"   name="gender"  value="male" checked="" > Male
+                                <input type="radio" id="gender-female" name="gender" value="female"> Female
+                            </div>
+
+
+                            <div class="mb-3">
+                                <input type="password" class="form-control" id="password"
+                                       placeholder="Password" name="txtPassword" required="">
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="password"
-                                       placeholder="Password">
-                            </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" id="cf-password"
-                                       placeholder="Confirm Password">
+                                <input type="password" class="form-control" id="password1"
+                                       placeholder="Confirm Password" name="txtPassword2" required="">
                             </div>
                             <div class="mb-3">
                                 <input type="text" class="form-control" id="address" "
-                                       placeholder="Address">
+                                       placeholder="Address" name="txtAddress" required="">
                             </div>
                             <div class="mb-3">
-                                <select class="form-control">
-                                    <option>Security question</option>
-                                    <option>Question 01</option>
-                                    <option>Question 02</option>
-                                    <option>Question 03</option>
-                                    <option>Question 04</option>
-                                </select>
+                                <div class="input-group mg-b-pro-edt">
+                                    <span class="input-group-addon"><i class="icon nalika-table" aria-hidden="true"></i></span>
+                                    <select name="sqID" class="form-control pro-edt-select form-control-primary">
+                                        <c:forEach items="${listC}" var="ca">
+                                            <option value="${ca.getSqID()}">${ca.getSqContext()}</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
                             </div>
                             <div class="mb-3">
-                                <input class="form-control" name="sa" placeholder="Security Answer">
+                                <input type="text" class="form-control" id="security_answer" "
+                                       placeholder="Security Answer" name="txtAnswer" required="">
                             </div>
-                            <div class=""><button type="submit" class="btn btn-color  register-button"><a>Register</a></button></div>
+
+                            <div class=""><button type="submit" name="btnAdd" onclick="return checkValid()" class="btn btn-color  register-button">Register</button></div>
                         </form>
 
                     </div>
 
                 </div>
+
             </div>
 
         </div>

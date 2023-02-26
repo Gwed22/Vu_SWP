@@ -5,6 +5,7 @@
 package com.controllers;
 
 import com.dao.AccountDAO;
+import com.dao.RegisterDAO;
 import com.models.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -61,7 +62,7 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-               request.getRequestDispatcher("login.jsp").forward(request, response);
+        request.getRequestDispatcher("login.jsp").forward(request, response);
 
     }
 
@@ -78,22 +79,31 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
         String phone = request.getParameter("phone");
         String pass = request.getParameter("password");
+
+//        if (!pass.equals("")) {
         AccountDAO dao;
         try {
             dao = new AccountDAO();
-             Account acc = dao.checkLogin(phone, pass);
-        if (acc != null) {
+            Account acc = dao.checkLogin(phone, pass);
+            if (acc != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("login", request.getParameter("phone"));
                 session.setMaxInactiveInterval(259200);
                 response.sendRedirect("home.jsp");
-        } else {//nếu sai username hoặc password thì thông báo lỗi và chuyển tiếp qua đường dẫn /LogInFailController
-            response.sendRedirect("login.jsp");
-        }
+            } else {//nếu sai username hoặc password thì thông báo lỗi và chuyển tiếp qua đường dẫn /LogInFailController
+                response.sendRedirect("login.jsp");
+            }
         } catch (SQLException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
+//        } 
+//        else {
+//            RegisterDAO dao1 = new RegisterDAO();
+//            Account acc = dao1.getIDAccount(phone);
+//            request.setAttribute("c", acc);
+//            request.getRequestDispatcher("forgotpassword").forward(request, response);
+//        }
+
     }
 
     /**
