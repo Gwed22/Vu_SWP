@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Forgot Password</title>
+        <title>Register</title>
         <!-- basic -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -69,6 +69,15 @@
             .register-button{
                 margin-left: 70%;
             }
+            .gender{
+                text-align: center;
+                display:flex;
+                margin-left: 25%
+            }
+            .input-gender-male{
+                margin-right: 25%
+            }
+           
         </style>
 
 
@@ -124,7 +133,6 @@
                 <div class="col-md-6 offset-md-3">
                     <h2 class="text-center text-dark mt-5">Register</h2>
 
-
                     <div class="card my-auto">
 
                         <form class="card-body cardbody-color p-lg-5" action="register" method="post">       
@@ -138,47 +146,54 @@
                                        placeholder="Enter number phone" name="txtPhone" required="">
                             </div>
                             <div class="mb-3">
-                                <input type="radio" id="gender-male"   name="gender"  value="male" checked="" > Male
-                                <input type="radio" id="gender-female" name="gender" value="female"> Female
-                            </div>
-
-
-                            <div class="mb-3">
-                                <input type="password" class="form-control" id="password"
-                                       placeholder="Password" name="txtPassword" required="">
-                            </div>
-                            <div class="mb-3">
-                                <input type="password" class="form-control" id="password1"
-                                       placeholder="Confirm Password" name="txtPassword2" required="">
-                            </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" id="address" "
-                                       placeholder="Address" name="txtAddress" required="">
-                            </div>
-                            <div class="mb-3">
-                                <div class="input-group mg-b-pro-edt">
-                                    <span class="input-group-addon"><i class="icon nalika-table" aria-hidden="true"></i></span>
-                                    <select name="sqID" class="form-control pro-edt-select form-control-primary">
-                                        <c:forEach items="${listC}" var="ca">
-                                            <option value="${ca.getSqID()}">${ca.getSqContext()}</option>
-                                        </c:forEach>
-                                    </select>
+                                <div class="gender">
+                                    <div class="input-gender-male">
+                                        <input  type="radio" id="gender-male"   name="gender"  value="male" checked="" >
+                                        <lable> Male </lable>
+                                    </div>
+                                    <div class="input-gender-female">
+                                    <input type="radio" id="gender-female" name="gender" value="female">
+                                    <lable>Female </lable>
                                 </div>
                             </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" id="security_answer" "
-                                       placeholder="Security Answer" name="txtAnswer" required="">
-                            </div>
-
-                            <div class=""><button type="submit" name="btnAdd" onclick="return checkValid()" class="btn btn-color  register-button">Register</button></div>
-                        </form>
-
                     </div>
+
+                    <div class="mb-3">
+                        <input type="password" class="form-control" id="password"
+                               placeholder="Password" name="txtPassword" required="">
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" id="password1"
+                               placeholder="Confirm Password" name="txtPassword2" required="">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="address" "
+                               placeholder="Address" name="txtAddress" required="">
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group mg-b-pro-edt">
+                            <span class="input-group-addon"><i class="icon nalika-table" aria-hidden="true"></i></span>
+                            <select name="sqID" class="form-control pro-edt-select form-control-primary">
+                                <c:forEach items="${listC}" var="ca">
+                                    <option value="${ca.getSqID()}">${ca.getSqContext()}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="security_answer" "
+                               placeholder="Security Answer" name="txtAnswer" required="">
+                    </div>
+
+                    <div class=""><button type="submit" name="btnAdd" onclick="return checkValid()" class="btn btn-color  register-button">Register</button></div>
+                    </form>
 
                 </div>
 
             </div>
 
         </div>
-    </body>
+
+    </div>
+</body>
 </html>

@@ -49,7 +49,6 @@
             .btn-color{
                 background-color: #0e1c36;
                 color: #fff;
-
             }
 
             .profile-image-pic{
@@ -64,6 +63,13 @@
 
             a{
                 text-decoration: none;
+            }
+            .other-option{
+                display: flex;
+                justify-content: center;
+            }
+            .other-option .forgot-password{
+                margin-right: 20%;
             }
         </style>
     </head>
@@ -100,48 +106,48 @@
 
                             <p class="text-danger">${mess}</p>
                             <div class="text-center"><button type="submit" class="btn btn-color px-5 mb-5 w-100" name="submit">Login</button></div>
-                            <div id="emailHelp" class="form-text text-center mb-5 text-dark"> <a href="confirmphone" class="text-dark fw-bold"> Forgot Password</a>
+                            <div  class="other-option">
+                                <div id="emailHelp" class="form-text text-center mb-5 text-dark forgot-password"> <a href="confirmphone" class="text-dark fw-bold"> Forgot Password</a></div>
+                                <div id="emailHelp" class="form-text text-center mb-5 text-dark register">Not
+                                    Registered? <a href="/register" class="text-dark fw-bold"> Create an
+                                        Account</a> </div>
                             </div>
-                            <div id="emailHelp" class="form-text text-center mb-5 text-dark">Not
-                                Registered? <a href="/register" class="text-dark fw-bold"> Create an
-                                    Account</a>
-                            </div>
-                        </form>
                     </div>
                 </div>
+                </form>
             </div>
         </div>
-        <%    } else {
-                response.sendRedirect("login.jsp");
-            }
-        %>
-    </body>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery-3.0.0.min.js"></script>
-    <script src="js/plugin.js"></script>
-    <!-- sidebar -->
-    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="js/custom.js"></script>
-    <!-- javascript -->
-    <script src="js/owl.carousel.js"></script>
-    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $(".fancybox").fancybox({
-                openEffect: "none",
-                closeEffect: "none"
-            });
-
-            $(".zoom").hover(function () {
-
-                $(this).addClass('transition');
-            }, function () {
-
-                $(this).removeClass('transition');
-            });
+<%    } else {
+        response.sendRedirect("login.jsp");
+    }
+%>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery-3.0.0.min.js"></script>
+<script src="js/plugin.js"></script>
+<!-- sidebar -->
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/custom.js"></script>
+<!-- javascript -->
+<script src="js/owl.carousel.js"></script>
+<script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".fancybox").fancybox({
+            openEffect: "none",
+            closeEffect: "none"
         });
-    </script>
+
+        $(".zoom").hover(function () {
+
+            $(this).addClass('transition');
+        }, function () {
+
+            $(this).removeClass('transition');
+        });
+    });
+</script>
 
 </html>
