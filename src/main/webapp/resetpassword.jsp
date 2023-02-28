@@ -80,6 +80,15 @@
         </style>
     </head>
     <body>
+        <c:if test="${message != null}">
+            <div id="bill-form">
+
+                <div class="row" style="margin: 0 5px 0 5px">
+                    <span style="font-size: 20px;color: red; text-align: center; ">${message}!</span>
+                </div>
+
+            </div>
+        </c:if>
         <div class="container">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
@@ -91,7 +100,7 @@
                         <form action="resetpassword" method="post" class="card-body cardbody-color p-lg-5">
                             <div style="display: none" class="input-group mg-b-pro-edt">
                                 <span class="input-group-addon"><i class="icon nalika-edit" aria-hidden="true"></i></span>
-                                <input type="text" class="form-control" placeholder="Consignment ID" name="accountID" value="${c.getAccountID()}" readonly style="color: black">
+                                <input type="text" class="form-control" placeholder="Consignment ID" name="accountID" value="${id}" readonly style="color: black">
                             </div>
 
                             <div class="mb-3">

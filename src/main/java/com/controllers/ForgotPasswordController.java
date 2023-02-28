@@ -79,17 +79,33 @@ public class ForgotPasswordController extends HttpServlet {
             throws ServletException, IOException {
         int accountID = Integer.parseInt(request.getParameter("accountID"));
         String answer_context = request.getParameter("txtAnswer");
-
+        String question = null;
         RegisterDAO dao = new RegisterDAO();
+        request.setAttribute("id", accountID);
+
         Account acc = dao.checkAccount(accountID, answer_context);
         if (acc != null) {
-            request.setAttribute("c", acc);
+            request.setAttribute("acc", acc);
+            request.setAttribute("id", accountID);
             request.getRequestDispatcher("resetpassword.jsp").forward(request, response);
         } else {
-            request.setAttribute("c", acc);
-//            request.setAttribute("message", "Your answer is incorrect!");
-            response.sendRedirect("forgotpassword");
-//            request.getRequestDispatcher("forgotpassword").forward(request, response);
+            question = dao.getQuestion(accountID);
+            acc = dao.checkAccount(accountID, answer_context);
+            request.setAttribute("q", question);
+            request.setAttribute("id", accountID);
+            if (acc != null) {
+                request.setAttribute("acc", acc);
+                request.setAttribute("id", accountID);
+                request.getRequestDispatcher("resetpassword.jsp").forward(request, response);
+//                request.setAttribute("message", "Your answer is incorrect!");
+//                response.sendRedirect("forgotpassword");
+//                request.getRequestDispatcher("forgotpassword.jsp").forward(request, response);
+            } else {
+
+                request.setAttribute("message", "Your answer is incorrect!");
+                request.getRequestDispatcher("forgotpassword.jsp").forward(request, response);
+            }
+
         }
     }
 

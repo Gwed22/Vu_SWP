@@ -78,12 +78,14 @@ public class ConfirmPhoneController extends HttpServlet {
         if (acc != null) {
             request.setAttribute("c", acc);
             question = dao.getQuestion(acc.getAccountID());
+            request.setAttribute("c", acc);
+            request.setAttribute("id", acc.getAccountID());
             request.setAttribute("q", question);
             request.getRequestDispatcher("forgotpassword.jsp").forward(request, response);
         } else {
             request.setAttribute("message", "Incorrect Phone number!");
-//            request.getRequestDispatcher("Login").forward(request, response);
-            response.sendRedirect("confirmphone");
+            request.getRequestDispatcher("confirmPhoneNumber.jsp").forward(request, response);
+//            response.sendRedirect("confirmphone");
         }
     }
 

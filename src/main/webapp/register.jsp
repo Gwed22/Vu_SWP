@@ -195,5 +195,14 @@
         </div>
 
     </div>
+        <c:if test="${message != null}">
+            <div id="bill-form">
+
+                <div class="row" style="margin: 0 5px 0 5px">
+                    <span style="font-size: 20px;color: red; text-align: center; ">${message}!</span>
+                </div>
+
+            </div>
+        </c:if>
 </body>
 </html>

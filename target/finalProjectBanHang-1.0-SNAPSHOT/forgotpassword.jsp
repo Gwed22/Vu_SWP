@@ -84,17 +84,7 @@
         </style>
     </head>
     <body>
-        <c:if test="${message != null}">
-            <div id="bill-form">
-                <div id="bill-form-content">
-                    <h2>Message<span id="bill-close">Close</span></h2>
-                    <br>
-                    <div class="row" style="margin: 0 5px 0 5px">
-                        <span style="font-size: 20px">${message}!</span>
-                    </div>
-                </div>
-            </div>
-        </c:if>
+
         <div class="container">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
@@ -106,7 +96,7 @@
                         <form action="forgotpassword" method="post" class="card-body cardbody-color p-lg-5">
 
                             <div style="display: none;" class="mb-3">
-                                <input type="password" class="form-control" id="answer" name="accountID" value="${c.getAccountID()}" placeholder="Enter Answer" >
+                                <input type="password" class="form-control" id="answer" name="accountID" value="${id}" placeholder="Enter Answer" >
                             </div>
                             <div class="mb-3">
                                 <p>Security Question</p>
@@ -129,6 +119,14 @@
                 </div>
             </div>
         </div>
+        <c:if test="${message != null}">
+            <div id="bill-form">
 
+                <div class="row" style="margin: 0 5px 0 5px">
+                    <span style="font-size: 20px;color: red; text-align: center; ">${message}!</span>
+                </div>
+
+            </div>
+        </c:if>
     </body>
 </html>

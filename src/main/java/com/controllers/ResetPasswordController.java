@@ -57,7 +57,7 @@ public class ResetPasswordController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        
         request.getRequestDispatcher("resetpassword.jsp").forward(request, response);
     }
 
