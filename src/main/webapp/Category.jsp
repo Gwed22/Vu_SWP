@@ -27,7 +27,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="css/style7.css">
+        <link rel="stylesheet" href="css/style1.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -55,7 +55,7 @@
 
             <!-- brand -->
             <div class="brand">        
-           <c:if test="${cid == 1}" >
+            <c:if test="${cid == 1}" >
                 <div id="menu-tab" class="row"> 
                     <c:set var="brand" value="${requestScope.data}" />
                     <c:set var="bid" value="${requestScope.bid}" />
@@ -69,15 +69,22 @@
             </c:if>
             <div class="brand-bg row">
                 <c:set var="pp" value="${requestScope.pp}" />
-                <c:set var="pb" value="${requestScope.pb}" />
-                <div class="tab-left col-xl-2" style="margin-left: 20px;">
-                    <form action="#" style="font-size: 15px;" id="f2">
-                        <input id="g0" type="checkbox" name="price" ${pb[0]?"checked":""} value="0" onclick="setCheck(this)" /> All<br/>
+
+                <c:set var="ca" value="${requestScope.caId}" ></c:set>
+
+                    <div class="col-xl-2 dropdown"  style="margin-left: 20px;">
+                        <div class="dropdown-toggle text-danger"  data-toggle="dropdown">
+                            <strong>List</strong>
+                        </div>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item " href="/allproduct">All</a>
                         <c:forEach begin="0" end="${1}" var="i">
-                            <input type="checkbox" name="cid" ${pb[i+1]?"checked":""} value="${(i+1)}" onclick="setCheck(this)" > ${pp[i]}<br/>
+                            <a class="dropdown-item" href="/filter?price=${(i+1)}&cid=${ca}"> ${pp[i]}</a>
                         </c:forEach>
-                    </form>
+                    </div>
+
                 </div>
+
                 <div class="container" style="text-align: center;">
                     <div class="row">
                         <c:forEach items="${listL}" var="o">
@@ -85,6 +92,7 @@
                                 <div class="brand_box">
                                     <a href="productdetail?pid=${o.getConID()}"><img class="img" src="${o.getProductImg()}" alt="img" /></a>
                                     <span style="height: 30px;">${o.getProductName()}</span>
+                                    <h4 style="margin-top: 10px; "><del> <fmt:formatNumber type="number" value="${o.getProductPrice() * 1.1}" pattern="###,###,###.#" /></del> VND</h4>
                                     <h3><strong > <fmt:formatNumber type="number" value="${o.getProductPrice()}" pattern="###,###,###.#" /></strong> VND</h3>
                                     <a href="addtocart?pid=${o.getConID()}" class="btn btn-main">Buy now</a>
                                 </div>
@@ -114,36 +122,36 @@
         <script src="js/owl.carousel.js"></script>
         <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
         <script>
-                                $(document).ready(function () {
-                                    $(".fancybox").fancybox({
-                                        openEffect: "none",
-                                        closeEffect: "none"
-                                    });
+            $(document).ready(function () {
+                $(".fancybox").fancybox({
+                    openEffect: "none",
+                    closeEffect: "none"
+                });
 
-                                    $(".zoom").hover(function () {
+                $(".zoom").hover(function () {
 
-                                        $(this).addClass('transition');
-                                    }, function () {
+                    $(this).addClass('transition');
+                }, function () {
 
-                                        $(this).removeClass('transition');
-                                    });
-                                });
-                                function setCheck(obj) {
-                                    var fries = document.getElementsByName('price');
-                                    if (obj.id === 'g0' && fries[0].checked === true) {
-                                        for (var i = 1; i < fries.length; i++) {
-                                            fries[0].checked === false;
-                                        }
-                                    } else {
-                                        for (var i = 1; i < fries.length; i++) {
-                                            if (fries[i].checked === true) {
-                                                fries[0].checked === false;
-                                                break;
-                                            }
-                                        }
-                                    }
-                                    document.getElementById('f2').submit();
-                                }
+                    $(this).removeClass('transition');
+                });
+            });
+            function setCheck(obj) {
+                var fries = document.getElementsByName('price');
+                if ((obj.id == 'g0') && (fries[0].checked == true)) {
+                    for (var i = 1; i < fries.length; i++) {
+                        fries[i].checked = false;
+                    }
+                } else {
+                    for (var i = 1; i < fries.length; i++) {
+                        if (fries[i].checked == true) {
+                            fries[0].checked = false;
+                            break;
+                        }
+                    }
+                }
+                document.getElementById('f2').submit();
+            }
 
 
         </script>

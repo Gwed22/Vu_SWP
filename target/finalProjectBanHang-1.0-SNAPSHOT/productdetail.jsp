@@ -25,7 +25,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="css/style7.css">
+        <link rel="stylesheet" href="css/style1.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -55,8 +55,9 @@
                     <div class="col-xl-6">
                         <h1 class="product-name">${p.productName}</h1>
                         <span class="product-desc"><strong>Detailed description: </strong></span>
-                        <p class="product-desc"><strong>${p.poductDesc}</strong></p>               
-                        <div class="money add-cart" style="margin-bottom: 30px;">Price:  <fmt:formatNumber type="number" value="${p.productPrice}" pattern="###,###,###.#" />VND</div>
+                        <p class="product-desc"><strong>${p.poductDesc}</strong></p>    
+                        <div class="money add-cart-old" >Old Price:<del>  <fmt:formatNumber type="number" value="${p.productPrice * 1.1}" pattern="###,###,###.#" />VND</del></div>
+                        <div class="money add-cart" >New Price:  <fmt:formatNumber type="number" value="${p.productPrice}" pattern="###,###,###.#" />VND</div>
                         <a class="send-cart" name="SendOrder" href="addtocart?pid=${p.conID}" >Add to carts</a>
                     </div>
                 </div>

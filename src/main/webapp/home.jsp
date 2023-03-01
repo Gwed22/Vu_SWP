@@ -6,10 +6,10 @@
 
     <head>
         <!-- basic -->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- basic -->
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <!-- mobile metas -->
-
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1">
         <!-- site metas -->
@@ -18,12 +18,12 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <!-- bootstrap css -->
-        <link rel="stylesheet" href="./css/bootstrap.min.css">
+        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+        <link rel="stylesheet" href="bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="./css/style7.css">
+        <link rel="stylesheet" href="css/style1.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
-        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <!-- fevicon -->
         <link rel="icon" href="images/fevicon.png" type="image/gif" />
         <!-- Scrollbar Custom CSS -->
@@ -35,11 +35,8 @@
         <link rel="stylesheet" href="css/owl.carousel.min.css">
         <link rel="stylesheet" href="css/owl.theme.default.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-        <link rel="stylesheet" href="https://kit.fontawesome.com/84f1017064.css" crossorigin="anonymous">
 
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+
     </head>
     <!-- body -->
 
@@ -52,129 +49,87 @@
                         <li class="header-menu"><i class="fa fa-bars" aria-hidden="true" style="color: white; margin-left: 10px;"></i><span class="content-menu">LIST</span></li>
                             <c:forEach items="${listCa}" var="ca" >
                         <li class="list-menu"><a href="category?cid=${ca.getcID()}">${ca.getcName()}</a></li>
-                            </c:forEach>
+                        </c:forEach>
                 </ol>
             </div>
 
             <div id="myCarousel" class="carousel slide banner-main col-xl-9 col-lg-10 col-md-12 co-sm-11" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="first-slide" src="images/banner.jpg" alt="First slide">
-                        <div class="container">
-                            <div class="carousel-caption relative">
-                                <span>All New Products </span>
-                                <h1>up to 25% Flat Sale</h1>
-                                <p>It is a long established fact that a reader will be distracted by the readable content
-                                    <br> of a page when looking at its layout. The point of using Lorem Ipsum is that</p>
-                                <a class="buynow" href="/allproduct">See more</a>
-                                <ul class="social_icon">
-                                    <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                                    <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        <a href="/allproduct"> <img class="second-slide" src="images/salebanner.png" alt="First slide"> </a>
                     </div>
                     <div class="carousel-item">
-                        <img class="second-slide" src="images/banner.jpg" alt="Second slide">
-                        <div class="container">
-                            <div class="carousel-caption relative">
-                                <span>All New Products </span>
-                                <h1>up to 25% Flat Sale</h1>
-                                <p>It is a long established fact that a reader will be distracted by the readable content
-                                    <br> of a page when looking at its layout. The point of using Lorem Ipsum is that</p>
-                                <a class="buynow" href="/allproduct">See more</a>
-                                <ul class="social_icon">
-                                    <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                                    <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        <a href="/allproduct"> <img class="second-slide" src="images/salebanner.png" alt="Second slide"> </a>
+
                     </div>
                     <div class="carousel-item">
-                        <img class="third-slide" src="images/banner.jpg" alt="Third slide">
-                        <div class="container">
-                            <div class="carousel-caption relative">
-                                <span>All New Products</span>
-                                <h1>up to 25% Flat Sale</h1>
-                                <p>It is a long established fact that a reader will be distracted by the readable content
-                                    <br> of a page when looking at its layout. The point of using Lorem Ipsum is that</p>
-                                <a class="buynow" href="/allproduct">See more</a>
-                                <ul class="social_icon">
-                                    <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                                    <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        <a href="/allproduct"> <img class="third-slide" src="images/salebanner.png" alt="Third slide"> </a>
+
                     </div>
+                    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                        <i class='fa fa-angle-left'></i>
+                    </a>
+                    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                        <i class='fa fa-angle-right'></i>
+                    </a>
                 </div>
-                <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                    <i class='fa fa-angle-left'></i>
-                </a>
-                <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                    <i class='fa fa-angle-right'></i>
-                </a>
             </div>
         </div>
         <!-- about -->
         <div class="about">
             <div class="container titlepage">
                 <div class="col-lg-12 ">
-                    <div class="title">
+                    <div class="title" style="margin-top: 50px;">
                         <h2>SIGNATURE PRODUCT</h2>
                     </div>
                 </div>
             </div>
             <div class="container content-about">
                 <div class="row">
-                    <div class="col-xl-3 col-lg-2 col-md-5 co-sm-l2 item_context">
+                    <div class="col-xl-4 col-lg-2 col-md-5 co-sm-l2 item_context">
                         <div class="about_img">
-                            <figure><img src="images/about.png" alt="img" /></figure>
+                            <figure><img src="https://images.fpt.shop/unsafe/fit-in/585x390/filters:quality(5):fill(white)/fptshop.com.vn/Uploads/Originals/2022/6/7/637901982829761519_macbook-pro-m2-2022-xam-1.jpg" alt="img" /></figure>
                         </div>
                     </div>
-                    <div class="col-xl-9 col-lg-2 col-md-7 co-sm-l2 item_context">
+                    <div class="col-xl-8 col-lg-2 col-md-7 co-sm-l2 item_context">
                         <div class="about_box">
-                            <h3>About Us</h3>
-                            <span>ISUNG Shop</span>
+                            <span>Laptop business</span> 
                             <p>ISUNG Digital Retail Joint Stock Company (hereinafter referred to as ISUNG Retail) is an associate company of Group 4 Vietnam, established on November 10, 2022 with the main brand name ISUNG Shop - Agent Officially authorized by Apple and Samsung in Vietnam at the highest level. </p>
                         </div>
                     </div>
-                    <div class="col-xl-9 col-lg-2 col-md-7 co-sm-l2 item_context">
+                    <div class="col-xl-8 col-lg-2 col-md-7 co-sm-l2 item_context">
                         <div class="about_box about_box_1">
-                            <h3>About Us</h3>
-                            <span>ISUNG Shop</span>
+                            <span>Laptop Gamming</span>                         
                             <p>ISUNG Digital Retail Joint Stock Company (hereinafter referred to as ISUNG Retail) is an associate company of Group 4 Vietnam, established on November 10, 2022 with the main brand name ISUNG Shop - Agent Officially authorized by Apple and Samsung in Vietnam at the highest level. </p>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-2 col-md-5 co-sm-l2 item_context">
+                    <div class="col-xl-4 col-lg-2 col-md-5 co-sm-l2 item_context">
                         <div class="about_img">
-                            <figure><img src="images/about.png" alt="img" /></figure>
+                            <figure><img src="images/gaming.jpg" alt="img" style="width: 280px" /></figure>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-2 col-md-5 co-sm-l2 item_context">
+                    <div class="col-xl-4 col-lg-2 col-md-5 co-sm-l2 item_context">
                         <div class="about_img">
-                            <figure><img src="images/about.png" alt="img" /></figure>
+                            <figure><img src="images/pc.png" alt="img" /></figure>
                         </div>
                     </div>
-                    <div class="col-xl-9 col-lg-2 col-md-7 co-sm-l2 item_context">
+                    <div class="col-xl-8 col-lg-2 col-md-7 co-sm-l2 item_context">
                         <div class="about_box">
-                            <h3>About Us</h3>
-                            <span>ISUNG Shop</span>
+                            
+                            <span>Computer</span>
                             <p>ISUNG Digital Retail Joint Stock Company (hereinafter referred to as ISUNG Retail) is an associate company of Group 4 Vietnam, established on November 10, 2022 with the main brand name ISUNG Shop - Agent Officially authorized by Apple and Samsung in Vietnam at the highest level. </p>
                         </div>
                     </div>
-                    <div class="col-xl-9 col-lg-2 col-md-7 co-sm-l2 item_context">
+                    <div class="col-xl-8 col-lg-2 col-md-7 co-sm-l2 item_context">
                         <div class="about_box about_box_1">
-                            <h3>About Us</h3>
-                            <span>ISUNG Shop</span>
+                            
+                            <span>Gamming gear</span>
                             <p>ISUNG Digital Retail Joint Stock Company (hereinafter referred to as ISUNG Retail) is an associate company of Group 4 Vietnam, established on November 10, 2022 with the main brand name ISUNG Shop - Agent Officially authorized by Apple and Samsung in Vietnam at the highest level. </p>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-2 col-md-5 co-sm-l2 item_context">
+                    <div class="col-xl-4 col-lg-2 col-md-5 co-sm-l2 item_context">
                         <div class="about_img">
-                            <figure><img src="images/about.png" alt="img" /></figure>
+                            <figure><img src="images/gear.png" alt="img" /></figure>
                         </div>
                     </div>
                 </div>
@@ -182,6 +137,7 @@
         </div>
         <!-- end about -->
         <!-- brand -->
+
         <div class="brand">
             <div class="container titlepage">
                 <div class="col-lg-12 ">
@@ -192,7 +148,6 @@
                 <div class="col-lg-8">
                     <a class="read-more " href="/category?cid=${1}">See More</a>
                 </div>
-
             </div>
             <div class="brand-bg" style="text-align: center;">
                 <div class="container">
@@ -202,13 +157,13 @@
                                 <div class="brand_box">
                                     <a href="productdetail?pid=${o.getConID()}"> <img src="${o.getProductImg()}" alt="img" /></a>
                                     <span style="height: 30px;">${o.getProductName()}</span>
+                                    <h4 style="margin-top: 10px; "><del> <fmt:formatNumber type="number" value="${o.getProductPrice() * 1.1}" pattern="###,###,###.#" /></del> VND</h4>
                                     <h3><strong class="red"><fmt:formatNumber type="number" value="${o.getProductPrice()}" pattern="###,###,###.#" /></strong> VND</h3>
-
                                     <a href="/allproduct" class="btn btn-main">Buy now</a>
                                 </div>
                             </div>
                         </c:forEach>
-                    </div>                       
+                    </div>
                 </div>
             </div> 
             <div class="container titlepage laptop">
@@ -231,6 +186,7 @@
                                 <div class="brand_box">
                                     <a href="productdetail?pid=${o.getConID()}"> <img src="${o.getProductImg()}" alt="img" /></a>
                                     <span>${o.getProductName()}</span>
+                                    <h4 style="margin-top: 10px; "><del> <fmt:formatNumber type="number" value="${o.getProductPrice() * 1.1}" pattern="###,###,###.#" /></del> VND</h4>
                                     <h3><strong class="red"><fmt:formatNumber type="number" value="${o.getProductPrice()}" pattern="###,###,###.#" /></strong> VND</h3>
                                     <a href="/allproduct" class="btn btn-main">Buy now</a>
                                 </div>
@@ -325,41 +281,7 @@
 
             </div>
         </div>
-        <!-- end clients -->
-        <!--         contact 
-                <div class="contact">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="titlepage">
-                                    <h2>Contact us</h2>
-                                </div>
-                                <form class="main_form" action="thankyou" method="post">
-                                    <div class="row">
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                            <input class="form-control" placeholder="Your name" type="text" name="name" required>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                            <input class="form-control" placeholder="Email" type="text" name="Email" required>
-                                        </div>
-                                        <div class=" col-md-12">
-                                            <input class="form-control" placeholder="Phone" type="text" name="Phone" required>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <textarea class="textarea" placeholder="Message" name="mess" required></textarea>
-                                        </div>
-                                        <div class=" col-md-12">
-                                            <button class="send" type="submit">Send</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                 end contact -->
 
-        <!-- footer -->
         <jsp:include page="footer.jsp"></jsp:include>
         <!-- end footer -->
         <!-- Javascript files-->

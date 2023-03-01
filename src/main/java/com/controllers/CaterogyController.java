@@ -6,6 +6,7 @@ package com.controllers;
 
 import com.dao.ProductDAO;
 import com.models.Brand;
+import com.models.Category;
 import com.models.Products;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -63,18 +64,18 @@ public class CaterogyController extends HttpServlet {
         ProductDAO d = new ProductDAO();
         String cid = request.getParameter("cid");
         int id = Integer.parseInt(cid);
+        request.setAttribute("caId", id);
         List<Products> list = d.getProductsByCate(id);
         request.setAttribute("listL", list);
-        List<Brand> list1 = d.getAllBrand();
         String[] pp = {"Price: Increase",
-                        "Price: Decrease"};
+            "Price: Decrease"};
         boolean[] pb = new boolean[pp.length + 1];
         pb[0] = true;
         List<Products> incre = d.getIncre();
         List<Products> decre = d.getDecre();
         boolean[] child = new boolean[list.size() + 1];
         child[0] = true;
-        request.setAttribute("data", list1);
+
         request.setAttribute("incre", incre);
         request.setAttribute("decre", decre);
         request.setAttribute("pp", pp);
@@ -95,7 +96,7 @@ public class CaterogyController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
     }
 
     /**

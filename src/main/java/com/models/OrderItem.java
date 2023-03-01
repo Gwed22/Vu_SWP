@@ -18,6 +18,11 @@ public class OrderItem {
     public OrderItem() {
     }
 
+    public OrderItem(int quantity) {
+        this.quantity = quantity;
+    }
+    
+    
     public OrderItem(int orderItemID, int orderID, int conID, int pPrice, int quantity) {
         this.orderItemID = orderItemID;
         this.orderID = orderID;
@@ -67,6 +72,11 @@ public class OrderItem {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderItem{" + "quantity=" + quantity + '}';
     }
 
     

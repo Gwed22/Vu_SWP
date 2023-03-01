@@ -20,7 +20,7 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-        <link href="css/style7.css" rel="stylesheet" type="text/css"/>
+        <link href="css/style1.css" rel="stylesheet" type="text/css"/>
         <style>
             .gallery-wrap .img-big-wrap img {
                 height: 450px;
@@ -65,95 +65,98 @@
                 <h2>G3 Order Confirm</h2>
 
             </div>
-
         </div>
 
         <div class="payment">
+            <form action="checkout" method="post">
+                <c:set value="${sessionScope.acc}" var="acc" />
+                <div class="row">
+                    <div class="col-lg-6 col-md-5 col-sm-5 col-xs-5">
+                        <div class="payment-form" style="margin-left: 200px;">
+                            <div class="container">
+                                <div class="row">
 
-            <div class="row">
-                <div class="col-lg-6 col-md-5 col-sm-5 col-xs-5">
-                    <div class="payment-form" style="margin-left: 200px;">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-10">
-                                    <div class="row">
-                                        <div style="display: none" class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                            Code:<input class="form-control" type="text" name="txtProductID" value="cc" readonly>
-                                        </div>
-                                        <div class="col-xl-12 col-lg-6 col-md-6 col-sm-6">
-                                            Name: <input class="form-control" placeholder="Your name" type="text" name="txtName" value="cc" readonly >
-                                        </div>
-                                        <div class="col-xl-12 col-lg-6 col-md-6 col-sm-6">
-                                            Phone: <input class="form-control" placeholder="Phone number" type="text" name="txtPhone" value="cc" readonly >
-                                        </div>
-                                        <div class="col-md-12">
-                                            Address: <textarea class="textarea" placeholder="Address" name="txtAddress" required></textarea>
-                                        </div>
-                                        <div class="col-md-12">
-                                            Note: <textarea class="textarea" placeholder="Address" name="txtAddress" required></textarea>
+                                    <div class="col-md-10">
+                                        <div class="row">
+                                            <div style="display: none;" class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                                Code:<input class="form-control" type="text" name="txtId" value="${acc.accountID}"" readonly>
+                                            </div>
+                                            <div class="col-xl-12 col-lg-6 col-md-6 col-sm-6">
+                                                Name: <input class="form-control" type="text" name="txtName" value="${acc.name}" readonly >
+                                            </div>
+                                            <div class="col-xl-12 col-lg-6 col-md-6 col-sm-6">
+                                                Phone: <input class="form-control" type="text" name="txtPhone" value="${acc.phone}" readonly >
+                                            </div>
+                                            <div class="col-md-12">
+                                                Address: <textarea class="textarea" placeholder="Address...." name="txtAddress" required>${acc.address}</textarea>
+                                            </div>
+                                            <div class="col-md-12">
+                                                Note: <textarea class="textarea" placeholder="Note..." name="txtNote" required></textarea>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 ">
-                    <div class="container">
-                        <div class="">
-                            <div class="row">
-                                <c:set var="p" value="${sessionScope.cart}" />
-                                <table style="width: 100%; height: 50%; text-align: center;" >
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 ">
+                        <div class="container">
+                            <div class="">
+                                <div class="row">
+                                    <c:set var="p" value="${sessionScope.cart}" />
+                                    <table style="width: 100%; height: 50%; text-align: center;" >
+                                        <thead>
+                                        <th>Product: </th>
+                                        <th>Product Name: </th>
+                                        <th>Quantity:  </th>
+                                        <th>Price: </th>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach var="c" items="${p.items}">
+                                                <tr style="background-color: #fff; ">
+                                                    <td><img class="img-cart" src="${c.product.productImg}" alt="alt"/></td>
+                                                    <td><span>${c.product.productName}</span></td>
+                                                    <td><input type="text" value="${c.quantity}" style="border: none; text-align: center; width: 50px; font-size: 14px;" readonly></td>
+                                                    <td><span><fmt:formatNumber type="number" value="${c.quantity*c.price}" pattern="###,###,###.#"/> VND</span></td>                                                                                                               
+                                                </tr>
+                                            </c:forEach>     
+                                        </tbody>
+                                    </table>
+                                </div> <!-- row.// -->
+                                <table style="margin-top: 20px; width: 100%;">
                                     <thead>
-                                    <th>Product: </th>
-                                    <th>Product Name: </th>
-                                    <th>Quantity:  </th>
-                                    <th>Price: </th>
-                                    </thead>
-                                    <tbody>
-                                        <c:forEach var="c" items="${p.items}">
-                                            <tr style="background-color: #fff; ">
-                                                <td><img class="img-cart" src="${c.product.productImg}" alt="alt"/></td>
-                                                <td><span>${c.product.productName}</span></td>
-                                                <td><input type="text" value="${c.quantity}" style="border: none; text-align: center; width: 50px; font-size: 14px;" readonly></td>
-                                                <td><span><fmt:formatNumber type="number" value="${c.quantity*c.price}" pattern="###,###,###.#"/> VND</span></td>                                                                                                               
-                                            </tr>
-                                        </c:forEach>     
-                                    </tbody>
-                                </table>
-                            </div> <!-- row.// -->
-                            <table style="margin-top: 20px; width: 100%;">
-                                <thead>
-                                    <tr>
-                                        <th scope="col"></th>
+                                        <tr>
+                                            <th scope="col"></th>
 
-                                    </tr>
-                                </thead>
-                                <tbody class="total-inline">
-                                    <tr >
-                                        <td class="inline">Product Total Price: </td>
-                                        <td  style="text-align: right">${c.quantity*c.price}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="inline" >Shipping Price: </td>
-                                        <td style="text-align: right">$30</td>
-                                    </tr>
-                                </tbody>
-                                <tfoot class="total-foot">
-                                    <tr>
-                                        <td class="inline">Total: </td>
-                                        <td style="text-align: right">$12030</td>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                            <div class=" col-md-10">
-                                <button class="send-payment" type="submit" name="SendOrder">Confirm</button>
-                            </div>
-                        </div> <!-- card.// -->
+                                        </tr>
+                                    </thead>
+                                    <tbody class="total-inline">
+                                        <tr >
+                                            <td class="inline">Product Total Price: </td>
+                                            <td  style="text-align: right"><fmt:formatNumber type="number" value="${p.getTotalMoney()}" pattern="###,###,###.#"/> VND</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="inline" >Shipping Price: </td>
+                                            <td style="text-align: right">30.000 VND</td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot class="total-foot">
+                                        <tr>
+                                            <td class="inline">Total: </td>
+                                            <td style="text-align: right"><fmt:formatNumber type="number" value="${p.getTotalMoney() + 30000}" pattern="###,###,###.#"/> VND</td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                <div class=" col-md-10">
+                                    <input class="send-payment" type="submit" name="SendOrder" value="Confirm">
+                                </div>
+
+                            </div> <!-- card.// -->
+
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
 
 

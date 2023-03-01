@@ -20,11 +20,8 @@ public class DBConnection {
         if (conn == null) {
             try {
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-<<<<<<< HEAD
                 String url = "jdbc:sqlserver://LAPTOP-FFMUNM5U\\TRANBANAMFPT:1433;databaseName=SWP;user=sa;password=123;encrypt=true;trustServerCertificate=true;";
-=======
-                String url = "jdbc:sqlserver://DESKTOP-DT42AOQ:1433;databaseName=SWP;user=sa;password=123456;encrypt=true;trustServerCertificate=true;";
->>>>>>> 1dfc8c5028ac056ffd248305d03e881bf455ac2e
+
                 conn = DriverManager.getConnection(url);
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);

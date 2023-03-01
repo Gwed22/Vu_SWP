@@ -66,7 +66,7 @@ public class HomeControl extends HttpServlet {
         request.setAttribute("listC", list1);
         List<Category> listCa = d.getAllCate();
         request.setAttribute("listCa", listCa);
-        request.getRequestDispatcher("home.jsp").forward(request, response);
+        request.getRequestDispatcher("/home.jsp").forward(request, response);
     }
 
     /**

@@ -89,7 +89,7 @@ public class OrderDAO {
 
     public void addOrder(Account a, Cart c, Order or) {
         LocalDate curtDate = java.time.LocalDate.now();
-        LocalDate curtDate1 = curtDate.plusDays(7);
+        LocalDate curtDate1 = curtDate.plusDays(5);
         String date = curtDate.toString();
         String date1 = curtDate1.toString();
 
@@ -120,6 +120,7 @@ public class OrderDAO {
                 }
             }
         } catch (Exception e) {
+            
         }
     }
 

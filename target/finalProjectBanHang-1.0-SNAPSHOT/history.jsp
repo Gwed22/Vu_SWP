@@ -4,6 +4,7 @@
     Author     : PC
 --%>
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="com.models.Order"%>
 <%@page import="com.models.Account"%>
@@ -33,7 +34,7 @@
         <!-- bootstrap css -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="css/style7.css">
+        <link rel="stylesheet" href="css/style1.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -82,29 +83,40 @@
                             <table class="table table-border">
                                 <thead style="text-align: center">
                                     <tr>
-                                        <th>Image</th>
+                                        <th>Product</th>
                                         <th>Product name</th>
                                         <th>Quantity</th>
                                         <th>Total Price</th>
                                         <th>Order Date</th>
                                         <th>Shipping Date</th>
                                         <th>Shipping Address</th>
+                                        <th>Status</th>
+                                        <th>Note</th>
+
                                     </tr>
                                 </thead>
                                 <tbody style="text-align: center" >
+
                                     <c:forEach items="${list}" var="o">
-                                        <tr>
+
+                                        <tr >
                                             <td>
                                                 <div class="aside">
-                                                    <img style="max-width: 100px" src="${o.getP_Img()}" />
+                                                    <img style="max-width: 100px" src="${o.getProductImg()}" />
                                                 </div>
                                             </td>
-                                            <td>${o.getP_Name()}</td>
+                                            <td >${o.getProductName()}</td>
                                             <td>${o.getQuantity()}</td>
-                                            <td >$${o.getP_Price()}</td>
+                                            <td><fmt:formatNumber type="number" value="${o.getTotalPrice()}" pattern="###,###,###.#" /> VND</td>
                                             <td >${o.getOrderDate()} </td>
-                                            <td >${o.getShippingDate()}</td>
-                                            <td >${o.getShippingAddress()}</td>
+                                            <td >${o.getDeliveriDate()}</td>
+                                            <td >${o.getAddress()}</td>
+                                            <td >${o.getStatus()}</td>
+                                            <td >${o.getNote()}</td>
+                                            <c:if test="${!(o.getStatus().equals('Complete'))}">
+                                                <td><a href="receivedOrder" class="send" style="width: 80px; background-color: green !important;">Received</a></td>
+                                                <td><a href="returnOrder" class="send" style="width: 80px;">Return</a></td>
+                                            </c:if>
                                         </tr>
                                     </c:forEach>
 

@@ -20,7 +20,7 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-        <link href="css/style7.css" rel="stylesheet" type="text/css"/>
+        <link href="css/style1.css" rel="stylesheet" type="text/css"/>
         <style>
             .gallery-wrap .img-big-wrap img {
                 height: 450px;
@@ -68,7 +68,7 @@
                     <div clas="col-lg-12">
                     <c:set var="p" value="${sessionScope.cart}" />
                     <c:if test="${p != null}">
-                        <form action="paymentprocess" method="post">
+                        
                             <table style="width: 100%; text-align: center;">
                                 <thead>
                                     <tr >
@@ -88,19 +88,19 @@
                                             <td><input type="text" value="${c.quantity}" style="border: none; text-align: center; width: 50px; font-size: 14px;" readonly></td>
                                             <td><span><fmt:formatNumber type="number" value="${c.product.productPrice}" pattern="###,###,###.#"/>VND</span></td>
                                             <td><span><fmt:formatNumber type="number" value="${c.quantity*c.price}" pattern="###,###,###.#"/>VND</span></td>       
-                                            <td><a href="#">Delete</a></td>                           
+                                            <td><a href="delete?pid=${c.product.conID}">Delete</a></td>                           
                                         </tr>
                                     </c:forEach>
                                 </tbody>
 
                             </table>
                             <div class="col-md-12">
-                                <button class="send" type="submit" name="SendOrder" style="margin-top: 50px;">Order</button>
+                                <a class="btn send" href="/paymentprocess" style="margin-top: 50px;"> Order</a>
                             </div>
-                        </form>
-                         <div style="margin-bottom: 10px;"><a href="/allproduct"> << Continue to shopping</a></div>
+                        
+                         <div style="margin-bottom: 10px;"><a href="allproduct"> << Continue to shopping</a></div>
                     </c:if>
-                    <c:if test="${p == nul}">
+                    <c:if test="${p == null}">
                         <div style="text-align: center; margin-bottom: 20px;"><span>THERE IS NO PRODUCT IN THE CART</span></div>
                         <div style="height: 100px; text-align: center;"><a href="/allproduct"> << Continue to shopping</a></div>
                     </c:if>
