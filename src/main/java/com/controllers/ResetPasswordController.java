@@ -4,7 +4,6 @@
  */
 package com.controllers;
 
-import com.dao.AccountDAO;
 import com.dao.RegisterDAO;
 import com.models.Account;
 import java.io.IOException;
@@ -13,16 +12,12 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
- * @author Admin
+ * @author HN015T
  */
-public class LoginController extends HttpServlet {
+public class ResetPasswordController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,10 +36,10 @@ public class LoginController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginController</title>");
+            out.println("<title>Servlet ResetPasswordController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet LoginController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ResetPasswordController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -62,8 +57,8 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("login.jsp").forward(request, response);
-
+        
+        request.getRequestDispatcher("resetpassword.jsp").forward(request, response);
     }
 
     /**
@@ -75,44 +70,23 @@ public class LoginController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String phone = request.getParameter("phone");
-        String pass = request.getParameter("password");
+        if (request.getParameter("btnReset") != null) {
+            int accountID = Integer.parseInt(request.getParameter("accountID"));
+            String password = request.getParameter("txtPassword");
 
-//        if (!pass.equals("")) {
-        AccountDAO dao;
-        try {
-            dao = new AccountDAO();
-            Account acc = dao.checkLogin(phone, pass);
-            if (acc != null) {
-                HttpSession session = request.getSession();
-                session.setAttribute("login", request.getParameter("phone"));
-                session.setAttribute("acc", acc);
-                session.setMaxInactiveInterval(259200);
-<<<<<<< HEAD
-                            response.sendRedirect("home");
+            RegisterDAO dao = new RegisterDAO();
+            int count = dao.resetPassword(accountID, password);
+            if (count > 0) {
 
-        } else {//nếu sai username hoặc password thì thông báo lỗi và chuyển tiếp qua đường dẫn /LogInFailController
-            response.sendRedirect("Login");
-        }
-=======
-                response.sendRedirect("home.jsp");
-            } else {//nếu sai username hoặc password thì thông báo lỗi và chuyển tiếp qua đường dẫn /LogInFailController
-                response.sendRedirect("login.jsp");
+                response.sendRedirect("login");
+            } else {
+
+                response.sendRedirect("resetpassword");
             }
->>>>>>> 532509d27860fb160c21cc5688701b2179066b34
-        } catch (SQLException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
-//        } 
-//        else {
-//            RegisterDAO dao1 = new RegisterDAO();
-//            Account acc = dao1.getIDAccount(phone);
-//            request.setAttribute("c", acc);
-//            request.getRequestDispatcher("forgotpassword").forward(request, response);
-//        }
-
     }
 
     /**

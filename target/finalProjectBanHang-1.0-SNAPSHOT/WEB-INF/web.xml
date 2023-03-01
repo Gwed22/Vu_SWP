@@ -67,6 +67,7 @@
     <servlet>
         <servlet-name>SearchSaleController</servlet-name>
         <servlet-class>com.controllers.SearchSaleController</servlet-class>
+<<<<<<< HEAD
     </servlet>
     <servlet>
         <servlet-name>DeleteCartItemController</servlet-name>
@@ -91,11 +92,9 @@
     <servlet>
         <servlet-name>HomeAdminController</servlet-name>
         <servlet-class>com.controllers.HomeAdminController</servlet-class>
+=======
+>>>>>>> 532509d27860fb160c21cc5688701b2179066b34
     </servlet>
-    <servlet-mapping>
-        <servlet-name>LoginController</servlet-name>
-        <url-pattern>/Login</url-pattern>
-    </servlet-mapping>
     <servlet>
         <servlet-name>AllConsignmentController</servlet-name>
         <servlet-class>com.controllers.AllConsignmentController</servlet-class>
@@ -120,10 +119,6 @@
         <servlet-name>EditConsignmentController</servlet-name>
         <servlet-class>com.controllers.EditConsignmentController</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>AllConsignmentController</servlet-name>
-        <url-pattern>/allconsignment</url-pattern>
-    </servlet-mapping>
     <servlet>
         <servlet-name>AllProductControl</servlet-name>
         <servlet-class>com.controllers.AllProductControl</servlet-class>
@@ -136,6 +131,34 @@
         <servlet-name>HomeControl</servlet-name>
         <servlet-class>com.controllers.HomeControl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Order</servlet-name>
+        <servlet-class>com.controllers.viewAllOrderController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegisterController</servlet-name>
+        <servlet-class>com.controllers.RegisterController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConfirmPhoneController</servlet-name>
+        <servlet-class>com.controllers.ConfirmPhoneController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ForgotPasswordController</servlet-name>
+        <servlet-class>com.controllers.ForgotPasswordController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ResetPasswordController</servlet-name>
+        <servlet-class>com.controllers.ResetPasswordController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AllConsignmentController</servlet-name>
+        <url-pattern>/allconsignment</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AllProductControl</servlet-name>
         <url-pattern>/allproduct</url-pattern>
@@ -148,10 +171,6 @@
         <servlet-name>HomeControl</servlet-name>
         <url-pattern>/home</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>Order</servlet-name>
-        <servlet-class>com.controllers.viewAllOrderController</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>Order</servlet-name>
         <url-pattern>/order</url-pattern>
@@ -241,6 +260,7 @@
         <url-pattern>/SearchSale</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+<<<<<<< HEAD
         <servlet-name>DeleteCartItemController</servlet-name>
         <url-pattern>/delete</url-pattern>
     </servlet-mapping>
@@ -263,11 +283,25 @@
     <servlet-mapping>
         <servlet-name>HomeAdminController</servlet-name>
         <url-pattern>/homeadmin</url-pattern>
+=======
+        <servlet-name>RegisterController</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConfirmPhoneController</servlet-name>
+        <url-pattern>/confirmphone</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ForgotPasswordController</servlet-name>
+        <url-pattern>/forgotpassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResetPasswordController</servlet-name>
+        <url-pattern>/resetpassword</url-pattern>
+>>>>>>> 532509d27860fb160c21cc5688701b2179066b34
     </servlet-mapping>
     <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
+        <session-timeout>30</session-timeout>
     </session-config>
     <welcome-file-list>
         <welcome-file>home</welcome-file>

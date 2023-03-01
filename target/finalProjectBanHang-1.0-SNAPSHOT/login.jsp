@@ -24,7 +24,11 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
+<<<<<<< HEAD
         <link rel="stylesheet" href="css/style1.css">
+=======
+        <link rel="stylesheet" href="css/style5.css">
+>>>>>>> 532509d27860fb160c21cc5688701b2179066b34
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -49,7 +53,6 @@
             .btn-color{
                 background-color: #0e1c36;
                 color: #fff;
-
             }
 
             .profile-image-pic{
@@ -65,6 +68,13 @@
             a{
                 text-decoration: none;
             }
+            .other-option{
+                display: flex;
+                justify-content: center;
+            }
+            .other-option .forgot-password{
+                margin-right: 20%;
+            }
         </style>
     </head>
     <body>
@@ -79,7 +89,7 @@
 
                     <div class="card my-auto">
 
-                        <form class="card-body cardbody-color p-lg-5" action="/Login" method="post">
+                        <form class="card-body cardbody-color p-lg-5" action="/login" method="post">
 
                             <div class="mb-3">
                                 <input type="text" class="form-control" id="phone" aria-describedby="numberPhone"
@@ -100,48 +110,48 @@
 
                             <p class="text-danger">${mess}</p>
                             <div class="text-center"><button type="submit" class="btn btn-color px-5 mb-5 w-100" name="submit">Login</button></div>
-                            <div id="emailHelp" class="form-text text-center mb-5 text-dark"> <a href="/forgotpassword.jsp" class="text-dark fw-bold"> Forgot Password</a>
+                            <div  class="other-option">
+                                <div id="emailHelp" class="form-text text-center mb-5 text-dark forgot-password"> <a href="confirmphone" class="text-dark fw-bold"> Forgot Password</a></div>
+                                <div id="emailHelp" class="form-text text-center mb-5 text-dark register">Not
+                                    Registered? <a href="/register" class="text-dark fw-bold"> Create an
+                                        Account</a> </div>
                             </div>
-                            <div id="emailHelp" class="form-text text-center mb-5 text-dark">Not
-                                Registered? <a href="/register" class="text-dark fw-bold"> Create an
-                                    Account</a>
-                            </div>
-                        </form>
                     </div>
                 </div>
+                </form>
             </div>
         </div>
-        <%    } else {
-                response.sendRedirect("login.jsp");
-            }
-        %>
-    </body>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery-3.0.0.min.js"></script>
-    <script src="js/plugin.js"></script>
-    <!-- sidebar -->
-    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="js/custom.js"></script>
-    <!-- javascript -->
-    <script src="js/owl.carousel.js"></script>
-    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $(".fancybox").fancybox({
-                openEffect: "none",
-                closeEffect: "none"
-            });
-
-            $(".zoom").hover(function () {
-
-                $(this).addClass('transition');
-            }, function () {
-
-                $(this).removeClass('transition');
-            });
+<%    } else {
+        response.sendRedirect("login.jsp");
+    }
+%>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery-3.0.0.min.js"></script>
+<script src="js/plugin.js"></script>
+<!-- sidebar -->
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/custom.js"></script>
+<!-- javascript -->
+<script src="js/owl.carousel.js"></script>
+<script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".fancybox").fancybox({
+            openEffect: "none",
+            closeEffect: "none"
         });
-    </script>
+
+        $(".zoom").hover(function () {
+
+            $(this).addClass('transition');
+        }, function () {
+
+            $(this).removeClass('transition');
+        });
+    });
+</script>
 
 </html>

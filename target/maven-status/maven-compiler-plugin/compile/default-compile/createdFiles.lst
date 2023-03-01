@@ -6,6 +6,10 @@ com\db\DBConnection.class
 com\models\OrderItem.class
 com\controllers\EditAccountController.class
 com\controllers\EditOrderController.class
+<<<<<<< HEAD
+=======
+com\models\SecurityAnswer.class
+>>>>>>> 532509d27860fb160c21cc5688701b2179066b34
 com\dao\OrderDAO.class
 com\models\Consignment.class
 com\controllers\AllAccountController.class

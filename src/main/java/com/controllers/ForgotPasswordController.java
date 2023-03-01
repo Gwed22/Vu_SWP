@@ -4,9 +4,9 @@
  */
 package com.controllers;
 
-import com.dao.AccountDAO;
 import com.dao.RegisterDAO;
 import com.models.Account;
+import com.models.SecurityQuestion;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -14,15 +14,13 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.ArrayList;
 
 /**
  *
- * @author Admin
+ * @author HN015T
  */
-public class LoginController extends HttpServlet {
+public class ForgotPasswordController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,10 +39,10 @@ public class LoginController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginController</title>");
+            out.println("<title>Servlet ForgotPasswordController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet LoginController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ForgotPasswordController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -62,8 +60,10 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("login.jsp").forward(request, response);
-
+        RegisterDAO dao = new RegisterDAO();
+        ArrayList<SecurityQuestion> listC = dao.getAllQuestion();
+        request.setAttribute("listC", listC);
+        request.getRequestDispatcher("forgotpassword.jsp").forward(request, response);
     }
 
     /**
@@ -77,42 +77,36 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String phone = request.getParameter("phone");
-        String pass = request.getParameter("password");
+        int accountID = Integer.parseInt(request.getParameter("accountID"));
+        String answer_context = request.getParameter("txtAnswer");
+        String question = null;
+        RegisterDAO dao = new RegisterDAO();
+        request.setAttribute("id", accountID);
 
-//        if (!pass.equals("")) {
-        AccountDAO dao;
-        try {
-            dao = new AccountDAO();
-            Account acc = dao.checkLogin(phone, pass);
+        Account acc = dao.checkAccount(accountID, answer_context);
+        if (acc != null) {
+            request.setAttribute("acc", acc);
+            request.setAttribute("id", accountID);
+            request.getRequestDispatcher("resetpassword.jsp").forward(request, response);
+        } else {
+            question = dao.getQuestion(accountID);
+            acc = dao.checkAccount(accountID, answer_context);
+            request.setAttribute("q", question);
+            request.setAttribute("id", accountID);
             if (acc != null) {
-                HttpSession session = request.getSession();
-                session.setAttribute("login", request.getParameter("phone"));
-                session.setAttribute("acc", acc);
-                session.setMaxInactiveInterval(259200);
-<<<<<<< HEAD
-                            response.sendRedirect("home");
+                request.setAttribute("acc", acc);
+                request.setAttribute("id", accountID);
+                request.getRequestDispatcher("resetpassword.jsp").forward(request, response);
+//                request.setAttribute("message", "Your answer is incorrect!");
+//                response.sendRedirect("forgotpassword");
+//                request.getRequestDispatcher("forgotpassword.jsp").forward(request, response);
+            } else {
 
-        } else {//nếu sai username hoặc password thì thông báo lỗi và chuyển tiếp qua đường dẫn /LogInFailController
-            response.sendRedirect("Login");
-        }
-=======
-                response.sendRedirect("home.jsp");
-            } else {//nếu sai username hoặc password thì thông báo lỗi và chuyển tiếp qua đường dẫn /LogInFailController
-                response.sendRedirect("login.jsp");
+                request.setAttribute("message", "Your answer is incorrect!");
+                request.getRequestDispatcher("forgotpassword.jsp").forward(request, response);
             }
->>>>>>> 532509d27860fb160c21cc5688701b2179066b34
-        } catch (SQLException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-//        } 
-//        else {
-//            RegisterDAO dao1 = new RegisterDAO();
-//            Account acc = dao1.getIDAccount(phone);
-//            request.setAttribute("c", acc);
-//            request.getRequestDispatcher("forgotpassword").forward(request, response);
-//        }
 
+        }
     }
 
     /**

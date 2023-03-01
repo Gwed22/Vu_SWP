@@ -1,6 +1,6 @@
 <%-- 
     Document   : profile
-    Created on : Feb 17, 2023, 7:55:18 PM
+    Created on : Feb 27, 2023, 7:17:49 PM
     Author     : Admin
 --%>
 
@@ -9,8 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Forgot Password</title>
-        <!-- basic -->
+        <title>Profile</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <!-- mobile metas -->
@@ -24,7 +23,11 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
+<<<<<<< HEAD:target/finalProjectBanHang-1.0-SNAPSHOT/profiile.jsp
         <link rel="stylesheet" href="css/style1.css">
+=======
+        <link rel="stylesheet" href="css/style5.css">
+>>>>>>> 532509d27860fb160c21cc5688701b2179066b34:src/main/webapp/profile.jsp
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -42,60 +45,60 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-        <style>
-            
-             .edit-button .btn-color{
+        <style>>
+            html {
+                overflow: hidden;
+            }
+            .btn-color{
                 background-color: #0e1c36;
                 color: #fff;
             }
-            .edit-button{
-                margin-left: 70%;
+            .profile-image-pic{
+                height: 200px;
+                width: 200px;
+                object-fit: cover;
             }
-
+            .cardbody-color{
+                background-color: #ebf2fa;
+            }
+            a{
+                text-decoration: none;
+            }
         </style>
     </head>
     <body>
         <jsp:include page="header.jsp"></jsp:include>
-
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 offset-md-3">
-                        <h2 class="text-center text-dark mt-2">Profile</h2>
-                        <p class=" text-success" style="font-size: 25px;
-                           text-align: center">${errorLogin}</p>
+                        <h2 class="text-center text-dark mt-5">Profile</h2>
 
-                    <div class="card my-auto">
+                        <div class="card my-auto">
 
-                        <form class="card-body cardbody-color p-lg-5">
-                            <div class="mb-3">
+                            <form class="card-body cardbody-color p-lg-5" action="" method="">
                                 <div class="mb-3">
-                                    <input type="text" class="form-control" id="account"
-                                           placeholder="Your Account" readonly>
+                                    <input type="text" class="form-control" id="account" placeholder="Your Account" name="account" readonly >
                                 </div>
-                            </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" id="name"
-                                       placeholder="Full Name">
-                            </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" id="phone" aria-describedby="numberPhone"
-                                       placeholder="Enter number phone" readonly>
-                            </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" id="address "
-                                       placeholder="Address">
-                            </div>
-                            <div class="edit-button"><button type="submit" class="btn btn-color"><a>Edit Profile</a></button></div>
-                        </form>
 
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="fullname" placeholder="Full Name" name="fullname" >
+                                </div>
+
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="phone" aria-describedby="numberPhone"
+                                           placeholder="Number phone" name="phone" readonly>
+                                </div>
+
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="address" placeholder="Address" name="address" >
+                                </div>
+
+                                <div class="text-center"><button type="submit" class="btn btn-color px-5 mb-5 w-100" name="submit"><a href="">Edit</a></button></div>
+                            </form>
+                        </div>
                     </div>
-
                 </div>
             </div>
-
-        </div>
-        <jsp:include page="footer.jsp"></jsp:include>
-
-
+            <jsp:include page="footer.jsp"></jsp:include>
     </body>
 </html>

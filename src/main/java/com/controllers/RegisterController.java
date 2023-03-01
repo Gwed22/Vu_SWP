@@ -7,22 +7,24 @@ package com.controllers;
 import com.dao.AccountDAO;
 import com.dao.RegisterDAO;
 import com.models.Account;
+import com.models.SecurityAnswer;
+import com.models.SecurityQuestion;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
  *
- * @author Admin
+ * @author HN015T
  */
-public class LoginController extends HttpServlet {
+public class RegisterController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,10 +43,10 @@ public class LoginController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginController</title>");
+            out.println("<title>Servlet RegisterController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet LoginController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet RegisterController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -62,7 +64,11 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("login.jsp").forward(request, response);
+
+        RegisterDAO dao = new RegisterDAO();
+        ArrayList<SecurityQuestion> listC = dao.getAllQuestion();
+        request.setAttribute("listC", listC);
+        request.getRequestDispatcher("register.jsp").forward(request, response);
 
     }
 
@@ -77,42 +83,31 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String phone = request.getParameter("phone");
-        String pass = request.getParameter("password");
+        if (request.getParameter("btnAdd") != null) {
+            String name = request.getParameter("txtName");
+            String phone = request.getParameter("txtPhone");
+            String password = request.getParameter("txtPassword");
+            String gender = request.getParameter("gender");
+            String address = request.getParameter("txtAddress");
+            int sq_id = Integer.parseInt(request.getParameter("sqID"));
+            String answer_context = request.getParameter("txtAnswer");
+            RegisterDAO dao = new RegisterDAO();
+            Account acc = dao.checkPhoneNumber(phone);
+            if (acc == null) {
+                int count = dao.register(name, phone, password, gender, address, sq_id, answer_context);
+                if (count > 0) {
+                    response.sendRedirect("login");
+                } else {
+                    response.sendRedirect("register");
+                }
 
-//        if (!pass.equals("")) {
-        AccountDAO dao;
-        try {
-            dao = new AccountDAO();
-            Account acc = dao.checkLogin(phone, pass);
-            if (acc != null) {
-                HttpSession session = request.getSession();
-                session.setAttribute("login", request.getParameter("phone"));
-                session.setAttribute("acc", acc);
-                session.setMaxInactiveInterval(259200);
-<<<<<<< HEAD
-                            response.sendRedirect("home");
-
-        } else {//nếu sai username hoặc password thì thông báo lỗi và chuyển tiếp qua đường dẫn /LogInFailController
-            response.sendRedirect("Login");
-        }
-=======
-                response.sendRedirect("home.jsp");
-            } else {//nếu sai username hoặc password thì thông báo lỗi và chuyển tiếp qua đường dẫn /LogInFailController
-                response.sendRedirect("login.jsp");
+            } else {
+                request.setAttribute("message", "Duplicate Phone number!");
+                response.sendRedirect("register");
+//                request.getRequestDispatcher("register").forward(request, response);
             }
->>>>>>> 532509d27860fb160c21cc5688701b2179066b34
-        } catch (SQLException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-//        } 
-//        else {
-//            RegisterDAO dao1 = new RegisterDAO();
-//            Account acc = dao1.getIDAccount(phone);
-//            request.setAttribute("c", acc);
-//            request.getRequestDispatcher("forgotpassword").forward(request, response);
-//        }
 
+        }
     }
 
     /**
