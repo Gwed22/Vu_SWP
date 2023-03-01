@@ -11,23 +11,22 @@ package com.models;
 public class Products {
 
     private int conID;
+     private String productName;
+    private String productImg;
     private float productPrice;
     private String poductDesc;
-    private String productName;
-    private String productImg;
+   
 
     // Constructor
     public Products() {
     }
 
-    
-
-    public Products(int conID, float productPrice, String poductDesc, String productName, String productImg) {
+    public Products(int conID, String productName, String productImg, float productPrice, String poductDesc) {
         this.conID = conID;
-        this.productPrice = productPrice;
-        this.poductDesc = poductDesc;
         this.productName = productName;
         this.productImg = productImg;
+        this.productPrice = productPrice;
+        this.poductDesc = poductDesc;
     }
 
     public String getProductName() {

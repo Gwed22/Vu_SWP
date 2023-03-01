@@ -8,7 +8,6 @@ import com.dao.AccountDAO;
 import com.models.Account;
 import com.models.Role;
 import com.models.SecurityQuestion;
-import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -67,16 +66,16 @@ public class EditAccountController extends HttpServlet {
         try {
             ///KhachHang/Edit/123 => viewAllAccountController, Edit, 123
             int acc_id = Integer.parseInt(request.getParameter("id"));
-            AccountDAO dao = new AccountDAO();  
+            AccountDAO dao = new AccountDAO();
             Account acc = dao.getAccountByID(acc_id);
-            
+
             ArrayList<Role> listR = dao.getAllRole();
             ArrayList<SecurityQuestion> listSQ = dao.getAllSQ();
-            
+
             request.setAttribute("listRole", listR);
             request.setAttribute("listSQ", listSQ);
             request.setAttribute("acc", acc);
-            
+
             request.getRequestDispatcher("editaccount.jsp").forward(request, response);
         } catch (SQLException ex) {
             Logger.getLogger(EditAccountController.class.getName()).log(Level.SEVERE, null, ex);
@@ -102,14 +101,20 @@ public class EditAccountController extends HttpServlet {
                 int role_id = Integer.parseInt(request.getParameter("role_id"));
                 String full_name = request.getParameter("username");
                 String phone = request.getParameter("phone");
-                String gender = request.getParameter("rdoGD");
+                String gender = request.getParameter("gender");
                 String address = request.getParameter("address");
                 String password = request.getParameter("password1");
 
                 com.models.Account acc = new com.models.Account(acc_id, full_name, phone, password, gender, address, sq_id, role_id);
                 AccountDAO dao = new AccountDAO();
-                dao.updateAccount(acc);
-                request.getRequestDispatcher("/allaccount").forward(request, response);
+                int count = dao.updateAccount(acc);
+                if (count > 0) {
+                    request.setAttribute("message", "Update Successful");
+                    request.getRequestDispatcher("/allconsignment").forward(request, response);
+                } else {
+                    request.setAttribute("message", "Update Failed");
+                    request.getRequestDispatcher("/allconsignment").forward(request, response);
+                }
 
             } catch (SQLException ex) {
                 Logger.getLogger(EditAccountController.class

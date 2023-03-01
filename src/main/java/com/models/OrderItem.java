@@ -9,21 +9,24 @@ package com.models;
  * @author PC
  */
 public class OrderItem {
-
     private int orderItemID;
     private int orderID;
-    private int conID;
+    private int conID; 
     private int pPrice;
     private int quantity;
 
     public OrderItem() {
     }
 
+    public OrderItem(int quantity) {
+        this.quantity = quantity;
+    }
+    
+    
     public OrderItem(int orderItemID, int orderID, int conID, int pPrice, int quantity) {
         this.orderItemID = orderItemID;
         this.orderID = orderID;
         this.conID = conID;
-        
         this.pPrice = pPrice;
         this.quantity = quantity;
     }
@@ -69,6 +72,11 @@ public class OrderItem {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderItem{" + "quantity=" + quantity + '}';
     }
 
     

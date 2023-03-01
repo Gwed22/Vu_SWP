@@ -26,6 +26,10 @@ public class Consignment {
     public Consignment() {
     }
 
+    public Consignment(int conQuantity) {
+        this.conQuantity = conQuantity;
+    }
+
     public Consignment(String productName, int cID, int conQuantity, int brandID, float conPrice, Date importDate, String productImg) {
         this.productName = productName;
         this.cID = cID;
@@ -60,8 +64,6 @@ public class Consignment {
         this.productDesc = productDesc;
     }
 
-    
-    
     public int getConID() {
         return conID;
     }
@@ -141,7 +143,10 @@ public class Consignment {
     public void setProductDesc(String productDesc) {
         this.productDesc = productDesc;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return this.conQuantity + "";
+    }
 
 }

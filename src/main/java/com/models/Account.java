@@ -18,6 +18,21 @@ public class Account {
     private String address;
     private int sq_id;
     private int role_id;
+    private String answer_context;
+
+    public Account(int accountID, String name, String phone, String password, String gender, String address, int sq_id, int role_id, String answer_context) {
+        this.accountID = accountID;
+        this.name = name;
+        this.phone = phone;
+        this.password = password;
+        this.gender = gender;
+        this.address = address;
+        this.sq_id = sq_id;
+        this.role_id = role_id;
+        this.answer_context = answer_context;
+    }
+    
+    
 
     public Account() {
     }

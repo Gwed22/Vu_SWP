@@ -5,6 +5,7 @@
 package com.controllers;
 
 import com.dao.ProductDAO;
+import com.models.Category;
 import com.models.Products;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -58,9 +59,13 @@ public class HomeControl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ProductDAO dao = new ProductDAO();
-        List<Products> listP = dao.getAllProduct();
-        request.setAttribute("listP", listP);
+        ProductDAO d = new ProductDAO();
+        List<Products> list = d.getProductsByCate(1);
+        request.setAttribute("listL", list);
+        List<Products> list1 = d.getProductsByCate(2);
+        request.setAttribute("listC", list1);
+        List<Category> listCa = d.getAllCate();
+        request.setAttribute("listCa", listCa);
         request.getRequestDispatcher("/home.jsp").forward(request, response);
     }
 

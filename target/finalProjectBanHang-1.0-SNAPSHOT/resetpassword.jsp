@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,7 +25,11 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
+<<<<<<< HEAD
+        <link rel="stylesheet" href="css/style1.css">
+=======
         <link rel="stylesheet" href="css/style5.css">
+>>>>>>> 532509d27860fb160c21cc5688701b2179066b34
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -47,10 +52,10 @@
             }
 
             .button-next-back .login-button{
-                margin-right: 10%; 
+                margin-right: 10%;
             }
-             .button-next-back .back-button{
-                margin-left: 10%; 
+            .button-next-back .back-button{
+                margin-left: 10%;
             }
             .back-button a{
                 color:white;
@@ -79,26 +84,39 @@
         </style>
     </head>
     <body>
+        <c:if test="${message != null}">
+            <div id="bill-form">
+
+                <div class="row" style="margin: 0 5px 0 5px">
+                    <span style="font-size: 20px;color: red; text-align: center; ">${message}!</span>
+                </div>
+
+            </div>
+        </c:if>
         <div class="container">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
-                    <h2 class="text-center text-dark mt-5">Forgot Password</h2>
+                    <h2 class="text-center text-dark mt-5">Reset Password</h2>
                     <p class=" text-success" style="font-size: 25px; text-align: center">${errorLogin}</p>
 
                     <div class="card my-auto">
 
-                        <form class="card-body cardbody-color p-lg-5">
-
-                       
-                            <div class="mb-3">
-                                <input type="password" class="form-control" id="password" placeholder="Password" >
+                        <form action="resetpassword" method="post" class="card-body cardbody-color p-lg-5">
+                            <div style="display: none" class="input-group mg-b-pro-edt">
+                                <span class="input-group-addon"><i class="icon nalika-edit" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" placeholder="Consignment ID" name="accountID" value="${id}" readonly style="color: black">
                             </div>
-                                <div class="mb-3">
-                                <input type="password" class="form-control" id="cf-password" placeholder="Confirm Password" >
+
+                            <div class="mb-3">
+                                <input type="password" name="txtPassword" class="form-control" id="password" placeholder="Password" >
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" name="txtPassword1" class="form-control" id="cf-password" placeholder="Confirm Password" >
                             </div>
                             <div class="button-next-back">
-                                <div class="login-button"><button type="submit" class="btn btn-color px-5  mb-5 w-100">Login</button></div>
-                                <div class="back-button"><button type="submit" class="btn btn-color px-5 mb-5 w-100"><a href="/forgotpassword.jsp">Back</a></button></div>
+                                <div class="back-button"><a href="forgotpassword">Back</a></div>
+                                <div class="login-button"><button type="submit" name="btnReset" class="btn btn-color px-5  mb-5 w-100">Reset</button></div>
+
                             </div>
                         </form>
                     </div>

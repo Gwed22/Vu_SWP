@@ -104,8 +104,7 @@ public class EditOrderController extends HttpServlet {
             String account_id = request.getParameter("account_id");
             String address = request.getParameter("address");
             com.models.Order or = new com.models.Order(Integer.parseInt(o_id), Date.valueOf(o_date), Date.valueOf(delivery_date), status, note, o.getAccountID(), address);
-            OrderDAO dao1 = new OrderDAO();
-            dao1.updateOrder(or);
+            dao.updateOrder(or);
             request.getRequestDispatcher("/allorder").forward(request, response);
         }
     }

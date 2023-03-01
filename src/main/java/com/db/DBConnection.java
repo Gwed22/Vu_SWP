@@ -15,12 +15,20 @@ import java.util.logging.Logger;
  * @author PC
  */
 public class DBConnection {
+
     private static Connection conn = null;
-     public static Connection getConnection() {
+
+    public static Connection getConnection() {
         if (conn == null) {
             try {
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                String url = "jdbc:sqlserver://DESKTOP-DT42AOQ:1433;databaseName=SWP;user=sa;password=123456;encrypt=true;trustServerCertificate=true;";
+<<<<<<< HEAD
+                String url = "jdbc:sqlserver://LAPTOP-FFMUNM5U\\TRANBANAMFPT:1433;databaseName=SWP;user=sa;password=123;encrypt=true;trustServerCertificate=true;";
+=======
+
+                String url = "jdbc:sqlserver://DESKTOP-82FKB1P\\MINHHO:1433;databaseName=SWP1;user=sa;password=123;encrypt=true;trustServerCertificate=true;";
+>>>>>>> 532509d27860fb160c21cc5688701b2179066b34
+
                 conn = DriverManager.getConnection(url);
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
@@ -40,5 +48,5 @@ public class DBConnection {
             Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-  
+
 }
