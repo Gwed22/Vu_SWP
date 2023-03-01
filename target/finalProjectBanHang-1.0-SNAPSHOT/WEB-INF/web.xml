@@ -48,6 +48,18 @@
         <servlet-name>SearchSaleController</servlet-name>
         <servlet-class>com.controllers.SearchSaleController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SupportViewController</servlet-name>
+        <servlet-class>com.controllers.SupportViewController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SupportReadController</servlet-name>
+        <servlet-class>com.controllers.SupportReadController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SupportReplyController</servlet-name>
+        <servlet-class>com.controllers.SupportReplyController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -175,6 +187,18 @@
     <servlet-mapping>
         <servlet-name>SearchSaleController</servlet-name>
         <url-pattern>/SearchSale</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SupportViewController</servlet-name>
+        <url-pattern>/supportview</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SupportReadController</servlet-name>
+        <url-pattern>/SupportRead</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SupportReplyController</servlet-name>
+        <url-pattern>/SupportReply</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

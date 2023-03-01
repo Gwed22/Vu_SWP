@@ -80,10 +80,8 @@
         <c:if test="${message != null}">
             <div id="bill-form">
                 <div id="bill-form-content">
-                    <h2>Message<span id="bill-close">Close</span></h2>
-                    <br>
                     <div class="row" style="margin: 0 5px 0 5px">
-                        <span style="font-size: 20px">${message}!</span>
+                        <span style="color: white; font-size: 20px">${message}!</span>
                     </div>
                 </div>
             </div>

@@ -14,7 +14,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Sale Management</title>
+        <title>Customer Support</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- favicon
@@ -98,7 +98,7 @@
                                             <a href="home"><i class="icon nalika-home"></i></a>
                                         </div>
                                         <div class="breadcomb-ctn">
-                                            <h2>Sale Management</h2>
+                                            <h2>Customer Support</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -111,55 +111,32 @@
         <div class="product-status mg-b-30">
             <div class="container-fluid">
                 <div class="row">
-
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                        <ul>
-                            <li style="margin: 20px; "> <a style="color: white; " href="##">Product Management</a> </li>
-                            <li style="margin: 20px; "> <a style="color: white; " href="##">Sale Management</a></li>
-                            <li style="margin: 20px; "> <a style="color: white; " href="##">Product Statistic </a> </li>
-                            <li style="margin: 20px; "> <a style="color: white; " href="##">Warehouse</a></li>
-                        </ul>
-
-                    </div>
-
-                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="product-status-wrap">
-                            <h4>Sale List</h4>
-                            <div class="add-product">
-                                <a href="AddSale">Add Sale</a>
-                            </div>
-                            <form role="search" action="SearchSale" method="get">
-                                <input id="txtQuery" type="text" placeholder="Search..." class="form-control" name="txtQuery">
-                            </form>
+                            <h4>List of Support Requests</h4>
                             <table>
                                 <tr>
-                                    <th rowspan="2" style="text-align: center">ID</th>
-                                    <th rowspan="2" style="text-align: center">Product Name</th>
-                                    <th rowspan="2" style="text-align: center">Current Price</th>
-                                    <th rowspan="2" style="text-align: center">Sale Price</th>
-                                    <th colspan="2" style="text-align: center">Sale Date</th>
-                                    <th rowspan="2" style="text-align: center">Description</th>
-                                    <th rowspan="2" style="text-align: center">Action</th>
-                                </tr>
-                                <tr>
-                                    <th>From</th>
-                                    <th>To</th>
+                                    <th style="text-align: center">ID</th>
+                                    <th style="text-align: center">Customer Name</th>
+                                    <th style="text-align: center">Phone</th>
+                                    <th style="text-align: center">Gender</th>
+                                    <th style="text-align: center">Address</th>
+                                    <th style="text-align: center">Time</th>
+                                    <th style="text-align: center">Action</th>
                                 </tr>
                                 <%
-                                    ResultSet rs = (ResultSet) request.getAttribute("listSale");
+                                    ResultSet rs = (ResultSet) request.getAttribute("listSupport");
                                     while (rs.next()) {
                                 %>
                                 <tr>
-                                    <td><%= rs.getInt("sale_id")%></td>
-                                    <td><%= rs.getString("product_name")%></td>
-                                    <td><%= rs.getFloat("productPrice")%></td>
-                                    <td><%= rs.getFloat("sale_price")%></td>
-                                    <td><%= rs.getDate("sale_start_date")%></td>
-                                    <td><%= rs.getDate("sale_end_date")%></td>
-                                    <td><%= rs.getString("sale_description")%></td>
-                                    <td>
-                                        <a href="EditSale?id=<%= rs.getInt("sale_id")%>"><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
-                                        <a href="DeleteSale?id=<%= rs.getInt("sale_id")%>" onclick="return confirm('Do you want to delete this sale?')"><button data-toggle="tooltip" title="Delete" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
+                                    <td style="text-align: center"><%= rs.getInt("chat_session_id")%></td>
+                                    <td style="text-align: center"><%= rs.getString("full_name")%></td>
+                                    <td style="text-align: center"><%= rs.getString("phone")%></td>
+                                    <td style="text-align: center"><%= rs.getString("gender")%></td>
+                                    <td style="text-align: center"><%= rs.getString("address")%></td>
+                                    <td style="text-align: center"><%= rs.getDate("date_time")%></td>
+                                    <td style="text-align: center">
+                                        <a href="SupportRead?id=<%= rs.getInt("chat_session_id")%>"><button data-toggle="tooltip" title="Read" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>                                        
                                     </td>
                                 </tr>
                                 <%

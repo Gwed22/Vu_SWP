@@ -1,20 +1,20 @@
 <%-- 
-    Document   : product-list
-    Created on : Oct 28, 2022, 11:41:24 PM
+    Document   : product-add
+    Created on : Oct 28, 2022, 11:41:45 PM
     Author     : DELL
 --%>
 
-<%@page import="com.dao.SaleDAO"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.ResultSet"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html class="no-js" lang="en">
 
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Sale Management</title>
+        <title>Customer Support</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- favicon
@@ -77,15 +77,6 @@
             <![endif]-->
 
         <jsp:include page="headeradmin.jsp"></jsp:include>
-        <c:if test="${message != null}">
-            <div id="bill-form">
-                <div id="bill-form-content">
-                    <div class="row" style="margin: 0 5px 0 5px">
-                        <span style="color: white; font-size: 20px">${message}!</span>
-                    </div>
-                </div>
-            </div>
-        </c:if>
         <div class="breadcome-area">
             <div class="container-fluid">
                 <div class="row">
@@ -98,7 +89,7 @@
                                             <a href="home"><i class="icon nalika-home"></i></a>
                                         </div>
                                         <div class="breadcomb-ctn">
-                                            <h2>Sale Management</h2>
+                                            <h2>Customer Support</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -108,69 +99,46 @@
                 </div>
             </div>
         </div>
-        <div class="product-status mg-b-30">
+        <!-- Single pro tab start-->
+        <div class="single-product-tab-area mg-b-30">
+            <!-- Single pro tab review Start-->
+
             <div class="container-fluid">
                 <div class="row">
-
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                        <ul>
-                            <li style="margin: 20px; "> <a style="color: white; " href="##">Product Management</a> </li>
-                            <li style="margin: 20px; "> <a style="color: white; " href="##">Sale Management</a></li>
-                            <li style="margin: 20px; "> <a style="color: white; " href="##">Product Statistic </a> </li>
-                            <li style="margin: 20px; "> <a style="color: white; " href="##">Warehouse</a></li>
-                        </ul>
-
-                    </div>
-
-                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                        <div class="product-status-wrap">
-                            <h4>Sale List</h4>
-                            <div class="add-product">
-                                <a href="AddSale">Add Sale</a>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="review-tab-pro-inner">
+                            <ul id="myTab3" class="tab-review-design">
+                                <li class="active"><a href="#"><i class="icon nalika-edit" aria-hidden="true"></i>Reply</a></li>
+                            </ul>
+                            <div id="myTabContent" class="tab-content custom-product-edit">
+                                <div class="product-tab-list tab-pane fade active in" id="description">
+                                    <form action="SupportReply" method="post">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <div class="review-content-section">
+                                                    <div class="input-group mg-b-pro-edt">
+                                                        <label style="color: white; ">Message:</label>>
+                                                        <input type="text" class="form-control" placeholder="Mesage support" name="txtSupport">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="text-right custom-pro-edt-ds">
+                                                    <button type="submit" name="btnSend" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Send</button>
+                                                    <button type="reset" name="btnCancel" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
-                            <form role="search" action="SearchSale" method="get">
-                                <input id="txtQuery" type="text" placeholder="Search..." class="form-control" name="txtQuery">
-                            </form>
-                            <table>
-                                <tr>
-                                    <th rowspan="2" style="text-align: center">ID</th>
-                                    <th rowspan="2" style="text-align: center">Product Name</th>
-                                    <th rowspan="2" style="text-align: center">Current Price</th>
-                                    <th rowspan="2" style="text-align: center">Sale Price</th>
-                                    <th colspan="2" style="text-align: center">Sale Date</th>
-                                    <th rowspan="2" style="text-align: center">Description</th>
-                                    <th rowspan="2" style="text-align: center">Action</th>
-                                </tr>
-                                <tr>
-                                    <th>From</th>
-                                    <th>To</th>
-                                </tr>
-                                <%
-                                    ResultSet rs = (ResultSet) request.getAttribute("listSale");
-                                    while (rs.next()) {
-                                %>
-                                <tr>
-                                    <td><%= rs.getInt("sale_id")%></td>
-                                    <td><%= rs.getString("product_name")%></td>
-                                    <td><%= rs.getFloat("productPrice")%></td>
-                                    <td><%= rs.getFloat("sale_price")%></td>
-                                    <td><%= rs.getDate("sale_start_date")%></td>
-                                    <td><%= rs.getDate("sale_end_date")%></td>
-                                    <td><%= rs.getString("sale_description")%></td>
-                                    <td>
-                                        <a href="EditSale?id=<%= rs.getInt("sale_id")%>"><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
-                                        <a href="DeleteSale?id=<%= rs.getInt("sale_id")%>" onclick="return confirm('Do you want to delete this sale?')"><button data-toggle="tooltip" title="Delete" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
-                                    </td>
-                                </tr>
-                                <%
-                                    }
-                                %>
-
-                            </table>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
         <div class="footer-copyright-area">
 
@@ -214,6 +182,9 @@
     <script src="js1/sparkline/jquery.sparkline.min.js"></script>
     <script src="js1/sparkline/jquery.charts-sparkline.js"></script>
 
+    <!-- tab JS
+                ============================================ -->
+    <script src="js/tab.js"></script>
     <!-- plugins JS
                 ============================================ -->
     <script src="js1/plugins.js"></script>
