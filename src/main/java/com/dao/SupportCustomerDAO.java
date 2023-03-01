@@ -30,7 +30,7 @@ public class SupportCustomerDAO {
         ResultSet rs = null;
         try {
             Statement st = conn.createStatement();
-            rs = st.executeQuery("SELECT a.account_id, a.full_name, a.gender, a.phone, a.[address], m.message_context, m.date_time\n" +
+            rs = st.executeQuery("SELECT c.chat_session_id, a.full_name, a.gender, a.phone, a.[address], m.message_context, m.date_time\n" +
                                  "FROM Account a, [Message] m, ChatSession c\n" +
                                  "WHERE m.chat_session_id=c.chat_session_id AND c.customer_id=a.account_id");
         } catch (SQLException ex) {
@@ -78,5 +78,19 @@ public class SupportCustomerDAO {
             Logger.getLogger(SupportCustomerDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return rs;
+    }
+    
+    public int getCountChat() {
+        int count = 0;
+        try {
+            PreparedStatement pst = conn.prepareStatement("Select count([chat_session_id])ChatC from ChatSession");
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                count = rs.getInt("ChatC");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return count;
     }
 }
