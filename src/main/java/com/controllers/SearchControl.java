@@ -58,7 +58,7 @@ public class SearchControl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         String txtSearch = request.getParameter("txtName");
+        String txtSearch = request.getParameter("txtName");
         ProductDAO dao = new ProductDAO();
         List<Products> list = dao.searchByName(txtSearch);
         request.setAttribute("listP", list);

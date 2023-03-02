@@ -6,11 +6,15 @@ package com.dao;
 
 import com.models.Account;
 import com.db.DBConnection;
+import com.models.Brand;
+import com.models.Role;
+import com.models.SecurityQuestion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -55,20 +59,49 @@ public class AccountDAO {
     public int addNewAccount(Account acc) {
         int count = 0;
         try {
-            PreparedStatement pst = conn.prepareStatement("insert into Accounts values(?,?,?,?,?,?,?,?)");
-            pst.setInt(1, acc.getAccountID());
-            pst.setString(2, "N'"+acc.getName()+"'");
-            pst.setString(3, acc.getPhone());
-            pst.setString(4, acc.getPassword());
-            pst.setString(5, "N'"+acc.getGender()+"'");
-            pst.setString(6, "N'"+acc.getAddress()+"'");
-            pst.setInt(7, acc.getSq_id());
-            pst.setInt(8, acc.getRole_id());
+            PreparedStatement pst = conn.prepareStatement("insert into Account values(?,?,?,?,?,?,?)");
+            pst.setString(1, acc.getName());
+            pst.setString(2, acc.getPhone());
+            pst.setString(3, acc.getPassword());
+            pst.setString(4, acc.getGender());
+            pst.setString(5, acc.getAddress());
+            pst.setInt(6, acc.getSq_id());
+            pst.setInt(7, acc.getRole_id());
             count = pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return count;
+    }
+
+    public ArrayList<Role> getAllRole() {
+        ArrayList<Role> list = new ArrayList<>();
+        ResultSet rs = null;
+        try {
+            Statement st = conn.createStatement();
+            rs = st.executeQuery("select * from Role");
+            while (rs.next()) {
+                Role ro = new Role(rs.getInt("role_id"), rs.getString("role_name"));
+                list.add(ro);
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+
+    public ArrayList<SecurityQuestion> getAllSQ() {
+        ArrayList<SecurityQuestion> list = new ArrayList<>();
+        ResultSet rs = null;
+        try {
+            Statement st = conn.createStatement();
+            rs = st.executeQuery("select * from SecurityQuestion");
+            while (rs.next()) {
+                SecurityQuestion sq = new SecurityQuestion(rs.getInt("sq_id"), rs.getString("sq_context"));
+                list.add(sq);
+            }
+        } catch (Exception e) {
+        }
+        return list;
     }
 
     public int updateAccount(Account acc) {
@@ -94,11 +127,11 @@ public class AccountDAO {
         return false;
     }
 
-    public int deleteAccount(String acc_id) {
+    public int deleteAccount(int acc_id) {
         int count = 0;
         try {
-            PreparedStatement pst = conn.prepareStatement("delete from Account where account_id=?");
-            pst.setString(1, acc_id);
+            PreparedStatement pst = conn.prepareStatement("delete from [Account] where account_id=?");
+            pst.setInt(1, acc_id);
             count = pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -119,9 +152,8 @@ public class AccountDAO {
         }
         return count;
     }
-   
 
-   public Account checkLogin(String phone, String password) {
+    public Account checkLogin(String phone, String password) {
         ResultSet rs = null;
 
         try {
@@ -130,13 +162,18 @@ public class AccountDAO {
             pst.setString(2, password);
             rs = pst.executeQuery();
             while (rs.next()) {
-                Account ac = new Account(rs.getInt("account_id"),rs.getString("full_name"),  rs.getString("phone"), rs.getString("password"), rs.getString("gender"), rs.getString("address"), rs.getInt("sq_id"), rs.getInt("role_id"));
+                Account ac = new Account(rs.getInt("account_id"), rs.getString("full_name"), rs.getString("phone"), rs.getString("password"), rs.getString("gender"), rs.getString("address"), rs.getInt("sq_id"), rs.getInt("role_id"));
                 return ac;
             }
         } catch (SQLException ex) {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-               return null;
+        return null;
+    }
+
+    public ResultSet getSearchAccount(String query) throws SQLException {
+        Statement st = conn.createStatement();
+        ResultSet rs = st.executeQuery("Select * from Account where full_name like'%" + query + "%'");
+        return rs;
     }
 }
-

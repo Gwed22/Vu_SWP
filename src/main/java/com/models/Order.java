@@ -19,9 +19,18 @@ public class Order {
     private String note;
     private int accountID;
     private String address;
+    private double totalMoney;
 
     public Order() {
     }
+
+    public Order(String note, String address) {
+        this.note = note;
+        this.address = address;
+    }
+
+    
+    
 
     public Order(int orderID, Date orderDate, Date deliveryDate, String status, String note, int accountID, String address) {
         this.orderID = orderID;
@@ -33,6 +42,18 @@ public class Order {
         this.address = address;
     }
 
+    public Order(int orderID, Date orderDate, Date deliveryDate, String status, String note, int accountID, String address, double totalMoney) {
+        this.orderID = orderID;
+        this.orderDate = orderDate;
+        this.deliveryDate = deliveryDate;
+        this.status = status;
+        this.note = note;
+        this.accountID = accountID;
+        this.address = address;
+        this.totalMoney = totalMoney;
+    }
+    
+    
     public int getOrderID() {
         return orderID;
     }
@@ -89,6 +110,15 @@ public class Order {
         this.address = address;
     }
 
+    public double getTotalMoney() {
+        return totalMoney;
+    }
+
+    public void setTotalMoney(double totalMoney) {
+        this.totalMoney = totalMoney;
+    }
+    
+    
     @Override
     public String toString() {
         return "Order{" + "orderID=" + orderID + ", orderDate=" + orderDate + ", deliveryDate=" + deliveryDate + ", status=" + status + ", note=" + note + ", accountID=" + accountID + ", address=" + address + '}';

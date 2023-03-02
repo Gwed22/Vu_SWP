@@ -4,11 +4,9 @@
     Author     : DELL
 --%>
 
-
-<%@page import="com.models.Products"%>
 <%@page import="java.sql.ResultSet"%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -73,14 +71,7 @@
     </head>
 
     <body>
-        <!--[if lt IE 8]>
-                <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-            <![endif]-->
-        <%
-            Products pro = (Products) session.getAttribute("p");
-
-        %>
-
+        <jsp:include page="headeradmin.jsp"></jsp:include>
         <div class="breadcome-area">
             <div class="container-fluid">
                 <div class="row">
@@ -117,36 +108,44 @@
                                 <li style="margin: 20px; "> <a style="color: white; " href="##">Warehouse</a></li>
                             </ul>
                         </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
                             <div class="review-tab-pro-inner">
                                 <ul id="myTab3" class="tab-review-design">
                                     <li class="active"><a href="#description"><i class="icon nalika-edit" aria-hidden="true"></i>EDIT SALE</a></li>
                                 </ul>
                                 <div id="myTabContent" class="tab-content custom-product-edit">
                                     <div class="product-tab-list tab-pane fade active in" id="description">
-                                        <form action="allproduct" method="post">
+                                        <form action="EditSale" method="post">
                                             <div class="row">
                                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                     <div class="review-content-section">
                                                         <div class="input-group mg-b-pro-edt">
-                                                            <label>Product Name</label>
-                                                            <input type="text" class="form-control" placeholder="Product Name" name="txtProductName">
+                                                            <label style="color: white; ">ID</label>>
+                                                            <input type="number" class="form-control" placeholder="Sale ID" name="txtSaleID" value="${s.getSaleID()}" readonly required style="color: black">
                                                         </div>
                                                         <div class="input-group mg-b-pro-edt">
-                                                            <label>Sale Start Date</label>>
-                                                            <input type="date" class="form-control" placeholder="Sale start date" name="txtSaleStartDate">
+                                                            <label style="color: white; ">Product Name</label>
+                                                            <select name="txtConID" class="form-control pro-edt-select form-control-primary">
+                                                                <c:forEach items="${listCon}" var="con">
+                                                                    <option value="${con.getConID()}"<c:if test="${con.getConID() == s.getConID()}">selected</c:if>>${con.getProductName()}</option>
+                                                                </c:forEach>
+                                                            </select>
                                                         </div>
                                                         <div class="input-group mg-b-pro-edt">
-                                                            <label>Sale End Date</label>
-                                                            <input type="date" class="form-control" placeholder="Sale end date" name="txtSaleEndDate">
+                                                            <label style="color: white; ">Sale Start Date</label>>
+                                                            <input type="date" class="form-control" placeholder="Sale start date" name="txtSaleStartDate" value="${s.getSaleStartDate()}" required>
                                                         </div>
                                                         <div class="input-group mg-b-pro-edt">
-                                                            <label>Sale Price</label>
-                                                            <input type="text" class="form-control" placeholder="Sale price" name="txtSalePrice">
+                                                            <label style="color: white; ">Sale End Date</label>
+                                                            <input type="date" class="form-control" placeholder="Sale end date" name="txtSaleEndDate" value="${s.getSaleEndDate()}" required>
                                                         </div>
                                                         <div class="input-group mg-b-pro-edt">
-                                                            <label>Description</label>
-                                                            <input type="text" class="form-control" placeholder="Sale Description" name="txtDesc">
+                                                            <label style="color: white; ">Sale Price</label>
+                                                            <input type="text" class="form-control" placeholder="Sale price" name="txtSalePrice" value="${s.getSalePrice()}" required>
+                                                        </div>
+                                                        <div class="input-group mg-b-pro-edt">
+                                                            <label style="color: white; ">Description</label>
+                                                            <input type="text" class="form-control" placeholder="Sale Description" name="txtDesc"value="${s.getSaleDesc()}" required> 
                                                         </div>
                                                     </div>
                                                 </div>
@@ -155,6 +154,7 @@
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                     <div class="text-right custom-pro-edt-ds">
                                                         <button type="submit" name="btnEdit" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Save</button>
+                                                        <button type="reset" name="btnClear" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Clear</button>
                                                     </div>
                                                 </div>
                                             </div>

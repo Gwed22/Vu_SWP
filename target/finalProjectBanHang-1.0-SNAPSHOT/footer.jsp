@@ -15,13 +15,12 @@
                             <h3>Address</h3>
                             <span>FPT University, Can Tho</span>
                             <p>(+71) 8522369417
-                                <br>group4@gmail.com</p>
+                                <br>group3@gmail.com</p>
                         </div>
                         <ul class="location_icon">
                             <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
                             <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
                             <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
-
                         </ul>
                       
                     </div>
@@ -30,7 +29,7 @@
         </div>
         <div class="copyright">
             <div class="container">
-                <p>© 2022 All Rights Reserved. Design By <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"> Group4 SE1605 PRJ-PROJECT</a></p>
+                <p>© 2023 All Rights Reserved. Make By <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"> Group3 SE1605</a></p>
             </div>
         </div>
     </div>

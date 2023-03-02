@@ -5,6 +5,7 @@
 package com.dao;
 
 import com.db.DBConnection;
+import com.models.Consignment;
 import com.models.OrderItem;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -48,7 +49,6 @@ public class OrderItemDAO {
 //        ResultSet rs = st.executeQuery("Select * from product where loaisp like'%" + query + "%'");
 //        return rs;
 //    }
-
     public OrderItem getOrderItem(int o_id) {
         OrderItem ot = null;
         try {
@@ -62,6 +62,22 @@ public class OrderItemDAO {
             Logger.getLogger(OrderItemDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return ot;
+    }
+
+    public OrderItem getQuantityById(int cid) {
+        String query = "select Sum(quantity) as quantity from OrderItem where con_id = ? group by con_id ";
+        try {
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, cid);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return new OrderItem(rs.getInt(1));
+            }
+        } catch (Exception e) {
+            System.out.println("Not found emptity");
+
+        }
+        return null;
     }
 
 //    public int addNewOrder(Order o) {
@@ -79,7 +95,6 @@ public class OrderItemDAO {
 //        }
 //        return count;
 //    }
-
 //    public int deleteProduct(String masp) {
 //        int count = 0;
 //        try {

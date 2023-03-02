@@ -4,7 +4,9 @@
  */
 package com.models;
 
-import java.sql.Timestamp;
+import java.sql.Date;
+
+
 
 /**
  *
@@ -13,8 +15,8 @@ import java.sql.Timestamp;
 public class Sale {
 
     private int saleID;
-    private Timestamp saleStartDate;
-    private Timestamp saleEndDate;
+    private Date saleStartDate;
+    private Date saleEndDate;
     private float salePrice;
     private String saleDesc;
     private int conID;
@@ -22,7 +24,7 @@ public class Sale {
     public Sale() {
     }
 
-    public Sale(int saleID, Timestamp saleStartDate, Timestamp saleEndDate, float salePrice, String saleDesc, int conID) {
+    public Sale(int saleID, Date saleStartDate, Date saleEndDate, float salePrice, String saleDesc, int conID) {
         this.saleID = saleID;
         this.saleStartDate = saleStartDate;
         this.saleEndDate = saleEndDate;
@@ -39,19 +41,19 @@ public class Sale {
         this.saleID = saleID;
     }
 
-    public Timestamp getSaleStartDate() {
+    public Date getSaleStartDate() {
         return saleStartDate;
     }
 
-    public void setSaleStartDate(Timestamp saleStartDate) {
+    public void setSaleStartDate(Date saleStartDate) {
         this.saleStartDate = saleStartDate;
     }
 
-    public Timestamp getSaleEndDate() {
+    public Date getSaleEndDate() {
         return saleEndDate;
     }
 
-    public void setSaleEndDate(Timestamp saleEndDate) {
+    public void setSaleEndDate(Date saleEndDate) {
         this.saleEndDate = saleEndDate;
     }
 
