@@ -335,6 +335,16 @@
         <servlet-name>RegisterController</servlet-name>
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
+        </servlet>
+        <servlet>
+        <servlet-name>ConfirmOrderController</servlet-name>
+        <servlet-class>com.controllers.ConfirmOrderController</servlet-class>
+    </servlet>
+        </servlet>
+        <servlet>
+        <servlet-name>ReturnOrderController</servlet-name>
+        <servlet-class>com.controllers.ReturnOrderController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConfirmPhoneController</servlet-name>
         <url-pattern>/confirmphone</url-pattern>
@@ -342,6 +352,14 @@
     <servlet-mapping>
         <servlet-name>ForgotPasswordController</servlet-name>
         <url-pattern>/forgotpassword</url-pattern>
+    </servlet-mapping>
+        <servlet-mapping>
+        <servlet-name>ConfirmOrderController</servlet-name>
+        <url-pattern>/confirmorder</url-pattern>
+    </servlet-mapping>
+        <servlet-mapping>
+        <servlet-name>ReturnOrderController</servlet-name>
+        <url-pattern>/returnorder</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ResetPasswordController</servlet-name>

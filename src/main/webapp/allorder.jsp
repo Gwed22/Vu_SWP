@@ -134,7 +134,8 @@
                                         <td></td>
                                         <td>
                                             <a href="editorder?id=<%= rs.getInt("o_id")%>"><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
-                                            <a href="deleteorder?id=<%= rs.getInt("o_id")%>"><button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
+                                            <a href="returnorder?id=<%= rs.getInt("o_id")%>"><button data-toggle="tooltip" title="Return" class="pd-setting-ed"><i class="fa fa-recycle" aria-hidden="true"></i></button></a>
+                                            <a href="confirmorder?id=<%= rs.getInt("o_id")%>"><button data-toggle="tooltip" title="Confirm" class="pd-setting-ed"><i class="fa fa-check" aria-hidden="true"></i></button></a>
                                         </td>
                                     </tr>
                                     <%
