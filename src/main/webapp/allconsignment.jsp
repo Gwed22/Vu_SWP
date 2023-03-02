@@ -189,7 +189,8 @@
                                     <td><%= rs.getString("import_date")%></td>
                                     <td>
                                         <a href="editconsignment?id=<%= rs.getInt("con_id")%>"><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
-                                        <a href="deleteconsignment?id=<%= rs.getInt("con_id")%>" onclick="return confirm('Do you want to delete this consignment?')"><button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
+                                        <a href="addexistconsignment?id=<%= rs.getInt("con_id")%>"><button data-toggle="tooltip" title="Import more" class="pd-setting-ed"><i class="fa fa-plus" aria-hidden="true"></i></button></a>
+                                        <a href="deleteconsignment?id=<%= rs.getInt("con_id")%>" onclick="return confirm('Do you want to delete this consignment?')"><button data-toggle="tooltip" title="Delete" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
                                     </td>
                                 </tr>
                                 <%
@@ -253,16 +254,20 @@
                                                 document.querySelector('#bill-form').style.display = "none";
                                             });
 
-                                            const formatter = new Intl.NumberFormat('vi-VN', {
-                                                style: 'currency',
-                                                currency: 'VND',
-                                                minimumFractionDigits: 0
-                                            })
 
-                                            var x = document.getElementsByClassName('money');
-                                            for (var i = 0; i < x.length; i++) {
-                                                x[i].innerHTML = formatter.format(x[i].innerHTML);
-                                            }
+    </script>
+    <script>
+        const formatter = new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND',
+            minimumFractionDigits: 0
+        });
+
+        var x = document.getElementsByClassName('money');
+        for (var i = 0; i < x.length; i++) {
+            x[i].innerHTML = formatter.format(x[i].innerHTML);
+            console.log(x);
+        }
     </script>
 </body>
 

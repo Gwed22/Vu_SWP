@@ -4,6 +4,14 @@
         <servlet-name>LoginController</servlet-name>
         <servlet-class>com.controllers.LoginController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProductStatisticController</servlet-name>
+        <servlet-class>com.controllers.ProductStatisticController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddExistConsignmentController</servlet-name>
+        <servlet-class>com.controllers.AddExistConsignmentController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -87,6 +95,14 @@
     <servlet-mapping>
         <servlet-name>EditConsignmentController</servlet-name>
         <url-pattern>/editconsignment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductStatisticController</servlet-name>
+        <url-pattern>/productstatistic</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddExistConsignmentController</servlet-name>
+        <url-pattern>/addexistconsignment</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

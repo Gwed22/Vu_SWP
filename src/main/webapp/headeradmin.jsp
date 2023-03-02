@@ -53,8 +53,8 @@
                         </a>
                         <ul class="submenu-angle" aria-expanded="true">
                             <li><a href="allconsignment"><span class="mini-sub-pro">Consignment List</span></a></li>
-                            <li><a href="addconsignment.jsp"><span class="mini-sub-pro">Add Consignment</span></a></li>
-                            <li><a href="#"><span class="mini-sub-pro">Product statistic</span></a></li>
+                            <li><a href="addconsignment"><span class="mini-sub-pro">Add Consignment</span></a></li>
+                            <li><a href="productstatistic"><span class="mini-sub-pro">Product statistic</span></a></li>
                         </ul>
                     </li>
                 </ul>
