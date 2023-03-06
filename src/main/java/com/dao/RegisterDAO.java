@@ -6,7 +6,6 @@ package com.dao;
 
 import com.db.DBConnection;
 import com.models.Account;
-import com.models.SecurityAnswer;
 import com.models.SecurityQuestion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -32,7 +31,7 @@ public class RegisterDAO {
     public int register(String name, String phone, String password, String gender, String address, int sq_id, String answer_context) {
         int count = 0;
         try {
-            PreparedStatement pst = conn.prepareStatement("insert into Account values(?,?,?,?,?,?,1,?)");
+            PreparedStatement pst = conn.prepareStatement("insert into Account values(?,?,?,?,?,?,2,?)");
 
             pst.setString(1, name);
             pst.setString(2, phone);
@@ -64,20 +63,7 @@ public class RegisterDAO {
         return list;
     }
 
-    public ArrayList<SecurityAnswer> getAllAnswer() {
-        ArrayList<SecurityAnswer> list = new ArrayList<>();
-        ResultSet rs = null;
-        try {
-            Statement st = conn.createStatement();
-            rs = st.executeQuery("select * from SecurityAnswer");
-            while (rs.next()) {
-                SecurityAnswer s = new SecurityAnswer(rs.getInt("answer_id"), rs.getInt("account_id"), rs.getInt("sq_id"), rs.getString("answer_context"));
-                list.add(s);
-            }
-        } catch (Exception e) {
-        }
-        return list;
-    }
+   
 
     public Account checkAccount(int accountID, String answer_context) {
         ResultSet rs = null;

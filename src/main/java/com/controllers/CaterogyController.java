@@ -68,7 +68,7 @@ public class CaterogyController extends HttpServlet {
         List<Products> list = d.getProductsByCate(id);
         request.setAttribute("listL", list);
         String[] pp = {"Price: Increase",
-            "Price: Decrease"};
+                        "Price: Decrease"};
         boolean[] pb = new boolean[pp.length + 1];
         pb[0] = true;
         List<Products> incre = d.getIncre();

@@ -7,7 +7,6 @@ package com.controllers;
 import com.dao.AccountDAO;
 import com.dao.RegisterDAO;
 import com.models.Account;
-import com.models.SecurityAnswer;
 import com.models.SecurityQuestion;
 import java.io.IOException;
 import java.io.PrintWriter;

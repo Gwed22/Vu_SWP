@@ -4,7 +4,10 @@
  */
 package com.controllers;
 
+import com.dao.CommentDAO;
 import com.dao.ProductDAO;
+import com.models.Account;
+import com.models.Comment;
 import com.models.Products;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,6 +15,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -62,6 +66,9 @@ public class ProductDetailController extends HttpServlet {
         int id = Integer.parseInt(pid);
         ProductDAO d = new ProductDAO();
         Products p = d.getAllProductById(id);
+        CommentDAO dao = new CommentDAO();
+        List<Comment> list = dao.getAllCommentByID(id);
+        request.setAttribute("listCo", list);
         request.setAttribute("product", p);
         request.getRequestDispatcher("productdetail.jsp").forward(request, response);
     }
@@ -77,7 +84,7 @@ public class ProductDetailController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
     }
 
     /**

@@ -5,9 +5,11 @@
 package com.controllers;
 
 import com.dao.ProductDAO;
+import com.dao.SaleDAO;
 import com.models.Cart;
 import com.models.Item;
 import com.models.Products;
+import com.models.Sale;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -64,27 +66,33 @@ public class CartController extends HttpServlet {
         HttpSession session = request.getSession();
         Cart cart = null;
         Object o = session.getAttribute("cart");
-
+        double price;
         if (o != null) {
             cart = (Cart) o;
 
         } else {
             cart = new Cart();
         }
-        
+
         String tid = request.getParameter("pid");
         int id = Integer.parseInt(tid);
-        
+
         try {
             ProductDAO d = new ProductDAO();
+            SaleDAO sd = new SaleDAO();
             Products p = d.getAllProductById(id);
-            double price = p.getProductPrice();
+            Sale s = sd.getPriceById(id);
+            if (s == null) {
+                price = p.getProductPrice();
+            } else {
+                price = p.getProductPrice() - (p.getProductPrice() * s.getSalePrice());
+            }
             Item t = new Item(p, 1, price);
             cart.addItem(t);
         } catch (Exception e) {
-            
+
         }
-        
+
         List<Item> list = cart.getItems();
         session.setAttribute("cart", cart);
         session.setAttribute("size", list.size());

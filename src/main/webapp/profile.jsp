@@ -23,11 +23,8 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-<<<<<<< HEAD:target/finalProjectBanHang-1.0-SNAPSHOT/profiile.jsp
-        <link rel="stylesheet" href="css/style1.css">
-=======
-        <link rel="stylesheet" href="css/style5.css">
->>>>>>> 532509d27860fb160c21cc5688701b2179066b34:src/main/webapp/profile.jsp
+        <link rel="stylesheet" href="css/style8.css">
+        <link rel="stylesheet" href="css/style8.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -72,33 +69,26 @@
                 <div class="row">
                     <div class="col-md-6 offset-md-3">
                         <h2 class="text-center text-dark mt-5">Profile</h2>
-
                         <div class="card my-auto">
-
                             <form class="card-body cardbody-color p-lg-5" action="" method="">
                                 <div class="mb-3">
-                                    <input type="text" class="form-control" id="account" placeholder="Your Account" name="account" readonly >
+                                    <input type="text" class="form-control" id="account" placeholder="Your Account" name="account" readonly>
                                 </div>
-
                                 <div class="mb-3">
                                     <input type="text" class="form-control" id="fullname" placeholder="Full Name" name="fullname" >
                                 </div>
-
                                 <div class="mb-3">
-                                    <input type="text" class="form-control" id="phone" aria-describedby="numberPhone"
-                                           placeholder="Number phone" name="phone" readonly>
+                                    <input type="text" class="form-control" id="phone" aria-describedby="numberPhone" placeholder="Number phone" name="phone" readonly>
                                 </div>
-
                                 <div class="mb-3">
                                     <input type="text" class="form-control" id="address" placeholder="Address" name="address" >
                                 </div>
-
                                 <div class="text-center"><button type="submit" class="btn btn-color px-5 mb-5 w-100" name="submit"><a href="">Edit</a></button></div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-            <jsp:include page="footer.jsp"></jsp:include>
+        <jsp:include page="footer.jsp"></jsp:include>
     </body>
 </html>

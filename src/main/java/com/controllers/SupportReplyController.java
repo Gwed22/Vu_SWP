@@ -71,20 +71,20 @@ public class SupportReplyController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (request.getParameter("btnSend") != null) {
-            Date datetime = new Date();
-            String mesage_context = request.getParameter("txtSupport");
-            
-            SupportCustomerDAO dao = new SupportCustomerDAO();
-            int count = dao.addMessage(chat_session_id, datetime, mesage_context);
-            if (count > 0) {
-                request.setAttribute("message", "Reply Successful");
-                request.getRequestDispatcher("/supportview.jsp").forward(request, response);
-            } else {
-                request.setAttribute("message", "Reply Failed");
-                request.getRequestDispatcher("/supportview.jsp").forward(request, response);
-            }
-        }
+//        if (request.getParameter("btnSend") != null) {
+//            Date datetime = new Date();
+//            String mesage_context = request.getParameter("txtSupport");
+//            
+//            SupportCustomerDAO dao = new SupportCustomerDAO();
+//            int count = dao.addMessage(chat_session_id, datetime, mesage_context);
+//            if (count > 0) {
+//                request.setAttribute("message", "Reply Successful");
+//                request.getRequestDispatcher("/supportview.jsp").forward(request, response);
+//            } else {
+//                request.setAttribute("message", "Reply Failed");
+//                request.getRequestDispatcher("/supportview.jsp").forward(request, response);
+//            }
+//        }
     }
 
     /**

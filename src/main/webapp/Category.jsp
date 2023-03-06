@@ -27,7 +27,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="css/style1.css">
+        <link rel="stylesheet" href="css/style8.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -92,8 +92,13 @@
                                 <div class="brand_box">
                                     <a href="productdetail?pid=${o.getConID()}"><img class="img" src="${o.getProductImg()}" alt="img" /></a>
                                     <span style="height: 30px;">${o.getProductName()}</span>
-                                    <h4 style="margin-top: 10px; "><del> <fmt:formatNumber type="number" value="${o.getProductPrice() * 1.1}" pattern="###,###,###.#" /></del> VND</h4>
-                                    <h3><strong > <fmt:formatNumber type="number" value="${o.getProductPrice()}" pattern="###,###,###.#" /></strong> VND</h3>
+                                    <c:if test="${o.getSalePrice() == 0}">
+                                        <h4 style="margin-top: 10px; ">New Product</h4>
+                                    </c:if>
+                                    <c:if test="${o.getSalePrice() != 0}">
+                                        <h4 style="margin-top: 10px; "><del> <fmt:formatNumber type="number" value="${o.getProductPrice()}" pattern="###,###,###.#" /></del> VND</h4>
+                                    </c:if>
+                                    <h3><strong > <fmt:formatNumber type="number" value="${o.getProductPrice() - (o.getProductPrice() * o.getSalePrice())}" pattern="###,###,###" /></strong> VND</h3>
                                     <a href="addtocart?pid=${o.getConID()}" class="btn btn-main">Buy now</a>
                                 </div>
                             </div>

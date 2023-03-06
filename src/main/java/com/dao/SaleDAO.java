@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,7 +23,10 @@ import java.util.logging.Logger;
  * @author DELL
  */
 public class SaleDAO {
-    private Connection conn = null;
+
+    private Connection conn = null; // Connect with SQL Server
+    private PreparedStatement ps = null; // Throw query statement to SQL Server
+    private ResultSet rs = null; // Receive the respond result of SQL Server
 
     public SaleDAO() {
         conn = DBConnection.getConnection();
@@ -32,20 +36,52 @@ public class SaleDAO {
         ResultSet rs = null;
         try {
             Statement st = conn.createStatement();
-            rs = st.executeQuery("SELECT s.sale_id, c.product_name, c.productPrice, s.sale_price, s.sale_start_date, s.sale_end_date, s.sale_description\n" +
-                                 "FROM Sale s INNER JOIN Consignment c ON c.con_id=s.con_id");
+            rs = st.executeQuery("SELECT s.sale_id, c.product_name, c.productPrice, s.sale_price, s.sale_start_date, s.sale_end_date, s.sale_description\n"
+                    + "FROM Sale s INNER JOIN Consignment c ON c.con_id=s.con_id");
         } catch (SQLException ex) {
             Logger.getLogger(SaleDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return rs;
     }
 
+    public List<Sale> getSaleProduct() {
+        List<Sale> list = new ArrayList<>();
+        try {
+            String query = "SELECT  s.sale_start_date, s.sale_end_date,s.sale_price, s.sale_description,c.con_id, c.product_name,c.product_img, c.productPrice\n"
+                    + "FROM Sale s INNER JOIN Consignment c ON c.con_id= s.con_id";
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Sale(rs.getDate(1), rs.getDate(2), rs.getFloat(3), rs.getString(4), rs.getInt(5), rs.getString(6), rs.getString(7), rs.getFloat(8)));
+            }
+            return list;
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+    public Sale getPriceById(int id) {
+        
+        String query = "SELECT sale_price from Sale where con_id = ?";
+        try {
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            while(rs.next()) {
+                return new Sale(rs.getFloat(1));
+            }
+        } catch (Exception e) {
+        }
+        
+        return null;
+    }
+
     public ResultSet searchSale(String query) {
         ResultSet rs = null;
         try {
-            PreparedStatement pst = conn.prepareStatement("SELECT s.sale_id, c.product_name, c.productPrice, s.sale_price, s.sale_start_date, s.sale_end_date, s.sale_description\n" +
-                                                          "FROM SALE s INNER JOIN Consignment c ON s.con_id=c.con_id\n" +
-                                                          "WHERE c.product_name like '%" + query + "%'");
+            PreparedStatement pst = conn.prepareStatement("SELECT s.sale_id, c.product_name, c.productPrice, s.sale_price, s.sale_start_date, s.sale_end_date, s.sale_description\n"
+                    + "FROM SALE s INNER JOIN Consignment c ON s.con_id=c.con_id\n"
+                    + "WHERE c.product_name like '%" + query + "%'");
             rs = pst.executeQuery();
         } catch (SQLException ex) {
             Logger.getLogger(SaleDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -99,9 +135,9 @@ public class SaleDAO {
     public Sale getSaleByID(int sale_id) {
         Sale s = null;
         try {
-            PreparedStatement pst = conn.prepareStatement("SELECT s.sale_id, s.sale_start_date, s.sale_end_date, s.sale_price, s.sale_description, s.con_id \n" +
-                                                          "FROM Sale s\n" +
-                                                          "WHERE s.sale_id=?");
+            PreparedStatement pst = conn.prepareStatement("SELECT s.sale_id, s.sale_start_date, s.sale_end_date, s.sale_price, s.sale_description, s.con_id \n"
+                    + "FROM Sale s\n"
+                    + "WHERE s.sale_id=?");
             pst.setInt(1, sale_id);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
@@ -112,7 +148,7 @@ public class SaleDAO {
         }
         return s;
     }
-    
+
     public int editSale(int sale_id, Date sale_start_date, Date sale_end_date, float sale_price, String sale_description, int con_id) {
         int count = 0;
         try {
@@ -128,5 +164,15 @@ public class SaleDAO {
             Logger.getLogger(SaleDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return count;
+    }
+
+    public static void main(String[] args) {
+        SaleDAO dao = new SaleDAO();
+        List<Sale> sale = dao.getSaleProduct();
+        for (Sale sale1 : sale) {
+            System.out.println(sale1);
+        }
+            
+        
     }
 }

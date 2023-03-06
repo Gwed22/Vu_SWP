@@ -5,14 +5,14 @@
         <servlet-class>com.controllers.LoginController</servlet-class>
     </servlet>
     <servlet>
-<<<<<<< HEAD
         <servlet-name>ProductStatisticController</servlet-name>
         <servlet-class>com.controllers.ProductStatisticController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddExistConsignmentController</servlet-name>
         <servlet-class>com.controllers.AddExistConsignmentController</servlet-class>
-=======
+    </servlet>
+    <servlet>
         <servlet-name>CartController</servlet-name>
         <servlet-class>com.controllers.CartController</servlet-class>
     </servlet>
@@ -75,7 +75,6 @@
     <servlet>
         <servlet-name>SearchSaleController</servlet-name>
         <servlet-class>com.controllers.SearchSaleController</servlet-class>
-<<<<<<< HEAD
     </servlet>
     <servlet>
         <servlet-name>DeleteCartItemController</servlet-name>
@@ -100,10 +99,7 @@
     <servlet>
         <servlet-name>HomeAdminController</servlet-name>
         <servlet-class>com.controllers.HomeAdminController</servlet-class>
-=======
->>>>>>> 532509d27860fb160c21cc5688701b2179066b34
     </servlet>
-<<<<<<< HEAD
     <servlet>
         <servlet-name>SupportViewController</servlet-name>
         <servlet-class>com.controllers.SupportViewController</servlet-class>
@@ -115,14 +111,19 @@
     <servlet>
         <servlet-name>SupportReplyController</servlet-name>
         <servlet-class>com.controllers.SupportReplyController</servlet-class>
->>>>>>> 42a37c172d8e9d65f9604f5d7074d015eb6cade3
+    </servlet>
+    <servlet>
+        <servlet-name>CommentController</servlet-name>
+        <servlet-class>com.controllers.CommentController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewSaleController</servlet-name>
+        <servlet-class>com.controllers.ViewSaleController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
-=======
->>>>>>> d0a1080ab80d593473e395e45d741978fc6b533a
     <servlet>
         <servlet-name>AllConsignmentController</servlet-name>
         <servlet-class>com.controllers.AllConsignmentController</servlet-class>
@@ -224,14 +225,14 @@
         <url-pattern>/editconsignment</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-<<<<<<< HEAD
         <servlet-name>ProductStatisticController</servlet-name>
         <url-pattern>/productstatistic</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddExistConsignmentController</servlet-name>
         <url-pattern>/addexistconsignment</url-pattern>
-=======
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>CartController</servlet-name>
         <url-pattern>/addtocart</url-pattern>
     </servlet-mapping>
@@ -296,7 +297,6 @@
         <url-pattern>/SearchSale</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-<<<<<<< HEAD
         <servlet-name>SupportViewController</servlet-name>
         <url-pattern>/supportview</url-pattern>
     </servlet-mapping>
@@ -307,8 +307,8 @@
     <servlet-mapping>
         <servlet-name>SupportReplyController</servlet-name>
         <url-pattern>/SupportReply</url-pattern>
-=======
-<<<<<<< HEAD
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>DeleteCartItemController</servlet-name>
         <url-pattern>/delete</url-pattern>
     </servlet-mapping>
@@ -331,17 +331,16 @@
     <servlet-mapping>
         <servlet-name>HomeAdminController</servlet-name>
         <url-pattern>/homeadmin</url-pattern>
-=======
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>RegisterController</servlet-name>
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
-        </servlet>
-        <servlet>
+    <servlet>
         <servlet-name>ConfirmOrderController</servlet-name>
         <servlet-class>com.controllers.ConfirmOrderController</servlet-class>
     </servlet>
-        </servlet>
-        <servlet>
+    <servlet>
         <servlet-name>ReturnOrderController</servlet-name>
         <servlet-class>com.controllers.ReturnOrderController</servlet-class>
     </servlet>
@@ -353,20 +352,25 @@
         <servlet-name>ForgotPasswordController</servlet-name>
         <url-pattern>/forgotpassword</url-pattern>
     </servlet-mapping>
-        <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ConfirmOrderController</servlet-name>
         <url-pattern>/confirmorder</url-pattern>
     </servlet-mapping>
-        <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ReturnOrderController</servlet-name>
         <url-pattern>/returnorder</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ResetPasswordController</servlet-name>
         <url-pattern>/resetpassword</url-pattern>
->>>>>>> 532509d27860fb160c21cc5688701b2179066b34
->>>>>>> d0a1080ab80d593473e395e45d741978fc6b533a
->>>>>>> 42a37c172d8e9d65f9604f5d7074d015eb6cade3
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CommentController</servlet-name>
+        <url-pattern>/comment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewSaleController</servlet-name>
+        <url-pattern>/sale</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

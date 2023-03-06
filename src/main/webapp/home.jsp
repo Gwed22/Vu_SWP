@@ -21,7 +21,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="css/style1.css">
+        <link rel="stylesheet" href="css/style8.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -115,14 +115,14 @@
                     </div>
                     <div class="col-xl-8 col-lg-2 col-md-7 co-sm-l2 item_context">
                         <div class="about_box">
-                            
+
                             <span>Computer</span>
                             <p>ISUNG Digital Retail Joint Stock Company (hereinafter referred to as ISUNG Retail) is an associate company of Group 4 Vietnam, established on November 10, 2022 with the main brand name ISUNG Shop - Agent Officially authorized by Apple and Samsung in Vietnam at the highest level. </p>
                         </div>
                     </div>
                     <div class="col-xl-8 col-lg-2 col-md-7 co-sm-l2 item_context">
                         <div class="about_box about_box_1">
-                            
+
                             <span>Gamming gear</span>
                             <p>ISUNG Digital Retail Joint Stock Company (hereinafter referred to as ISUNG Retail) is an associate company of Group 4 Vietnam, established on November 10, 2022 with the main brand name ISUNG Shop - Agent Officially authorized by Apple and Samsung in Vietnam at the highest level. </p>
                         </div>
@@ -157,8 +157,13 @@
                                 <div class="brand_box">
                                     <a href="productdetail?pid=${o.getConID()}"> <img src="${o.getProductImg()}" alt="img" /></a>
                                     <span style="height: 30px;">${o.getProductName()}</span>
-                                    <h4 style="margin-top: 10px; "><del> <fmt:formatNumber type="number" value="${o.getProductPrice() * 1.1}" pattern="###,###,###.#" /></del> VND</h4>
-                                    <h3><strong class="red"><fmt:formatNumber type="number" value="${o.getProductPrice()}" pattern="###,###,###.#" /></strong> VND</h3>
+                                    <c:if test="${o.getSalePrice() == 0}">
+                                        <h4 style="margin-top: 10px; ">New Product</h4>
+                                    </c:if>
+                                    <c:if test="${o.getSalePrice() != 0}">
+                                        <h4 style="margin-top: 10px; "><del> <fmt:formatNumber type="number" value="${o.getProductPrice()}" pattern="###,###,###.#" /></del> VND</h4>
+                                    </c:if>
+                                    <h3><strong > <fmt:formatNumber type="number" value="${o.getProductPrice() - (o.getProductPrice() * o.getSalePrice())}" pattern="###,###,###" /></strong> VND</h3>
                                     <a href="/allproduct" class="btn btn-main">Buy now</a>
                                 </div>
                             </div>
@@ -186,8 +191,14 @@
                                 <div class="brand_box">
                                     <a href="productdetail?pid=${o.getConID()}"> <img src="${o.getProductImg()}" alt="img" /></a>
                                     <span>${o.getProductName()}</span>
-                                    <h4 style="margin-top: 10px; "><del> <fmt:formatNumber type="number" value="${o.getProductPrice() * 1.1}" pattern="###,###,###.#" /></del> VND</h4>
-                                    <h3><strong class="red"><fmt:formatNumber type="number" value="${o.getProductPrice()}" pattern="###,###,###.#" /></strong> VND</h3>
+                                    <c:if test="${o.getSalePrice() == 0}">
+                                        <h4 style="margin-top: 10px; ">New Product</h4>
+                                    </c:if>
+                                    <c:if test="${o.getSalePrice() != 0}">
+                                        <h4 style="margin-top: 10px; "><del> <fmt:formatNumber type="number" value="${o.getProductPrice()}" pattern="###,###,###.#" /></del> VND</h4>
+                                    </c:if>
+
+                                    <h3><strong > <fmt:formatNumber type="number" value="${o.getProductPrice() - (o.getProductPrice() * o.getSalePrice())}" pattern="###,###,###" /></strong> VND</h3>
                                     <a href="/allproduct" class="btn btn-main">Buy now</a>
                                 </div>
                             </div>

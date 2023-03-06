@@ -13,11 +13,16 @@ import java.util.List;
  */
 public class Cart {
     private List<Item> items;
-
+    private List<Sale> sale;
+    
+    
     public Cart() {
         items= new ArrayList<>();
+        
     }
-
+    
+    
+    
     public List<Item> getItems() {
         return items;
     }
@@ -55,7 +60,7 @@ public class Cart {
     public double getTotalMoney() {
         double t=0;
         for (Item item : items) {
-            t+=(item.getQuantity()*item.getProduct().getProductPrice());
+            t+=(item.getQuantity()*item.getPrice());
         }
         return t;
     }

@@ -31,8 +31,6 @@ public class Account {
         this.role_id = role_id;
         this.answer_context = answer_context;
     }
-    
-    
 
     public Account() {
     }
@@ -41,7 +39,7 @@ public class Account {
         this.phone = phone;
         this.password = password;
     }
-    
+
     public Account(int accountID, String name, String phone, String password, String gender, String address, int sq_id, int role_id) {
         this.accountID = accountID;
         this.name = name;
@@ -52,7 +50,7 @@ public class Account {
         this.sq_id = sq_id;
         this.role_id = role_id;
     }
-
+    
     public int getAccountID() {
         return accountID;
     }
@@ -117,10 +115,18 @@ public class Account {
         this.role_id = role_id;
     }
 
+    public String getAnswer_context() {
+        return answer_context;
+    }
+
+    public void setAnswer_context(String answer_context) {
+        this.answer_context = answer_context;
+    }
+    
+    
     @Override
     public String toString() {
         return "Account{" + "accountID=" + accountID + ", name=" + name + ", phone=" + phone + ", password=" + password + ", gender=" + gender + ", address=" + address + ", sq_id=" + sq_id + ", role_id=" + role_id + '}';
     }
-    
-    
+
 }

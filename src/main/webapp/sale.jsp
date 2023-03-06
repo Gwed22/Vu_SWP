@@ -3,7 +3,8 @@
     Created on : Feb 22, 2023, 10:06:21 PM
     Author     : Admin
 --%>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -72,139 +73,61 @@
     </head>
     <body>
         <jsp:include page="header.jsp"></jsp:include>
-        <!-- Carousel wrapper -->
-        <div id="demo" class="carousel slide" data-ride="carousel">
-            <ul class="carousel-indicators">
-                <li data-target="#demo" data-slide-to="0" class="active"></li>
-                <li data-target="#demo" data-slide-to="1"></li>
-                <li data-target="#demo" data-slide-to="2"></li>
-            </ul>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="/images/salebanner.png" alt="Sale" width="1100" height="500">
-                    <div class="carousel-caption">
-                        <h3>Sale 1</h3>
-                        <p>Sale description</p>
-                    </div>   
+            <!-- Carousel wrapper -->
+            <div id="demo" class="carousel slide container" data-ride="carousel" >
+                <ul class="carousel-indicators">
+                    <li data-target="#demo" data-slide-to="0" class="active"></li>
+                    <li data-target="#demo" data-slide-to="1"></li>
+                    <li data-target="#demo" data-slide-to="2"></li>
+                </ul>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="/images/salebanner.png" alt="Sale" width="500" height="500">
+                        <div class="carousel-caption">
+                            <h3>Sale 1</h3>
+                            <p>Sale description</p>
+                        </div>   
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/images/salebanner.png" alt="Sale" width="500" height="500">
+                        <div class="carousel-caption">
+                            <h3>Sale 1</h3>
+                            <p>Sale description</p>
+                        </div>   
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/images/salebanner.png" alt="Sale" width="500" height="500">
+                        <div class="carousel-caption">
+                            <h3>Sale 1</h3>
+                            <p>Sale description</p>
+                        </div>      
+                    </div>
                 </div>
-                <div class="carousel-item">
-                    <img src="/images/salebanner.png" alt="Sale" width="1100" height="500">
-                    <div class="carousel-caption">
-                        <h3>Sale 1</h3>
-                        <p>Sale description</p>
-                    </div>   
-                </div>
-                <div class="carousel-item">
-                    <img src="/images/salebanner.png" alt="Sale" width="1100" height="500">
-                    <div class="carousel-caption">
-                        <h3>Sale 1</h3>
-                        <p>Sale description</p>
-                    </div>      
-                </div>
+                <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#demo" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
             </div>
-            <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a class="carousel-control-next" href="#demo" data-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </a>
-        </div>
-        <!-- Carousel wrapper -->
-       <div class="container titlepage">
-                    <div class="col-lg-12 ">
-                        <div class="title">
-                            <h2>Product on sale</h2>
+            <!-- Carousel wrapper -->
+
+            <div class="container-fluid">
+                <div class="row" style="margin-top: 50px;">
+                <c:forEach var="c" items="${listSA}">
+                    <div class="col-md-3 ">
+                        <div class="product container">
+                            <img src="${c.getProductImg()}" alt="Product 1" style="width: 100%; border-radius: 10px; margin-top: 5px">
+                            <h3 style="font-size: 15px;">${c.getProductName()}</h3>
+                            <p>
+                                Old price: <del><fmt:formatNumber type="number" value=" ${c.getProductPrice()}" pattern="###,###,###" /></del>VND
+                                <br>
+                                New price: <strong style="color: red"><fmt:formatNumber type="number" value=" ${c.getProductPrice() - (c.getProductPrice() * c.getSalePrice())}" pattern="###,###,###" /></strong>VND
+                            </p>
+                            <button>Add to Cart</button>
                         </div>
                     </div>
-                    <div class="col-lg-8">
-                        <a class="read-more " href="/allproduct">See More</a>
-                    </div>
-
-                </div>
-        <div class="row">
-            <div class="col md 3">
-                <div class="product">
-                    <img src="product1.jpg" alt="Product 1">
-                    <h3>Product 2</h3>
-                    <p>$20.99 <span>$25.99</span></p>
-                    <button>Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="col md 3">
-                <div class="product">
-                    <img src="product1.jpg" alt="Product 1">
-                    <h3>Product 2</h3>
-                    <p>$20.99 <span>$25.99</span></p>
-                    <button>Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="col md 3">
-                <div class="product">
-                    <img src="product1.jpg" alt="Product 1">
-                    <h3>Product 3</h3>
-                    <p>$20.99 <span>$25.99</span></p>
-                    <button>Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="col md 3">
-                <div class="product">
-                    <img src="product1.jpg" alt="Product 1">
-                    <h3>Product 4</h3>
-                    <p>$20.99 <span>$25.99</span></p>
-                    <button>Add to Cart</button>
-                </div>
-            </div>
-        </div>
-        
-<div class="container titlepage">
-                    <div class="col-lg-12 ">
-                        <div class="title">
-                            <h2>Product on sale</h2>
-                        </div>
-                    </div>
-                    <div class="col-lg-8">
-                        <a class="read-more " href="/allproduct">See More</a>
-                    </div>
-
-                </div> 
-        <div class="row">
-            <div class="col md 3">
-                <div class="product">
-                    <img src="product1.jpg" alt="Product 1">
-                    <h3>Product 2</h3>
-                    <p>$20.99 <span>$25.99</span></p>
-                    <button>Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="col md 3">
-                <div class="product">
-                    <img src="product1.jpg" alt="Product 1">
-                    <h3>Product 2</h3>
-                    <p>$20.99 <span>$25.99</span></p>
-                    <button>Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="col md 3">
-                <div class="product">
-                    <img src="product1.jpg" alt="Product 1">
-                    <h3>Product 3</h3>
-                    <p>$20.99 <span>$25.99</span></p>
-                    <button>Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="col md 3">
-                <div class="product">
-                    <img src="product1.jpg" alt="Product 1">
-                    <h3>Product 4</h3>
-                    <p>$20.99 <span>$25.99</span></p>
-                    <button>Add to Cart</button>
-                </div>
+                </c:forEach>
             </div>
         </div>
         <jsp:include page="footer.jsp"></jsp:include>
