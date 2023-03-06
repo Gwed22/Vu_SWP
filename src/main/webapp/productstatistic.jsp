@@ -84,7 +84,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                         <div class="breadcomb-wp">
                                             <div class="breadcomb-icon">
-                                                <a href="home"><i class="icon nalika-home"></i></a>
+                                                <a href="homeadmin"><i class="icon nalika-home"></i></a>
                                             </div>
                                             <div class="breadcomb-ctn">
                                                 <h2>Warehouse Management</h2>
@@ -228,14 +228,12 @@
         var barData = document.getElementsByClassName('barData');
         var barDataset = [];
         for (let i = 0; i < barData.length; i++) {
-//            console.log(data[i].innerHTML);
             barDataset.push(barData[i].innerHTML);
         }
 
         var barLabel = document.getElementsByClassName('barLabel');
         var barLabelSet = [];
         for (let i = 0; i < barLabel.length; i++) {
-//            console.log(label[i].innerHTML);
             barLabelSet.push(barLabel[i].innerHTML);
         }
         Chart.defaults.color = '#fff';
@@ -275,14 +273,12 @@
         var pieData = document.getElementsByClassName('pieData');
         var pieDataset = [];
         for (let i = 0; i < pieData.length; i++) {
-//            console.log(pieData[i].innerHTML);
             pieDataset.push(pieData[i].innerHTML);
         }
         
         var pieLabel = document.getElementsByClassName('pieLabel');
         var pieLabelSet = [];
         for (let i = 0; i < pieLabel.length; i++) {
-//            console.log(label[i].innerHTML);
             pieLabelSet.push(pieLabel[i].innerHTML);
         }
         Chart.defaults.color = '#fff';
@@ -328,36 +324,6 @@
                             'rgb(201, 203, 207)'
                         ]
                     }]
-            }
-        });
-    </script>
-
-    <script>
-        const line = document.getElementById('lineChart');
-        var data = document.getElementsByClassName('data');
-        var dataset = [2, 5, 1, 6, 8, 12];
-        for (let i = 0; i < data.length; i++) {
-            console.log(data[i].innerHTML);
-            dataset.push(data[i].innerHTML);
-        }
-        Chart.defaults.color = '#fff';
-        new Chart(line, {
-            type: 'line',
-            data: {
-                labels: ['Computer', 'Laptop', 'Keyboard', 'Screen', 'Mouse', 'Other'],
-                datasets: [{
-                        label: 'Number of imported products',
-                        data: dataset,
-                        borderWidth: 1,
-                        backgroundColor: 'rgba(112, 230, 181, 1)'
-                    }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
             }
         });
     </script>

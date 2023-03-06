@@ -113,7 +113,6 @@
         <servlet-class>com.controllers.SupportReplyController</servlet-class>
     </servlet>
     <servlet>
-<<<<<<< HEAD
         <servlet-name>RevenueStatisticController</servlet-name>
         <servlet-class>com.controllers.RevenueStatisticController</servlet-class>
     </servlet>

@@ -140,7 +140,7 @@
                         <ul class="metismenu" id="menu1">
                             <c:if test="${sessionScope.acc.getRole_id() == 1 || sessionScope.acc.getRole_id() == 2}">
                                 <li>
-                                    <a class="has-arrow" href="#">
+                                    <a class="has-arrow" href="salelist">
                                         <i class="icon nalika-table icon-wrap"></i>
                                         <span class="mini-click-non">Sale</span>
                                     </a>
@@ -150,7 +150,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a class="has-arrow" href="allconsignment.jsp">
+                                    <a class="has-arrow" href="allconsignment">
                                         <i class="icon nalika-home icon-wrap"></i>
                                         <span class="mini-click-non">Warehouse</span>
                                     </a>
@@ -163,7 +163,7 @@
                             </c:if>
                             <c:if test="${sessionScope.acc.getRole_id() == 1}">
                                 <li>
-                                    <a class="has-arrow" href="#">
+                                    <a class="has-arrow" href="allaccount">
                                         <i class="icon nalika-user icon-wrap"></i>
                                         <span class="mini-click-non">Account</span>
                                     </a>
@@ -175,7 +175,7 @@
                             </c:if>
                             <c:if test="${sessionScope.acc.getRole_id() == 1 || sessionScope.acc.getRole_id() == 5}">
                                 <li>
-                                    <a class="has-arrow" href="allconsignment.jsp">
+                                    <a class="has-arrow" href="allorder">
                                         <i class="fa fa-cart-arrow-down icon-wrap"></i>
                                         <span class="mini-click-non">Order</span>
                                     </a>
@@ -186,7 +186,7 @@
                             </c:if>
                             <c:if test="${sessionScope.acc.getRole_id() == 1 || sessionScope.acc.getRole_id() == 3}">
                                 <li>
-                                    <a class="has-arrow" href="allconsignment.jsp">
+                                    <a class="has-arrow" href="revenuestatistic">
                                         <i class="fa fa-money icon-wrap"></i>
                                         <span class="mini-click-non">Accountant</span>
                                     </a>

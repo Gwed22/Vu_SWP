@@ -86,7 +86,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                         <div class="breadcomb-wp">
                                             <div class="breadcomb-icon">
-                                                <a href="home"><i class="icon nalika-home"></i></a>
+                                                <a href="homeadmin"><i class="icon nalika-home"></i></a>
                                             </div>
                                             <div class="breadcomb-ctn">
                                                 <h2>Admin List</h2>

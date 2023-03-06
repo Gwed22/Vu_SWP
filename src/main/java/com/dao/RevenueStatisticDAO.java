@@ -34,7 +34,7 @@ public class RevenueStatisticDAO {
         try {
             Statement st = conn.createStatement();
             rs = st.executeQuery("select o_date, SUM(totalPrice) as totalPrice from [Order]\n"
-                    + "where totalPrice > 0 group by o_date order by o_date asc");
+                    + "where totalPrice > 0 and status='Complete' group by o_date order by o_date asc");
             while (rs.next()) {
                 list.add(new RevenueStatistic(rs.getDate("o_date"), rs.getFloat("totalPrice")));
             }
@@ -49,7 +49,7 @@ public class RevenueStatisticDAO {
         ArrayList<RevenueStatistic> list = new ArrayList<>();
         try {
             PreparedStatement pst = conn.prepareStatement("select o_date, SUM(totalPrice) as totalPrice from [Order]\n"
-                    + "where totalPrice > 0 \n"
+                    + "where totalPrice > 0 and status='Complete'\n"
                     + "and o_date between ? and ? group by o_date order by o_date asc");
             pst.setString(1, startDate);
             pst.setString(2, endDate);
@@ -87,7 +87,7 @@ public class RevenueStatisticDAO {
             PreparedStatement pst = conn.prepareStatement("select c.product_name, oi.quantity, oi.productPrice * oi.quantity as total from [Order] o \n"
                     + "inner join OrderItem oi on o.o_id = oi.o_id\n"
                     + "inner join Consignment c on oi.con_id = c.con_id\n"
-                    + "where o_date = ?");
+                    + "where o_date = ? and o.status='Complete'");
             pst.setString(1, date);
             rs = pst.executeQuery();
             while (rs.next()) {

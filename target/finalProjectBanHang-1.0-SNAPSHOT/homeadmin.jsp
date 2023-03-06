@@ -85,7 +85,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                     <div class="breadcomb-wp">
                                         <div class="breadcomb-icon">
-                                            <a href="home"><i class="icon nalika-home"></i></a>
+                                            <a href="homeadmin"><i class="icon nalika-home"></i></a>
                                         </div>
                                         <div class="breadcomb-ctn">
                                             <h2>Administrator Dashboard</h2>
@@ -98,122 +98,163 @@
                 </div>
             </div>
         </div>
+
         <div class="section-admin container-fluid">
             <div class="row admin text-center">
                 <div class="col-md-12">
                     <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
-                                <h4 class="text-left text-uppercase"><b>Sale Management</b></h4>
-                                <div class="row vertical-center-box vertical-center-box-tablet">
-                                    <div class="progress progress-mini">
-                                        <div style="width: 100%;" class="progress-bar bg-green"></div>
-                                    </div>
-                                    <br>
-                                    <a href="salelist">
-                                        <div class="col-xs-12 cus-gh-hd-pro">
-                                            <h2 class="text-center"><img style="height: 200px" src="images/pmanage.png" alt="alt"/></h2>
+                        <c:if test="${sessionScope.acc.getRole_id() == 1 || sessionScope.acc.getRole_id() == 2}">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
+                                    <h4 class="text-left text-uppercase"><b>Sale Management</b></h4>
+                                    <div class="row vertical-center-box vertical-center-box-tablet">
+                                        <div class="progress progress-mini">
+                                            <div style="width: 100%;" class="progress-bar bg-green"></div>
                                         </div>
-                                    </a>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
-                                <h4 class="text-left text-uppercase"><b>Warehouse Management</b></h4>
-                                <div class="row vertical-center-box vertical-center-box-tablet">
-                                    <div class="progress progress-mini">
-                                        <div style="width: 100%;" class="progress-bar bg-blue"></div>
+                                        <br>
+                                        <a href="salelist">
+                                            <div class="col-xs-12 cus-gh-hd-pro">
+                                                <h2 class="text-center"><img style="height: 200px" src="images/pmanage.png" alt="alt"/></h2>
+                                            </div>
+                                        </a>
                                     </div>
-                                    <br>
-                                    <a href="allconsignment">
-                                        <div class="col-xs-12 cus-gh-hd-pro">
-                                            <h2 class="text-center"><img style="height: 200px" src="images/wmanage.png" alt="alt"/></h2>
-                                        </div>
-                                    </a>
-                                </div>
 
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
-                                <h4 class="text-left text-uppercase"><b>Account Management</b></h4>
-                                <div class="row vertical-center-box vertical-center-box-tablet">
-                                    <div class="progress progress-mini">
-                                        <div style="width: 100%;" class="progress-bar bg-purple"></div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
+                                    <h4 class="text-left text-uppercase"><b>Warehouse Management</b></h4>
+                                    <div class="row vertical-center-box vertical-center-box-tablet">
+                                        <div class="progress progress-mini">
+                                            <div style="width: 100%;" class="progress-bar bg-green"></div>
+                                        </div>
+                                        <br>
+                                        <a href="allconsignment">
+                                            <div class="col-xs-12 cus-gh-hd-pro">
+                                                <h2 class="text-center"><img style="height: 200px" src="images/wmanage.png" alt="alt"/></h2>
+                                            </div>
+                                        </a>
                                     </div>
-                                    <br>
-                                    <a href="allaccount">
-                                        <div class="col-xs-12 cus-gh-hd-pro">
-                                            <h2 class="text-center"><img style="height: 200px" src="images/amanage.png" alt="alt"/></h2>
-                                        </div>
-                                    </a>
                                 </div>
-
                             </div>
-                        </div>
+                        </c:if>
+                        <c:if test="${sessionScope.acc.getRole_id() == 1}">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
+                                    <h4 class="text-left text-uppercase"><b>Account Management</b></h4>
+                                    <div class="row vertical-center-box vertical-center-box-tablet">
+                                        <div class="progress progress-mini">
+                                            <div style="width: 100%;" class="progress-bar bg-green"></div>
+                                        </div>
+                                        <br>
+                                        <a href="allaccount">
+                                            <div class="col-xs-12 cus-gh-hd-pro">
+                                                <h2 class="text-center"><img style="height: 200px" src="images/amanage.png" alt="alt"/></h2>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:if>
+                    </div>
+                    <div class="row" style="margin-top: 20px">
+                        <c:if test="${sessionScope.acc.getRole_id() == 1 || sessionScope.acc.getRole_id() == 5}">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
+                                    <h4 class="text-left text-uppercase"><b>Order Management</b></h4>
+                                    <div class="row vertical-center-box vertical-center-box-tablet">
+                                        <div class="progress progress-mini">
+                                            <div style="width: 100%;" class="progress-bar bg-green"></div>
+                                        </div>
+                                        <br>
+                                        <a href="allorder">
+                                            <div class="col-xs-12 cus-gh-hd-pro">
+                                                <h2 class="text-center"><img style="height: 200px" src="images/omanage.png" alt="alt"/></h2>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:if>
+                        <c:if test="${sessionScope.acc.getRole_id() == 1 || sessionScope.acc.getRole_id() == 3}">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
+                                    <h4 class="text-left text-uppercase"><b>Accountant</b></h4>
+                                    <div class="row vertical-center-box vertical-center-box-tablet">
+                                        <div class="progress progress-mini">
+                                            <div style="width: 100%;" class="progress-bar bg-green"></div>
+                                        </div>
+                                        <br>
+                                        <a href="revenuestatistic">
+                                            <div class="col-xs-12 cus-gh-hd-pro">
+                                                <h2 class="text-center"><img style="height: 200px" src="images/accountant.png" alt="alt"/></h2>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:if>
                     </div>
                 </div>
             </div>
         </div>
-        <br>
-        <br>
+    </div>
+    <br>
+    <br>
 
 
-        <!-- jquery
-                    ============================================ -->
-        <script src="js1/vendor/jquery-1.12.4.min.js"></script>
-        <!-- bootstrap JS
-                    ============================================ -->
-        <script src="js1/bootstrap.min.js"></script>
-        <!-- wow JS
-                    ============================================ -->
-        <script src="js1/wow.min.js"></script>
-        <!-- price-slider JS
-                    ============================================ -->
-        <script src="js1/jquery-price-slider.js"></script>
-        <!-- meanmenu JS
-                    ============================================ -->
-        <script src="js1/jquery.meanmenu.js"></script>
-        <!-- owl.carousel JS
-                    ============================================ -->
-        <script src="js1/owl.carousel.min.js"></script>
-        <!-- sticky JS
-                    ============================================ -->
-        <script src="js1/jquery.sticky.js"></script>
-        <!-- scrollUp JS
-                    ============================================ -->
-        <script src="js1/jquery.scrollUp.min.js"></script>
-        <!-- mCustomScrollbar JS
-                    ============================================ -->
-        <script src="js1/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-        <script src="js1/scrollbar/mCustomScrollbar-active.js"></script>
-        <!-- metisMenu JS
-                    ============================================ -->
-        <script src="js1/metisMenu/metisMenu.min.js"></script>
-        <script src="js1/metisMenu/metisMenu-active.js"></script>
-        <!-- morrisjs JS
-                    ============================================ -->
-        <script src="js1/sparkline/jquery.sparkline.min.js"></script>
-        <script src="js1/sparkline/jquery.charts-sparkline.js"></script>
-
-        <!-- float JS
+    <!-- jquery
                 ============================================ -->
-        <script src="js/flot/jquery.flot.js"></script>
-        <script src="js/flot/jquery.flot.resize.js"></script>
-        <script src="js/flot/jquery.flot.pie.js"></script>
-        <script src="js/flot/jquery.flot.tooltip.min.js"></script>
-        <script src="js/flot/jquery.flot.orderBars.js"></script>
-        <script src="js/flot/curvedLines.js"></script>
-        <script src="js/flot/flot-active.js"></script>
-        <!-- plugins JS
-                    ============================================ -->
-        <script src="js1/plugins.js"></script>
-        <!-- main JS
-                    ============================================ -->
-        <script src="js1/main.js"></script>
-    </body>
+    <script src="js1/vendor/jquery-1.12.4.min.js"></script>
+    <!-- bootstrap JS
+                ============================================ -->
+    <script src="js1/bootstrap.min.js"></script>
+    <!-- wow JS
+                ============================================ -->
+    <script src="js1/wow.min.js"></script>
+    <!-- price-slider JS
+                ============================================ -->
+    <script src="js1/jquery-price-slider.js"></script>
+    <!-- meanmenu JS
+                ============================================ -->
+    <script src="js1/jquery.meanmenu.js"></script>
+    <!-- owl.carousel JS
+                ============================================ -->
+    <script src="js1/owl.carousel.min.js"></script>
+    <!-- sticky JS
+                ============================================ -->
+    <script src="js1/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+                ============================================ -->
+    <script src="js1/jquery.scrollUp.min.js"></script>
+    <!-- mCustomScrollbar JS
+                ============================================ -->
+    <script src="js1/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js1/scrollbar/mCustomScrollbar-active.js"></script>
+    <!-- metisMenu JS
+                ============================================ -->
+    <script src="js1/metisMenu/metisMenu.min.js"></script>
+    <script src="js1/metisMenu/metisMenu-active.js"></script>
+    <!-- morrisjs JS
+                ============================================ -->
+    <script src="js1/sparkline/jquery.sparkline.min.js"></script>
+    <script src="js1/sparkline/jquery.charts-sparkline.js"></script>
+
+    <!-- float JS
+            ============================================ -->
+    <script src="js/flot/jquery.flot.js"></script>
+    <script src="js/flot/jquery.flot.resize.js"></script>
+    <script src="js/flot/jquery.flot.pie.js"></script>
+    <script src="js/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="js/flot/jquery.flot.orderBars.js"></script>
+    <script src="js/flot/curvedLines.js"></script>
+    <script src="js/flot/flot-active.js"></script>
+    <!-- plugins JS
+                ============================================ -->
+    <script src="js1/plugins.js"></script>
+    <!-- main JS
+                ============================================ -->
+    <script src="js1/main.js"></script>
+</body>
 
 </html>

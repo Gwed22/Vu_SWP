@@ -63,25 +63,6 @@ public class RegisterDAO {
         return list;
     }
 
-<<<<<<< HEAD
-//    public ArrayList<SecurityAnswer> getAllAnswer() {
-//        ArrayList<SecurityAnswer> list = new ArrayList<>();
-//        ResultSet rs = null;
-//        try {
-//            Statement st = conn.createStatement();
-//            rs = st.executeQuery("select * from SecurityAnswer");
-//            while (rs.next()) {
-//                SecurityAnswer s = new SecurityAnswer(rs.getInt("answer_id"), rs.getInt("account_id"), rs.getInt("sq_id"), rs.getString("answer_context"));
-//                list.add(s);
-//            }
-//        } catch (Exception e) {
-//        }
-//        return list;
-//    }
-=======
-   
->>>>>>> cb8cb78d7fb19effcd9139dfcf30210a261e1ff2
-
     public Account checkAccount(int accountID, String answer_context) {
         ResultSet rs = null;
 
