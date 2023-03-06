@@ -25,7 +25,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="css/style1.css">
+        <link rel="stylesheet" href="css/style8.css" >
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -49,20 +49,40 @@
                 <div class="container">
                 <c:set value="${product}" var="p"></c:set>
                     <div class="row">
-                   <div class="col-xl-6">
+                        <div class="col-xl-6">
                             <img src="${p.productImg}" width="80%" height="50%" alt="alt"/>
                     </div>
                     <div class="col-xl-6">
                         <h1 class="product-name">${p.productName}</h1>
                         <span class="product-desc"><strong>Detailed description: </strong></span>
                         <p class="product-desc"><strong>${p.poductDesc}</strong></p>    
-                        <div class="money add-cart-old" >Old Price:<del>  <fmt:formatNumber type="number" value="${p.productPrice * 1.1}" pattern="###,###,###.#" />VND</del></div>
-                        <div class="money add-cart" >New Price:  <fmt:formatNumber type="number" value="${p.productPrice}" pattern="###,###,###.#" />VND</div>
+                        <div class="money add-cart-old" >Old Price:<del>  <fmt:formatNumber type="number" value="${p.productPrice }" pattern="###,###,###.#" />VND</del></div>
+                        <div class="money add-cart" >New Price:  <fmt:formatNumber type="number" value="${p.productPrice - p.productPrice * p.salePrice}" pattern="###,###,###.#" />VND</div>
                         <a class="send-cart" name="SendOrder" href="addtocart?pid=${p.conID}" >Add to carts</a>
                     </div>
                 </div>
             </div>
+                    <div class="container" style="margin-top: 35px;">
+                <h1>REVIEW PRODUCT: </h1> 
+                <form action="comment" method="post">
+                    <input type="number" name="pid1" value="${p.conID}" style="display: none;" />
+                    <textarea style="width: 100%;" id="id" name="txtContext" rows="5" cols="5"></textarea>
+                    <button type="sumbit" > Submit</button>
+                </form>
+            </div>
+               
+            <div class="container comment">
+                
+                <c:forEach items="${listCo}" var="c">
+                    <div  >
+                        <div class="name"><strong>${c.getAccName()}</strong></div>
+                       
+                        <div class="context"> <p>${c.getCommentContext()}</p></div>
+                    </div>
+                </c:forEach>
+            </div>
         </div>
+
         <jsp:include page="footer.jsp"></jsp:include>
     </body>
 </html>

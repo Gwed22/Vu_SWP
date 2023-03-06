@@ -5,24 +5,22 @@
 package com.controllers;
 
 import com.dao.CommentDAO;
-import com.dao.ProductDAO;
 import com.models.Account;
 import com.models.Comment;
-import com.models.Products;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import java.util.List;
 
 /**
  *
- * @author PC
+ * @author Tran Ba Nam
  */
-public class ProductDetailController extends HttpServlet {
+public class CommentController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,10 +39,10 @@ public class ProductDetailController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ProductDetailController</title>");
+            out.println("<title>Servlet CommentController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ProductDetailController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet CommentController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -62,15 +60,8 @@ public class ProductDetailController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String pid = request.getParameter("pid");
-        int id = Integer.parseInt(pid);
-        ProductDAO d = new ProductDAO();
-        Products p = d.getAllProductById(id);
-        CommentDAO dao = new CommentDAO();
-        List<Comment> list = dao.getAllCommentByID(id);
-        request.setAttribute("listCo", list);
-        request.setAttribute("product", p);
-        request.getRequestDispatcher("productdetail.jsp").forward(request, response);
+        
+   
     }
 
     /**
@@ -84,7 +75,17 @@ public class ProductDetailController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        String txtContext = request.getParameter("txtContext");
+        int pid = Integer.parseInt(request.getParameter("pid1"));
+        HttpSession session = request.getSession();
+        Account acc = (Account) session.getAttribute("acc");
+        CommentDAO dao = new CommentDAO();
+        if (acc == null) {
+            response.sendRedirect("login");
+        } else {
+            int c = dao.AddComment(acc.getAccountID(), pid, txtContext);
+            response.sendRedirect("productdetail?pid=" + pid);
+        }
     }
 
     /**

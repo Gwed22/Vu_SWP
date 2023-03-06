@@ -5,9 +5,11 @@
 package com.controllers;
 
 import com.dao.ProductDAO;
+import com.dao.SaleDAO;
 import com.models.Brand;
 import com.models.Category;
 import com.models.Products;
+import com.models.Sale;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -63,11 +65,11 @@ public class AllProductControl extends HttpServlet {
         ProductDAO dao = new ProductDAO();
         List<Products> listP = dao.getAllProduct();
         request.setAttribute("listP", listP);
-         List<Category> listCa = dao.getAllCate();
+        List<Category> listCa = dao.getAllCate();
         request.setAttribute("listCa", listCa);
         List<Brand> list = dao.getAllBrand();
         String[] pp = {"Price: Increase",
-            "Price: Decrease"};
+                       "Price: Decrease"};
         boolean[] pb = new boolean[pp.length + 1];
         pb[0] = true;
 

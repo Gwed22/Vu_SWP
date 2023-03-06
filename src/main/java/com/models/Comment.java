@@ -11,22 +11,40 @@ import java.sql.Timestamp;
  * @author PC
  */
 public class Comment {
+
     private int commentID;
     private int accountID;
     private int productID;
-    private Timestamp dateTime;
+    private String accName;
     private String commentContext;
 
     public Comment() {
     }
 
-    public Comment(int commentID, int accountID, int productID, Timestamp dateTime, String commentContext) {
+    public Comment(int commentID, int accountID, int productID, String accName, String commentContext) {
         this.commentID = commentID;
         this.accountID = accountID;
         this.productID = productID;
-        this.dateTime = dateTime;
+        this.accName = accName;
         this.commentContext = commentContext;
     }
+
+    
+
+    public Comment(String accName, String commentContext) {
+        this.accName = accName;
+        this.commentContext = commentContext;
+    }
+
+    public String getAccName() {
+        return accName;
+    }
+
+    public void setAccName(String accName) {
+        this.accName = accName;
+    }
+    
+    
 
     public int getCommentID() {
         return commentID;
@@ -52,14 +70,6 @@ public class Comment {
         this.productID = productID;
     }
 
-    public Timestamp getDateTime() {
-        return dateTime;
-    }
-
-    public void setDateTime(Timestamp dateTime) {
-        this.dateTime = dateTime;
-    }
-
     public String getCommentContext() {
         return commentContext;
     }
@@ -70,9 +80,7 @@ public class Comment {
 
     @Override
     public String toString() {
-        return "Comment{" + "commentID=" + commentID + ", accountID=" + accountID + ", productID=" + productID + ", dateTime=" + dateTime + ", commentContext=" + commentContext + '}';
+        return "Comment{" + "commentID=" + commentID + ", accountID=" + accountID + ", productID=" + productID + ", commentContext=" + commentContext + '}';
     }
-    
-    
-    
+
 }

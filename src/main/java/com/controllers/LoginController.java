@@ -93,8 +93,18 @@ public class LoginController extends HttpServlet {
                 response.sendRedirect("home");
 
             } else {//nếu sai username hoặc password thì thông báo lỗi và chuyển tiếp qua đường dẫn /LogInFailController
+<<<<<<< HEAD
                 response.sendRedirect("login");
             }
+=======
+                response.sendRedirect("Login");
+            }
+
+//            response.sendRedirect("home.jsp");
+//            } else {//nếu sai username hoặc password thì thông báo lỗi và chuyển tiếp qua đường dẫn /LogInFailController
+//                response.sendRedirect("login.jsp");
+//            }
+>>>>>>> cb8cb78d7fb19effcd9139dfcf30210a261e1ff2
         } catch (SQLException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }

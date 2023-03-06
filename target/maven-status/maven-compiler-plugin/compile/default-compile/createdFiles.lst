@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 com\controllers\AllConsignmentController.class
 com\controllers\DeleteAccountController.class
 com\models\Products.class
@@ -30,3 +31,5 @@ com\dao\ConsignmentDAO.class
 com\controllers\AddConsignmentController.class
 com\controllers\HomeControl.class
 com\controllers\SearchAccountController.class
+=======
+>>>>>>> cb8cb78d7fb19effcd9139dfcf30210a261e1ff2

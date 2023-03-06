@@ -24,11 +24,11 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-<<<<<<< HEAD
-        <link rel="stylesheet" href="css/style1.css">
-=======
-        <link rel="stylesheet" href="css/style5.css">
->>>>>>> 532509d27860fb160c21cc5688701b2179066b34
+
+        <link rel="stylesheet" href="css/style8.css">
+
+        <link rel="stylesheet" href="css/style8.css">
+
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -146,7 +146,7 @@
                                        placeholder="Full Name" name="txtName" required="">
                             </div>
                             <div class="mb-3">
-                                <input type="number" class="form-control" id="phone" aria-describedby="numberPhone"
+                                <input type="text" class="form-control" id="phone" aria-describedby="numberPhone"
                                        placeholder="Enter number phone" name="txtPhone" required="">
                             </div>
                             <div class="mb-3">

@@ -6,8 +6,6 @@ package com.models;
 
 import java.sql.Date;
 
-
-
 /**
  *
  * @author PC
@@ -20,10 +18,29 @@ public class Sale {
     private float salePrice;
     private String saleDesc;
     private int conID;
+    private String productName;
+    private String productImg;
+    private float productPrice;
 
     public Sale() {
     }
 
+    public Sale(float salePrice) {
+        this.salePrice = salePrice;
+    }
+
+    public Sale(Date saleStartDate, Date saleEndDate, float salePrice, String saleDesc, int conID, String productName, String productImg, float productPrice) {
+        this.saleStartDate = saleStartDate;
+        this.saleEndDate = saleEndDate;
+        this.salePrice = salePrice;
+        this.saleDesc = saleDesc;
+        this.conID = conID;
+        this.productName = productName;
+        this.productImg = productImg;
+        this.productPrice = productPrice;
+    }
+    
+   
     public Sale(int saleID, Date saleStartDate, Date saleEndDate, float salePrice, String saleDesc, int conID) {
         this.saleID = saleID;
         this.saleStartDate = saleStartDate;
@@ -33,6 +50,30 @@ public class Sale {
         this.conID = conID;
     }
 
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getProductImg() {
+        return productImg;
+    }
+
+    public void setProductImg(String productImg) {
+        this.productImg = productImg;
+    }
+
+    public float getProductPrice() {
+        return productPrice;
+    }
+
+    public void setProductPrice(float productPrice) {
+        this.productPrice = productPrice;
+    }
+    
     public int getSaleID() {
         return saleID;
     }
@@ -83,7 +124,9 @@ public class Sale {
 
     @Override
     public String toString() {
-        return "Sale{" + "saleID=" + saleID + ", saleStartDate=" + saleStartDate + ", saleEndDate=" + saleEndDate + ", salePrice=" + salePrice + ", saleDesc=" + saleDesc + ", conID=" + conID + '}';
+        return "Sale{" + "saleID=" + saleID + ", saleStartDate=" + saleStartDate + ", saleEndDate=" + saleEndDate + ", salePrice=" + salePrice + ", saleDesc=" + saleDesc + ", conID=" + conID + ", productName=" + productName + ", productImg=" + productImg + ", productPrice=" + productPrice + '}';
     }
+
+    
 
 }

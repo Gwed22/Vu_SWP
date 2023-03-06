@@ -31,7 +31,7 @@ public class RegisterDAO {
     public int register(String name, String phone, String password, String gender, String address, int sq_id, String answer_context) {
         int count = 0;
         try {
-            PreparedStatement pst = conn.prepareStatement("insert into Account values(?,?,?,?,?,?,1,?)");
+            PreparedStatement pst = conn.prepareStatement("insert into Account values(?,?,?,?,?,?,2,?)");
 
             pst.setString(1, name);
             pst.setString(2, phone);
@@ -63,6 +63,7 @@ public class RegisterDAO {
         return list;
     }
 
+<<<<<<< HEAD
 //    public ArrayList<SecurityAnswer> getAllAnswer() {
 //        ArrayList<SecurityAnswer> list = new ArrayList<>();
 //        ResultSet rs = null;
@@ -77,6 +78,9 @@ public class RegisterDAO {
 //        }
 //        return list;
 //    }
+=======
+   
+>>>>>>> cb8cb78d7fb19effcd9139dfcf30210a261e1ff2
 
     public Account checkAccount(int accountID, String answer_context) {
         ResultSet rs = null;

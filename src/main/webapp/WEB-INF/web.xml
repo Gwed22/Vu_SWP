@@ -113,6 +113,7 @@
         <servlet-class>com.controllers.SupportReplyController</servlet-class>
     </servlet>
     <servlet>
+<<<<<<< HEAD
         <servlet-name>RevenueStatisticController</servlet-name>
         <servlet-class>com.controllers.RevenueStatisticController</servlet-class>
     </servlet>
@@ -123,6 +124,14 @@
     <servlet>
         <servlet-name>SpendingDetailController</servlet-name>
         <servlet-class>com.controllers.SpendingDetailController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CommentController</servlet-name>
+        <servlet-class>com.controllers.CommentController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewSaleController</servlet-name>
+        <servlet-class>com.controllers.ViewSaleController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -379,6 +388,14 @@
     <servlet-mapping>
         <servlet-name>SpendingDetailController</servlet-name>
         <url-pattern>/spendingdetail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CommentController</servlet-name>
+        <url-pattern>/comment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewSaleController</servlet-name>
+        <url-pattern>/sale</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

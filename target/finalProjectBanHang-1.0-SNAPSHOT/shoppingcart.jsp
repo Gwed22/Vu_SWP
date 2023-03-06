@@ -20,7 +20,7 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-        <link href="css/style1.css" rel="stylesheet" type="text/css"/>
+        <link href="css/style8.css" rel="stylesheet" type="text/css"/>
         <style>
             .gallery-wrap .img-big-wrap img {
                 height: 450px;
@@ -86,7 +86,7 @@
                                             <td><img class="img-cart" src="${c.product.productImg}" alt="alt"/></td>
                                             <td><span>${c.product.productName}</span></td>
                                             <td><input type="text" value="${c.quantity}" style="border: none; text-align: center; width: 50px; font-size: 14px;" readonly></td>
-                                            <td><span><fmt:formatNumber type="number" value="${c.product.productPrice}" pattern="###,###,###.#"/>VND</span></td>
+                                            <td><span><fmt:formatNumber type="number" value="${c.price}" pattern="###,###,###.#"/>VND</span></td>
                                             <td><span><fmt:formatNumber type="number" value="${c.quantity*c.price}" pattern="###,###,###.#"/>VND</span></td>       
                                             <td><a href="delete?pid=${c.product.conID}">Delete</a></td>                           
                                         </tr>

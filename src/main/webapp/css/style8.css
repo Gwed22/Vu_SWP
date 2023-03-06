@@ -2085,7 +2085,24 @@ ul.menu li {
     margin-top: 20px;
 }
 
-
+.comment {
+    margin-top: 50px;
+    border-bottom: #ced4da 1px solid;
+    background-color: #fff;
+    
+    
+}
+.comment .context {
+   font-size: 14px;
+   margin-bottom: 10px;
+    
+}
+.comment .name {
+    font-size: 18px;
+    color: black;
+    border-top: #ced4da 1px solid;
+    margin-bottom: 20px;
+}
 /** contact **/
 .contact {
     background: #ffffff;
@@ -2093,8 +2110,6 @@ ul.menu li {
     margin-top: 10px;
     border-top: #000 solid 6px;
 }
-
-
 
 .titlepage h2 {
     font-size: 50px;
