@@ -83,7 +83,7 @@ public class AddExistConsignmentController extends HttpServlet {
 
             ConsignmentDAO conDao = new ConsignmentDAO();
             Consignment con = conDao.getConsignment(id);
-            int count = conDao.updateConsignment(id, con.getProductName(), con.getcID(), quantity + con.getConQuantity(), con.getBrandID(), con.getConPrice(), date, con.getProductImg());
+            int count = conDao.updateConsignment(id, con.getProductName(), con.getcID(), quantity + con.getConQuantity(), con.getBrandID(), con.getConPrice(), date, con.getProductImg(), con.getProductPrice(), con.getProductDesc());
 
             ImportStatisticDAO imDao = new ImportStatisticDAO();
             int count2 = imDao.addImportStatistic(con.getConID(), date, quantity);

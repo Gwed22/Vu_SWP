@@ -135,7 +135,7 @@
                                                         <p>Import Date</p>
                                                         <div class="input-group mg-b-pro-edt">
                                                             <span class="input-group-addon"><i class="icon nalika-alarm-clock" aria-hidden="true"></i></span>
-                                                            <input type="date" class="form-control" placeholder="Import Date" name="txtDate" value="${c.getImportDate()}" required>
+                                                            <input id="date" type="date" class="form-control" placeholder="Import Date" name="txtDate" value="${c.getImportDate()}" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -216,6 +216,11 @@
     <!-- main JS
                 ============================================ -->
     <script src="js1/main.js"></script>
+    
+    <script>
+        today = new Date().toJSON().slice(0, 10);
+        document.getElementById('date').max = today;
+    </script>
 </body>
 
 </html>

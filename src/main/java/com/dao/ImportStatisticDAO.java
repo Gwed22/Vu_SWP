@@ -29,11 +29,11 @@ public class ImportStatisticDAO {
         ResultSet rs = null;
         try {
             Statement st = conn.createStatement();
-            rs = st.executeQuery("select ca.c_id, ca.c_name, SUM(i.import_quantity) as quantity from Consignment c\n"
-                    + "inner join ImportStatistic i\n"
-                    + "on c.con_id = i.con_id\n"
-                    + "inner join Category ca\n"
+            rs = st.executeQuery("select ca.c_id, ca.c_name, SUM(i.import_quantity) as quantity from Category ca\n"
+                    + "left join Consignment c\n"
                     + "on ca.c_id = c.c_id\n"
+                    + "left join ImportStatistic i\n"
+                    + "on c.con_id = i.con_id\n"
                     + "group by ca.c_id, ca.c_name");
         } catch (SQLException ex) {
             Logger.getLogger(ImportStatisticDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -53,7 +53,7 @@ public class ImportStatisticDAO {
         }
         return rs;
     }
-    
+
     public int addImportStatistic(int conid, String date, int quantity) {
         int count = 0;
         try {
@@ -67,4 +67,24 @@ public class ImportStatisticDAO {
         }
         return count;
     }
+
+    public int getConIDForStatistic(String name, String img) {
+        int conID = -1;
+        ResultSet rs = null;
+        try {
+            PreparedStatement pst = conn.prepareStatement("select con_id from Consignment\n"
+                    + "where product_name = ?\n"
+                    + "and product_img = ?");
+            pst.setString(1, name);
+            pst.setString(2, img);
+            rs = pst.executeQuery();
+            while (rs.next()) {                
+                conID = rs.getInt("con_id");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ImportStatisticDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return conID;
+    }
+
 }

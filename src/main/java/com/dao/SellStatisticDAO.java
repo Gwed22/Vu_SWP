@@ -28,10 +28,10 @@ public class SellStatisticDAO {
         ResultSet rs = null;
         try {
             Statement st = conn.createStatement();
-            rs = st.executeQuery("select ca.c_name, SUM(oi.quantity) as quantity from [Order] o\n"
-                    + "inner join OrderItem oi on o.o_id = oi.o_id\n"
-                    + "inner join Consignment c on c.con_id = oi.con_id\n"
-                    + "inner join Category ca on c.c_id = ca.c_id\n"
+            rs = st.executeQuery("select ca.c_name, SUM(oi.quantity) as quantity from Category ca\n"
+                    + "left join Consignment c on c.c_id = ca.c_id\n"
+                    + "left join OrderItem oi on c.con_id = oi.con_id\n"
+                    + "left join [Order] o on o.o_id = oi.o_id\n"
                     + "group by ca.c_name");
         } catch (SQLException ex) {
             Logger.getLogger(SellStatisticDAO.class.getName()).log(Level.SEVERE, null, ex);

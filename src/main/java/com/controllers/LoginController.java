@@ -90,18 +90,11 @@ public class LoginController extends HttpServlet {
                 session.setAttribute("login", request.getParameter("phone"));
                 session.setAttribute("acc", acc);
                 session.setMaxInactiveInterval(259200);
-<<<<<<< HEAD
-                            response.sendRedirect("home");
+                response.sendRedirect("home");
 
-        } else {//nếu sai username hoặc password thì thông báo lỗi và chuyển tiếp qua đường dẫn /LogInFailController
-            response.sendRedirect("Login");
-        }
-=======
-                response.sendRedirect("home.jsp");
             } else {//nếu sai username hoặc password thì thông báo lỗi và chuyển tiếp qua đường dẫn /LogInFailController
-                response.sendRedirect("login.jsp");
+                response.sendRedirect("login");
             }
->>>>>>> 532509d27860fb160c21cc5688701b2179066b34
         } catch (SQLException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }

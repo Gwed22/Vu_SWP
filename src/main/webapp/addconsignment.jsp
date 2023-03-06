@@ -120,16 +120,16 @@
                                                                 <input type="text" class="form-control" placeholder="Product Name" name="txtName" required>
                                                             </div>
                                                             <div class="input-group mg-b-pro-edt">
-                                                                <span class="input-group-addon"><i class="icon nalika-credit-cards" aria-hidden="true"></i></span>
-                                                                <input type="number" min="1000" max="100000000" class="form-control" placeholder="Import Price" name="txtPrice" required>
-                                                            </div>
-                                                            <div class="input-group mg-b-pro-edt">
                                                                 <span class="input-group-addon"><i class="icon nalika-new-file" aria-hidden="true"></i></span>
                                                                 <input type="text" class="form-control" placeholder="Product Image" name="txtImg" required>
                                                             </div>
                                                             <div class="input-group mg-b-pro-edt">
-                                                                <span class="input-group-addon"><i class="icon nalika-alarm-clock" aria-hidden="true"></i></span>
-                                                                <input type="date" class="form-control" placeholder="Import Date" name="txtDate" required>
+                                                                <span class="input-group-addon"><i class="icon nalika-credit-cards" aria-hidden="true"></i></span>
+                                                                <input type="number" min="1000" max="100000000" class="form-control" placeholder="Import Price" name="txtImportPrice" required>
+                                                            </div>
+                                                            <div class="input-group mg-b-pro-edt">
+                                                                <span class="input-group-addon"><i class="fa fa-money" aria-hidden="true"></i></span>
+                                                                <input type="number" min="1000" max="100000000" class="form-control" placeholder="Selling Price" name="txtSellPrice" required>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -141,26 +141,31 @@
                                                             </div>
                                                             <div class="input-group mg-b-pro-edt">
                                                                 <span class="input-group-addon"><i class="icon nalika-table" aria-hidden="true"></i></span>
-                                                                <!--<input type="text" class="form-control" placeholder="Category">-->
                                                                 <select name="Category" class="form-control pro-edt-select form-control-primary">
-
                                                                 <c:forEach items="${listC}" var="c">
                                                                     <option value="${c.getcID()}">${c.getcName()}</option>
                                                                 </c:forEach>
-
                                                             </select>
                                                         </div>
                                                         <div class="input-group mg-b-pro-edt">
                                                             <span class="input-group-addon"><i class="icon nalika-diamond" aria-hidden="true"></i></span>
                                                             <!--<input type="text" class="form-control" placeholder="Category">-->
                                                             <select name="Brand" class="form-control pro-edt-select form-control-primary">
-
                                                                 <c:forEach items="${listB}" var="b">
                                                                     <option value="${b.getBrandID()}">${b.getBrandName()}</option>
                                                                 </c:forEach>
-
                                                             </select>
                                                         </div>
+                                                        <div class="input-group mg-b-pro-edt">
+                                                            <span class="input-group-addon"><i class="icon nalika-alarm-clock" aria-hidden="true"></i></span>
+                                                            <input id='date' type="date" class="form-control" placeholder="Import Date" name="txtDate" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="input-group mg-b-pro-edt">
+                                                        <span class="input-group-addon"><i class="icon nalika-favorites-button" aria-hidden="true"></i></span>
+                                                        <input type="text" class="form-control" placeholder="Product Description" name="txtDesc" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -238,6 +243,11 @@
     <!-- main JS
                 ============================================ -->
     <script src="js1/main.js"></script>
+    
+    <script>
+        today = new Date().toJSON().slice(0, 10);
+        document.getElementById('date').max = today;
+    </script>
 </body>
 
 </html>

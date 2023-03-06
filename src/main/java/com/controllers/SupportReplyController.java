@@ -76,14 +76,14 @@ public class SupportReplyController extends HttpServlet {
             String mesage_context = request.getParameter("txtSupport");
             
             SupportCustomerDAO dao = new SupportCustomerDAO();
-            int count = dao.addMessage(chat_session_id, datetime, mesage_context);
-            if (count > 0) {
-                request.setAttribute("message", "Reply Successful");
-                request.getRequestDispatcher("/supportview.jsp").forward(request, response);
-            } else {
-                request.setAttribute("message", "Reply Failed");
-                request.getRequestDispatcher("/supportview.jsp").forward(request, response);
-            }
+//            int count = dao.addMessage(chat_session_id, datetime, mesage_context);
+//            if (count > 0) {
+//                request.setAttribute("message", "Reply Successful");
+//                request.getRequestDispatcher("/supportview.jsp").forward(request, response);
+//            } else {
+//                request.setAttribute("message", "Reply Failed");
+//                request.getRequestDispatcher("/supportview.jsp").forward(request, response);
+//            }
         }
     }
 

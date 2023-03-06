@@ -14,7 +14,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Dashboard</title>
+        <title>Home Admin</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- favicon
@@ -104,15 +104,17 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
-                                <h4 class="text-left text-uppercase"><b>Product Management</b></h4>
+                                <h4 class="text-left text-uppercase"><b>Sale Management</b></h4>
                                 <div class="row vertical-center-box vertical-center-box-tablet">
                                     <div class="progress progress-mini">
                                         <div style="width: 100%;" class="progress-bar bg-green"></div>
                                     </div>
                                     <br>
-                                    <div class="col-xs-12 cus-gh-hd-pro">
-                                        <h2 class="text-center"><img style="height: 200px" src="images/pmanage.png" alt="alt"/></h2>
-                                    </div>
+                                    <a href="salelist">
+                                        <div class="col-xs-12 cus-gh-hd-pro">
+                                            <h2 class="text-center"><img style="height: 200px" src="images/pmanage.png" alt="alt"/></h2>
+                                        </div>
+                                    </a>
                                 </div>
 
                             </div>
@@ -120,30 +122,34 @@
 
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
-                                <h4 class="text-left text-uppercase"><b>Product Management</b></h4>
+                                <h4 class="text-left text-uppercase"><b>Warehouse Management</b></h4>
                                 <div class="row vertical-center-box vertical-center-box-tablet">
                                     <div class="progress progress-mini">
                                         <div style="width: 100%;" class="progress-bar bg-blue"></div>
                                     </div>
                                     <br>
-                                    <div class="col-xs-12 cus-gh-hd-pro">
-                                        <h2 class="text-center"><img style="height: 200px" src="images/wmanage.png" alt="alt"/></h2>
-                                    </div>
+                                    <a href="allconsignment">
+                                        <div class="col-xs-12 cus-gh-hd-pro">
+                                            <h2 class="text-center"><img style="height: 200px" src="images/wmanage.png" alt="alt"/></h2>
+                                        </div>
+                                    </a>
                                 </div>
 
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
-                                <h4 class="text-left text-uppercase"><b>Product Management</b></h4>
+                                <h4 class="text-left text-uppercase"><b>Account Management</b></h4>
                                 <div class="row vertical-center-box vertical-center-box-tablet">
                                     <div class="progress progress-mini">
                                         <div style="width: 100%;" class="progress-bar bg-purple"></div>
                                     </div>
                                     <br>
-                                    <div class="col-xs-12 cus-gh-hd-pro">
-                                        <h2 class="text-center"><img style="height: 200px" src="images/amanage.png" alt="alt"/></h2>
-                                    </div>
+                                    <a href="allaccount">
+                                        <div class="col-xs-12 cus-gh-hd-pro">
+                                            <h2 class="text-center"><img style="height: 200px" src="images/amanage.png" alt="alt"/></h2>
+                                        </div>
+                                    </a>
                                 </div>
 
                             </div>
