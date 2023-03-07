@@ -6,21 +6,20 @@ package com.controllers;
 
 import com.dao.RegisterDAO;
 import com.models.Account;
-import com.models.SecurityQuestion;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
- * @author HN015T
+ * @author ASUS
  */
-public class ForgotPasswordController extends HttpServlet {
+public class EditProfileController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,10 +38,10 @@ public class ForgotPasswordController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ForgotPasswordController</title>");
+            out.println("<title>Servlet EditProfileController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ForgotPasswordController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet EditProfileController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -60,10 +59,16 @@ public class ForgotPasswordController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RegisterDAO dao = new RegisterDAO(); // create object DAO
-        ArrayList<SecurityQuestion> listC = dao.getAllQuestion(); //call function and create object ArrayList
-        request.setAttribute("listC", listC); //set attribute for lists
-        request.getRequestDispatcher("forgotpassword.jsp").forward(request, response);
+        try {
+            int id = Integer.parseInt(request.getParameter("id"));
+            RegisterDAO dao = new RegisterDAO();
+            Account acc = dao.getAccountByID(id);
+            request.setAttribute("acc", acc);
+            request.getRequestDispatcher("profile.jsp").forward(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(EditProfileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     /**
@@ -77,35 +82,20 @@ public class ForgotPasswordController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int accountID = Integer.parseInt(request.getParameter("accountID"));//get parameter
-        String answer_context = request.getParameter("txtAnswer");//get parameter
-        String question = null; //create object question = null
-        RegisterDAO dao = new RegisterDAO(); //create object DAO
-        request.setAttribute("id", accountID); // set attribute for accountID
-
-        Account acc = dao.checkAccount(accountID, answer_context); //call functions
-        if (acc != null) { //check if the answer is correct
-            request.setAttribute("acc", acc);
-            request.setAttribute("id", accountID);
-            request.getRequestDispatcher("resetpassword.jsp").forward(request, response);
-        } else { // if question is incorrect, then recheck the answer one more time
-            question = dao.getQuestion(accountID);//call function
-            acc = dao.checkAccount(accountID, answer_context); //call function
-            request.setAttribute("q", question); //set attribute for question
-            request.setAttribute("id", accountID);//set attribute for accountID
-            if (acc != null) { //recheck the answer of user
-                request.setAttribute("acc", acc); //set attribute for account
-                request.setAttribute("id", accountID);//set attribute for accountID
-                request.getRequestDispatcher("resetpassword.jsp").forward(request, response);
-//                request.setAttribute("message", "Your answer is incorrect!");
-//                response.sendRedirect("forgotpassword");
-//                request.getRequestDispatcher("forgotpassword.jsp").forward(request, response);
+        if (request.getParameter("btnUpdate") != null) { //check if user click on Edit button
+            int id = Integer.parseInt(request.getParameter("accountID")); //get parameter
+            String name = request.getParameter("txtName");//get parameter
+            String phone = request.getParameter("txtPhone");//get parameter
+            String address = request.getParameter("txtAddress");//get parameter
+            String answer = request.getParameter("txtAnswer");//get parameter
+            Account acc = new Account(id, name, phone, address, answer);//create object Account
+            RegisterDAO dao = new RegisterDAO();//create object DAO
+            int count = dao.updateProfile(acc);//call function
+            if (count > 0) {//check if update successful
+                response.sendRedirect("/home");
             } else {
-
-                request.setAttribute("message", "Your answer is incorrect!");
-                request.getRequestDispatcher("forgotpassword.jsp").forward(request, response);
+                response.sendRedirect("editprofile");
             }
-
         }
     }
 

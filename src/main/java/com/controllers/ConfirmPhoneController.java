@@ -71,18 +71,18 @@ public class ConfirmPhoneController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String phone = request.getParameter("txtPhone");
-        String question = null;
-        RegisterDAO dao = new RegisterDAO();
-        Account acc = dao.checkPhone(phone);
-        if (acc != null) {
+        String phone = request.getParameter("txtPhone"); //get parameter
+        String question = null; //create string question = null
+        RegisterDAO dao = new RegisterDAO(); //create object DAO
+        Account acc = dao.checkPhone(phone); // call function
+        if (acc != null) { // check if phone is existed , then redirect to forgotpassword page
             request.setAttribute("c", acc);
             question = dao.getQuestion(acc.getAccountID());
             request.setAttribute("c", acc);
             request.setAttribute("id", acc.getAccountID());
             request.setAttribute("q", question);
             request.getRequestDispatcher("forgotpassword.jsp").forward(request, response);
-        } else {
+        } else { // if phone is wrong
             request.setAttribute("message", "Incorrect Phone number!");
             request.getRequestDispatcher("confirmPhoneNumber.jsp").forward(request, response);
 //            response.sendRedirect("confirmphone");

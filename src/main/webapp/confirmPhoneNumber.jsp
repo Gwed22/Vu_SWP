@@ -24,11 +24,11 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-<<<<<<< HEAD:src/main/webapp/profiile.jsp
+
         <link rel="stylesheet" href="css/style8.css">
-=======
+
         <link rel="stylesheet" href="css/style8.css">
->>>>>>> 532509d27860fb160c21cc5688701b2179066b34:src/main/webapp/confirmPhoneNumber.jsp
+
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -79,7 +79,7 @@
 
     </head>
     <body>
-        
+
         <div class="container">
 
             <div class="row">

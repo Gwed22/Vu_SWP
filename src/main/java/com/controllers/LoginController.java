@@ -7,6 +7,7 @@ package com.controllers;
 import com.dao.AccountDAO;
 import com.dao.RegisterDAO;
 import com.models.Account;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -77,39 +78,27 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String phone = request.getParameter("phone");
-        String pass = request.getParameter("password");
-
-//        if (!pass.equals("")) {
-        AccountDAO dao;
+        String phone = request.getParameter("phone");//get parameter
+        String pass = request.getParameter("password");//get parameter
         try {
-            dao = new AccountDAO();
-            Account acc = dao.checkLogin(phone, pass);
-            if (acc != null) {
+            AccountDAO dao = new AccountDAO();//create object DAO
+            Account acc = dao.checkLogin(phone, pass);//call function
+            if (acc != null) { //check if phone and pass are correct
                 HttpSession session = request.getSession();
                 session.setAttribute("login", request.getParameter("phone"));
                 session.setAttribute("acc", acc);
                 session.setMaxInactiveInterval(259200);
                 response.sendRedirect("home");
+//                request.getRequestDispatcher("home.jsp").forward(request, response);
 
-            } else {//nếu sai username hoặc password thì thông báo lỗi và chuyển tiếp qua đường dẫn /LogInFailController
-                response.sendRedirect("Login");
+            } else { // if phone or password is incorrect
+                request.setAttribute("message", "Wrong Phone number or Password!");
+                request.getRequestDispatcher("login.jsp").forward(request, response);
             }
 
-//            response.sendRedirect("home.jsp");
-//            } else {//nếu sai username hoặc password thì thông báo lỗi và chuyển tiếp qua đường dẫn /LogInFailController
-//                response.sendRedirect("login.jsp");
-//            }
         } catch (SQLException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
-//        } 
-//        else {
-//            RegisterDAO dao1 = new RegisterDAO();
-//            Account acc = dao1.getIDAccount(phone);
-//            request.setAttribute("c", acc);
-//            request.getRequestDispatcher("forgotpassword").forward(request, response);
-//        }
 
     }
 
