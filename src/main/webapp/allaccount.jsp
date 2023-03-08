@@ -12,7 +12,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Consignment List</title>
+        <title>Account List</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- favicon
@@ -158,7 +158,7 @@
                             <div class="add-product">
                                 <a href="addaccount">Add Account</a>
                             </div>
-                            <form action="searchaccount" method="get" class="form-control" style="padding-left: 0px;">
+                            <form action="searchaccount" method="get" style="padding-left: 0px;">
                                 <input class="form-control" name="query" id="query" type="text" placeholder="Search">
                             </form>
                             <br><br>
@@ -166,8 +166,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">Account ID</th>
-                                        <th scope="col">First Name</th>
-                                        <th scope="col">Last Name</th>
+                                        <th scope="col">Account Name</th>
                                         <th scope="col">Phone</th>
                                         <th scope="col">Password</th>
                                         <th scope="col">Gender</th>
@@ -181,20 +180,10 @@
                                     <%
                                         ResultSet rs = (ResultSet) request.getAttribute("rs");
                                         while (rs.next()) {
-
-                                            // Split full name into first and last name
-                                            String[] nameParts = rs.getString("full_name").split(" ");
-                                            String firstName = nameParts[0];
-                                            String lastName = "";
-                                            for (int i = 1; i < nameParts.length; i++) {
-                                                lastName += nameParts[i] + " ";
-                                                pageContext.setAttribute("ln", lastName);
-                                            }
                                     %>
                                     <tr>
                                         <td><%= rs.getInt("account_id")%></td>
-                                        <td><%= firstName%></td>
-                                        <td><%= pageContext.getAttribute("ln")%></td>
+                                        <td><%= rs.getString("full_name")%></td>
                                         <td><%= rs.getString("phone")%></td>
                                         <td><%= rs.getString("password")%></td>
                                         <td><%= rs.getString("gender")%></td>
@@ -203,7 +192,7 @@
                                         <td><%= rs.getInt("sq_id")%></td>
                                         <td>
                                             <a href="/editaccount?id=<%=rs.getString("account_id")%>"><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
-                                            <a href="/deleteaccount?id=<%=rs.getString("account_id")%>" onclick="return confirm('Do you want to delete this consignment?')"><button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
+                                            <a href="/deleteaccount?id=<%=rs.getString("account_id")%>" onclick="return confirm('Do you want to delete this account?')"><button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
                                         </td>
                                     </tr>
                                     <%
@@ -258,21 +247,11 @@
                     ============================================ -->
         <script src="js1/main.js"></script>
         <script>
-                                                    const billclose = document.querySelector('#bill-close');
-                                                    billclose.addEventListener("click", function () {
-                                                        document.querySelector('#bill-form').style.display = "none";
-                                                    });
+                                                const billclose = document.querySelector('#bill-close');
+                                                billclose.addEventListener("click", function () {
+                                                    document.querySelector('#bill-form').style.display = "none";
+                                                });
 
-                                                    const formatter = new Intl.NumberFormat('vi-VN', {
-                                                        style: 'currency',
-                                                        currency: 'VND',
-                                                        minimumFractionDigits: 0
-                                                    })
-
-                                                    var x = document.getElementsByClassName('money');
-                                                    for (var i = 0; i < x.length; i++) {
-                                                        x[i].innerHTML = formatter.format(x[i].innerHTML);
-                                                    }
         </script>
     </body>
 </html>

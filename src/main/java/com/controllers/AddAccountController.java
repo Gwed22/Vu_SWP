@@ -8,7 +8,6 @@ import com.dao.AccountDAO;
 import com.models.Role;
 import com.models.SecurityQuestion;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,70 +18,31 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 
 /**
- *
- * @author Vux
+ * @author Do Huynh Anh Vu - CE171446 - Group3 - SE1605 - SWP391
  */
 public class AddAccountController extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet AddAccountController</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet AddAccountController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * Load data from database and forward to jsp 
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             AccountDAO dao = new AccountDAO();
-            ArrayList<Role> listR = dao.getAllRole();
-            ArrayList<SecurityQuestion> listSQ = dao.getAllSQ();
-            int c = dao.getCountAccount()+4;
-            request.setAttribute("count", c);
-            request.setAttribute("listRole", listR);
+            ArrayList<Role> listR = dao.getAllRole();  //get role list fro account
+            ArrayList<SecurityQuestion> listSQ = dao.getAllSQ(); //get security question for account
+            request.setAttribute("listRole", listR); //save to atrribute
             request.setAttribute("listSQ", listSQ);
-            request.getRequestDispatcher("addaccount.jsp").forward(request, response);
+            request.getRequestDispatcher("addaccount.jsp").forward(request, response); //forward to jsp
         } catch (SQLException ex) {
             Logger.getLogger(AddAccountController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * Get data from jsp then insert to database and return message
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -95,17 +55,17 @@ public class AddAccountController extends HttpServlet {
                 int role_id = Integer.parseInt(request.getParameter("role_id"));
                 String full_name = request.getParameter("username");
                 String phone = request.getParameter("phone");
-                String gender = request.getParameter("gender");
+                String gender = request.getParameter("gender");                   //Get data that enter in addaccount.jsp
                 String address = request.getParameter("address");
                 String password = request.getParameter("password1");
 
                 com.models.Account acc = new com.models.Account(sq_id,full_name, phone, password, gender, address, sq_id, role_id);
-
-                int count = dao.addNewAccount(acc);
-                if (count > 0) {
+                //create new account with data above
+                int count = dao.addNewAccount(acc); //insert into database
+                if (count > 0) { //Return succesful message if insert success
                     request.setAttribute("message", "Add Successful");
                     request.getRequestDispatcher("/allaccount").forward(request, response);
-                } else {
+                } else { //Return failed if insert fail
                     request.setAttribute("message", "Add Failed");
                     request.getRequestDispatcher("/allaccount").forward(request, response);
                 }
@@ -115,15 +75,4 @@ public class AddAccountController extends HttpServlet {
             }
         }
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }

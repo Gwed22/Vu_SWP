@@ -6,7 +6,6 @@ package com.dao;
 
 import com.models.Account;
 import com.db.DBConnection;
-import com.models.Brand;
 import com.models.Role;
 import com.models.SecurityQuestion;
 import java.sql.Connection;
@@ -29,6 +28,9 @@ public class AccountDAO {
         conn = DBConnection.getConnection();
     }
 
+    /**
+     * Get all account from database and return into result set
+     */
     public ResultSet getAllAccount() {
         ResultSet rs = null;
         try {
@@ -40,6 +42,9 @@ public class AccountDAO {
         return rs;
     }
 
+    /**
+     * Get account from database with account id and return account
+     */
     public Account getAccountByID(int acc_id) {
         Account acc = null;
         try {
@@ -56,6 +61,9 @@ public class AccountDAO {
         return acc;
     }
 
+    /**
+     * Insert an account to database then return count of column effect
+     */
     public int addNewAccount(Account acc) {
         int count = 0;
         try {
@@ -74,6 +82,9 @@ public class AccountDAO {
         return count;
     }
 
+    /**
+     * Get all Role for account from database and return into a list
+     */
     public ArrayList<Role> getAllRole() {
         ArrayList<Role> list = new ArrayList<>();
         ResultSet rs = null;
@@ -89,6 +100,10 @@ public class AccountDAO {
         return list;
     }
 
+    /**
+     * Get all Security Question for account from database and return into a
+     * list
+     */
     public ArrayList<SecurityQuestion> getAllSQ() {
         ArrayList<SecurityQuestion> list = new ArrayList<>();
         ResultSet rs = null;
@@ -104,6 +119,9 @@ public class AccountDAO {
         return list;
     }
 
+    /**
+     * Update an account from database then return count of column effect
+     */
     public int updateAccount(Account acc) {
         int count = 0;
         try {
@@ -123,10 +141,9 @@ public class AccountDAO {
         return count;
     }
 
-    public boolean checkMaKH(String makh) {
-        return false;
-    }
-
+    /**
+     * Delete an account from database then return count of column effect
+     */
     public int deleteAccount(int acc_id) {
         int count = 0;
         try {
@@ -139,20 +156,9 @@ public class AccountDAO {
         return count;
     }
 
-    public int getCountAccount() {
-        int count = 0;
-        try {
-            PreparedStatement pst = conn.prepareStatement("select count([account_id])AccountC from Account");
-            ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-                count = rs.getInt("AccountC");
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return count;
-    }
-
+    /**
+     * Check an account from database with username and password then return account
+     */
     public Account checkLogin(String phone, String password) {
         ResultSet rs = null;
 
@@ -171,6 +177,9 @@ public class AccountDAO {
         return null;
     }
 
+    /**
+    * Search accounts from database then return a result set that match search query
+    */
     public ResultSet getSearchAccount(String query) throws SQLException {
         Statement st = conn.createStatement();
         ResultSet rs = st.executeQuery("Select * from Account where full_name like'%" + query + "%'");
