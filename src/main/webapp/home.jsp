@@ -35,14 +35,10 @@
         <link rel="stylesheet" href="css/owl.carousel.min.css">
         <link rel="stylesheet" href="css/owl.theme.default.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-
-
     </head>
     <!-- body -->
-
     <body class="main-layout ">
         <jsp:include page="header.jsp"></jsp:include>
-
             <div class="slider_section row">
                 <div class="menu-left col-xl-2 col-lg-12 col-md-12 co-sm-11 ">
                     <ol class="nav-menu-left ">
@@ -52,7 +48,6 @@
                         </c:forEach>
                 </ol>
             </div>
-
             <div id="myCarousel" class="carousel slide banner-main col-xl-9 col-lg-10 col-md-12 co-sm-11" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">

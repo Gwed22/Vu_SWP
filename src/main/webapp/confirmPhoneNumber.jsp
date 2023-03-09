@@ -24,11 +24,9 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-<<<<<<< HEAD:src/main/webapp/profiile.jsp
         <link rel="stylesheet" href="css/style3.css">
-=======
         <link rel="stylesheet" href="css/style3.css">
->>>>>>> 532509d27860fb160c21cc5688701b2179066b34:src/main/webapp/confirmPhoneNumber.jsp
+
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -74,46 +72,30 @@
                 margin-left: 70%;
             }
         </style>
-
-
-
     </head>
     <body>
-        
         <div class="container">
-
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <h2 class="text-center text-dark mt-5">Confirm Phone Number</h2>
-
-
                     <div class="card my-auto">
-
                         <form class="card-body cardbody-color p-lg-5" action="confirmphone" method="post">       
-
-
                             <div class="mb-3">
-                                <input type="number" class="form-control" id="phone" aria-describedby="numberPhone"
+                                <input type="text" class="form-control" id="phone" aria-describedby="numberPhone"
                                        placeholder="Enter number phone" name="txtPhone" required="">
                             </div>
                             <div class="back-button"><a style="text-decoration: none;" href="login">Back</a></div>
                             <div class=""><button type="submit" name="btnCheck" class="btn btn-color  register-button">Next</button></div>
                         </form>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
         <c:if test="${message != null}">
             <div id="bill-form">
-
                 <div class="row" style="margin: 0 5px 0 5px">
                     <span style="font-size: 20px;color: red; text-align: center; ">${message}!</span>
                 </div>
-
             </div>
         </c:if>
     </body>

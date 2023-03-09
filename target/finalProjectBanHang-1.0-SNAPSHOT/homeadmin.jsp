@@ -145,7 +145,6 @@
                                         <h2 class="text-center"><img style="height: 200px" src="images/amanage.png" alt="alt"/></h2>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
