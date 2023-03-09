@@ -4,26 +4,22 @@
  */
 package com.controllers;
 
-import com.dao.AccountDAO;
 import com.dao.RegisterDAO;
 import com.models.Account;
-import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
  *
- * @author Admin
+ * @author ASUS
  */
-public class LoginController extends HttpServlet {
+public class EditProfileController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,10 +38,10 @@ public class LoginController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginController</title>");
+            out.println("<title>Servlet EditProfileController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet LoginController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet EditProfileController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -63,8 +59,16 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("login.jsp").forward(request, response);
-
+        try {
+            int id = Integer.parseInt(request.getParameter("id"));
+            RegisterDAO dao = new RegisterDAO();
+            Account acc = dao.getAccountByID(id);
+            request.setAttribute("acc", acc);
+            request.getRequestDispatcher("profile.jsp").forward(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(EditProfileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     /**
@@ -78,26 +82,21 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String phone = request.getParameter("phone");//get parameter
-        String pass = request.getParameter("password");//get parameter
-        try {
-            AccountDAO dao = new AccountDAO();//create object DAO
-            Account acc = dao.checkLogin(phone, pass);//call function
-            if (acc != null) { //check if phone and pass are correct
-                HttpSession session = request.getSession();
-                session.setAttribute("login", request.getParameter("phone"));
-                session.setAttribute("acc", acc);
-                session.setMaxInactiveInterval(259200);
-                response.sendRedirect("home");
-            } else { // if phone or password is incorrect
-                request.setAttribute("message", "Wrong Phone number or Password!");
-                request.getRequestDispatcher("login.jsp").forward(request, response);
+        if (request.getParameter("btnUpdate") != null) { //check if user click on Edit button
+            int id = Integer.parseInt(request.getParameter("accountID")); //get parameter
+            String name = request.getParameter("txtName");//get parameter
+            String phone = request.getParameter("txtPhone");//get parameter
+            String address = request.getParameter("txtAddress");//get parameter
+            String answer = request.getParameter("txtAnswer");//get parameter
+            Account acc = new Account(id, name, phone, address, answer);//create object Account
+            RegisterDAO dao = new RegisterDAO();//create object DAO
+            int count = dao.updateProfile(acc);//call function
+            if (count > 0) {//check if update successful
+                response.sendRedirect("/home");
+            } else {
+                response.sendRedirect("editprofile");
             }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
     /**

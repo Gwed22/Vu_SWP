@@ -24,8 +24,16 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
+<<<<<<< HEAD
         <link rel="stylesheet" href="css/style8.css">
         <link rel="stylesheet" href="css/style8.css">
+=======
+
+        <link rel="stylesheet" href="css/style8.css">
+
+        <link rel="stylesheet" href="css/style8.css">
+
+>>>>>>> 4f0c8ff6d651eca7f5b52b15e041493b56c77a8d
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -76,7 +84,7 @@
 
     </head>
     <body>
-        
+
         <div class="container">
 
             <div class="row">
@@ -90,7 +98,7 @@
 
 
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="phone" aria-describedby="numberPhone"
+                                <input type="number" class="form-control" id="phone" aria-describedby="numberPhone"
                                        placeholder="Enter number phone" name="txtPhone" required="">
                             </div>
                             <div class="back-button"><a style="text-decoration: none;" href="login">Back</a></div>

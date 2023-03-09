@@ -15,78 +15,31 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Vux
+ * @author Do Huynh Anh Vu - CE171446 - Group3 - SE1605 - SWP391
  */
 public class AllOrderController extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet AllOrderController</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet AllOrderController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * Get all order in database and forward to view page
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         OrderDAO dao = new OrderDAO();
-        ResultSet rs = dao.getAllOrder();
-        request.setAttribute("rs", rs);
-        request.getRequestDispatcher("allorder.jsp").forward(request, response);
+        ResultSet rs = dao.getAllOrder();  //Get all order from database to result set
+        request.setAttribute("rs", rs); //Save result set to atrribute to view in jsp
+        request.getRequestDispatcher("allorder.jsp").forward(request, response); // forward to jsp file 
     }
 
     /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * Get all order in database and forward to view page
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         OrderDAO dao = new OrderDAO();
-        ResultSet rs = dao.getAllOrder();
-        request.setAttribute("rs", rs);
-        request.getRequestDispatcher("allorder.jsp").forward(request, response);    }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+        ResultSet rs = dao.getAllOrder();  //Get all order from database to result set
+        request.setAttribute("rs", rs); //Save result set to atrribute to view in jsp
+        request.getRequestDispatcher("allorder.jsp").forward(request, response); // forward to jsp file 
+    }
 }

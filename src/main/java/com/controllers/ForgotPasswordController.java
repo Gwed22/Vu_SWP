@@ -60,9 +60,9 @@ public class ForgotPasswordController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RegisterDAO dao = new RegisterDAO();
-        ArrayList<SecurityQuestion> listC = dao.getAllQuestion();
-        request.setAttribute("listC", listC);
+        RegisterDAO dao = new RegisterDAO(); // create object DAO
+        ArrayList<SecurityQuestion> listC = dao.getAllQuestion(); //call function and create object ArrayList
+        request.setAttribute("listC", listC); //set attribute for lists
         request.getRequestDispatcher("forgotpassword.jsp").forward(request, response);
     }
 
@@ -77,25 +77,25 @@ public class ForgotPasswordController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int accountID = Integer.parseInt(request.getParameter("accountID"));
-        String answer_context = request.getParameter("txtAnswer");
-        String question = null;
-        RegisterDAO dao = new RegisterDAO();
-        request.setAttribute("id", accountID);
+        int accountID = Integer.parseInt(request.getParameter("accountID"));//get parameter
+        String answer_context = request.getParameter("txtAnswer");//get parameter
+        String question = null; //create object question = null
+        RegisterDAO dao = new RegisterDAO(); //create object DAO
+        request.setAttribute("id", accountID); // set attribute for accountID
 
-        Account acc = dao.checkAccount(accountID, answer_context);
-        if (acc != null) {
+        Account acc = dao.checkAccount(accountID, answer_context); //call functions
+        if (acc != null) { //check if the answer is correct
             request.setAttribute("acc", acc);
             request.setAttribute("id", accountID);
             request.getRequestDispatcher("resetpassword.jsp").forward(request, response);
-        } else {
-            question = dao.getQuestion(accountID);
-            acc = dao.checkAccount(accountID, answer_context);
-            request.setAttribute("q", question);
-            request.setAttribute("id", accountID);
-            if (acc != null) {
-                request.setAttribute("acc", acc);
-                request.setAttribute("id", accountID);
+        } else { // if question is incorrect, then recheck the answer one more time
+            question = dao.getQuestion(accountID);//call function
+            acc = dao.checkAccount(accountID, answer_context); //call function
+            request.setAttribute("q", question); //set attribute for question
+            request.setAttribute("id", accountID);//set attribute for accountID
+            if (acc != null) { //recheck the answer of user
+                request.setAttribute("acc", acc); //set attribute for account
+                request.setAttribute("id", accountID);//set attribute for accountID
                 request.getRequestDispatcher("resetpassword.jsp").forward(request, response);
 //                request.setAttribute("message", "Your answer is incorrect!");
 //                response.sendRedirect("forgotpassword");

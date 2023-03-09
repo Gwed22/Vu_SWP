@@ -32,6 +32,14 @@ public class Account {
         this.answer_context = answer_context;
     }
 
+    public Account(int accountID, String name, String phone, String address, String answer_context) {
+        this.accountID = accountID;
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
+        this.answer_context = answer_context;
+    }
+
     public Account() {
     }
 

@@ -64,9 +64,9 @@ public class RegisterController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        RegisterDAO dao = new RegisterDAO();
-        ArrayList<SecurityQuestion> listC = dao.getAllQuestion();
-        request.setAttribute("listC", listC);
+        RegisterDAO dao = new RegisterDAO(); //create object DAO 
+        ArrayList<SecurityQuestion> listC = dao.getAllQuestion(); //call function and create object ArrayList
+        request.setAttribute("listC", listC); //set attribute for list
         request.getRequestDispatcher("register.jsp").forward(request, response);
 
     }
@@ -82,17 +82,19 @@ public class RegisterController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (request.getParameter("btnAdd") != null) {
-            String name = request.getParameter("txtName");
-            String phone = request.getParameter("txtPhone");
-            String password = request.getParameter("txtPassword");
-            String gender = request.getParameter("gender");
-            String address = request.getParameter("txtAddress");
-            int sq_id = Integer.parseInt(request.getParameter("sqID"));
-            String answer_context = request.getParameter("txtAnswer");
-            RegisterDAO dao = new RegisterDAO();
-            Account acc = dao.checkPhoneNumber(phone);
-            if (acc == null) {
+        if (request.getParameter("btnAdd") != null) { //check user click on register button
+            String name = request.getParameter("txtName"); //get parameter
+            String phone = request.getParameter("txtPhone");//get parameter
+            String password = request.getParameter("txtPassword");//get parameter
+            String gender = request.getParameter("gender");//get parameter
+            String address = request.getParameter("txtAddress");//get parameter
+            int sq_id = Integer.parseInt(request.getParameter("sqID"));//get parameter
+            String answer_context = request.getParameter("txtAnswer");//get parameter
+            
+            
+            RegisterDAO dao = new RegisterDAO(); //create object DAO
+            Account acc = dao.checkPhoneNumber(phone); // call function 
+            if (acc == null) {//check if account is correct 
                 int count = dao.register(name, phone, password, gender, address, sq_id, answer_context);
                 if (count > 0) {
                     response.sendRedirect("login");
@@ -100,7 +102,7 @@ public class RegisterController extends HttpServlet {
                     response.sendRedirect("register");
                 }
 
-            } else {
+            } else { // account is incorrect
                 request.setAttribute("message", "Duplicate Phone number!");
                 response.sendRedirect("register");
 //                request.getRequestDispatcher("register").forward(request, response);
