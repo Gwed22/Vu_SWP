@@ -77,7 +77,7 @@
                                     <c:if test="${sessionScope.acc != null}">
                                         
                                             <li class="active"><a href="history"><i class="fa fa-history" aria-hidden="true"></i> History</a></li> 
-                                            <li class="active" style="margin-left: 80px; "><a href="#"><i class="fa fa-user-circle-o" aria-hidden="true" ></i> ${sessionScope.acc.getName()} </a></li>
+                                            <li class="active" style="margin-left: 80px; "><a href="editprofile?id=${sessionScope.acc.getAccountID()}"><i class="fa fa-user-circle-o" aria-hidden="true" ></i> ${sessionScope.acc.getName()} </a></li>
                                         <li class="active" style="margin-left: 10px;"> <a href="logout">Log out</a> </li>
                                     </c:if>
                                 </ul>

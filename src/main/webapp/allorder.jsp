@@ -80,6 +80,7 @@
             <![endif]-->
 
         <jsp:include page="headeradmin.jsp"></jsp:include>
+<<<<<<< HEAD
             <div class="breadcome-area">
                 <div class="container-fluid">
                     <div class="row">
@@ -94,6 +95,32 @@
                                             <div class="breadcomb-ctn">
                                                 <h2>Order List</h2>
                                             </div>
+=======
+        <c:if test="${message != null}">
+            <div id="bill-form">
+                <div id="bill-form-content">
+                    <h2>Message<span id="bill-close">Close</span></h2>
+                    <br>
+                    <div class="row" style="margin: 0 5px 0 5px">
+                        <span style="font-size: 20px">${message}!</span>
+                    </div>
+                </div>
+            </div>
+        </c:if>
+        <div class="breadcome-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="breadcome-list">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <div class="breadcomb-wp">
+                                        <div class="breadcomb-icon">
+                                            <a href="home"><i class="icon nalika-home"></i></a>
+                                        </div>
+                                        <div class="breadcomb-ctn">
+                                            <h2>Order Management</h2>
+>>>>>>> 4f0c8ff6d651eca7f5b52b15e041493b56c77a8d
                                         </div>
                                     </div>
                                 </div>
@@ -102,6 +129,7 @@
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
             <div class="product-status mg-b-30">
                 <div class="container-fluid">
                     <div class="row">
@@ -119,6 +147,25 @@
                                         <th>Account ID</th>
                                         <th>Address</th>
                                     </tr>
+=======
+        </div>
+        <div class="product-status mg-b-30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="product-status-wrap">
+                            <h4>Order List</h4>
+                            <table>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Order Date</th>
+                                    <th>Shipping Date</th>
+                                    <th>Status</th>
+                                    <th>Note</th>
+                                    <th>Account ID</th>
+                                    <th>Address</th>
+                                </tr>
+>>>>>>> 4f0c8ff6d651eca7f5b52b15e041493b56c77a8d
                                 <%
                                     ResultSet rs = (ResultSet) request.getAttribute("rs");
                                     while (rs.next()) {
@@ -131,7 +178,10 @@
                                     <td><%= rs.getString("note")%></td>
                                     <td><%= rs.getInt("account_id")%></td>
                                     <td><%= rs.getString("address")%></td>
+<<<<<<< HEAD
                                     <td class="money"><%= rs.getDouble("totalPrice")%></td>
+=======
+>>>>>>> 4f0c8ff6d651eca7f5b52b15e041493b56c77a8d
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -197,6 +247,7 @@
         <!-- main JS
                     ============================================ -->
         <script src="js1/main.js"></script>
+<<<<<<< HEAD
         <script>
             const formatter = new Intl.NumberFormat('vi-VN', {
                 style: 'currency',
@@ -209,6 +260,14 @@
                 x[i].innerHTML = formatter.format(x[i].innerHTML);
                 console.log(x);
             }
+=======
+                <script>
+                                                const billclose = document.querySelector('#bill-close');
+                                                billclose.addEventListener("click", function () {
+                                                    document.querySelector('#bill-form').style.display = "none";
+                                                });
+
+>>>>>>> 4f0c8ff6d651eca7f5b52b15e041493b56c77a8d
         </script>
     </body>
 

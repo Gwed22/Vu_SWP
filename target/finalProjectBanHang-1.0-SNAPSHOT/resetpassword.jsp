@@ -26,10 +26,15 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
 <<<<<<< HEAD
+<<<<<<< HEAD
         <link rel="stylesheet" href="css/style3.css">
 =======
         <link rel="stylesheet" href="css/style3.css">
 >>>>>>> 532509d27860fb160c21cc5688701b2179066b34
+=======
+        <link rel="stylesheet" href="css/style8.css">
+        <link rel="stylesheet" href="css/style8.css">
+>>>>>>> 4f0c8ff6d651eca7f5b52b15e041493b56c77a8d
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -84,15 +89,7 @@
         </style>
     </head>
     <body>
-        <c:if test="${message != null}">
-            <div id="bill-form">
 
-                <div class="row" style="margin: 0 5px 0 5px">
-                    <span style="font-size: 20px;color: red; text-align: center; ">${message}!</span>
-                </div>
-
-            </div>
-        </c:if>
         <div class="container">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
@@ -124,5 +121,14 @@
             </div>
 
         </div>
+        <c:if test="${message != null}">
+            <div id="bill-form">
+
+                <div class="row" style="margin: 0 5px 0 5px">
+                    <span style="font-size: 20px;color: red; text-align: center; ">${message}!</span>
+                </div>
+
+            </div>
+        </c:if>
     </body>
 </html>

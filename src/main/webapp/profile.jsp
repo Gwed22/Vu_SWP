@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -70,20 +72,24 @@
                     <div class="col-md-6 offset-md-3">
                         <h2 class="text-center text-dark mt-5">Profile</h2>
                         <div class="card my-auto">
-                            <form class="card-body cardbody-color p-lg-5" action="" method="">
+                            <form class="card-body cardbody-color p-lg-5" action="editprofile" method="post">
+                                <div style="" class="mb-3">
+                                    <input type="text" class="form-control" id="account"  value="${acc.getAccountID()}" name="accountID" readonly>
+                                </div>
+                                
                                 <div class="mb-3">
-                                    <input type="text" class="form-control" id="account" placeholder="Your Account" name="account" readonly>
+                                    <input type="text" class="form-control" id="fullname"  value="${acc.getName()}" name="txtName" >
                                 </div>
                                 <div class="mb-3">
-                                    <input type="text" class="form-control" id="fullname" placeholder="Full Name" name="fullname" >
+                                    <input type="text" class="form-control" id="phone" aria-describedby="numberPhone" value="${acc.getPhone()}" placeholder="Number phone" name="txtPhone" readonly>
                                 </div>
                                 <div class="mb-3">
-                                    <input type="text" class="form-control" id="phone" aria-describedby="numberPhone" placeholder="Number phone" name="phone" readonly>
+                                    <input type="text" class="form-control" id="address"  value="${acc.getAddress()}" name="txtAddress" >
                                 </div>
                                 <div class="mb-3">
-                                    <input type="text" class="form-control" id="address" placeholder="Address" name="address" >
+                                    <input type="text" class="form-control" id="answer"  value="${acc.getAnswer_context()}" name="txtAnswer" >
                                 </div>
-                                <div class="text-center"><button type="submit" class="btn btn-color px-5 mb-5 w-100" name="submit"><a href="">Edit</a></button></div>
+                                <div class="text-center"><button type="submit" class="btn btn-color px-5 mb-5 w-100" name="btnUpdate">Edit</button></div>
                             </form>
                         </div>
                     </div>

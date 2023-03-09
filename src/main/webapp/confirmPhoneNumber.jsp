@@ -24,8 +24,15 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
+<<<<<<< HEAD
         <link rel="stylesheet" href="css/style3.css">
         <link rel="stylesheet" href="css/style3.css">
+=======
+
+        <link rel="stylesheet" href="css/style8.css">
+
+        <link rel="stylesheet" href="css/style8.css">
+>>>>>>> 4f0c8ff6d651eca7f5b52b15e041493b56c77a8d
 
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
@@ -74,6 +81,10 @@
         </style>
     </head>
     <body>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4f0c8ff6d651eca7f5b52b15e041493b56c77a8d
         <div class="container">
             <div class="row">
                 <div class="col-md-6 offset-md-3">

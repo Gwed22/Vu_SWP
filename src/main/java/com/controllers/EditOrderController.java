@@ -21,57 +21,31 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Vux
+ * @author Do Huynh Anh Vu - CE171446 - Group3 - SE1605 - SWP391
  */
 public class EditOrderController extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet EditOrderController</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet EditOrderController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * Load data of order need to edit
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            int id = Integer.parseInt(request.getParameter("id"));
+            int id = Integer.parseInt(request.getParameter("id")); //get id of order need edit
             OrderDAO dao = new OrderDAO();
-            Order or = dao.getOrder(id);
+            Order or = dao.getOrder(id);  // get order by order id
             AccountDAO dao1 = new AccountDAO();
+<<<<<<< HEAD
             Account acc = dao1.getAccountByID(or.getAccountID());
             request.setAttribute("acc", acc);
+=======
+            Account acc = dao1.getAccountByID(or.getAccountID()); //get account by account id save in order
+
+            request.setAttribute("acc", acc);   //save these data to attribute
+>>>>>>> 4f0c8ff6d651eca7f5b52b15e041493b56c77a8d
             request.setAttribute("o", or);
-            request.getRequestDispatcher("/editorder.jsp").forward(request, response);
+            request.getRequestDispatcher("/editorder.jsp").forward(request, response); //forward
         } catch (SQLException ex) {
             Logger.getLogger(EditOrderController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -79,12 +53,11 @@ public class EditOrderController extends HttpServlet {
     }
 
     /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * Edit order and update in database
+     * @param request
+     * @param response
+     * @throws jakarta.servlet.ServletException
+     * @throws java.io.IOException
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -93,29 +66,24 @@ public class EditOrderController extends HttpServlet {
             //doi moi
             String o_id = request.getParameter("o_id");
             String o_date = request.getParameter("o_date");
-            String delivery_date = request.getParameter("delivery_date");
+            String delivery_date = request.getParameter("delivery_date");  //get edit data for order from input form
             String status = request.getParameter("status");
             String note = request.getParameter("note");
 
             OrderDAO dao = new OrderDAO();
-            Order o = dao.getOrder(Integer.parseInt(o_id));
+            Order o = dao.getOrder(Integer.parseInt(o_id));  //get order from order id to get account name of the order
 
             String account_id = request.getParameter("account_id");
             String address = request.getParameter("address");
             com.models.Order or = new com.models.Order(Integer.parseInt(o_id), Date.valueOf(o_date), Date.valueOf(delivery_date), status, note, o.getAccountID(), address);
-            dao.updateOrder(or);
-            request.getRequestDispatcher("/allorder").forward(request, response);
+            int count = dao.updateOrder(or);   //update order in database
+            if (count > 0) { //Return succesful message if update success
+                request.setAttribute("message", "Update Successful");
+                request.getRequestDispatcher("/allorder").forward(request, response);
+            } else { //Return failed if update fail
+                request.setAttribute("message", "Update Failed");
+                request.getRequestDispatcher("/allorder").forward(request, response);
+            }
         }
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }

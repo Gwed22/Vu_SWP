@@ -73,13 +73,13 @@ public class ResetPasswordController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (request.getParameter("btnReset") != null) {
-            int accountID = Integer.parseInt(request.getParameter("accountID"));
-            String password = request.getParameter("txtPassword");
+        if (request.getParameter("btnReset") != null) { //check if user click on Reset button
+            int accountID = Integer.parseInt(request.getParameter("accountID"));//get parameter
+            String password = request.getParameter("txtPassword");//get parameter
 
-            RegisterDAO dao = new RegisterDAO();
-            int count = dao.resetPassword(accountID, password);
-            if (count > 0) {
+            RegisterDAO dao = new RegisterDAO();//create object DAO
+            int count = dao.resetPassword(accountID, password);//call function
+            if (count > 0) { //check if password are reseted
 
                 response.sendRedirect("login");
             } else {

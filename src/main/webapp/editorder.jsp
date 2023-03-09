@@ -90,7 +90,7 @@
                                                 <a href="home"><i class="icon nalika-home"></i></a>
                                             </div>
                                             <div class="breadcomb-ctn">
-                                                <h2>Edit Order</h2>
+                                                <h2>Order Management</h2>
                                             </div>
                                         </div>
                                     </div>
@@ -116,6 +116,7 @@
                                             <div class="product-tab-list tab-pane fade active in" id="description">
                                                 <div class="row">
                                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+<<<<<<< HEAD
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                                 <div class="review-content-section">
@@ -160,6 +161,40 @@
                                                             <div class="text-right custom-pro-edt-ds">
                                                                 <button type="submit" name="btnUpdate" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Save</button>
                                                             </div>
+=======
+                                                        <div class="review-content-section">
+                                                            <div class="input-group mg-b-pro-edt">
+                                                                <span class="input-group-addon"><i class="icon nalika-tick"></i></span>
+                                                                <input type="text" class="form-control" id="o_id" placeholder="Order ID" name="o_id" value="${o.getOrderID()}"  readonly  style="color: black">
+                                                        </div>
+                                                        <div class="input-group mg-b-pro-edt">
+                                                            <span class="input-group-addon"><i class="icon nalika-edit"></i></span>
+                                                            <input type="date" class="form-control" id="o_date" name="o_date" placeholder="Order Date" value="${o.getOrderDate()}"  readonly  style="color: black">
+                                                        </div>
+                                                        <div class="input-group mg-b-pro-edt">
+                                                            <span class="input-group-addon"><i class="icon nalika-favorites"></i></span>
+                                                            <input type="date" style="background-color: #337ab7;" placeholder="Delivery Date" class="form-control" id="delivery_date" value="${o.getDeliveryDate()}" name="delivery_date">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="review-content-section">
+                                                        <div class="input-group mg-b-pro-edt">
+                                                            <span class="input-group-addon"><i class="icon nalika-new-file"></i></span>
+                                                            <input type="text" style="background-color: #337ab7;" placeholder="Status" class="form-control"id="status" value="${o.getStatus()}" name="status">
+                                                        </div>
+                                                        <div class="input-group mg-b-pro-edt">
+                                                            <span class="input-group-addon"><i class="icon nalika-new-file" aria-hidden="true"></i></span>
+                                                            <input type="text" style="background-color: #337ab7;" placeholder="Note" class="form-control"name="note" id="note" value="${o.getNote()}">
+                                                        </div>
+                                                        <div class="input-group mg-b-pro-edt">
+                                                            <span class="input-group-addon"><i class="icon nalika-favorites-button"></i></span>
+                                                            <input type="text" class="form-control" placeholder="Account Name" name="account_id" id="account_id" value="${acc.getName()}" readonly  style="color: black">
+                                                        </div>
+                                                        <div class="input-group mg-b-pro-edt">
+                                                            <span class="input-group-addon"><i class="icon nalika-favorites-button" ></i></span>
+                                                            <input type="text" style="background-color: #337ab7;" class="form-control" placeholder="Address" name="address" id="address" value="${o.getAddress()}">
+>>>>>>> 4f0c8ff6d651eca7f5b52b15e041493b56c77a8d
                                                         </div>
                                                     </div>
                                                 </div>

@@ -31,6 +31,9 @@ public class OrderDAO {
         conn = DBConnection.getConnection();
     }
 
+    /**
+     * Get all order from database and return into result set
+     */
     public ResultSet getAllOrder() {
         ResultSet rs = null;
         try {
@@ -41,18 +44,10 @@ public class OrderDAO {
         }
         return rs;
     }
-//
-//    public ResultSet getSearchOrder(String query) throws SQLException {
-//        Statement st = conn.createStatement();
-//        ResultSet rs = st.executeQuery("Select * from Order where o_id like'%" + query + "%'");
-//        return rs;
-//    }
-
-//    public ResultSet getSearchCate(String query) throws SQLException {
-//        Statement st = conn.createStatement();
-//        ResultSet rs = st.executeQuery("Select * from product where loaisp like'%" + query + "%'");
-//        return rs;
-//    }
+    
+    /**
+     * Get order from database with order id and return that order
+     */
     public Order getOrder(int o_id) {
         Order o = null;
         try {
@@ -60,16 +55,19 @@ public class OrderDAO {
             pst.setInt(1, o_id);
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
-                o = new Order(o_id, rs.getDate("o_date"), rs.getDate("delivery_date"), rs.getString("status"), rs.getString("note"),
-                        rs.getInt("account_id"), rs.getString("address"));
+                o = new Order(o_id, rs.getDate("o_date"), rs.getDate("delivery_date"), rs.getString("status"), rs.getString("note"), 
+                                    rs.getInt("account_id"), rs.getString("address"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return o;
     }
-
-    public int updateOrder(Order or) {
+    
+    /**
+     * Update order from database then return count of column effect
+     */
+        public int updateOrder(Order or) {
         int count = 0;
         try {
             PreparedStatement pst = conn.prepareStatement("update [Order] set o_date=?, delivery_date=?, status=?, note=?, account_id=?, address=? where o_id=?");
@@ -117,14 +115,17 @@ public class OrderDAO {
                     pst2.setInt(3, i.getQuantity());
                     pst2.setDouble(4, i.getPrice());
                     pst2.executeUpdate();
-                }
+}
             }
         } catch (Exception e) {
             
         }
     }
+<<<<<<< HEAD
 
     public static void main(String[] args) {
         
     }
+=======
+>>>>>>> 4f0c8ff6d651eca7f5b52b15e041493b56c77a8d
 }

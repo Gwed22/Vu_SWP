@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -75,9 +77,7 @@
         </style>
     </head>
     <body>
-        <%
-            if (session.getAttribute("login") == null) {
-        %>
+
         <div class="container">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
@@ -89,12 +89,12 @@
                         <form class="card-body cardbody-color p-lg-5" action="/login" method="post">
 
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="phone" aria-describedby="numberPhone"
+                                <input type="text" class="form-control" id="phone" aria-describedby="numberPhone" required=""
                                        placeholder="Enter number phone" name="phone">
                             </div>
 
                             <div class="mb-3">
-                                <input type="password" class="form-control" id="password" placeholder="Password" name="password" >
+                                <input type="password" class="form-control" id="password" placeholder="Password" name="password" required="" >
                             </div>
 
                             <div class="mb-3" style="display: none">
@@ -118,10 +118,15 @@
                 </form>
             </div>
         </div>
-        <%    } else {
-                response.sendRedirect("login.jsp");
-            }
-        %>
+        <c:if test="${message != null}">
+            <div id="bill-form">
+
+                <div class="row" style="margin: 0 5px 0 5px">
+                    <span style="font-size: 20px;color: red; text-align: center; ">${message}!</span>
+                </div>
+
+            </div>
+        </c:if>
     </body>
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
