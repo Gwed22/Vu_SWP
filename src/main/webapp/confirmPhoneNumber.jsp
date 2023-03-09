@@ -24,11 +24,8 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-<<<<<<< HEAD:src/main/webapp/profiile.jsp
         <link rel="stylesheet" href="css/style8.css">
-=======
         <link rel="stylesheet" href="css/style8.css">
->>>>>>> 532509d27860fb160c21cc5688701b2179066b34:src/main/webapp/confirmPhoneNumber.jsp
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -93,7 +90,7 @@
 
 
                             <div class="mb-3">
-                                <input type="number" class="form-control" id="phone" aria-describedby="numberPhone"
+                                <input type="text" class="form-control" id="phone" aria-describedby="numberPhone"
                                        placeholder="Enter number phone" name="txtPhone" required="">
                             </div>
                             <div class="back-button"><a style="text-decoration: none;" href="login">Back</a></div>
