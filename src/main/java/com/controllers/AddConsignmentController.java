@@ -5,6 +5,7 @@
 package com.controllers;
 
 import com.dao.ConsignmentDAO;
+import com.dao.ImportStatisticDAO;
 import com.models.Brand;
 import com.models.Category;
 import java.io.IOException;
@@ -83,13 +84,18 @@ public class AddConsignmentController extends HttpServlet {
             int cid = Integer.parseInt(request.getParameter("Category"));
             int quantity = Integer.parseInt(request.getParameter("txtQuantity"));
             int bid = Integer.parseInt(request.getParameter("Brand"));
-            float price = Float.parseFloat(request.getParameter("txtPrice"));
+            float importPrice = Float.parseFloat(request.getParameter("txtImportPrice"));
             String date = request.getParameter("txtDate");
             String img = request.getParameter("txtImg");
+            float sellingPrice = Float.parseFloat(request.getParameter("txtSellPrice"));
+            String desc = request.getParameter("txtDesc");
 
             ConsignmentDAO dao = new ConsignmentDAO();
-            int count = dao.addConsignment(name, cid, quantity, bid, price, date, img);
-            if (count > 0) {
+            int count = dao.addConsignment(name, cid, quantity, bid, importPrice, date, img, sellingPrice, desc);
+            
+            ImportStatisticDAO dao2 = new ImportStatisticDAO();
+            int count2 = dao2.addImportStatistic(dao2.getConIDForStatistic(name, img), date, quantity);
+            if (count > 0 && count2 > 0) {
                 request.setAttribute("message", "Add Successful");
                 request.getRequestDispatcher("/allconsignment").forward(request, response);
             } else {

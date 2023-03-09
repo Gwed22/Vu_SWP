@@ -1,12 +1,9 @@
 <%-- 
-    Document   : product-add
-    Created on : Oct 28, 2022, 11:41:45 PM
+    Document   : product-list
+    Created on : Oct 28, 2022, 11:41:24 PM
     Author     : DELL
 --%>
 
-<%@page import="com.dao.SaleDAO"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="com.models.Consignment"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -16,7 +13,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Sale Add</title>
+        <title>Spending Detail</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- favicon
@@ -71,12 +68,10 @@
         <!-- modernizr JS
                     ============================================ -->
         <script src="js1/vendor/modernizr-2.8.3.min.js"></script>
+
     </head>
 
     <body>
-        <!--[if lt IE 8]>
-                <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-            <![endif]-->
 
         <jsp:include page="headeradmin.jsp"></jsp:include>
             <div class="breadcome-area">
@@ -91,7 +86,7 @@
                                                 <a href="homeadmin"><i class="icon nalika-home"></i></a>
                                             </div>
                                             <div class="breadcomb-ctn">
-                                                <h2>Add New Sale</h2>
+                                                <h2>Accountant</h2>
                                             </div>
                                         </div>
                                     </div>
@@ -101,70 +96,32 @@
                     </div>
                 </div>
             </div>
-            <!-- Single pro tab start-->
-            <div class="single-product-tab-area mg-b-30">
-                <!-- Single pro tab review Start-->
-
+            <div class="product-status mg-b-30">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="review-tab-pro-inner">
-                                <ul id="myTab3" class="tab-review-design">
-                                    <li class="active"><a href="#"><i class="icon nalika-edit" aria-hidden="true"></i>ADD NEW SALE</a></li>
-                                </ul>
-                                <div id="myTabContent" class="tab-content custom-product-edit">
-                                    <div class="product-tab-list tab-pane fade active in" id="description">
-                                        <form action="AddSale" method="post">
-                                            <div class="row">
-                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                    <div class="review-content-section">
-                                                        <div class="input-group mg-b-pro-edt">
-                                                            <span class="input-group-addon">Product Name</span>
-                                                            <select name="txtConID" class="form-control pro-edt-select form-control-primary">
-                                                            <c:forEach items="${listCon}" var="con">
-                                                                <option value="${con.getConID()}">${con.getProductName()}</option>
-                                                            </c:forEach>
-                                                        </select>
-                                                    </div>
-                                                    <div class="input-group mg-b-pro-edt">
-                                                        <span class="input-group-addon">Sale Start Date</span>
-                                                        <input type="date" class="form-control" placeholder="Sale start date" name="txtSaleStartDate">
-                                                    </div>
-                                                    <div class="input-group mg-b-pro-edt">
-                                                        <span class="input-group-addon">Sale End Date</span>
-                                                        <input type="date" class="form-control" placeholder="Sale end date" name="txtSaleEndDate">
-                                                    </div>
-                                                    <div class="input-group mg-b-pro-edt">
-                                                        <span class="input-group-addon">Sale Price</span>
-                                                        <input type="text" class="form-control" placeholder="Sale price" name="txtSalePrice">
-                                                    </div>
-                                                    <div class="input-group mg-b-pro-edt">
-                                                        <span class="input-group-addon">Description</span>
-                                                        <input type="text" class="form-control" placeholder="Sale Description" name="txtDesc">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                <div class="text-right custom-pro-edt-ds">
-                                                    <button type="submit" name="btnAdd" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Add</button>
-                                                    <button type="reset" name="btnClear" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Clear</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+                            <div class="product-status-wrap">
+                                <h4>Spending Details Date: ${date}</h4>
+                            <table>
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th>Import Quantity</th>
+                                    <th>Total Cost</th>
+                                </tr>
+                                <c:forEach items="${list}" var="l">
+                                    <tr>
+                                        <td>${l.getProductName()}</td>
+                                        <td>${l.getQuantity()}</td>
+                                        <td class="money">${l.getTotal()}</td>
+                                    </tr>
+                                </c:forEach>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-        <div class="footer-copyright-area">
 
-        </div>
     </div>
 
     <!-- jquery
@@ -204,15 +161,25 @@
     <script src="js1/sparkline/jquery.sparkline.min.js"></script>
     <script src="js1/sparkline/jquery.charts-sparkline.js"></script>
 
-    <!-- tab JS
-                ============================================ -->
-    <script src="js/tab.js"></script>
     <!-- plugins JS
                 ============================================ -->
     <script src="js1/plugins.js"></script>
     <!-- main JS
                 ============================================ -->
     <script src="js1/main.js"></script>
+    <script>
+        const formatter = new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND',
+            minimumFractionDigits: 0
+        });
+
+        var x = document.getElementsByClassName('money');
+        for (var i = 0; i < x.length; i++) {
+            x[i].innerHTML = formatter.format(x[i].innerHTML);
+//            console.log(x);
+        }
+    </script>
 </body>
 
 </html>

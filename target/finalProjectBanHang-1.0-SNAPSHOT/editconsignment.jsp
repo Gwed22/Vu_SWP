@@ -82,7 +82,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                         <div class="breadcomb-wp">
                                             <div class="breadcomb-icon">
-                                                <a href="home"><i class="icon nalika-home"></i></a>
+                                                <a href="homeadmin"><i class="icon nalika-home"></i></a>
                                             </div>
                                             <div class="breadcomb-ctn">
                                                 <h2>Warehouse Management</h2>
@@ -121,20 +121,20 @@
                                                             <span class="input-group-addon"><i class="icon nalika-edit" aria-hidden="true"></i></span>
                                                             <input type="text" class="form-control" placeholder="Product Name" name="txtName" value="${c.getProductName()}" required>
                                                         </div>
-                                                        <p>Product Price</p>
-                                                        <div class="input-group mg-b-pro-edt">
-                                                            <span class="input-group-addon"><i class="icon nalika-credit-cards" aria-hidden="true"></i></span>
-                                                            <input type="number" min="1000" max="100000000" class="form-control" placeholder="Import Price" name="txtPrice" value="${c.getConPrice()}" required>
-                                                        </div>
                                                         <p>Product Image</p>
                                                         <div class="input-group mg-b-pro-edt">
                                                             <span class="input-group-addon"><i class="icon nalika-new-file" aria-hidden="true"></i></span>
                                                             <input type="text" class="form-control" placeholder="Product Image" name="txtImg" value="${c.getProductImg()}" required>
                                                         </div>
-                                                        <p>Import Date</p>
+                                                        <p>Import Price</p>
                                                         <div class="input-group mg-b-pro-edt">
-                                                            <span class="input-group-addon"><i class="icon nalika-alarm-clock" aria-hidden="true"></i></span>
-                                                            <input type="date" class="form-control" placeholder="Import Date" name="txtDate" value="${c.getImportDate()}" required>
+                                                            <span class="input-group-addon"><i class="icon nalika-credit-cards" aria-hidden="true"></i></span>
+                                                            <input type="number" min="1000" max="100000000" class="form-control" placeholder="Import Price" name="txtImportPrice" value="${c.getConPrice()}" required>
+                                                        </div>
+                                                        <p>Selling Price</p>
+                                                        <div class="input-group mg-b-pro-edt">
+                                                            <span class="input-group-addon"><i class="icon nalika-credit-cards" aria-hidden="true"></i></span>
+                                                            <input type="number" min="1000" max="100000000" class="form-control" placeholder="Selling Price" name="txtSellPrice" value="${c.getProductPrice()}" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -143,7 +143,7 @@
                                                         <p>Quantity</p>
                                                         <div class="input-group mg-b-pro-edt">
                                                             <span class="input-group-addon"><i class="icon nalika-favorites" aria-hidden="true"></i></span>
-                                                            <input type="number" min="10" max="1000" class="form-control" placeholder="Quantity" name="txtQuantity" value="${c.getConQuantity()}" required>
+                                                            <input type="number" min="0" max="1000" class="form-control" placeholder="Quantity" name="txtQuantity" value="${c.getConQuantity()}" required>
                                                         </div>
                                                         <p>Category</p>
                                                         <div class="input-group mg-b-pro-edt">
@@ -163,6 +163,18 @@
                                                                 </c:forEach>
                                                             </select>
                                                         </div>
+
+                                                        <p>Import Date</p>
+                                                        <div class="input-group mg-b-pro-edt">
+                                                            <span class="input-group-addon"><i class="icon nalika-alarm-clock" aria-hidden="true"></i></span>
+                                                            <input id="date" type="date" class="form-control" placeholder="Import Date" name="txtDate" value="${c.getImportDate()}" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="input-group mg-b-pro-edt">
+                                                        <span class="input-group-addon"><i class="icon nalika-favorites-button" aria-hidden="true"></i></span>
+                                                        <input type="text" class="form-control" placeholder="Product Description" name="txtDesc" value="${c.getProductDesc()}" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -242,6 +254,11 @@
     <!-- main JS
                 ============================================ -->
     <script src="js1/main.js"></script>
+    
+    <script>
+        today = new Date().toJSON().slice(0, 10);
+        document.getElementById('date').max = today;
+    </script>
 </body>
 
 </html>

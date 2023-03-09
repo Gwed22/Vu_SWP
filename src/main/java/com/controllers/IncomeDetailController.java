@@ -4,20 +4,21 @@
  */
 package com.controllers;
 
-import com.dao.SupportCustomerDAO;
+import com.dao.RevenueStatisticDAO;
+import com.models.IncomeSpendingDetail;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.Date;
+import java.util.ArrayList;
 
 /**
  *
  * @author DELL
  */
-public class SupportReplyController extends HttpServlet {
+public class IncomeDetailController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,10 +37,10 @@ public class SupportReplyController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet SupportReplyController</title>");
+            out.println("<title>Servlet IncomeDetailController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet SupportReplyController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet IncomeDetailController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -57,7 +58,12 @@ public class SupportReplyController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String date = request.getParameter("date");
+        RevenueStatisticDAO dao = new RevenueStatisticDAO();
+        ArrayList<IncomeSpendingDetail> list = dao.getIncomDetailByDate(date);
+        request.setAttribute("date", date);
+        request.setAttribute("list", list);
+        request.getRequestDispatcher("incomedetail.jsp").forward(request, response);
     }
 
     /**
@@ -71,26 +77,7 @@ public class SupportReplyController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (request.getParameter("btnSend") != null) {
-            Date datetime = new Date();
-            String mesage_context = request.getParameter("txtSupport");
-
-            SupportCustomerDAO dao = new SupportCustomerDAO();
-//        if (request.getParameter("btnSend") != null) {
-//            Date datetime = new Date();
-//            String mesage_context = request.getParameter("txtSupport");
-//            
-//            SupportCustomerDAO dao = new SupportCustomerDAO();
-//            int count = dao.addMessage(chat_session_id, datetime, mesage_context);
-//            if (count > 0) {
-//                request.setAttribute("message", "Reply Successful");
-//                request.getRequestDispatcher("/supportview.jsp").forward(request, response);
-//            } else {
-//                request.setAttribute("message", "Reply Failed");
-//                request.getRequestDispatcher("/supportview.jsp").forward(request, response);
-//            }
-        }
-//        }
+        processRequest(request, response);
     }
 
     /**

@@ -89,12 +89,14 @@ public class EditConsignmentController extends HttpServlet {
             int cid = Integer.parseInt(request.getParameter("Category"));
             int quantity = Integer.parseInt(request.getParameter("txtQuantity"));
             int bid = Integer.parseInt(request.getParameter("Brand"));
-            float price = Float.parseFloat(request.getParameter("txtPrice"));
+            float importPrice = Float.parseFloat(request.getParameter("txtImportPrice"));
             String date = request.getParameter("txtDate");
             String img = request.getParameter("txtImg");
+            float sellingPrice = Float.parseFloat(request.getParameter("txtSellPrice"));
+            String desc = request.getParameter("txtDesc");
 
             ConsignmentDAO dao = new ConsignmentDAO();
-            int count = dao.updateConsignment(id, name, cid, quantity, bid, price, date, img);
+            int count = dao.updateConsignment(id, name, cid, quantity, bid, importPrice, date, img, sellingPrice, desc);
             if (count > 0) {
                 request.setAttribute("message", "Update Successful");
                 request.getRequestDispatcher("/allconsignment").forward(request, response);

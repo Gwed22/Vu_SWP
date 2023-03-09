@@ -68,6 +68,22 @@
                     ============================================ -->
         <script src="js1/vendor/modernizr-2.8.3.min.js"></script>
     </head>
+<<<<<<< HEAD
+    <jsp:include page="headeradmin.jsp"></jsp:include>
+        <div class="breadcome-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="breadcome-list">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <div class="breadcomb-wp">
+                                        <div class="breadcomb-icon">
+                                            <a href="homeadmin"><i class="icon nalika-home"></i></a>
+                                        </div>
+                                        <div class="breadcomb-ctn">
+                                            <h2>Account Management</h2>
+=======
     <body>
         <jsp:include page="headeradmin.jsp"></jsp:include>
             <div class="breadcome-area">
@@ -84,6 +100,7 @@
                                             <div class="breadcomb-ctn">
                                                 <h2>Account Management</h2>
                                             </div>
+>>>>>>> 4f0c8ff6d651eca7f5b52b15e041493b56c77a8d
                                         </div>
                                     </div>
                                 </div>

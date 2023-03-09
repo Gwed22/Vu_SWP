@@ -88,7 +88,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                         <div class="breadcomb-wp">
                                             <div class="breadcomb-icon">
-                                                <a href="home"><i class="icon nalika-home"></i></a>
+                                                <a href="homeadmin"><i class="icon nalika-home"></i></a>
                                             </div>
                                             <div class="breadcomb-ctn">
                                                 <h2>Add New Sale</h2>
@@ -107,15 +107,7 @@
 
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                            <ul>
-                                <li style="margin: 20px; "> <a style="color: white; " href="##">Product Management</a> </li>
-                                <li style="margin: 20px; "> <a style="color: white; " href="##">Sale Management</a></li>
-                                <li style="margin: 20px; "> <a style="color: white; " href="##">Product Statistic </a> </li>
-                                <li style="margin: 20px; "> <a style="color: white; " href="##">Warehouse</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="review-tab-pro-inner">
                                 <ul id="myTab3" class="tab-review-design">
                                     <li class="active"><a href="#"><i class="icon nalika-edit" aria-hidden="true"></i>ADD NEW SALE</a></li>
@@ -124,10 +116,10 @@
                                     <div class="product-tab-list tab-pane fade active in" id="description">
                                         <form action="AddSale" method="post">
                                             <div class="row">
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                     <div class="review-content-section">
                                                         <div class="input-group mg-b-pro-edt">
-                                                            <label style="color: white; ">Product Name</label>
+                                                            <span class="input-group-addon">Product Name</span>
                                                             <select name="txtConID" class="form-control pro-edt-select form-control-primary">
                                                             <c:forEach items="${listCon}" var="con">
                                                                 <option value="${con.getConID()}">${con.getProductName()}</option>
@@ -135,19 +127,19 @@
                                                         </select>
                                                     </div>
                                                     <div class="input-group mg-b-pro-edt">
-                                                        <label style="color: white; ">Sale Start Date</label>>
+                                                        <span class="input-group-addon">Sale Start Date</span>
                                                         <input type="date" class="form-control" placeholder="Sale start date" name="txtSaleStartDate">
                                                     </div>
                                                     <div class="input-group mg-b-pro-edt">
-                                                        <label style="color: white; ">Sale End Date</label>
+                                                        <span class="input-group-addon">Sale End Date</span>
                                                         <input type="date" class="form-control" placeholder="Sale end date" name="txtSaleEndDate">
                                                     </div>
                                                     <div class="input-group mg-b-pro-edt">
-                                                        <label style="color: white; ">Sale Price</label>
+                                                        <span class="input-group-addon">Sale Price</span>
                                                         <input type="text" class="form-control" placeholder="Sale price" name="txtSalePrice">
                                                     </div>
                                                     <div class="input-group mg-b-pro-edt">
-                                                        <label style="color: white; ">Description</label>
+                                                        <span class="input-group-addon">Description</span>
                                                         <input type="text" class="form-control" placeholder="Sale Description" name="txtDesc">
                                                     </div>
                                                 </div>

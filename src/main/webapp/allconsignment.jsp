@@ -13,7 +13,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Consignment List</title>
+        <title>Product List</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- favicon
@@ -139,7 +139,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                     <div class="breadcomb-wp">
                                         <div class="breadcomb-icon">
-                                            <a href="home"><i class="icon nalika-home"></i></a>
+                                            <a href="homeadmin"><i class="icon nalika-home"></i></a>
                                         </div>
                                         <div class="breadcomb-ctn">
                                             <h2>Warehouse Management</h2>
@@ -157,9 +157,9 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="product-status-wrap">
-                            <h4>Consignment List</h4>
+                            <h4>Product List</h4>
                             <div class="add-product">
-                                <a href="addconsignment">Add Consignment</a>
+                                <a href="addconsignment">New Consignment</a>
                             </div>
                             <form role="search" action="searchconsignment" method="get">
                                 <input type="text" placeholder="Search..." class="form-control" name="txtQuery">
@@ -171,8 +171,8 @@
                                     <th>Category</th>
                                     <th>Brand</th>
                                     <th>Import cost</th>
+                                    <th>Selling price</th>
                                     <th>Quantity</th>
-                                    <th>Import Date</th>
                                     <th>Setting</th>
                                 </tr>
                                 <%
@@ -185,8 +185,8 @@
                                     <td><%= rs.getString("c_name")%></td>
                                     <td><%= rs.getString("brand_name")%></td>
                                     <td class="money"><%= rs.getFloat("con_price")%></td>
+                                    <td class="money"><%= rs.getFloat("productPrice")%></td>
                                     <td><%= rs.getInt("con_quantity")%></td>
-                                    <td><%= rs.getString("import_date")%></td>
                                     <td>
                                         <a href="editconsignment?id=<%= rs.getInt("con_id")%>"><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
                                         <a href="addexistconsignment?id=<%= rs.getInt("con_id")%>"><button data-toggle="tooltip" title="Import more" class="pd-setting-ed"><i class="fa fa-plus" aria-hidden="true"></i></button></a>
@@ -266,7 +266,7 @@
         var x = document.getElementsByClassName('money');
         for (var i = 0; i < x.length; i++) {
             x[i].innerHTML = formatter.format(x[i].innerHTML);
-            console.log(x);
+//            console.log(x);
         }
     </script>
 </body>

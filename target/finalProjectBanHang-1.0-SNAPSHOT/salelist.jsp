@@ -95,7 +95,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                     <div class="breadcomb-wp">
                                         <div class="breadcomb-icon">
-                                            <a href="home"><i class="icon nalika-home"></i></a>
+                                            <a href="homeadmin"><i class="icon nalika-home"></i></a>
                                         </div>
                                         <div class="breadcomb-ctn">
                                             <h2>Sale Management</h2>
@@ -111,18 +111,7 @@
         <div class="product-status mg-b-30">
             <div class="container-fluid">
                 <div class="row">
-
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                        <ul>
-                            <li style="margin: 20px; "> <a style="color: white; " href="##">Product Management</a> </li>
-                            <li style="margin: 20px; "> <a style="color: white; " href="##">Sale Management</a></li>
-                            <li style="margin: 20px; "> <a style="color: white; " href="##">Product Statistic </a> </li>
-                            <li style="margin: 20px; "> <a style="color: white; " href="##">Warehouse</a></li>
-                        </ul>
-
-                    </div>
-
-                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="product-status-wrap">
                             <h4>Sale List</h4>
                             <div class="add-product">

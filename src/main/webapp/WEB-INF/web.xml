@@ -113,6 +113,18 @@
         <servlet-class>com.controllers.SupportReplyController</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>RevenueStatisticController</servlet-name>
+        <servlet-class>com.controllers.RevenueStatisticController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>IncomeDetailController</servlet-name>
+        <servlet-class>com.controllers.IncomeDetailController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SpendingDetailController</servlet-name>
+        <servlet-class>com.controllers.SpendingDetailController</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>CommentController</servlet-name>
         <servlet-class>com.controllers.CommentController</servlet-class>
     </servlet>
@@ -369,6 +381,21 @@
         <url-pattern>/resetpassword</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+<<<<<<< HEAD
+=======
+        <servlet-name>RevenueStatisticController</servlet-name>
+        <url-pattern>/revenuestatistic</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>IncomeDetailController</servlet-name>
+        <url-pattern>/incomedetail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SpendingDetailController</servlet-name>
+        <url-pattern>/spendingdetail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+>>>>>>> f01fc42d244fc479c34a737c1f5496d23ddd93c5
         <servlet-name>CommentController</servlet-name>
         <url-pattern>/comment</url-pattern>
     </servlet-mapping>
@@ -376,10 +403,13 @@
         <servlet-name>ViewSaleController</servlet-name>
         <url-pattern>/sale</url-pattern>
     </servlet-mapping>
+<<<<<<< HEAD
     <servlet-mapping>
         <servlet-name>ReturnItemCart</servlet-name>
         <url-pattern>/returnItem</url-pattern>
     </servlet-mapping>
+=======
+>>>>>>> f01fc42d244fc479c34a737c1f5496d23ddd93c5
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>

@@ -39,8 +39,6 @@ public class Account {
         this.address = address;
         this.answer_context = answer_context;
     }
-    
-    
 
     public Account() {
     }

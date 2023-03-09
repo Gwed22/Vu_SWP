@@ -22,11 +22,15 @@ public class DBConnection {
         if (conn == null) {
             try {
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+<<<<<<< HEAD
 
                String url = "jdbc:sqlserver://DESKTOP-J01TQH0\\NAM:1433;databaseName=SWP;user=sa;password=123;encrypt=true;trustServerCertificate=true;";
     //            String url = "jdbc:sqlserver://DESKTOP-82FKB1P\\MINHHO:1433;databaseName=SWP1;user=sa;password=123;encrypt=true;trustServerCertificate=true;";
 
 
+=======
+                String url = "jdbc:sqlserver://DESKTOP-4K21CKU:1433;databaseName=SWP;user=sa;password=@luminium;encrypt=true;trustServerCertificate=true;";
+>>>>>>> f01fc42d244fc479c34a737c1f5496d23ddd93c5
                 conn = DriverManager.getConnection(url);
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);

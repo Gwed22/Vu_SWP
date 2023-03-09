@@ -34,7 +34,7 @@ public class ConsignmentDAO {
         ResultSet rs = null;
         try {
             Statement st = conn.createStatement();
-            rs = st.executeQuery("select c.con_id, c.product_img, c.product_name, ca.c_name, b.brand_name, c.con_price, c.con_quantity, c.import_date \n"
+            rs = st.executeQuery("select c.con_id, c.product_img, c.product_name, ca.c_name, b.brand_name, c.con_price, c.con_quantity, c.import_date, c.productPrice\n"
                     + "from Consignment c inner join Brand b on c.brand_id = b.brand_id \n"
                     + "inner join Category ca on c.c_id = ca.c_id");
         } catch (SQLException ex) {
@@ -87,17 +87,19 @@ public class ConsignmentDAO {
         return list;
     }
 
-    public int addConsignment(String name, int cid, int quantity, int bid, float price, String date, String img) {
+    public int addConsignment(String name, int cid, int quantity, int bid, float conPrice, String date, String img, float pPrice, String desc) {
         int count = 0;
         try {
-            PreparedStatement pst = conn.prepareStatement("insert into Consignment values (?,?,?,?,?,?,?)");
+            PreparedStatement pst = conn.prepareStatement("insert into Consignment values (?,?,?,?,?,?,?,?,?)");
             pst.setString(1, name);
             pst.setInt(2, cid);
             pst.setInt(3, quantity);
             pst.setInt(4, bid);
-            pst.setFloat(5, price);
+            pst.setFloat(5, conPrice);
             pst.setString(6, date);
             pst.setString(7, img);
+            pst.setFloat(8, pPrice);
+            pst.setString(9, desc);
             count = pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ConsignmentDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -108,7 +110,7 @@ public class ConsignmentDAO {
     public int deleteConsign(int id) {
         int count = 0;
         try {
-            PreparedStatement pst = conn.prepareStatement("delete from Consignment where con_id=?");
+            PreparedStatement pst = conn.prepareStatement("update Consignment set con_quantity = 0 where con_id=?");
             pst.setInt(1, id);
             count = pst.executeUpdate();
         } catch (SQLException ex) {
@@ -124,7 +126,7 @@ public class ConsignmentDAO {
             pst.setInt(1, id);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                c = new Consignment(rs.getInt("con_id"), rs.getString("product_name"), rs.getInt("c_id"), rs.getInt("con_quantity"), rs.getInt("brand_id"), rs.getFloat("con_price"), rs.getDate("import_date"), rs.getString("product_img"));
+                c = new Consignment(rs.getInt("con_id"), rs.getString("product_name"), rs.getInt("c_id"), rs.getInt("con_quantity"), rs.getInt("brand_id"), rs.getFloat("con_price"), rs.getDate("import_date"), rs.getString("product_img"), rs.getFloat("productPrice"), rs.getString("productDesc"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(ConsignmentDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -132,10 +134,10 @@ public class ConsignmentDAO {
         return c;
     }
     
-    public int updateConsignment(int id, String name, int cid, int quantity, int bid, float price, String date, String img) {
+    public int updateConsignment(int id, String name, int cid, int quantity, int bid, float price, String date, String img, float pPrice, String desc) {
         int count = 0;
         try {
-            PreparedStatement pst = conn.prepareStatement("update Consignment set product_name=?, c_id=?, con_quantity=?, brand_id=?, con_price=?, import_date=?, product_img=? where con_id=?");
+            PreparedStatement pst = conn.prepareStatement("update Consignment set product_name=?, c_id=?, con_quantity=?, brand_id=?, con_price=?, import_date=?, product_img=?, productPrice=?, productDesc=? where con_id=?");
             pst.setString(1, name);
             pst.setInt(2, cid);
             pst.setInt(3, quantity);
@@ -143,7 +145,9 @@ public class ConsignmentDAO {
             pst.setFloat(5, price);
             pst.setString(6, date);
             pst.setString(7, img);
-            pst.setInt(8, id);
+            pst.setFloat(8, pPrice);
+            pst.setString(9, desc);
+            pst.setInt(10, id);
             count = pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ConsignmentDAO.class.getName()).log(Level.SEVERE, null, ex);

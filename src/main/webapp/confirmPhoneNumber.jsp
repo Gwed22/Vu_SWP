@@ -25,8 +25,13 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
 <<<<<<< HEAD
+<<<<<<< HEAD
         <link rel="stylesheet" href="css/style3.css">
         <link rel="stylesheet" href="css/style3.css">
+=======
+        <link rel="stylesheet" href="css/style8.css">
+        <link rel="stylesheet" href="css/style8.css">
+>>>>>>> f01fc42d244fc479c34a737c1f5496d23ddd93c5
 =======
 
         <link rel="stylesheet" href="css/style8.css">
@@ -34,6 +39,7 @@
         <link rel="stylesheet" href="css/style8.css">
 >>>>>>> 4f0c8ff6d651eca7f5b52b15e041493b56c77a8d
 
+>>>>>>> 4f0c8ff6d651eca7f5b52b15e041493b56c77a8d
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->

@@ -4,20 +4,21 @@
  */
 package com.controllers;
 
-import com.dao.SupportCustomerDAO;
+import com.dao.RevenueStatisticDAO;
+import com.models.RevenueStatistic;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.Date;
+import java.util.ArrayList;
 
 /**
  *
  * @author DELL
  */
-public class SupportReplyController extends HttpServlet {
+public class RevenueStatisticController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,10 +37,10 @@ public class SupportReplyController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet SupportReplyController</title>");
+            out.println("<title>Servlet RevenueStatisticController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet SupportReplyController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet RevenueStatisticController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -57,7 +58,16 @@ public class SupportReplyController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        RevenueStatisticDAO dao = new RevenueStatisticDAO();
+        ArrayList<RevenueStatistic> list = dao.getAllToChart();
+        request.setAttribute("listLineChart", list);
+
+        ArrayList<RevenueStatistic> list2 = dao.getSpending();
+        request.setAttribute("listSpending", list2);
+        
+        ArrayList<RevenueStatistic> list3 = dao.getAllToChart();
+        request.setAttribute("listIncome", list3);
+        request.getRequestDispatcher("revenuestatistic.jsp").forward(request, response);
     }
 
     /**
@@ -71,26 +81,22 @@ public class SupportReplyController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (request.getParameter("btnSend") != null) {
-            Date datetime = new Date();
-            String mesage_context = request.getParameter("txtSupport");
+        if (request.getParameter("btnSearch") != null) {
+            String startDate = request.getParameter("txtStartDate");
+            String endDate = request.getParameter("txtEndDate");
 
-            SupportCustomerDAO dao = new SupportCustomerDAO();
-//        if (request.getParameter("btnSend") != null) {
-//            Date datetime = new Date();
-//            String mesage_context = request.getParameter("txtSupport");
-//            
-//            SupportCustomerDAO dao = new SupportCustomerDAO();
-//            int count = dao.addMessage(chat_session_id, datetime, mesage_context);
-//            if (count > 0) {
-//                request.setAttribute("message", "Reply Successful");
-//                request.getRequestDispatcher("/supportview.jsp").forward(request, response);
-//            } else {
-//                request.setAttribute("message", "Reply Failed");
-//                request.getRequestDispatcher("/supportview.jsp").forward(request, response);
-//            }
+            RevenueStatisticDAO dao = new RevenueStatisticDAO();
+            ArrayList<RevenueStatistic> list = dao.searchToChart(startDate, endDate);
+            request.setAttribute("listLineChart", list);
+            
+            ArrayList<RevenueStatistic> list2 = dao.getSpending();
+            request.setAttribute("listSpending", list2);
+
+            ArrayList<RevenueStatistic> list3 = dao.getAllToChart();
+            request.setAttribute("listIncome", list3);
+
+            request.getRequestDispatcher("revenuestatistic.jsp").forward(request, response);
         }
-//        }
     }
 
     /**
