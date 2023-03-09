@@ -23,8 +23,8 @@ public class DBConnection {
             try {
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
-//                String url = "jdbc:sqlserver://DESKTOP-J01TQH0\\NAM:1433;databaseName=SWP;user=sa;password=123;encrypt=true;trustServerCertificate=true;";
-                String url = "jdbc:sqlserver://DESKTOP-82FKB1P\\MINHHO:1433;databaseName=SWP1;user=sa;password=123;encrypt=true;trustServerCertificate=true;";
+               String url = "jdbc:sqlserver://DESKTOP-J01TQH0\\NAM:1433;databaseName=SWP;user=sa;password=123;encrypt=true;trustServerCertificate=true;";
+    //            String url = "jdbc:sqlserver://DESKTOP-82FKB1P\\MINHHO:1433;databaseName=SWP1;user=sa;password=123;encrypt=true;trustServerCertificate=true;";
 
 
                 conn = DriverManager.getConnection(url);

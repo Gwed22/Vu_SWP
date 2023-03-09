@@ -27,23 +27,22 @@ public class EditOrderController extends HttpServlet {
 
     /**
      * Load data of order need to edit
+     * @param request
+     * @param response
+     * @throws jakarta.servlet.ServletException
+     * @throws java.io.IOException
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+        throws ServletException, IOException {
         try {
             int id = Integer.parseInt(request.getParameter("id")); //get id of order need edit
             OrderDAO dao = new OrderDAO();
             Order or = dao.getOrder(id);  // get order by order id
             AccountDAO dao1 = new AccountDAO();
-<<<<<<< HEAD
-            Account acc = dao1.getAccountByID(or.getAccountID());
-            request.setAttribute("acc", acc);
-=======
             Account acc = dao1.getAccountByID(or.getAccountID()); //get account by account id save in order
-
             request.setAttribute("acc", acc);   //save these data to attribute
->>>>>>> 4f0c8ff6d651eca7f5b52b15e041493b56c77a8d
+
             request.setAttribute("o", or);
             request.getRequestDispatcher("/editorder.jsp").forward(request, response); //forward
         } catch (SQLException ex) {

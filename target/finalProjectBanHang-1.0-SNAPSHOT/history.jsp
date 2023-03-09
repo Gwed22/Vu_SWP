@@ -109,15 +109,17 @@
                                             </td>
                                             <td>${o.getProductName()}</td>
                                             <td>${o.getQuantity()}</td>
-                                            <td><fmt:formatNumber type="number" value="${o.getTotalPrice()}" pattern="###,###,###.#" /> VND</td>
+                                            <td><fmt:formatNumber type="number" value="${o.getTotalPrice()}" pattern="###,###,###" /> VND</td>
                                             <td >${o.getOrderDate()} </td>
                                             <td >${o.getDeliveriDate()}</td>
                                             <td >${o.getAddress()}</td>
                                             <td >${o.getStatus()}</td>
                                             <td >${o.getNote()}</td>
                                             <c:if test="${!(o.getStatus().equals('Complete'))}">
-                                                <td><a href="receivedOrder" class="send" style="width: 80px; background-color: green !important;">Received</a></td>
-                                                <td><a href="returnOrder" class="send" style="width: 80px;">Return</a></td>
+                                                <td><a href="receivedItem?od=${o.getOrderID()}" class="send" style="width: 80px; background-color: green !important;">Received</a></td>
+                                                <c:if   test="${!(o.getStatus().equals('Delivering'))}">
+                                                    <td><a href="returnItem?oid=${o.getOrderID()}" class="send" style="width: 80px;">Cancel</a></td>
+                                                </c:if>
                                             </c:if>
                                         </tr>
                                     </c:forEach>
