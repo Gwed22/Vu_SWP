@@ -118,7 +118,6 @@ public class Order {
         this.totalMoney = totalMoney;
     }
     
-    
     @Override
     public String toString() {
         return "Order{" + "orderID=" + orderID + ", orderDate=" + orderDate + ", deliveryDate=" + deliveryDate + ", status=" + status + ", note=" + note + ", accountID=" + accountID + ", address=" + address + '}';

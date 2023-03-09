@@ -124,15 +124,7 @@ public class OrderDAO {
         }
     }
 
-//    public int deleteProduct(String masp) {
-//        int count = 0;
-//        try {
-//            PreparedStatement pst = conn.prepareCall("delete from product where masp=?");
-//            pst.setString(1, masp);
-//            count = pst.executeUpdate();
-//        } catch (SQLException ex) {
-//            Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        return count;
-//    }
+    public static void main(String[] args) {
+        
+    }
 }

@@ -24,7 +24,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="css/style8.css">
+        <link rel="stylesheet" href="css/style3.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -47,18 +47,17 @@
         <!-- header inner -->
         <div class="header ">
             <div class="header-menu">
-                <c:if test="${sessionScope.acc.role_id == 1}"><div><a href="/homeadmin" style="margin-left: 20px; justify-item: right;"> << Return admin pages</a></div> </c:if>
                 <div class="row">
-                    <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 col" style="height: 20px">
+                    <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 col">
                         <div class="full">
                             <div class="center-desk">
                                 <div class="logo">
-                                    <a href="/home"><img src="images/logo.png" alt="#"></a>
+                                    <a href="/home"><img style="height:  100px;" src="images/logo5.png" alt="#"></a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-9 col-md-9 col-sm-9">
+                    <div class="col-xl-6 col-lg-9 col-md-9 col-sm-9" style="margin-top: 20px;" >
                         <div class="menu-area">                                
                             <header class="main-menu" >
                                 <form action="search" class="form-search col-xl-8">
@@ -69,7 +68,7 @@
                                     <button type="submit" class=" btn-secondary btn-search "><i class="fa fa-search"></i></button>
                                 </form>
                                 <ul class="menu-area-main col-md-12" style="margin-left: 30px;">
-                                    
+                                    <li class="active sale"><a href="/contact"><i class="fa fa-envelope" aria-hidden="true"></i> Contact</a></li>
                                     <li class="active sale"><a href="/sale"><i class="fa fa-tags" aria-hidden="true"></i> Sales</a></li>
                                         <c:if test="${sessionScope.acc == null}">                                           
                                         <li class="active"><a href="/login"><i class="fa fa-user-circle-o" aria-hidden="true" ></i> LogIn</a></li>

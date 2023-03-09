@@ -63,20 +63,19 @@ public class EditOrderController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         try {
             int id = Integer.parseInt(request.getParameter("id"));
             OrderDAO dao = new OrderDAO();
             Order or = dao.getOrder(id);
             AccountDAO dao1 = new AccountDAO();
             Account acc = dao1.getAccountByID(or.getAccountID());
-
             request.setAttribute("acc", acc);
             request.setAttribute("o", or);
             request.getRequestDispatcher("/editorder.jsp").forward(request, response);
         } catch (SQLException ex) {
             Logger.getLogger(EditOrderController.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }
 
     /**

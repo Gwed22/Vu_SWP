@@ -10,10 +10,10 @@
 <html lang="en">
 
     <head>
-         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- basic -->
         <meta charset="utf-8">
-        
+
         <!-- mobile metas -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1">
@@ -26,7 +26,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="css/style8.css">
+        <link rel="stylesheet" href="css/style3.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -49,53 +49,42 @@
     <body class="main-layout">
         <!-- loader  -->
         <jsp:include page="header.jsp"></jsp:include>
-        <!-- end header -->
-        <div class="brand_color">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="titlepage">
-                            <h2>Contact Us</h2>
+            <!-- end header -->
+            <div class="brand_color">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="titlepage">
+                                <h2>Contact</h2>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
 
-        </div>
-
-        <!-- contact -->
-        <div class="contact">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-
-                        <form class="main_form" action="contact" method="post">
-                            <div class="row">
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                    <input class="form-control" placeholder="Your name" type="text" name="Your Name" required>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                    <input class="form-control" placeholder="Email" type="text" name="Email" required>
-                                </div>
-                                <div class=" col-md-12">
-                                    <input class="form-control" placeholder="Phone" type="text" name="Phone" required>
-                                </div>
-                                <div class="col-md-12">
-                                    <textarea class="textarea" placeholder="Message" required></textarea>
-                                </div>
-                                <div class=" col-md-12">
-                                    <button class="send" type="submit">Send</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+            <!-- contact -->
+            <div class="contact" >
+                <div class="container" style="margin-right: 0px;">
+                    <form class="main_form col-md-8" action="contact" method="post">
+                       
+                        <div class="col-md-12">
+                            <input class="form-control" placeholder="Email" type="text" name="txtEmail" required>
+                        </div>
+                        <div class="col-md-12">
+                            <textarea placeholder="Message..." rows="10" style="width: 100%" name="txtMess"  required></textarea>
+                        </div>
+                        <div class=" col-md-12">
+                            <button class="send" type="submit">Send</button>
+                        </div>
+                                                  
+                    </form>
                 </div>
             </div>
-        </div>
-        <!-- end contact -->
+            <!-- end contact -->
 
-        <!-- footer -->
-         <jsp:include page="footer.jsp"></jsp:include>
+            <!-- footer -->
+        <jsp:include page="footer.jsp"></jsp:include>
         <!-- end footer -->
         <!-- Javascript files-->
         <script src="js/jquery.min.js"></script>

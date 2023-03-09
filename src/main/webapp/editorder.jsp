@@ -114,146 +114,114 @@
                                     <form method="post" action="editorder">
                                         <div id="myTabContent" class="tab-content custom-product-edit">
                                             <div class="product-tab-list tab-pane fade active in" id="description">
-<<<<<<< HEAD:src/main/webapp/orderedit.jsp
-                                            <div class="row">
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                    <div class="review-content-section">
-                                                        <div class="input-group mg-b-pro-edt" style="display: none">
-                                                            <span class="input-group-addon"><i class="icon nalika-edit" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control" name="o_id" value="$//{or.getOrderID()}"  readonly style="color: black">
-                                                        </div>
-                                                        <div class="input-group mg-b-pro-edt" style="display: none">
-                                                            <span class="input-group-addon"><i class="icon nalika-edit" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control"  name="o_date" value="$//{or.getOrderDate()}"  readonly style="color: black">
-                                                        </div>
-                                                        <div class="input-group mg-b-pro-edt">
-                                                            <span class="input-group-addon"><i class="icon nalika-favorites" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control" value="$//{or.getDeliveryDate()}" name="delivery_date" >
-=======
                                                 <div class="row">
                                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                        <div class="review-content-section">
-                                                            <div class="input-group mg-b-pro-edt">
-                                                                <span class="input-group-addon"><i class="icon nalika-edit"></i>  Order ID :  </span>
-                                                                <input type="text" class="form-control" id="o_id" name="o_id" value="${o.getOrderID()}"  readonly  style="color: black">
+                                                        <div class="row">
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                <div class="review-content-section">
+                                                                    <div class="input-group mg-b-pro-edt">
+                                                                        <span class="input-group-addon"><i class="icon nalika-edit"></i>  Order ID :  </span>
+                                                                        <input type="text" class="form-control" id="o_id" name="o_id" value="${o.getOrderID()}"  readonly  style="color: black">
+                                                                </div>
+                                                                <div class="input-group mg-b-pro-edt">
+                                                                    <span class="input-group-addon"><i class="icon nalika-edit"></i>  Order Date :  </span>
+                                                                    <input type="date" class="form-control" id="o_date" name="o_date" value="${o.getOrderDate()}"  readonly  style="color: black">
+                                                                </div>
+                                                                <div class="input-group mg-b-pro-edt">
+                                                                    <span class="input-group-addon"><i class="icon nalika-favorites"></i>  Delivery Date :  </span>
+                                                                    <input type="date" style="background-color: #337ab7;" class="form-control" id="delivery_date" value="${o.getDeliveryDate()}" name="delivery_date">
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <div class="input-group mg-b-pro-edt">
-                                                            <span class="input-group-addon"><i class="icon nalika-edit"></i>  Order Date :  </span>
-                                                            <input type="date" class="form-control" id="o_date" name="o_date" value="${o.getOrderDate()}"  readonly  style="color: black">
-                                                        </div>
-                                                        <div class="input-group mg-b-pro-edt">
-                                                            <span class="input-group-addon"><i class="icon nalika-favorites"></i>  Delivery Date :  </span>
-                                                            <input type="date" style="background-color: #337ab7;" class="form-control" id="delivery_date" value="${o.getDeliveryDate()}" name="delivery_date">
->>>>>>> 1dfc8c5028ac056ffd248305d03e881bf455ac2e:src/main/webapp/editorder.jsp
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                            <div class="review-content-section">
+                                                                <div class="input-group mg-b-pro-edt">
+                                                                    <span class="input-group-addon"><i class="icon nalika-new-file"></i>  Status :  </span>
+                                                                    <input type="text" style="background-color: #337ab7;" class="form-control" placeholder="status" id="status" value="${o.getStatus()}" name="status">
+                                                                </div>
+                                                                <div class="input-group mg-b-pro-edt">
+                                                                    <span class="input-group-addon"><i class="icon nalika-new-file" aria-hidden="true"></i>  Note :  </span>
+                                                                    <input type="text" style="background-color: #337ab7;" class="form-control" placeholder="note" name="note" id="note" value="${o.getNote()}">
+                                                                </div>
+                                                                <div class="input-group mg-b-pro-edt">
+                                                                    <span class="input-group-addon"><i class="icon nalika-favorites-button"></i>  Account Name :  </span>
+                                                                    <input type="text" class="form-control" placeholder="account_id" name="account_id" id="account_id" value="${acc.getName()}" readonly  style="color: black">
+                                                                </div>
+                                                                <div class="input-group mg-b-pro-edt">
+                                                                    <span class="input-group-addon"><i class="icon nalika-favorites-button" ></i>  Address :  </span>
+                                                                    <input type="text" style="background-color: #337ab7;" class="form-control" placeholder="account_id" name="address" id="address" value="${o.getAddress()}">
+
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                    <div class="review-content-section">
-<<<<<<< HEAD:src/main/webapp/orderedit.jsp
-                                                        <div class="input-group mg-b-pro-edt" style="display: none">
-                                                            <span class="input-group-addon"><i class="icon nalika-new-file" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control" placeholder="status" value="$//{or.getStatus()}" name="status"  readonly style="color: black">
-                                                        </div>
-                                                        <div class="input-group mg-b-pro-edt" style="display: none">
-                                                            <span class="input-group-addon"><i class="icon nalika-new-file" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control" placeholder="note" name="note" value="$//{or.getNote()}" readonly style="color: black">
-                                                        </div>
-                                                        <div class="input-group mg-b-pro-edt" style="display: none">
-                                                            <span class="input-group-addon"><i class="icon nalika-favorites-button" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control" placeholder="account_id" name="account_id" value="$//{or.getAccountID()}" readonly style="color: black">
-                                                        </div>
-                                                        <div class="input-group mg-b-pro-edt" style="display: none">
-                                                            <span class="input-group-addon"><i class="icon nalika-favorites-button" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control" placeholder="account_id" name="address" value="$//{or.getAddress()}" readonly style="color: black">
-=======
-                                                        <div class="input-group mg-b-pro-edt">
-                                                            <span class="input-group-addon"><i class="icon nalika-new-file"></i>  Status :  </span>
-                                                            <input type="text" style="background-color: #337ab7;" class="form-control" placeholder="status" id="status" value="${o.getStatus()}" name="status">
-                                                        </div>
-                                                        <div class="input-group mg-b-pro-edt">
-                                                            <span class="input-group-addon"><i class="icon nalika-new-file" aria-hidden="true"></i>  Note :  </span>
-                                                            <input type="text" style="background-color: #337ab7;" class="form-control" placeholder="note" name="note" id="note" value="${o.getNote()}">
-                                                        </div>
-                                                        <div class="input-group mg-b-pro-edt">
-                                                            <span class="input-group-addon"><i class="icon nalika-favorites-button"></i>  Account Name :  </span>
-                                                            <input type="text" class="form-control" placeholder="account_id" name="account_id" id="account_id" value="${acc.getName()}" readonly  style="color: black">
-                                                        </div>
-                                                        <div class="input-group mg-b-pro-edt">
-                                                            <span class="input-group-addon"><i class="icon nalika-favorites-button" ></i>  Address :  </span>
-                                                            <input type="text" style="background-color: #337ab7;" class="form-control" placeholder="account_id" name="address" id="address" value="${o.getAddress()}">
->>>>>>> 1dfc8c5028ac056ffd248305d03e881bf455ac2e:src/main/webapp/editorder.jsp
+                                                    <div class="row">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                            <div class="text-right custom-pro-edt-ds">
+                                                                <button type="submit" name="btnUpdate" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Save</button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                    <div class="text-right custom-pro-edt-ds">
-                                                        <button type="submit" name="btnUpdate" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Save</button>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            </form>
                                         </div>
                                     </div>
-                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="footer-copyright-area">
+                <div class="footer-copyright-area">
 
-        </div>
+                </div>
 
-        <!-- jquery
-                    ============================================ -->
-        <script src="js1/vendor/jquery-1.12.4.min.js"></script>
-        <!-- bootstrap JS
-                    ============================================ -->
-        <script src="js1/bootstrap.min.js"></script>
-        <!-- wow JS
-                    ============================================ -->
-        <script src="js1/wow.min.js"></script>
-        <!-- price-slider JS
-                    ============================================ -->
-        <script src="js1/jquery-price-slider.js"></script>
-        <!-- meanmenu JS
-                    ============================================ -->
-        <script src="js1/jquery.meanmenu.js"></script>
-        <!-- owl.carousel JS
-                    ============================================ -->
-        <script src="js1/owl.carousel.min.js"></script>
-        <!-- sticky JS
-                    ============================================ -->
-        <script src="js1/jquery.sticky.js"></script>
-        <!-- scrollUp JS
-                    ============================================ -->
-        <script src="js1/jquery.scrollUp.min.js"></script>
-        <!-- mCustomScrollbar JS
-                    ============================================ -->
-        <script src="js1/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-        <script src="js1/scrollbar/mCustomScrollbar-active.js"></script>
-        <!-- metisMenu JS
-                    ============================================ -->
-        <script src="js1/metisMenu/metisMenu.min.js"></script>
-        <script src="js1/metisMenu/metisMenu-active.js"></script>
-        <!-- morrisjs JS
-                    ============================================ -->
-        <script src="js1/sparkline/jquery.sparkline.min.js"></script>
-        <script src="js1/sparkline/jquery.charts-sparkline.js"></script>
+                <!-- jquery
+                            ============================================ -->
+                <script src="js1/vendor/jquery-1.12.4.min.js"></script>
+                <!-- bootstrap JS
+                            ============================================ -->
+                <script src="js1/bootstrap.min.js"></script>
+                <!-- wow JS
+                            ============================================ -->
+                <script src="js1/wow.min.js"></script>
+                <!-- price-slider JS
+                            ============================================ -->
+                <script src="js1/jquery-price-slider.js"></script>
+                <!-- meanmenu JS
+                            ============================================ -->
+                <script src="js1/jquery.meanmenu.js"></script>
+                <!-- owl.carousel JS
+                            ============================================ -->
+                <script src="js1/owl.carousel.min.js"></script>
+                <!-- sticky JS
+                            ============================================ -->
+                <script src="js1/jquery.sticky.js"></script>
+                <!-- scrollUp JS
+                            ============================================ -->
+                <script src="js1/jquery.scrollUp.min.js"></script>
+                <!-- mCustomScrollbar JS
+                            ============================================ -->
+                <script src="js1/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+                <script src="js1/scrollbar/mCustomScrollbar-active.js"></script>
+                <!-- metisMenu JS
+                            ============================================ -->
+                <script src="js1/metisMenu/metisMenu.min.js"></script>
+                <script src="js1/metisMenu/metisMenu-active.js"></script>
+                <!-- morrisjs JS
+                            ============================================ -->
+                <script src="js1/sparkline/jquery.sparkline.min.js"></script>
+                <script src="js1/sparkline/jquery.charts-sparkline.js"></script>
 
-        <!-- tab JS
-                    ============================================ -->
-        <script src="js/tab.js"></script>
-        <!-- plugins JS
-                    ============================================ -->
-        <script src="js1/plugins.js"></script>
-        <!-- main JS
-                    ============================================ -->
-        <script src="js1/main.js"></script>
+                <!-- tab JS
+                            ============================================ -->
+                <script src="js/tab.js"></script>
+                <!-- plugins JS
+                            ============================================ -->
+                <script src="js1/plugins.js"></script>
+                <!-- main JS
+                            ============================================ -->
+                <script src="js1/main.js"></script>
 
-    </body>
+                </body>
 
-</html>
+                </html>

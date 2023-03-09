@@ -120,6 +120,10 @@
         <servlet-name>ViewSaleController</servlet-name>
         <servlet-class>com.controllers.ViewSaleController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ContactController</servlet-name>
+        <servlet-class>com.controllers.ContactController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -371,6 +375,10 @@
     <servlet-mapping>
         <servlet-name>ViewSaleController</servlet-name>
         <url-pattern>/sale</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ContactController</servlet-name>
+        <url-pattern>/contact</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

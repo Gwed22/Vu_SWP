@@ -25,9 +25,9 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
 
-        <link rel="stylesheet" href="css/style8.css">
+        <link rel="stylesheet" href="css/style3.css">
 
-        <link rel="stylesheet" href="css/style8.css">
+        <link rel="stylesheet" href="css/style3.css">
 
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">

@@ -34,7 +34,7 @@
         <!-- bootstrap css -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="css/style8.css">
+        <link rel="stylesheet" href="css/style3.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -83,6 +83,7 @@
                             <table class="table table-border">
                                 <thead style="text-align: center">
                                     <tr>
+                                        <th>Order ID</th>
                                         <th>Product</th>
                                         <th>Product name</th>
                                         <th>Quantity</th>
@@ -100,12 +101,13 @@
                                     <c:forEach items="${list}" var="o">
 
                                         <tr >
+                                            <td>OR${o.getOrderID()}</td>
                                             <td>
                                                 <div class="aside">
                                                     <img style="max-width: 100px" src="${o.getProductImg()}" />
                                                 </div>
                                             </td>
-                                            <td >${o.getProductName()}</td>
+                                            <td>${o.getProductName()}</td>
                                             <td>${o.getQuantity()}</td>
                                             <td><fmt:formatNumber type="number" value="${o.getTotalPrice()}" pattern="###,###,###.#" /> VND</td>
                                             <td >${o.getOrderDate()} </td>

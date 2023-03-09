@@ -4,6 +4,7 @@
     Author     : DELL 
 --%>
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page import="com.dao.OrderDAO"%>
 <%@page import="com.models.Order"%>
 <%@page import="java.sql.ResultSet"%>
@@ -61,7 +62,7 @@
                     ============================================ -->
         <link rel="stylesheet" href="css1/metisMenu/metisMenu.min.css">
         <link rel="stylesheet" href="css1/metisMenu/metisMenu-vertical.css">
-        
+
         <!-- style CSS
                     ============================================ -->
         <link rel="stylesheet" href="style.css">
@@ -79,20 +80,19 @@
             <![endif]-->
 
         <jsp:include page="headeradmin.jsp"></jsp:include>
-                <div class="breadcome-area">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="breadcome-list">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                            <div class="breadcomb-wp">
-                                                <div class="breadcomb-icon">
-                                                    <a href="home"><i class="icon nalika-home"></i></a>
-                                                </div>
-                                                <div class="breadcomb-ctn">
-                                                    <h2>Order List</h2>
-                                                </div>
+            <div class="breadcome-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="breadcome-list">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <div class="breadcomb-wp">
+                                            <div class="breadcomb-icon">
+                                                <a href="home"><i class="icon nalika-home"></i></a>
+                                            </div>
+                                            <div class="breadcomb-ctn">
+                                                <h2>Order List</h2>
                                             </div>
                                         </div>
                                     </div>
@@ -101,6 +101,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
             <div class="product-status mg-b-30">
                 <div class="container-fluid">
                     <div class="row">
@@ -114,43 +115,45 @@
                                         <th>Shipping Date</th>
                                         <th>Status</th>
                                         <th>Note</th>
+                                        <th>Total Price</th>
                                         <th>Account ID</th>
                                         <th>Address</th>
                                     </tr>
-                                    <%
-                                        ResultSet rs = (ResultSet) request.getAttribute("rs");
-                                        while (rs.next()) {
-                                    %>
-                                    <tr>
-                                        <td><%= rs.getInt("o_id")%></td>
-                                        <td><%= rs.getDate("o_date")%></td>
-                                        <td><%= rs.getDate("delivery_date")%></td>
-                                        <td><%= rs.getString("status")%></td>
-                                        <td><%= rs.getString("note")%></td>
-                                        <td><%= rs.getInt("account_id")%></td>
-                                        <td><%= rs.getString("address")%></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>
-                                            <a href="editorder?id=<%= rs.getInt("o_id")%>"><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
-                                            <a href="returnorder?id=<%= rs.getInt("o_id")%>"><button data-toggle="tooltip" title="Return" class="pd-setting-ed"><i class="fa fa-recycle" aria-hidden="true"></i></button></a>
-                                            <a href="confirmorder?id=<%= rs.getInt("o_id")%>"><button data-toggle="tooltip" title="Confirm" class="pd-setting-ed"><i class="fa fa-check" aria-hidden="true"></i></button></a>
-                                        </td>
-                                    </tr>
-                                    <%
-                                        }
-                                    %>
-                                    
-                                </table>
-                            </div>
+                                <%
+                                    ResultSet rs = (ResultSet) request.getAttribute("rs");
+                                    while (rs.next()) {
+                                %>
+                                <tr>
+                                    <td><%= rs.getInt("o_id")%></td>
+                                    <td><%= rs.getDate("o_date")%></td>
+                                    <td><%= rs.getDate("delivery_date")%></td>
+                                    <td><%= rs.getString("status")%></td>
+                                    <td><%= rs.getString("note")%></td>
+                                    <td><%= rs.getInt("account_id")%></td>
+                                    <td><%= rs.getString("address")%></td>
+                                    <td class="money"><%= rs.getDouble("totalPrice")%></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <a href="editorder?id=<%= rs.getInt("o_id")%>"><button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
+                                        <a href="returnorder?id=<%= rs.getInt("o_id")%>"><button data-toggle="tooltip" title="Return" class="pd-setting-ed"><i class="fa fa-recycle" aria-hidden="true"></i></button></a>
+                                        <a href="confirmorder?id=<%= rs.getInt("o_id")%>"><button data-toggle="tooltip" title="Confirm" class="pd-setting-ed"><i class="fa fa-check" aria-hidden="true"></i></button></a>
+                                    </td>
+                                </tr>
+                                <%
+                                    }
+                                %>
+
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="footer-copyright-area">
+        </div>
+        <div class="footer-copyright-area">
 
-            </div>
+        </div>
         <!-- jquery
                     ============================================ -->
         <script src="js1/vendor/jquery-1.12.4.min.js"></script>
@@ -187,13 +190,26 @@
                     ============================================ -->
         <script src="js1/sparkline/jquery.sparkline.min.js"></script>
         <script src="js1/sparkline/jquery.charts-sparkline.js"></script>
-        
+
         <!-- plugins JS
                     ============================================ -->
         <script src="js1/plugins.js"></script>
         <!-- main JS
                     ============================================ -->
         <script src="js1/main.js"></script>
+        <script>
+            const formatter = new Intl.NumberFormat('vi-VN', {
+                style: 'currency',
+                currency: 'VND',
+                minimumFractionDigits: 0
+            });
+
+            var x = document.getElementsByClassName('money');
+            for (var i = 0; i < x.length; i++) {
+                x[i].innerHTML = formatter.format(x[i].innerHTML);
+                console.log(x);
+            }
+        </script>
     </body>
 
 </html>
