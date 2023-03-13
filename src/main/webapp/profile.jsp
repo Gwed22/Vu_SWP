@@ -78,7 +78,7 @@
                                 </div>
                                 <h2>Your full name</h2>
                                 <div class="mb-3">
-                                    <input type="text" class="form-control" id="fullname"  value="${acc.getName()}" name="txtName" >
+                                    <input type="text" class="form-control" id="fullname"  value="${acc.getName()}" name="txtName" required="">
                                 </div>
                                 <h2>Your phone number</h2>
                                 <div class="mb-3">
@@ -86,11 +86,11 @@
                                 </div>
                                 <h2>Your address</h2>
                                 <div class="mb-3">
-                                    <input type="text" class="form-control" id="address"  value="${acc.getAddress()}" name="txtAddress" >
+                                    <input type="text" class="form-control" id="address"  value="${acc.getAddress()}" name="txtAddress" required="" >
                                 </div>
                                 <h2>Your security answer</h2>
                                 <div class="mb-3">
-                                    <input type="text" class="form-control" id="answer"  value="${acc.getAnswer_context()}" name="txtAnswer" >
+                                    <input type="text" class="form-control" id="answer"  value="${acc.getAnswer_context()}" name="txtAnswer" required="">
                                 </div>
                                 <div class="text-center"><button type="submit" class="btn btn-color px-5 mb-5 w-100" name="btnUpdate">Edit</button></div>
                             </form>
