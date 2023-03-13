@@ -113,12 +113,12 @@
                     mess += "The confirm password must be the same as the password as above!\n";
                     //return false;
                 }
-                if (security_answer.length > 100) {
+                if (security_answer.length > 50) {
                     // alert("The address cannot be null! The address cannot be greater than 100 characters!");
                     mess += "The security answer cannot be greater than 100 characters!\n";
                     //return false;
                 }
-                if (address.length > 100) {
+                if (address.length > 50) {
                     // alert("The address cannot be null! The address cannot be greater than 100 characters!");
                     mess += "The address cannot be greater than 100 characters!\n";
                     //return false;

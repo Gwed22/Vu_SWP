@@ -64,6 +64,28 @@
                 text-decoration: none;
             }
         </style>
+        <script>
+            function check(){
+                var name = document.getElementById("name").value;
+                var address = document.getElementById("address").value;
+                var answer = document.getElementById("answer").value;
+                var message = "";
+                if(name.length > 50){
+                    message += "The name cannot greater than 100 characters!";
+                }
+                if(address.length > 50){
+                    message += "The address cannot greater than 100 characters!";
+                }
+                if(answer.length > 50){
+                    message += "The answer cannot greater than 100 characters!";
+                }
+                if (message !== "") {
+                    alert(message);
+                    return false;
+                }
+                
+            }
+        </script>
     </head>
     <body>
         <jsp:include page="header.jsp"></jsp:include>
@@ -78,7 +100,7 @@
                                 </div>
                                 <h2>Your full name</h2>
                                 <div class="mb-3">
-                                    <input type="text" class="form-control" id="fullname"  value="${acc.getName()}" name="txtName" required="">
+                                    <input type="text" class="form-control" id="name"  value="${acc.getName()}" name="txtName" required="">
                                 </div>
                                 <h2>Your phone number</h2>
                                 <div class="mb-3">
@@ -92,7 +114,7 @@
                                 <div class="mb-3">
                                     <input type="text" class="form-control" id="answer"  value="${acc.getAnswer_context()}" name="txtAnswer" required="">
                                 </div>
-                                <div class="text-center"><button type="submit" class="btn btn-color px-5 mb-5 w-100" name="btnUpdate">Edit</button></div>
+                                <div class="text-center"><button type="submit" class="btn btn-color px-5 mb-5 w-100" onclick="return check()" name="btnUpdate">Edit</button></div>
                             </form>
                         </div>
                     </div>
