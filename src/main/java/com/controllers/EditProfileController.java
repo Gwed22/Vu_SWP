@@ -60,15 +60,15 @@ public class EditProfileController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            int id = Integer.parseInt(request.getParameter("id"));
-            RegisterDAO dao = new RegisterDAO();
-            Account acc = dao.getAccountByID(id);
-            request.setAttribute("acc", acc);
+            int id = Integer.parseInt(request.getParameter("id")); //get parameter id 
+            RegisterDAO dao = new RegisterDAO(); //create object DAO
+            Account acc = dao.getAccountByID(id);//call back function
+            request.setAttribute("acc", acc); //set attribute for account
             request.getRequestDispatcher("profile.jsp").forward(request, response);
         } catch (Exception ex) {
             Logger.getLogger(EditProfileController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     /**

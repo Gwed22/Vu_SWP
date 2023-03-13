@@ -81,7 +81,7 @@
             .input-gender-male{
                 margin-right: 25%
             }
-           
+
         </style>
 
 
@@ -156,49 +156,49 @@
                                         <lable> Male </lable>
                                     </div>
                                     <div class="input-gender-female">
-                                    <input type="radio" id="gender-female" name="gender" value="female">
-                                    <lable>Female </lable>
+                                        <input type="radio" id="gender-female" name="gender" value="female">
+                                        <lable>Female </lable>
+                                    </div>
                                 </div>
                             </div>
-                    </div>
 
-                    <div class="mb-3">
-                        <input type="password" class="form-control" id="password"
-                               placeholder="Password" name="txtPassword" required="">
-                    </div>
-                    <div class="mb-3">
-                        <input type="password" class="form-control" id="password1"
-                               placeholder="Confirm Password" name="txtPassword2" required="">
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" class="form-control" id="address" "
-                               placeholder="Address" name="txtAddress" required="">
-                    </div>
-                    <div class="mb-3">
-                        <div class="input-group mg-b-pro-edt">
-                            <span class="input-group-addon"><i class="icon nalika-table" aria-hidden="true"></i></span>
-                            <select name="sqID" class="form-control pro-edt-select form-control-primary">
-                                <c:forEach items="${listC}" var="ca">
-                                    <option value="${ca.getSqID()}">${ca.getSqContext()}</option>
-                                </c:forEach>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" class="form-control" id="security_answer" "
-                               placeholder="Security Answer" name="txtAnswer" required="">
-                    </div>
+                            <div class="mb-3">
+                                <input type="password" class="form-control" id="password"
+                                       placeholder="Password" name="txtPassword" required="">
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" class="form-control" id="password1"
+                                       placeholder="Confirm Password" name="txtPassword2" required="">
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="address" "
+                                       placeholder="Address" name="txtAddress" required="">
+                            </div>
+                            <div class="mb-3">
+                                <div class="input-group mg-b-pro-edt">
+                                    <span class="input-group-addon"><i class="icon nalika-table" aria-hidden="true"></i></span>
+                                    <select name="sqID" class="form-control pro-edt-select form-control-primary">
+                                        <c:forEach items="${listC}" var="ca">
+                                            <option value="${ca.getSqID()}">${ca.getSqContext()}</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="security_answer" "
+                                       placeholder="Security Answer" name="txtAnswer" required="">
+                            </div>
 
-                    <div class=""><button type="submit" name="btnAdd" onclick="return checkValid()" class="btn btn-color  register-button">Register</button></div>
-                    </form>
+                            <div class=""><button type="submit" name="btnAdd" onclick="return checkValid()" class="btn btn-color  register-button">Register</button></div>
+                        </form>
+
+                    </div>
 
                 </div>
 
             </div>
 
         </div>
-
-    </div>
         <c:if test="${message != null}">
             <div id="bill-form">
 
@@ -208,5 +208,5 @@
 
             </div>
         </c:if>
-</body>
+    </body>
 </html>

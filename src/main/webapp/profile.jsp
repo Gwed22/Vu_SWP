@@ -73,19 +73,22 @@
                         <h2 class="text-center text-dark mt-5">Profile</h2>
                         <div class="card my-auto">
                             <form class="card-body cardbody-color p-lg-5" action="editprofile" method="post">
-                                <div style="" class="mb-3">
+                                <div style="display: none" class="mb-3">
                                     <input type="text" class="form-control" id="account"  value="${acc.getAccountID()}" name="accountID" readonly>
                                 </div>
-                                
+                                <h2>Your full name</h2>
                                 <div class="mb-3">
                                     <input type="text" class="form-control" id="fullname"  value="${acc.getName()}" name="txtName" >
                                 </div>
+                                <h2>Your phone number</h2>
                                 <div class="mb-3">
                                     <input type="text" class="form-control" id="phone" aria-describedby="numberPhone" value="${acc.getPhone()}" placeholder="Number phone" name="txtPhone" readonly>
                                 </div>
+                                <h2>Your address</h2>
                                 <div class="mb-3">
                                     <input type="text" class="form-control" id="address"  value="${acc.getAddress()}" name="txtAddress" >
                                 </div>
+                                <h2>Your security answer</h2>
                                 <div class="mb-3">
                                     <input type="text" class="form-control" id="answer"  value="${acc.getAnswer_context()}" name="txtAnswer" >
                                 </div>
