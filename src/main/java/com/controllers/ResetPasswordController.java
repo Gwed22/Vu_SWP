@@ -80,10 +80,10 @@ public class ResetPasswordController extends HttpServlet {
             RegisterDAO dao = new RegisterDAO();//create object DAO
             int count = dao.resetPassword(accountID, password);//call function
             if (count > 0) { //check if password are reseted
-
-                response.sendRedirect("login");
+                request.setAttribute("message", "Reset Successful<br> Please login again!");
+//                response.sendRedirect("login");
+                request.getRequestDispatcher("login.jsp").forward(request, response);
             } else {
-
                 response.sendRedirect("resetpassword");
             }
         }

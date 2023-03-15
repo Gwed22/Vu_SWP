@@ -60,15 +60,15 @@ public class EditProfileController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            int id = Integer.parseInt(request.getParameter("id")); //get parameter id 
-            RegisterDAO dao = new RegisterDAO(); //create object DAO
-            Account acc = dao.getAccountByID(id);//call back function
-            request.setAttribute("acc", acc); //set attribute for account
+            int id = Integer.parseInt(request.getParameter("id"));
+            RegisterDAO dao = new RegisterDAO();
+            Account acc = dao.getAccountByID(id);
+            request.setAttribute("acc", acc);
             request.getRequestDispatcher("profile.jsp").forward(request, response);
         } catch (Exception ex) {
             Logger.getLogger(EditProfileController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        
     }
 
     /**
@@ -92,7 +92,11 @@ public class EditProfileController extends HttpServlet {
             RegisterDAO dao = new RegisterDAO();//create object DAO
             int count = dao.updateProfile(acc);//call function
             if (count > 0) {//check if update successful
-                response.sendRedirect("/home");
+                Account acc1 = dao.getAccountByID(id);
+                request.setAttribute("acc", acc1);
+                request.setAttribute("message", "Edit successful");
+                request.getRequestDispatcher("profile.jsp").forward(request, response);
+//                response.sendRedirect("/home");
             } else {
                 response.sendRedirect("editprofile");
             }
