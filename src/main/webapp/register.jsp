@@ -24,11 +24,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-
-        <link rel="stylesheet" href="css/style8.css">
-
-        <link rel="stylesheet" href="css/style8.css">
-
+        <link rel="stylesheet" href="css/style5.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -113,12 +109,12 @@
                     mess += "The confirm password must be the same as the password as above!\n";
                     //return false;
                 }
-                if (security_answer.length > 50) {
+                if (security_answer.length > 100) {
                     // alert("The address cannot be null! The address cannot be greater than 100 characters!");
                     mess += "The security answer cannot be greater than 100 characters!\n";
                     //return false;
                 }
-                if (address.length > 50) {
+                if (address.length > 100) {
                     // alert("The address cannot be null! The address cannot be greater than 100 characters!");
                     mess += "The address cannot be greater than 100 characters!\n";
                     //return false;
@@ -131,6 +127,7 @@
         </script>
     </head>
     <body>
+
         <div class="container">
 
             <div class="row">
@@ -146,7 +143,7 @@
                                        placeholder="Full Name" name="txtName" required="">
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="phone" aria-describedby="numberPhone"
+                                <input type="number" class="form-control" id="phone" aria-describedby="numberPhone"
                                        placeholder="Enter number phone" name="txtPhone" required="">
                             </div>
                             <div class="mb-3">
@@ -200,13 +197,16 @@
 
         </div>
         <c:if test="${message != null}">
-            <div id="bill-form">
-
-                <div class="row" style="margin: 0 5px 0 5px">
-                    <span style="font-size: 20px;color: red; text-align: center; ">${message}!</span>
-                </div>
-
+            <!--            <div id="bill-form">
+                            <div id="bill-form-content">
+                                <h2>Message<span id="bill-close">Close</span></h2>
+                                <br>-->
+            <div class="row" style="margin: 0 5px 0 5px">
+                <span style="font-size: 20px; text-align: center;color: red;">${message}!</span>
             </div>
+            <!--                </div>
+                        </div>-->
         </c:if>
     </body>
 </html>
+
