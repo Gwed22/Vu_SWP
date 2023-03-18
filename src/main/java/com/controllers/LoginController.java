@@ -88,7 +88,11 @@ public class LoginController extends HttpServlet {
                 session.setAttribute("login", request.getParameter("phone"));
                 session.setAttribute("acc", acc);
                 session.setMaxInactiveInterval(259200);
-                response.sendRedirect("home");
+                if (acc.getRole_id() == 1) {
+                    response.sendRedirect("homeadmin");
+                } else {
+                    response.sendRedirect("home");
+                }
             } else { // if phone or password is incorrect
                 request.setAttribute("message", "Wrong Phone number or Password!");
                 request.getRequestDispatcher("login.jsp").forward(request, response);

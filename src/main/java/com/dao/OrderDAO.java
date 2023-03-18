@@ -16,6 +16,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -25,7 +27,9 @@ import java.util.logging.Logger;
  */
 public class OrderDAO {
 
-    private Connection conn = null;
+    private Connection conn = null; // Connect with SQL Server
+    private PreparedStatement ps = null; // Throw query statement to SQL Server
+    private ResultSet rs = null; // Receive the respond result of SQL Server
 
     public OrderDAO() {
         conn = DBConnection.getConnection();
@@ -44,7 +48,7 @@ public class OrderDAO {
         }
         return rs;
     }
-    
+
     /**
      * Get order from database with order id and return that order
      */
@@ -55,19 +59,19 @@ public class OrderDAO {
             pst.setInt(1, o_id);
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
-                o = new Order(o_id, rs.getDate("o_date"), rs.getDate("delivery_date"), rs.getString("status"), rs.getString("note"), 
-                                    rs.getInt("account_id"), rs.getString("address"));
+                o = new Order(o_id, rs.getDate("o_date"), rs.getDate("delivery_date"), rs.getString("status"), rs.getString("note"),
+                        rs.getInt("account_id"), rs.getString("address"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return o;
     }
-    
+
     /**
      * Update order from database then return count of column effect
      */
-        public int updateOrder(Order or) {
+    public int updateOrder(Order or) {
         int count = 0;
         try {
             PreparedStatement pst = conn.prepareStatement("update [Order] set o_date=?, delivery_date=?, status=?, note=?, account_id=?, address=? where o_id=?");
@@ -83,6 +87,18 @@ public class OrderDAO {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return count;
+    }
+
+    public void updateById(int id, String status) {
+        PreparedStatement pst;
+        String query = "Update [Order] set status = ? where o_id = ?";
+        try {
+            pst = conn.prepareStatement(query);
+            pst.setString(1, status);
+            pst.setInt(2, id);
+            pst.executeUpdate();
+        } catch (Exception e) {
+        }
     }
 
     public void addOrder(Account a, Cart c, Order or) {
@@ -115,15 +131,36 @@ public class OrderDAO {
                     pst2.setInt(3, i.getQuantity());
                     pst2.setDouble(4, i.getPrice());
                     pst2.executeUpdate();
-}
+                }
             }
         } catch (Exception e) {
-            
+
         }
     }
 
+    public List<Order> getOrderByUserID(int id) {
+        List<Order> list = new ArrayList<>();
+        String query = "select * from [Order] where account_id = ?";
+        try {
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Order(rs.getInt(1), rs.getDate(2), rs.getDate(3), rs.getString(4), rs.getString(5),
+                            rs.getInt(6), rs.getString(7), rs.getInt(8)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+
     public static void main(String[] args) {
-        
+       
+       OrderDAO dao = new OrderDAO();
+       List<Order> o = dao.getOrderByUserID(4);
+        for (Order order : o) {
+            System.out.println(order);
+        }
     }
 
 }

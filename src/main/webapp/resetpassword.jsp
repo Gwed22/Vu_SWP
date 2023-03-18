@@ -27,9 +27,9 @@
         <!-- style css -->
 <<<<<<< HEAD
 <<<<<<< HEAD
-        <link rel="stylesheet" href="css/style3.css">
+        <link rel="stylesheet" href="css/stylee.css">
 =======
-        <link rel="stylesheet" href="css/style3.css">
+        <link rel="stylesheet" href="css/stylee.css">
 >>>>>>> 532509d27860fb160c21cc5688701b2179066b34
 =======
         <link rel="stylesheet" href="css/style8.css">

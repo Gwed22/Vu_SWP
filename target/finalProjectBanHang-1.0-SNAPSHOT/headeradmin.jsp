@@ -181,6 +181,7 @@
                                     </a>
                                     <ul class="submenu-angle" aria-expanded="true">
                                         <li><a href="allorder"><span class="mini-sub-pro">Order List</span></a></li>
+                                        <li><a href="listcontact"><span class="mini-sub-pro">Contact List</span></a></li>
                                     </ul>
                                 </li>
                             </c:if>

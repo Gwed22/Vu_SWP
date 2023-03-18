@@ -10,6 +10,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
@@ -55,7 +56,11 @@ public class ReturnItemCart extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String oid = request.getParameter("oid");
+        request.setAttribute("oid", oid);
+        HttpSession session = request.getSession();
+        session.setAttribute("oid", oid);
+        request.getRequestDispatcher("contact.jsp").forward(request, response);
     }
 
     /**

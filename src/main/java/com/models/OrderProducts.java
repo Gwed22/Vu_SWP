@@ -11,35 +11,24 @@ import java.sql.Date;
  * @author PC
  */
 public class OrderProducts {
+
     private int OrderID;
     private String productName;
     private String productImg;
-    private String address;
-    private Date deliveriDate;
-    private Date orderDate;
-    private String status;
-    private String note;
-    private float totalPrice;
+    private float price;
     private int quantity;
 
-    
     public OrderProducts() {
     }
 
-    public OrderProducts(int OrderID, String productName, String productImg, String address, Date deliveriDate, Date orderDate, String status, String note, float totalPrice, int quantity) {
+    public OrderProducts(int OrderID, String productName, String productImg, float price, int quantity) {
         this.OrderID = OrderID;
         this.productName = productName;
         this.productImg = productImg;
-        this.address = address;
-        this.deliveriDate = deliveriDate;
-        this.orderDate = orderDate;
-        this.status = status;
-        this.note = note;
-        this.totalPrice = totalPrice;
+        this.price = price;
         this.quantity = quantity;
     }
 
-   
     public int getOrderID() {
         return OrderID;
     }
@@ -48,8 +37,6 @@ public class OrderProducts {
         this.OrderID = OrderID;
     }
 
-    
-    
     public int getQuantity() {
         return quantity;
     }
@@ -58,7 +45,6 @@ public class OrderProducts {
         this.quantity = quantity;
     }
 
-    
     public String getProductName() {
         return productName;
     }
@@ -75,57 +61,12 @@ public class OrderProducts {
         this.productImg = productImg;
     }
 
-    public String getAddress() {
-        return address;
+    public float getPrice() {
+        return price;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setPrice(float price) {
+        this.price = price;
     }
 
-    public Date getDeliveriDate() {
-        return deliveriDate;
-    }
-
-    public void setDeliveriDate(Date deliveriDate) {
-        this.deliveriDate = deliveriDate;
-    }
-
-    public Date getOrderDate() {
-        return orderDate;
-    }
-
-    public void setOrderDate(Date orderDate) {
-        this.orderDate = orderDate;
-    }
-
-    public float getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(float totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getNote() {
-        return note;
-    }
-
-    public void setNote(String note) {
-        this.note = note;
-    }
-    
-    
-
-    
-    
-    
 }

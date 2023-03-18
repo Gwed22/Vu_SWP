@@ -27,8 +27,8 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
 <<<<<<< HEAD
-        <link rel="stylesheet" href="css/style3.css">
-        <link rel="stylesheet" href="css/style3.css">
+        <link rel="stylesheet" href="css/stylee.css">
+        <link rel="stylesheet" href="css/stylee.css">
 =======
 
         <link rel="stylesheet" href="css/style8.css">

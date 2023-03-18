@@ -80,28 +80,7 @@
             <![endif]-->
 
         <jsp:include page="headeradmin.jsp"></jsp:include>
-<<<<<<< HEAD
 
-
-=======
-<<<<<<< HEAD
-                <div class="breadcome-area">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="breadcome-list">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                            <div class="breadcomb-wp">
-                                                <div class="breadcomb-icon">
-                                                    <a href="homeadmin"><i class="icon nalika-home"></i></a>
-                                                </div>
-                                                <div class="breadcomb-ctn">
-                                                    <h2>Order List</h2>
-                                                </div>
-                                            </div>
-=======
->>>>>>> f01fc42d244fc479c34a737c1f5496d23ddd93c5
         <c:if test="${message != null}">
             <div id="bill-form">
                 <div id="bill-form-content">
@@ -126,7 +105,6 @@
                                         </div>
                                         <div class="breadcomb-ctn">
                                             <h2>Order Management</h2>
->>>>>>> 4f0c8ff6d651eca7f5b52b15e041493b56c77a8d
                                         </div>
                                     </div>
                                 </div>

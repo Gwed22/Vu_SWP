@@ -10,6 +10,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
@@ -55,7 +56,14 @@ public class PaymentController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("/payment.jsp").forward(request, response);
+        
+        HttpSession ss = request.getSession();
+        Object a = ss.getAttribute("acc");
+        if (a != null) {
+            request.getRequestDispatcher("/payment.jsp").forward(request, response);
+        } else {
+            response.sendRedirect("login");
+        }
     }
 
     /**

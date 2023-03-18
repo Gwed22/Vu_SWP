@@ -116,7 +116,7 @@ public class CheckOutController extends HttpServlet {
             session.removeAttribute("cart");
             session.removeAttribute("size");
         } else {
-            response.sendRedirect("Login");
+            response.sendRedirect("login");
         }
     }
 

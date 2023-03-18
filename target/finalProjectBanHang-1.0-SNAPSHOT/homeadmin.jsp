@@ -194,6 +194,24 @@
                                 </div>
                             </div>
                         </c:if>
+                           <c:if test="${sessionScope.acc.getRole_id() == 1 || sessionScope.acc.getRole_id() == 6}">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
+                                    <h4 class="text-left text-uppercase"><b>Mail Contact</b></h4>
+                                    <div class="row vertical-center-box vertical-center-box-tablet">
+                                        <div class="progress progress-mini">
+                                            <div style="width: 100%;" class="progress-bar bg-green"></div>
+                                        </div>
+                                        <br>
+                                        <a href="listcontact">
+                                            <div class="col-xs-12 cus-gh-hd-pro">
+                                                <h2 class="text-center"><img style="height: 200px" src="images/mail-3-256.png" alt="alt"/></h2>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:if>
                     </div>
                 </div>
             </div>

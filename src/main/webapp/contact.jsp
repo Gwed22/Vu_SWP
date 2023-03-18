@@ -4,6 +4,7 @@
     Author     : PC
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -26,7 +27,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="css/style3.css">
+        <link rel="stylesheet" href="css/stylee.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -55,35 +56,49 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="titlepage">
+                            <c:if test="${requestScope.oid == null}">
                                 <h2>Contact</h2>
-                            </div>
+                            </c:if>
+
+                            <c:if test="${requestScope.oid != null}">
+                                <h2 > Return</h2>
+                            </c:if>
                         </div>
                     </div>
                 </div>
-
             </div>
-
-            <!-- contact -->
-            <div class="contact" >
-                <div class="container" style="margin-right: 0px;">
-                    <form class="main_form col-md-8" action="contact" method="post">
-                       
-                        <div class="col-md-12">
-                            <input class="form-control" placeholder="Email" type="text" name="txtEmail" required>
+        </div>
+        <!-- contact -->
+        <div class="contact" >
+            <div class="container contact-child">
+                <form class="main_form col-md-7" action="contact" method="post">
+                    <c:if test="${requestScope.oid != null}">
+                        <div class="col-md-4">
+                            ORDER CODE:
+                            <input class="form-control" placeholder="Order Code" type="text" name="txtOrderCode" value="OR${requestScope.oid}" readonly>
                         </div>
-                        <div class="col-md-12">
-                            <textarea placeholder="Message..." rows="10" style="width: 100%" name="txtMess"  required></textarea>
-                        </div>
-                        <div class=" col-md-12">
-                            <button class="send" type="submit">Send</button>
-                        </div>
-                                                  
-                    </form>
-                </div>
+                    </c:if>
+                    <div class="col-md-8">
+                        Name:
+                        <input class="form-control" placeholder="Name" type="text" name="txtName" value="${sessionScope.acc.name}" readonly>
+                    </div>
+                    <div class="col-md-8">
+                        Email:
+                        <input class="form-control" placeholder="Yourmail@fpt.com" type="text" name="txtMail" required>
+                    </div>
+                    <div class="col-md-12">
+                        Reason: 
+                        <textarea placeholder="Reasson..." rows="10" style="width: 100%;" name="txtRea" class="textarea" required></textarea>
+                    </div>
+                    <div class=" col-md-12">
+                        <button class="send" type="submit">Send</button>
+                    </div>
+                </form>
             </div>
-            <!-- end contact -->
+        </div>
+        <!-- end contact -->
 
-            <!-- footer -->
+        <!-- footer -->
         <jsp:include page="footer.jsp"></jsp:include>
         <!-- end footer -->
         <!-- Javascript files-->

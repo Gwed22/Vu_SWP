@@ -21,7 +21,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="css/style3.css">
+        <link rel="stylesheet" href="css/stylee.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -51,14 +51,14 @@
             <div id="myCarousel" class="carousel slide banner-main col-xl-9 col-lg-10 col-md-12 co-sm-11" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <a href="/allproduct"> <img class="second-slide" src="images/salebanner.png" alt="First slide"> </a>
+                        <a href="/allproduct"> <img class="first-slide" src="images/Artboard 1.png" alt="First slide"> </a>
                     </div>
                     <div class="carousel-item">
-                        <a href="/allproduct"> <img class="second-slide" src="images/salebanner.png" alt="Second slide"> </a>
+                        <a href="/sale"> <img class="second-slide" src="images/Artboard 2.png" alt="Second slide"> </a>
 
                     </div>
                     <div class="carousel-item">
-                        <a href="/allproduct"> <img class="third-slide" src="images/salebanner.png" alt="Third slide"> </a>
+                        <a href="/sale"> <img class="third-slide" src="images/salebanner.png" alt="Third slide"> </a>
 
                     </div>
                     <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
@@ -105,7 +105,7 @@
                     </div>
                     <div class="col-xl-4 col-lg-2 col-md-5 co-sm-l2 item_context">
                         <div class="about_img">
-                            <figure><img src="images/pc.png" alt="img" /></figure>
+                            <figure><img src="images/pc.jpg" alt="img" /></figure>
                         </div>
                     </div>
                     <div class="col-xl-8 col-lg-2 col-md-7 co-sm-l2 item_context">
@@ -137,7 +137,7 @@
             <div class="container titlepage">
                 <div class="col-lg-12 ">
                     <div class="title">
-                        <h2>Laptop BestSeller</h2>
+                        <h2>Laptop</h2>
                     </div>
                 </div>
                 <div class="col-lg-8">
@@ -151,14 +151,14 @@
                             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 margin">
                                 <div class="brand_box">
                                     <a href="productdetail?pid=${o.getConID()}"> <img src="${o.getProductImg()}" alt="img" /></a>
-                                    <span style="height: 30px;">${o.getProductName()}</span>
+                                    <div class="name-product"  >${o.getProductName()}</div>
                                     <c:if test="${o.getSalePrice() == 0}">
-                                        <h4 style="margin-top: 10px; ">New Product</h4>
+                                        <h4 style="margin-top: 10px; font-size: 20px;"><br></h4>
                                     </c:if>
                                     <c:if test="${o.getSalePrice() != 0}">
-                                        <h4 style="margin-top: 10px; "><del> <fmt:formatNumber type="number" value="${o.getProductPrice()}" pattern="###,###,###.#" /></del> VND</h4>
+                                        <h4 style="margin-top: 10px; font-size: 20px;"><del> <fmt:formatNumber type="number" value="${o.getProductPrice()}" pattern="###,###,###.#" /></del> VND</h4>
                                     </c:if>
-                                    <h3><strong > <fmt:formatNumber type="number" value="${o.getProductPrice() - (o.getProductPrice() * o.getSalePrice())}" pattern="###,###,###" /></strong> VND</h3>
+                                    <h3><strong class="price"> <fmt:formatNumber type="number" value="${o.getProductPrice() - (o.getProductPrice() * o.getSalePrice())}" pattern="###,###,###" /></strong> VND</h3>
                                     <a href="/allproduct" class="btn btn-main">Buy now</a>
                                 </div>
                             </div>
@@ -169,7 +169,7 @@
             <div class="container titlepage laptop">
                 <div class="col-lg-12 ">
                     <div class="title">
-                        <h2>Computer BestSeller</h2>
+                        <h2>Computer</h2>
                     </div>
                 </div>
                 <div class="col-lg-8">                   
@@ -185,15 +185,15 @@
                             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 margin">
                                 <div class="brand_box">
                                     <a href="productdetail?pid=${o.getConID()}"> <img src="${o.getProductImg()}" alt="img" /></a>
-                                    <span>${o.getProductName()}</span>
+                                    <div class="name-product">${o.getProductName()}</div>
                                     <c:if test="${o.getSalePrice() == 0}">
-                                        <h4 style="margin-top: 10px; ">New Product</h4>
+                                        <h4 style="margin-top: 10px; font-size: 20px; "><br></h4>
                                     </c:if>
                                     <c:if test="${o.getSalePrice() != 0}">
-                                        <h4 style="margin-top: 10px; "><del> <fmt:formatNumber type="number" value="${o.getProductPrice()}" pattern="###,###,###.#" /></del> VND</h4>
+                                        <div style="margin-top: 10px; font-size: 20px; "><del> <fmt:formatNumber type="number" value="${o.getProductPrice()}" pattern="###,###,###.#" /></del> VND</div>
                                     </c:if>
 
-                                    <h3><strong > <fmt:formatNumber type="number" value="${o.getProductPrice() - (o.getProductPrice() * o.getSalePrice())}" pattern="###,###,###" /></strong> VND</h3>
+                                    <h3><strong class="price"> <fmt:formatNumber type="number" value="${o.getProductPrice() - (o.getProductPrice() * o.getSalePrice())}" pattern="###,###,###" /></strong> VND</h3>
                                     <a href="/allproduct" class="btn btn-main">Buy now</a>
                                 </div>
                             </div>

@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <filter>
+        <filter-name>AdminFilter</filter-name>
+        <filter-class>com.filter.AdminFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/homeadmin</url-pattern>
+    </filter-mapping>
     <servlet>
         <servlet-name>LoginController</servlet-name>
         <servlet-class>com.controllers.LoginController</servlet-class>
@@ -101,18 +109,6 @@
         <servlet-class>com.controllers.HomeAdminController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>SupportViewController</servlet-name>
-        <servlet-class>com.controllers.SupportViewController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>SupportReadController</servlet-name>
-        <servlet-class>com.controllers.SupportReadController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>SupportReplyController</servlet-name>
-        <servlet-class>com.controllers.SupportReplyController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>RevenueStatisticController</servlet-name>
         <servlet-class>com.controllers.RevenueStatisticController</servlet-class>
     </servlet>
@@ -131,6 +127,22 @@
     <servlet>
         <servlet-name>ViewSaleController</servlet-name>
         <servlet-class>com.controllers.ViewSaleController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ContacController</servlet-name>
+        <servlet-class>com.controllers.ContactController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderHistoryController</servlet-name>
+        <servlet-class>com.controllers.OrderHistoryController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReviceOrderController</servlet-name>
+        <servlet-class>com.controllers.ReceivedOrderController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ContactListController</servlet-name>
+        <servlet-class>com.controllers.ContactListController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -313,18 +325,6 @@
         <url-pattern>/SearchSale</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>SupportViewController</servlet-name>
-        <url-pattern>/supportview</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SupportReadController</servlet-name>
-        <url-pattern>/SupportRead</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SupportReplyController</servlet-name>
-        <url-pattern>/SupportReply</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>DeleteCartItemController</servlet-name>
         <url-pattern>/delete</url-pattern>
     </servlet-mapping>
@@ -381,8 +381,6 @@
         <url-pattern>/resetpassword</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-<<<<<<< HEAD
-=======
         <servlet-name>RevenueStatisticController</servlet-name>
         <url-pattern>/revenuestatistic</url-pattern>
     </servlet-mapping>
@@ -395,7 +393,6 @@
         <url-pattern>/spendingdetail</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
->>>>>>> f01fc42d244fc479c34a737c1f5496d23ddd93c5
         <servlet-name>CommentController</servlet-name>
         <url-pattern>/comment</url-pattern>
     </servlet-mapping>
@@ -403,13 +400,26 @@
         <servlet-name>ViewSaleController</servlet-name>
         <url-pattern>/sale</url-pattern>
     </servlet-mapping>
-<<<<<<< HEAD
     <servlet-mapping>
         <servlet-name>ReturnItemCart</servlet-name>
         <url-pattern>/returnItem</url-pattern>
     </servlet-mapping>
-=======
->>>>>>> f01fc42d244fc479c34a737c1f5496d23ddd93c5
+    <servlet-mapping>
+        <servlet-name>ContacController</servlet-name>
+        <url-pattern>/contact</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderHistoryController</servlet-name>
+        <url-pattern>/orderhistory</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReviceOrderController</servlet-name>
+        <url-pattern>/receiveditem</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ContactListController</servlet-name>
+        <url-pattern>/listcontact</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>

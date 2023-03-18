@@ -24,7 +24,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="css/style3.css">
+        <link rel="stylesheet" href="css/stylee.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -65,18 +65,17 @@
                                     <button type="submit" class=" btn-secondary btn-search "><i class="fa fa-search"></i></button>
                                 </form>
                                 <ul class="menu-area-main col-md-12" style="margin-left: 30px;">
-                                    <li class="active sale"><a href="/contact"><i class="fa fa-envelope" aria-hidden="true"></i> Contact</a></li>
+                                    <li class="active sale"><a <c:if test="${sessionScope.acc == null}">href="/login"</c:if>href="/contact"><i class="fa fa-envelope" aria-hidden="true"></i> Contact</a></li>
                                     <li class="active sale"><a href="/sale"><i class="fa fa-tags" aria-hidden="true"></i> Sales</a></li>
                                         <c:if test="${sessionScope.acc == null}">                                           
                                         <li class="active"><a href="/login"><i class="fa fa-user-circle-o" aria-hidden="true" ></i> LogIn</a></li>
                                         </c:if>
-
                                     <c:set var="c" value="${sessionScope.size}"></c:set>
                                     <li class="active cart"><a href="shopcart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <c:if test="${c != null}">${c}</c:if></a></li>                                        
 
                                     <c:if test="${sessionScope.acc != null}">
                                         
-                                            <li class="active"><a href="history"><i class="fa fa-history" aria-hidden="true"></i> History</a></li> 
+                                            <li class="active"><a href="orderhistory"><i class="fa fa-history" aria-hidden="true"></i> History</a></li> 
                                             <li class="active" style="margin-left: 80px; "><a href="editprofile?id=${sessionScope.acc.getAccountID()}"><i class="fa fa-user-circle-o" aria-hidden="true" ></i> ${sessionScope.acc.getName()} </a></li>
                                         <li class="active" style="margin-left: 10px;"> <a href="logout">Log out</a> </li>
                                     </c:if>

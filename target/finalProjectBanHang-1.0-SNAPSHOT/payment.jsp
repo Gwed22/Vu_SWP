@@ -20,7 +20,7 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-        <link href="css/style3.css" rel="stylesheet" type="text/css"/>
+        <link href="css/stylee.css" rel="stylesheet" type="text/css"/>
         <style>
             .gallery-wrap .img-big-wrap img {
                 height: 450px;
@@ -117,7 +117,7 @@
                                                     <td><img class="img-cart" src="${c.product.productImg}" alt="alt"/></td>
                                                     <td><span>${c.product.productName}</span></td>
                                                     <td><input type="text" value="${c.quantity}" style="border: none; text-align: center; width: 50px; font-size: 14px;" readonly></td>
-                                                    <td><span><fmt:formatNumber type="number" value="${c.quantity*c.price}" pattern="###,###,###.#"/> VND</span></td>                                                                                                               
+                                                    <td><span><fmt:formatNumber type="number" value="${c.quantity*c.price}" pattern="###,###,###"/> VND</span></td>                                                                                                               
                                                 </tr>
                                             </c:forEach>     
                                         </tbody>
@@ -132,7 +132,7 @@
                                     <tbody class="total-inline">
                                         <tr >
                                             <td class="inline">Product Total Price: </td>
-                                            <td  style="text-align: right"><fmt:formatNumber type="number" value="${p.getTotalMoney()}" pattern="###,###,###.#"/> VND</td>
+                                            <td  style="text-align: right"><fmt:formatNumber type="number" value="${p.getTotalMoney()}" pattern="###,###,###"/> VND</td>
                                         </tr>
                                         <tr>
                                             <td class="inline" >Shipping Price: </td>
@@ -142,7 +142,7 @@
                                     <tfoot class="total-foot">
                                         <tr>
                                             <td class="inline">Total: </td>
-                                            <td style="text-align: right"><fmt:formatNumber type="number" value="${p.getTotalMoney() + 30000}" pattern="###,###,###.#"/> VND</td>
+                                            <td style="text-align: right"><fmt:formatNumber type="number" value="${p.getTotalMoney() + 30000}" pattern="###,###,###"/> VND</td>
                                         </tr>
                                     </tfoot>
                                 </table>

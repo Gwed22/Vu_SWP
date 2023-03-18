@@ -4,12 +4,17 @@
  */
 package com.controllers;
 
+import com.dao.ContactDAO;
+import com.dao.OrderDAO;
+import com.models.Account;
+import com.models.Order;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
@@ -34,10 +39,10 @@ public class ContactController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ContactController</title>");            
+            out.println("<title>Servlet ContacController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ContactController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ContacController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -69,8 +74,23 @@ public class ContactController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String txtEmail = request.getParameter("txtEmail");
-        String txtMess = request.getParameter("txtMess");
+        String mail = request.getParameter("txtMail");
+        String context = request.getParameter("txtRea");
+        HttpSession session = request.getSession();
+        Account acc = (Account) session.getAttribute("acc");
+        int id = acc.getAccountID();
+        Object oid = session.getAttribute("oid");
+
+        ContactDAO dao = new ContactDAO();
+        if (oid == null) {
+            dao.AddContact(id, 0, mail, context);
+        } else {
+            int oid1 = Integer.parseInt((String) oid);
+            dao.AddContact(id, oid1, mail, context);
+            OrderDAO d = new OrderDAO();
+            d.updateById(oid1, "Return");
+        }
+        response.sendRedirect("thankyou.jsp");
     }
 
     /**

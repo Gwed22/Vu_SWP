@@ -34,7 +34,7 @@
         <!-- bootstrap css -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="css/style3.css">
+        <link rel="stylesheet" href="css/stylee.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -74,68 +74,37 @@
             <main role="main">
                 <!-- Block content - Đục lỗ trên giao diện bố cục chung, đặt tên là `content` -->
                 <div class="container-fluid" >
-
                     <br>
-                <c:if test="${size > 0}">
-                    <h1 style="margin-left: 25px">Your Order List</h1>
+                    
                     <div class="row">
                         <div class="col col-lg-12">
                             <table class="table table-border">
                                 <thead style="text-align: center">
                                     <tr>
-                                        <th>Order ID</th>
                                         <th>Product</th>
                                         <th>Product name</th>
                                         <th>Quantity</th>
                                         <th>Total Price</th>
-                                        <th>Order Date</th>
-                                        <th>Shipping Date</th>
-                                        <th>Shipping Address</th>
-                                        <th>Status</th>
-                                        <th>Note</th>
-
                                     </tr>
                                 </thead>
                                 <tbody style="text-align: center" >
-
-                                    <c:forEach items="${list}" var="o">
-
-                                        <tr >
-                                            <td>OR${o.getOrderID()}</td>
-                                            <td>
-                                                <div class="aside">
-                                                    <img style="max-width: 100px" src="${o.getProductImg()}" />
-                                                </div>
-                                            </td>
-                                            <td>${o.getProductName()}</td>
-                                            <td>${o.getQuantity()}</td>
-                                            <td><fmt:formatNumber type="number" value="${o.getTotalPrice()}" pattern="###,###,###" /> VND</td>
-                                            <td >${o.getOrderDate()} </td>
-                                            <td >${o.getDeliveriDate()}</td>
-                                            <td >${o.getAddress()}</td>
-                                            <td >${o.getStatus()}</td>
-                                            <td >${o.getNote()}</td>
-                                            <c:if test="${!(o.getStatus().equals('Complete'))}">
-                                                <td><a href="receivedItem?od=${o.getOrderID()}" class="send" style="width: 80px; background-color: green !important;">Received</a></td>
-                                                <c:if   test="${!(o.getStatus().equals('Delivering'))}">
-                                                    <td><a href="returnItem?oid=${o.getOrderID()}" class="send" style="width: 80px;">Cancel</a></td>
-                                                </c:if>
-                                            </c:if>
-                                        </tr>
-                                    </c:forEach>
-
-                                </tbody>
-                            </table>
-                        </div>
+                                <c:forEach items="${list}" var="o" varStatus="loop">
+                                    <tr>
+                                        <td>
+                                            <div class="aside">
+                                                <img style="max-width: 100px" src="${o.getProductImg()}" />
+                                            </div>
+                                        </td>
+                                        <td>${o.getProductName()}</td>
+                                        <td>${o.getQuantity()}</td>
+                                        <td><fmt:formatNumber type="number" value="${o.getPrice()}" pattern="###,###,###" /> VND</td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
                     </div>
-                </c:if>
-                <c:if test="${size == 0}">
-                    <h1 class="text-center text-justify " style="font-size: 50px; color: #f2b87f; ">You haven't ordered anything!</h1>
-                    <div class="row" style="margin-bottom: 50px; font-size: 30px; color: black; margin-left: 400px">
-                        Start shopping now &nbsp;
-                        <a href="/allproduct" id="buyNow">Buy now</a>
-                    </div>
-                </c:if>
+                </div>
+
             </div>
             <!-- End block content -->
         </main>

@@ -115,16 +115,16 @@
             <div class="container-fluid">
                 <div class="row" style="margin-top: 50px;">
                 <c:forEach var="c" items="${listSA}">
-                    <div class="col-md-3 ">
+                    <div class="col-md-3">
                         <div class="product container">
-                            <img src="${c.getProductImg()}" alt="Product 1" style="width: 100%; border-radius: 10px; margin-top: 5px">
+                            <a href="productdetail?pid=${c.getConID()}"><img src="${c.getProductImg()}" alt="Product 1" style="width: 100%; border-radius: 10px; margin-top: 5px"></a>
                             <h3 style="font-size: 15px;">${c.getProductName()}</h3>
                             <p>
                                 Old price: <del><fmt:formatNumber type="number" value=" ${c.getProductPrice()}" pattern="###,###,###" /></del>VND
                                 <br>
                                 New price: <strong style="color: red"><fmt:formatNumber type="number" value=" ${c.getProductPrice() - (c.getProductPrice() * c.getSalePrice())}" pattern="###,###,###" /></strong>VND
                             </p>
-                            <button>Add to Cart</button>
+                             <a href="addtocart?pid=${c.getConID()}" class="btn btn-main">Buy now</a>
                         </div>
                     </div>
                 </c:forEach>

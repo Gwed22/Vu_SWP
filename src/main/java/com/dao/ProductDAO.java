@@ -8,6 +8,7 @@ import com.db.DBConnection;
 import com.models.Brand;
 import com.models.Category;
 import com.models.Consignment;
+import com.models.Order;
 import com.models.OrderItem;
 import com.models.OrderProducts;
 import com.models.Products;
@@ -309,36 +310,31 @@ public class ProductDAO {
 
     }
 
-    public List<OrderProducts> getOrderProductsByUserID(int id) {
+    public List<OrderProducts> getOrderProductsByOrderId(int id) {
         List<OrderProducts> list = new ArrayList<>();
-        String query = "select o.o_id, c.product_name, c.product_img,o.[address], o.delivery_date, o.o_date, o.status,o.note, Sum(ot.productPrice), Sum(ot.quantity) from ([Order] o \n"
+        String query = "select o.o_id, c.product_name, c.product_img, ot.productPrice, ot.quantity from ([Order] o\n"
                 + "join OrderItem ot \n"
                 + "on o.o_id = ot.o_id )\n"
                 + "join Consignment c \n"
                 + "on c.con_id = ot.con_id\n"
-                + "where account_id = ?\n"
-                + "group by o.o_id, c.product_name,c.product_img, o.[address], o.delivery_date, o.o_date, ot.productPrice, ot.quantity, o.status, o.note";
+                + "where o.o_id = ?\n"
+                + "group by o.o_id, c.product_name,c.product_img, ot.productPrice, ot.quantity";
         try {
             ps = conn.prepareStatement(query);
             ps.setInt(1, id);
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new OrderProducts(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5),
-                        rs.getDate(6), rs.getString(7), rs.getString(8), rs.getFloat(9), rs.getInt(10)));
+                list.add(new OrderProducts(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getFloat(4), rs.getInt(5)));
             }
         } catch (Exception e) {
             System.out.println("Not found emptity");
         }
         return list;
     }
+    
+    
 
     public static void main(String[] args) {
-        ProductDAO d = new ProductDAO();
-
-        List<OrderProducts> c = d.getOrderProductsByUserID(4);
-        for (OrderProducts orderProducts : c) {
-            System.out.println(orderProducts);
-        }
 
     }
 

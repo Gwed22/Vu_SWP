@@ -61,12 +61,10 @@ public class HistoryController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ProductDAO da = new ProductDAO();
-        HttpSession session = request.getSession();
-        Account user = (Account) session.getAttribute("acc");
-        int UserID = user.getAccountID();
-        List<OrderProducts> c = da.getOrderProductsByUserID(UserID);
+        String oid = request.getParameter("od");
+        int oid1 = Integer.parseInt(oid);
+        List<OrderProducts> c = da.getOrderProductsByOrderId(oid1);
         request.setAttribute("list", c);
-       
         if (c == null) {
             request.setAttribute("size", 0);
         } else {
