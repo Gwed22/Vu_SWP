@@ -24,11 +24,15 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
+<<<<<<< HEAD
 
         <link rel="stylesheet" href="css/stylee.css">
 
         <link rel="stylesheet" href="css/stylee.css">
 
+=======
+        <link rel="stylesheet" href="css/style5.css">
+>>>>>>> 8197cc320cccf57114d8c649d6b96fdd394eb00c
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -81,7 +85,7 @@
             .input-gender-male{
                 margin-right: 25%
             }
-           
+
         </style>
 
 
@@ -129,8 +133,55 @@
                 }
             }
         </script>
+        <style>
+            #bill-form {
+                position: fixed;
+                width: 100vw;
+                height: 100vh;
+                background-color: rgba(0, 0, 0, 0.6);
+                top: 0;
+                left: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                display: flex;
+                z-index: 999;
+            }
+            #bill-form-content {
+                padding-left: 15px;
+                width: 320px;
+                height: 160px;
+                background-color: white;
+                color: black;
+                border-radius: 5px;
+            }
+            #bill-form-content h2 {
+                font-size: 20px;
+                padding: 12px 0;
+                border-bottom: 1px solid #ddd;
+                position: relative;
+            }
+            #bill-form-content h2 span {
+                display: block;
+                position: absolute;
+                height: 30px;
+                padding: 0 6px;
+                border: 1px solid #ddd;
+                right: 12px;
+                cursor: pointer;
+                top: 50%;
+                transform: translateY(-50%);
+                line-height: 26px;
+                border-radius: 5px;
+                background-color: #1b2a47;
+                color: white;
+                font-size: 15px;
+            }
+        </style>
     </head>
     <body>
+
         <div class="container">
 
             <div class="row">
@@ -146,7 +197,7 @@
                                        placeholder="Full Name" name="txtName" required="">
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="phone" aria-describedby="numberPhone"
+                                <input type="number" class="form-control" id="phone" aria-describedby="numberPhone"
                                        placeholder="Enter number phone" name="txtPhone" required="">
                             </div>
                             <div class="mb-3">
@@ -156,57 +207,67 @@
                                         <lable> Male </lable>
                                     </div>
                                     <div class="input-gender-female">
-                                    <input type="radio" id="gender-female" name="gender" value="female">
-                                    <lable>Female </lable>
+                                        <input type="radio" id="gender-female" name="gender" value="female">
+                                        <lable>Female </lable>
+                                    </div>
                                 </div>
                             </div>
-                    </div>
 
-                    <div class="mb-3">
-                        <input type="password" class="form-control" id="password"
-                               placeholder="Password" name="txtPassword" required="">
-                    </div>
-                    <div class="mb-3">
-                        <input type="password" class="form-control" id="password1"
-                               placeholder="Confirm Password" name="txtPassword2" required="">
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" class="form-control" id="address" "
-                               placeholder="Address" name="txtAddress" required="">
-                    </div>
-                    <div class="mb-3">
-                        <div class="input-group mg-b-pro-edt">
-                            <span class="input-group-addon"><i class="icon nalika-table" aria-hidden="true"></i></span>
-                            <select name="sqID" class="form-control pro-edt-select form-control-primary">
-                                <c:forEach items="${listC}" var="ca">
-                                    <option value="${ca.getSqID()}">${ca.getSqContext()}</option>
-                                </c:forEach>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" class="form-control" id="security_answer" "
-                               placeholder="Security Answer" name="txtAnswer" required="">
-                    </div>
+                            <div class="mb-3">
+                                <input type="password" class="form-control" id="password"
+                                       placeholder="Password" name="txtPassword" required="">
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" class="form-control" id="password1"
+                                       placeholder="Confirm Password" name="txtPassword2" required="">
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="address" "
+                                       placeholder="Address" name="txtAddress" required="">
+                            </div>
+                            <div class="mb-3">
+                                <div class="input-group mg-b-pro-edt">
+                                    <span class="input-group-addon"><i class="icon nalika-table" aria-hidden="true"></i></span>
+                                    <select name="sqID" class="form-control pro-edt-select form-control-primary">
+                                        <c:forEach items="${listC}" var="ca">
+                                            <option value="${ca.getSqID()}">${ca.getSqContext()}</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="security_answer" "
+                                       placeholder="Security Answer" name="txtAnswer" required="">
+                            </div>
 
-                    <div class=""><button type="submit" name="btnAdd" onclick="return checkValid()" class="btn btn-color  register-button">Register</button></div>
-                    </form>
+                            <div class=""><button type="submit" name="btnAdd" onclick="return checkValid()" class="btn btn-color  register-button">Register</button></div>
+                        </form>
+
+                    </div>
 
                 </div>
 
             </div>
 
         </div>
-
-    </div>
         <c:if test="${message != null}">
             <div id="bill-form">
-
-                <div class="row" style="margin: 0 5px 0 5px">
-                    <span style="font-size: 20px;color: red; text-align: center; ">${message}!</span>
+                <div id="bill-form-content">
+                    <h2>Message<span id="bill-close">Close</span></h2>
+                    <br>
+                    <div class="row" style="margin: 0 5px 0 5px">
+                        <span style="font-size: 20px">${message}!</span>
+                    </div>
                 </div>
-
             </div>
         </c:if>
-</body>
+        <script>
+            const billclose = document.querySelector('#bill-close');
+            billclose.addEventListener("click", function () {
+                document.querySelector('#bill-form').style.display = "none";
+            });
+
+
+        </script>
+    </body>
 </html>

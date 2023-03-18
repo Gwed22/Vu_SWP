@@ -75,9 +75,65 @@
                 margin-right: 20%;
             }
         </style>
+        <style>
+            #bill-form {
+                position: fixed;
+                width: 100vw;
+                height: 100vh;
+                background-color: rgba(0, 0, 0, 0.6);
+                top: 0;
+                left: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                display: flex;
+                z-index: 999;
+            }
+            #bill-form-content {
+                padding-left: 15px;
+                width: 320px;
+                height: 160px;
+                background-color: white;
+                color: black;
+                border-radius: 5px;
+            }
+            #bill-form-content h2 {
+                font-size: 20px;
+                padding: 12px 0;
+                border-bottom: 1px solid #ddd;
+                position: relative;
+            }
+            #bill-form-content h2 span {
+                display: block;
+                position: absolute;
+                height: 30px;
+                padding: 0 6px;
+                border: 1px solid #ddd;
+                right: 12px;
+                cursor: pointer;
+                top: 50%;
+                transform: translateY(-50%);
+                line-height: 26px;
+                border-radius: 5px;
+                background-color: #1b2a47;
+                color: white;
+                font-size: 15px;
+            }
+        </style>
     </head>
     <body>
-
+        <c:if test="${message != null}">
+            <div id="bill-form">
+                <div id="bill-form-content">
+                    <h2>Message<span id="bill-close">Close</span></h2>
+                    <br>
+                    <div class="row" style="margin: 0 5px 0 5px">
+                        <span style="font-size: 20px">${message}!</span>
+                    </div>
+                </div>
+            </div>
+        </c:if>
         <div class="container">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
@@ -118,15 +174,7 @@
                 </form>
             </div>
         </div>
-        <c:if test="${message != null}">
-            <div id="bill-form">
 
-                <div class="row" style="margin: 0 5px 0 5px">
-                    <span style="font-size: 20px;color: red; text-align: center; ">${message}!</span>
-                </div>
-
-            </div>
-        </c:if>
     </body>
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -154,6 +202,14 @@
                 $(this).removeClass('transition');
             });
         });
+    </script>
+    <script>
+        const billclose = document.querySelector('#bill-close');
+        billclose.addEventListener("click", function () {
+            document.querySelector('#bill-form').style.display = "none";
+        });
+
+
     </script>
 
 </html>

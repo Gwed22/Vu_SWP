@@ -90,8 +90,7 @@ public class RegisterController extends HttpServlet {
             String address = request.getParameter("txtAddress");//get parameter
             int sq_id = Integer.parseInt(request.getParameter("sqID"));//get parameter
             String answer_context = request.getParameter("txtAnswer");//get parameter
-            
-            
+
             RegisterDAO dao = new RegisterDAO(); //create object DAO
             Account acc = dao.checkPhoneNumber(phone); // call function 
             if (acc == null) {//check if account is correct 
@@ -104,8 +103,10 @@ public class RegisterController extends HttpServlet {
 
             } else { // account is incorrect
                 request.setAttribute("message", "Duplicate Phone number!");
-                response.sendRedirect("register");
-//                request.getRequestDispatcher("register").forward(request, response);
+                ArrayList<SecurityQuestion> listC = dao.getAllQuestion();
+                request.setAttribute("listC", listC);
+//                response.sendRedirect("register");
+                request.getRequestDispatcher("register.jsp").forward(request, response);
             }
 
         }

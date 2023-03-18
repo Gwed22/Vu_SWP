@@ -94,7 +94,7 @@ public class LoginController extends HttpServlet {
                     response.sendRedirect("home");
                 }
             } else { // if phone or password is incorrect
-                request.setAttribute("message", "Wrong Phone number or Password!");
+                request.setAttribute("message", "Wrong phone number or password!");
                 request.getRequestDispatcher("login.jsp").forward(request, response);
             }
 

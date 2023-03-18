@@ -26,6 +26,7 @@
         <!-- style css -->
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <link rel="stylesheet" href="css/stylee.css">
         <link rel="stylesheet" href="css/stylee.css">
 =======
@@ -40,6 +41,13 @@
 >>>>>>> 4f0c8ff6d651eca7f5b52b15e041493b56c77a8d
 
 >>>>>>> 4f0c8ff6d651eca7f5b52b15e041493b56c77a8d
+=======
+        <link rel="stylesheet" href="css/style8.css">
+        <link rel="stylesheet" href="css/style8.css">
+        <link rel="stylesheet" href="css/style8.css">
+
+        <link rel="stylesheet" href="css/style8.css">
+>>>>>>> 8197cc320cccf57114d8c649d6b96fdd394eb00c
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -85,6 +93,57 @@
                 margin-left: 70%;
             }
         </style>
+<<<<<<< HEAD
+=======
+
+        <style>
+            #bill-form {
+                position: fixed;
+                width: 100vw;
+                height: 100vh;
+                background-color: rgba(0, 0, 0, 0.6);
+                top: 0;
+                left: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                display: flex;
+                z-index: 999;
+            }
+            #bill-form-content {
+                padding-left: 15px;
+                width: 320px;
+                height: 160px;
+                background-color: white;
+                color: black;
+                border-radius: 5px;
+            }
+            #bill-form-content h2 {
+                font-size: 20px;
+                padding: 12px 0;
+                border-bottom: 1px solid #ddd;
+                position: relative;
+            }
+            #bill-form-content h2 span {
+                display: block;
+                position: absolute;
+                height: 30px;
+                padding: 0 6px;
+                border: 1px solid #ddd;
+                right: 12px;
+                cursor: pointer;
+                top: 50%;
+                transform: translateY(-50%);
+                line-height: 26px;
+                border-radius: 5px;
+                background-color: #1b2a47;
+                color: white;
+                font-size: 15px;
+            }
+        </style>
+
+>>>>>>> 8197cc320cccf57114d8c649d6b96fdd394eb00c
     </head>
     <body>
 <<<<<<< HEAD
@@ -110,10 +169,28 @@
         </div>
         <c:if test="${message != null}">
             <div id="bill-form">
+<<<<<<< HEAD
                 <div class="row" style="margin: 0 5px 0 5px">
                     <span style="font-size: 20px;color: red; text-align: center; ">${message}!</span>
+=======
+                <div id="bill-form-content">
+                    <h2>Message<span id="bill-close">Close</span></h2>
+                    <br>
+                    <div class="row" style="margin: 0 5px 0 5px">
+                        <span style="font-size: 20px">${message}!</span>
+                    </div>
+>>>>>>> 8197cc320cccf57114d8c649d6b96fdd394eb00c
                 </div>
             </div>
         </c:if>
+
+        <script>
+            const billclose = document.querySelector('#bill-close');
+            billclose.addEventListener("click", function () {
+                document.querySelector('#bill-form').style.display = "none";
+            });
+
+
+        </script>
     </body>
 </html>

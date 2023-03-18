@@ -87,6 +87,24 @@
                 text-decoration: none;
             }
         </style>
+        <script>
+            function check() {
+                var pass1 = document.getElementById("password1").value;
+                var pass2 = document.getElementById("password2").value;
+                var message = "";
+                if (pass1.length > 50) {
+                    message += "The password cannot greater than 50 characters!";
+                }
+                if (pass2 !== pass1) {
+                    message += "The confirm password must be the same as password above!";
+                }
+                if (message !== "") {
+                    alert(message);
+                    return false;
+                }
+
+            }
+        </script>
     </head>
     <body>
 
@@ -105,14 +123,14 @@
                             </div>
 
                             <div class="mb-3">
-                                <input type="password" name="txtPassword" class="form-control" id="password" placeholder="Password" >
+                                <input type="password" name="txtPassword" class="form-control" id="password1" placeholder="Password" required="" >
                             </div>
                             <div class="mb-3">
-                                <input type="password" name="txtPassword1" class="form-control" id="cf-password" placeholder="Confirm Password" >
+                                <input type="password" name="txtPassword1" class="form-control" id="password2" placeholder="Confirm Password" required="">
                             </div>
                             <div class="button-next-back">
-                                <div class="back-button"><a href="forgotpassword">Back</a></div>
-                                <div class="login-button"><button type="submit" name="btnReset" class="btn btn-color px-5  mb-5 w-100">Reset</button></div>
+
+                                <div class="login-button"><button type="submit" onclick="return check()" name="btnReset" class="btn btn-color px-5  mb-5 w-100">Reset</button></div>
 
                             </div>
                         </form>

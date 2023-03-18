@@ -92,7 +92,11 @@ public class EditProfileController extends HttpServlet {
             RegisterDAO dao = new RegisterDAO();//create object DAO
             int count = dao.updateProfile(acc);//call function
             if (count > 0) {//check if update successful
-                response.sendRedirect("/home");
+                Account acc1 = dao.getAccountByID(id);
+                request.setAttribute("acc", acc1);
+                request.setAttribute("message", "Edit successful");
+                request.getRequestDispatcher("profile.jsp").forward(request, response);
+//                response.sendRedirect("/home");
             } else {
                 response.sendRedirect("editprofile");
             }
