@@ -20,7 +20,7 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-        <link href="css/stylee.css" rel="stylesheet" type="text/css"/>
+        <link href="css/style9.css" rel="stylesheet" type="text/css"/>
         <style>
             .gallery-wrap .img-big-wrap img {
                 height: 450px;
@@ -67,8 +67,7 @@
                 <div class="container">
                     <div clas="col-lg-12">
                     <c:set var="p" value="${sessionScope.cart}" />
-                    <c:if test="${p != null}">
-                        
+                    <c:if test="${size != 0}">
                             <table style="width: 100%; text-align: center;">
                                 <thead>
                                     <tr >
@@ -100,7 +99,7 @@
                         
                          <div style="margin-bottom: 10px;"><a href="allproduct"> << Continue to shopping</a></div>
                     </c:if>
-                    <c:if test="${p == null}">
+                    <c:if test="${size == 0}">
                         <div style="text-align: center; margin-bottom: 20px;"><span>THERE IS NO PRODUCT IN THE CART</span></div>
                         <div style="height: 100px; text-align: center;"><a href="/allproduct"> << Continue to shopping</a></div>
                     </c:if>

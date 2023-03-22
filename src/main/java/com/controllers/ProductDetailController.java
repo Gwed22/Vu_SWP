@@ -65,7 +65,7 @@ public class ProductDetailController extends HttpServlet {
         String pid = request.getParameter("pid");
         int id = Integer.parseInt(pid);
         ProductDAO d = new ProductDAO();
-        Products p = d.getAllProductById(id);
+        Products p = d.getProductById(id);
         CommentDAO dao = new CommentDAO();
         List<Comment> list = dao.getAllCommentByID(id);
         request.setAttribute("listCo", list);

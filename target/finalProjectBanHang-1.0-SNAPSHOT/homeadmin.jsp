@@ -158,7 +158,7 @@
                         </c:if>
                     </div>
                     <div class="row" style="margin-top: 20px">
-                        <c:if test="${sessionScope.acc.getRole_id() == 1 || sessionScope.acc.getRole_id() == 5}">
+                        <c:if test="${sessionScope.acc.getRole_id() == 1 || sessionScope.acc.getRole_id() == 4}">
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
                                     <h4 class="text-left text-uppercase"><b>Order Management</b></h4>

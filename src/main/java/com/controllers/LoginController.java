@@ -88,7 +88,7 @@ public class LoginController extends HttpServlet {
                 session.setAttribute("login", request.getParameter("phone"));
                 session.setAttribute("acc", acc);
                 session.setMaxInactiveInterval(259200);
-                if (acc.getRole_id() == 1) {
+                if (acc.getRole_id() != 5) {
                     response.sendRedirect("homeadmin");
                 } else {
                     response.sendRedirect("home");

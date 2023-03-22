@@ -7,6 +7,7 @@ E:\SWP\-SWP391\src\main\java\com\models\IncomeSpendingDetail.java
 E:\SWP\-SWP391\src\main\java\com\controllers\LogoutController.java
 E:\SWP\-SWP391\src\main\java\com\dao\OrderItemDAO.java
 E:\SWP\-SWP391\src\main\java\com\controllers\ConfirmPhoneController.java
+E:\SWP\-SWP391\src\main\java\com\controllers\ContactController.java
 E:\SWP\-SWP391\src\main\java\com\controllers\SearchAccountController.java
 E:\SWP\-SWP391\src\main\java\com\controllers\CheckOutController.java
 E:\SWP\-SWP391\src\main\java\com\models\Account.java
@@ -31,6 +32,7 @@ E:\SWP\-SWP391\src\main\java\com\controllers\CommentController.java
 E:\SWP\-SWP391\src\main\java\com\controllers\LoginController.java
 E:\SWP\-SWP391\src\main\java\com\dao\RegisterDAO.java
 E:\SWP\-SWP391\src\main\java\com\controllers\HomeControl.java
+E:\SWP\-SWP391\src\main\java\com\controllers\ContactListController.java
 E:\SWP\-SWP391\src\main\java\com\controllers\CaterogyController.java
 E:\SWP\-SWP391\src\main\java\com\dao\SellStatisticDAO.java
 E:\SWP\-SWP391\src\main\java\com\controllers\PaymentController.java
@@ -39,7 +41,6 @@ E:\SWP\-SWP391\src\main\java\com\controllers\EditAccountController.java
 E:\SWP\-SWP391\src\main\java\com\dao\SaleDAO.java
 E:\SWP\-SWP391\src\main\java\com\models\Order.java
 E:\SWP\-SWP391\src\main\java\com\models\Item.java
-E:\SWP\-SWP391\src\main\java\com\controllers\ContacController.java
 E:\SWP\-SWP391\src\main\java\com\models\Contact.java
 E:\SWP\-SWP391\src\main\java\com\controllers\ShopCartController.java
 E:\SWP\-SWP391\src\main\java\com\dao\AccountDAO.java
@@ -64,11 +65,11 @@ E:\SWP\-SWP391\src\main\java\com\controllers\AddExistConsignmentController.java
 E:\SWP\-SWP391\src\main\java\com\controllers\EditProfileController.java
 E:\SWP\-SWP391\src\main\java\com\models\Comment.java
 E:\SWP\-SWP391\src\main\java\com\db\DBConnection.java
-E:\SWP\-SWP391\src\main\java\com\controllers\HistoryController.java
 E:\SWP\-SWP391\src\main\java\com\models\Consignment.java
 E:\SWP\-SWP391\src\main\java\com\models\SellStatistic.java
 E:\SWP\-SWP391\src\main\java\com\models\Category.java
 E:\SWP\-SWP391\src\main\java\com\controllers\AllSaleController.java
+E:\SWP\-SWP391\src\main\java\com\controllers\OrderDetailController.java
 E:\SWP\-SWP391\src\main\java\com\controllers\SearchSaleController.java
 E:\SWP\-SWP391\src\main\java\com\models\RevenueStatistic.java
 E:\SWP\-SWP391\src\main\java\com\models\OrderItem.java

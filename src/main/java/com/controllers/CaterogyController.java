@@ -71,13 +71,8 @@ public class CaterogyController extends HttpServlet {
                         "Price: Decrease"};
         boolean[] pb = new boolean[pp.length + 1];
         pb[0] = true;
-        List<Products> incre = d.getIncre();
-        List<Products> decre = d.getDecre();
         boolean[] child = new boolean[list.size() + 1];
         child[0] = true;
-
-        request.setAttribute("incre", incre);
-        request.setAttribute("decre", decre);
         request.setAttribute("pp", pp);
         request.setAttribute("pb", pb);
         request.setAttribute("bid", 0);

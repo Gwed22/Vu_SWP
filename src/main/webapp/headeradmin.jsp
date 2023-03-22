@@ -119,7 +119,7 @@
         <div class="left-sidebar-pro">
             <nav id="sidebar" class="">
                 <div class="sidebar-header">
-                    <a href="/homeadmin"><img class="main-logo" src="img/logo/isung.png" alt="" /></a>
+                    <a href="/homeadmin"><img class="main-logo" src="images/logo5.png" alt="" /></a>
                     <strong><img src="img/logo/isungsn.png" alt="" /></strong>
                 </div>
                 <div class="nalika-profile">
@@ -173,7 +173,7 @@
                                     </ul>
                                 </li>
                             </c:if>
-                            <c:if test="${sessionScope.acc.getRole_id() == 1 || sessionScope.acc.getRole_id() == 5}">
+                            <c:if test="${sessionScope.acc.getRole_id() == 1 || sessionScope.acc.getRole_id() == 4}">
                                 <li>
                                     <a class="has-arrow" href="allorder">
                                         <i class="fa fa-cart-arrow-down icon-wrap"></i>

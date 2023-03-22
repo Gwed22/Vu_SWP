@@ -46,7 +46,7 @@ public class RegisterDAO {
     public int register(String name, String phone, String password, String gender, String address, int sq_id, String answer_context) {
         int count = 0;
         try {
-            PreparedStatement pst = conn.prepareStatement("insert into Account values(?,?,?,?,?,?,2,?)"); //SQLquery 
+            PreparedStatement pst = conn.prepareStatement("insert into Account values(?,?,?,?,?,?,5,?)"); //SQLquery 
 
             pst.setString(1, name);
             pst.setString(2, phone);

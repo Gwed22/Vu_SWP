@@ -26,7 +26,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="css/stylee.css">
+        <link rel="stylesheet" href="css/style9.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -50,8 +50,6 @@
         <!-- loader  -->
         <jsp:include page="header.jsp"></jsp:include>
             <!-- end header -->
-
-
             <!-- brand -->
             <div class="brand">          
                 <div class="brand-bg row">
@@ -60,8 +58,9 @@
                 <ul style="margin-left: 50px;">
                     <c:forEach items="${listCa}" var="ca" >
                         <li class="list-menu"><a href="category?cid=${ca.getcID()}">${ca.getcName()}</a></li>
-                    </c:forEach>
+                        </c:forEach>
                 </ul>
+
                 <div class="container" style="text-align: center;">
                     <div class="row">
                         <c:forEach items="${listP}" var="o">
@@ -69,21 +68,28 @@
                                 <div class="brand_box">
                                     <a href="productdetail?pid=${o.getConID()}"><img class="img" src="${o.getProductImg()}" alt="img" /></a>
                                     <div class="name-product-all">${o.getProductName()}</div>
-                                    <h4 style="margin-top: 30px; font-size: 20px;"><del> <fmt:formatNumber type="number" value="${o.getProductPrice()}" pattern="###,###,###" /></del> VND</h4>
+                                    <c:if test="${o.getSalePrice() == 0}">
+                                        <h4 style="margin-top: 10px; "><br></h4>
+                                        </c:if>
+                                        <c:if test="${o.getSalePrice() != 0}">
+                                        <h4 style="margin-top: 10px; "><del> <fmt:formatNumber type="number" value="${o.getProductPrice()}" pattern="###,###,###.#" /></del> VND</h4>
+                                    </c:if>
                                     <h3><strong class="price" > <fmt:formatNumber type="number" value="${o.getProductPrice() - (o.getProductPrice() * o.getSalePrice())}" pattern="###,###,###" /></strong> VND</h3>
                                     <a href="addtocart?pid=${o.getConID()}" class="btn btn-main">Buy now</a>
                                 </div>
                             </div>
                         </c:forEach>
                     </div>
+                    <c:if test="${listP.size() == 0}"><span class="name-product">There is no products you're searching for</span></c:if>
+
+                    </div>
 
                 </div>
-            </div>
-        </div>            
+            </div>            
 
-        <!-- end brand -->
+            <!-- end brand -->
 
-        <!-- footer -->
+            <!-- footer -->
         <jsp:include page="footer.jsp"></jsp:include>
         <!-- end footer -->
         <!-- Javascript files-->

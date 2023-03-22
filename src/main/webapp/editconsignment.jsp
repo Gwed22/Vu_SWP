@@ -4,6 +4,7 @@
     Author     : DELL
 --%>
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page import="com.models.Products"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -119,7 +120,7 @@
                                                         <p>Product Name</p>
                                                         <div class="input-group mg-b-pro-edt">
                                                             <span class="input-group-addon"><i class="icon nalika-edit" aria-hidden="true"></i></span>
-                                                            <input type="text" class="form-control" placeholder="Product Name" name="txtName" value="${c.getProductName()}" required>
+                                                            <input type="text" maxlength="100" class="form-control" placeholder="Product Name" name="txtName" value="${c.getProductName()}" required>
                                                         </div>
                                                         <p>Product Image</p>
                                                         <div class="input-group mg-b-pro-edt">
@@ -129,12 +130,12 @@
                                                         <p>Import Price</p>
                                                         <div class="input-group mg-b-pro-edt">
                                                             <span class="input-group-addon"><i class="icon nalika-credit-cards" aria-hidden="true"></i></span>
-                                                            <input type="number" min="1000" max="100000000" class="form-control" placeholder="Import Price" name="txtImportPrice" value="${c.getConPrice()}" required>
+                                                            <input type="number" min="1000" max="1000000000" class="form-control" placeholder="Import Price" name="txtImportPrice"    value="<fmt:formatNumber type="number" value="${c.getConPrice()}" pattern="#########" />" required>
                                                         </div>
                                                         <p>Selling Price</p>
                                                         <div class="input-group mg-b-pro-edt">
                                                             <span class="input-group-addon"><i class="icon nalika-credit-cards" aria-hidden="true"></i></span>
-                                                            <input type="number" min="1000" max="100000000" class="form-control" placeholder="Selling Price" name="txtSellPrice" value="${c.getProductPrice()}" required>
+                                                            <input type="number" min="1000" max="1000000000" class="form-control" placeholder="Selling Price" name="txtSellPrice" value="<fmt:formatNumber type="number" value="${c.getProductPrice()}" pattern="#########" />" required>
                                                         </div>
                                                     </div>
                                                 </div>

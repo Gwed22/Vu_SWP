@@ -39,6 +39,16 @@ public class Account {
         this.address = address;
         this.answer_context = answer_context;
     }
+    
+        public Account(String name, String phone, String password, String gender, String address, int sq_id, int role_id) {
+        this.name = name;
+        this.phone = phone;
+        this.password = password;
+        this.gender = gender;
+        this.address = address;
+        this.sq_id = sq_id;
+        this.role_id = role_id;
+    }
 
     public Account() {
     }

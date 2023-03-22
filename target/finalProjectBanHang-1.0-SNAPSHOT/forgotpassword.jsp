@@ -26,16 +26,10 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-<<<<<<< HEAD
-        <link rel="stylesheet" href="css/stylee.css">
-        <link rel="stylesheet" href="css/stylee.css">
-=======
-
+        <link rel="stylesheet" href="css/style9.css">
+        <link rel="stylesheet" href="css/style9.css">
         <link rel="stylesheet" href="css/style8.css">
-
         <link rel="stylesheet" href="css/style8.css">
-
->>>>>>> 4f0c8ff6d651eca7f5b52b15e041493b56c77a8d
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->

@@ -1,0 +1,9 @@
+#surefire
+#Sun Mar 19 10:04:06 ICT 2023
+maven.ext.class.path=C\:\\Program Files\\NetBeans-13\\netbeans\\java\\maven-nblib\\netbeans-eventspy.jar
+user.dir=E\:\\SWP\\-SWP391
+file.encoding=UTF-8
+localRepository=C\:\\Users\\Tran Ba Nam\\.m2\\repository
+netbeans.deploy=true
+netbeans.deploy.clientUrlPart=/profile.jsp
+basedir=E\:\\SWP\\-SWP391

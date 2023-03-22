@@ -27,7 +27,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="css/stylee.css">
+        <link rel="stylesheet" href="css/style9.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -71,7 +71,7 @@
         <!-- contact -->
         <div class="contact" >
             <div class="container contact-child">
-                <form class="main_form col-md-7" action="contact" method="post">
+                <form class="main_form col-md-7" action="contact" method="post" name="myform" onsubmit="return validateemail();">
                     <c:if test="${requestScope.oid != null}">
                         <div class="col-md-4">
                             ORDER CODE:
@@ -83,8 +83,8 @@
                         <input class="form-control" placeholder="Name" type="text" name="txtName" value="${sessionScope.acc.name}" readonly>
                     </div>
                     <div class="col-md-8">
-                        Email:
-                        <input class="form-control" placeholder="Yourmail@fpt.com" type="text" name="txtMail" required>
+                        Mail:
+                        <input class="form-control" placeholder="yourmail@fpt.com" type="text" name="txtMail" required>
                     </div>
                     <div class="col-md-12">
                         Reason: 
@@ -128,6 +128,17 @@
                     $(this).removeClass('transition');
                 });
             });
+
+            function validateemail()
+            {
+                var x = document.myform.txtMail.value;
+                var atposition = x.indexOf("@");
+                var dotposition = x.lastIndexOf(".");
+                if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= x.length) {
+                    alert("Please enter mail follow format yourmail@mail.com");
+                    return false;
+                }
+            }
         </script>
     </body>
 

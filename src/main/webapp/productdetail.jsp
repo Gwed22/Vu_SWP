@@ -25,7 +25,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="css/stylee.css" >
+        <link rel="stylesheet" href="css/style9.css" >
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -70,9 +70,10 @@
                     <button type="sumbit" class="btn"> Submit</button>
                 </form>
             </div>
+            
             <div class="container comment">
                 <c:forEach items="${listCo}" var="c">
-                    <div  >
+                    <div>
                         <div class="name"><strong>${c.getAccName()}</strong></div>
                         <div class="context"> <p>${c.getCommentContext()}</p></div>
                     </div>

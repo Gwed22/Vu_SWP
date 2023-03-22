@@ -61,10 +61,10 @@ public class DeleteSaleController extends HttpServlet {
         int count = dao.deleteSale(sale_id);
         if (count > 0) {
             request.setAttribute("message", "Delete Successful");
-            request.getRequestDispatcher("/AllSale").forward(request, response);
+            request.getRequestDispatcher("/salelist").forward(request, response);
         } else {
             request.setAttribute("message", "Delete Failed");
-            request.getRequestDispatcher("/AllSale").forward(request, response);
+            request.getRequestDispatcher("/salelist").forward(request, response);
         }
     }
 

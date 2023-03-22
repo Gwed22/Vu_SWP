@@ -85,12 +85,9 @@ public class CheckOutController extends HttpServlet {
         String address = request.getParameter("txtAddress");
         HttpSession session = request.getSession();
         Cart cart = null;
-
-        OrderItemDAO dor = new OrderItemDAO();
         OrderDAO odal = new OrderDAO();
         ProductDAO pdao = new ProductDAO();
         Object o = session.getAttribute("cart");
-
         if (o != null) {
             cart = (Cart) o;
 
@@ -100,21 +97,18 @@ public class CheckOutController extends HttpServlet {
         Order or = new Order(note, address);
         Account acc = null;
         Object a = session.getAttribute("acc");
-
         if (a != null) {
             acc = (Account) a;
             odal.addOrder(acc, cart, or);
             List<Item> it = cart.getItems();
-
             for (Item item : it) {
-                Consignment con = pdao.getQuantityByID(item.getProduct().getConID());
-                int qCon = Integer.parseInt(con.toString());
+                int con = pdao.getQuantityByID(item.getProduct().getConID());
                 int quan = cart.getQuantityById(item.getProduct().getConID());
-                pdao.updateQuantity(item.getProduct().getConID(), (qCon - quan));
+                pdao.updateQuantity(item.getProduct().getConID(), (con - quan));
             }
             response.sendRedirect("home");
             session.removeAttribute("cart");
-            session.removeAttribute("size");
+            session.setAttribute("size", 0);
         } else {
             response.sendRedirect("login");
         }

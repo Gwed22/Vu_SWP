@@ -27,7 +27,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="css/stylee.css">
+        <link rel="stylesheet" href="css/style9.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -72,16 +72,13 @@
 
                 <c:set var="ca" value="${requestScope.caId}" ></c:set>
 
-                    <div class="col-xl-2 dropdown"  style="margin-left: 20px;">
-                        <div class="dropdown-toggle text-danger"  data-toggle="dropdown">
-                            <strong>List</strong>
-                        </div>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item " href="/allproduct">All</a>
+                <div class="col-xl-2"  style="margin-left: 20px;">
+                        <ul>
+                            <li>  <a  href="/allproduct">All</a></li>
                         <c:forEach begin="0" end="${1}" var="i">
-                            <a class="dropdown-item" href="/filter?price=${(i+1)}&cid=${ca}"> ${pp[i]}</a>
+                        <li><a href="/filter?price=${(i+1)}&cid=${ca}"> ${pp[i]}</a></li>
                         </c:forEach>
-                    </div>
+                    </ul>
 
                 </div>
 
@@ -93,7 +90,7 @@
                                     <a href="productdetail?pid=${o.getConID()}"><img class="img" src="${o.getProductImg()}" alt="img" /></a>
                                     <div class="name-product-all">${o.getProductName()}</div>
                                     <c:if test="${o.getSalePrice() == 0}">
-                                        <h4 style="margin-top: 10px; ">New Product</h4>
+                                        <h4 style="margin-top: 10px; "><br></h4>
                                     </c:if>
                                     <c:if test="${o.getSalePrice() != 0}">
                                         <h4 style="margin-top: 10px; "><del> <fmt:formatNumber type="number" value="${o.getProductPrice()}" pattern="###,###,###.#" /></del> VND</h4>

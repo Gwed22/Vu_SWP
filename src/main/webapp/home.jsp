@@ -21,7 +21,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="css/stylee.css">
+        <link rel="stylesheet" href="css/style9.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -88,19 +88,19 @@
                     </div>
                     <div class="col-xl-8 col-lg-2 col-md-7 co-sm-l2 item_context">
                         <div class="about_box">
-                            <span>Laptop business</span> 
+                            <span>Laptop</span> 
                             <p>ISUNG Digital Retail Joint Stock Company (hereinafter referred to as ISUNG Retail) is an associate company of Group 4 Vietnam, established on November 10, 2022 with the main brand name ISUNG Shop - Agent Officially authorized by Apple and Samsung in Vietnam at the highest level. </p>
                         </div>
                     </div>
                     <div class="col-xl-8 col-lg-2 col-md-7 co-sm-l2 item_context">
                         <div class="about_box about_box_1">
-                            <span>Laptop Gamming</span>                         
+                            <span>Hardware</span>                         
                             <p>ISUNG Digital Retail Joint Stock Company (hereinafter referred to as ISUNG Retail) is an associate company of Group 4 Vietnam, established on November 10, 2022 with the main brand name ISUNG Shop - Agent Officially authorized by Apple and Samsung in Vietnam at the highest level. </p>
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-2 col-md-5 co-sm-l2 item_context">
                         <div class="about_img">
-                            <figure><img src="images/gaming.jpg" alt="img" style="width: 280px" /></figure>
+                            <figure><img src="images/main.jpg" alt="img" style="width: 280px" /></figure>
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-2 col-md-5 co-sm-l2 item_context">
@@ -117,7 +117,6 @@
                     </div>
                     <div class="col-xl-8 col-lg-2 col-md-7 co-sm-l2 item_context">
                         <div class="about_box about_box_1">
-
                             <span>Gamming gear</span>
                             <p>ISUNG Digital Retail Joint Stock Company (hereinafter referred to as ISUNG Retail) is an associate company of Group 4 Vietnam, established on November 10, 2022 with the main brand name ISUNG Shop - Agent Officially authorized by Apple and Samsung in Vietnam at the highest level. </p>
                         </div>
@@ -132,7 +131,6 @@
         </div>
         <!-- end about -->
         <!-- brand -->
-
         <div class="brand">
             <div class="container titlepage">
                 <div class="col-lg-12 ">
@@ -154,8 +152,8 @@
                                     <div class="name-product"  >${o.getProductName()}</div>
                                     <c:if test="${o.getSalePrice() == 0}">
                                         <h4 style="margin-top: 10px; font-size: 20px;"><br></h4>
-                                    </c:if>
-                                    <c:if test="${o.getSalePrice() != 0}">
+                                        </c:if>
+                                        <c:if test="${o.getSalePrice() != 0}">
                                         <h4 style="margin-top: 10px; font-size: 20px;"><del> <fmt:formatNumber type="number" value="${o.getProductPrice()}" pattern="###,###,###.#" /></del> VND</h4>
                                     </c:if>
                                     <h3><strong class="price"> <fmt:formatNumber type="number" value="${o.getProductPrice() - (o.getProductPrice() * o.getSalePrice())}" pattern="###,###,###" /></strong> VND</h3>
@@ -174,9 +172,7 @@
                 </div>
                 <div class="col-lg-8">                   
                     <a class="read-more " href="/category?cid=${2}">See More</a>
-
                 </div>
-
             </div>
             <div class="brand-bg">
                 <div class="container " style="text-align: center;">
@@ -188,11 +184,10 @@
                                     <div class="name-product">${o.getProductName()}</div>
                                     <c:if test="${o.getSalePrice() == 0}">
                                         <h4 style="margin-top: 10px; font-size: 20px; "><br></h4>
-                                    </c:if>
-                                    <c:if test="${o.getSalePrice() != 0}">
+                                        </c:if>
+                                        <c:if test="${o.getSalePrice() != 0}">
                                         <div style="margin-top: 10px; font-size: 20px; "><del> <fmt:formatNumber type="number" value="${o.getProductPrice()}" pattern="###,###,###.#" /></del> VND</div>
                                     </c:if>
-
                                     <h3><strong class="price"> <fmt:formatNumber type="number" value="${o.getProductPrice() - (o.getProductPrice() * o.getSalePrice())}" pattern="###,###,###" /></strong> VND</h3>
                                     <a href="/allproduct" class="btn btn-main">Buy now</a>
                                 </div>
@@ -202,7 +197,6 @@
                 </div>
             </div>  
         </div>
-
         <!-- end brand -->
         <!-- clients -->
         <div class="clients">

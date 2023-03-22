@@ -1,0 +1,10 @@
+#surefire
+#Thu Mar 16 12:27:05 ICT 2023
+exec.appArgs=
+maven.ext.class.path=C\:\\Program Files\\NetBeans-13\\netbeans\\java\\maven-nblib\\netbeans-eventspy.jar
+user.dir=E\:\\SWP\\-SWP391
+file.encoding=UTF-8
+exec.vmArgs=
+localRepository=C\:\\Users\\Tran Ba Nam\\.m2\\repository
+netbeans.deploy=true
+basedir=E\:\\SWP\\-SWP391

@@ -51,7 +51,7 @@ public class ProductDAO {
     public List<Products> getAllProduct() {
         List list = new ArrayList();
         String query = "select c.con_id, c.product_name, c.product_img, c.productPrice, c.productDesc, s.sale_price\n"
-                + "from Consignment c left join Sale s on c.con_id = s.con_id";
+                + "from Consignment c left join Sale s on c.con_id = s.con_id where c.con_quantity > 0";
         try {
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
@@ -68,75 +68,11 @@ public class ProductDAO {
 
     }
 
-    public List<Products> getAllListProduct(int id) {
-        List list = new ArrayList();
-        String query = "select c.con_id, c.product_name, c.product_img, c.productPrice, c.productDesc\n"
-                + "from Consignment c where c.con_id = ?";
-
-        try {
-            ps = conn.prepareStatement(query);
-            ps.setInt(1, id);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                list.add(new Products(rs.getInt(1), rs.getString(2),
-                        rs.getString(3),
-                        rs.getFloat(4),
-                        rs.getString(5)));
-            }
-        } catch (Exception e) {
-            System.out.println("Not found emptity");
-        }
-        return list;
-
-    }
-
-    public List<Products> getIncre() {
-        List list = new ArrayList();
-        String query = "select c.con_id, c.product_name, c.product_img, c.productPrice, c.productDesc\n"
-                + "from Consignment c\n"
-                + "order by c.productPrice ASC";
-        try {
-            ps = conn.prepareStatement(query);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                list.add(new Products(rs.getInt(1), rs.getString(2),
-                        rs.getString(3),
-                        rs.getFloat(4),
-                        rs.getString(5)));
-            }
-        } catch (Exception e) {
-            System.out.println("Not found emptity");
-        }
-        return list;
-
-    }
-
-    public List<Products> getDecre() {
-        List list = new ArrayList();
-        String query = "select c.con_id, c.product_name, c.product_img, c.productPrice, c.productDesc\n"
-                + "from Consignment c\n"
-                + " order by c.productPrice DESC";
-        try {
-            ps = conn.prepareStatement(query);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                list.add(new Products(rs.getInt(1), rs.getString(2),
-                        rs.getString(3),
-                        rs.getFloat(4),
-                        rs.getString(5)));
-            }
-        } catch (Exception e) {
-            System.out.println("Not found emptity");
-        }
-        return list;
-
-    }
-
     public List<Products> searchByName(String txtSearch) {
         List list = new ArrayList();
-        String query = "select c.con_id, c.product_name, c.product_img, c.productPrice, c.productDesc\n"
-                + "from Consignment c\n"
-                + "where c.product_name like ?";
+        String query = "select c.con_id, c.product_name, c.product_img, c.productPrice, c.productDesc, s.sale_price\n"
+                + "                from Consignment c left join Sale s on c.con_id = s.con_id\n"
+                + "                where c.product_name like ? AND c.con_quantity > 0";
         try {
             ps = conn.prepareStatement(query);
             ps.setString(1, "%" + txtSearch + "%");
@@ -145,7 +81,7 @@ public class ProductDAO {
                 list.add(new Products(rs.getInt(1), rs.getString(2),
                         rs.getString(3),
                         rs.getFloat(4),
-                        rs.getString(5)));
+                        rs.getString(5), rs.getFloat(6)));
             }
         } catch (Exception e) {
             System.out.println("Not found emptity");
@@ -184,11 +120,10 @@ public class ProductDAO {
 
     }
 
-    public Products getAllProductById(int id) {
-
+    public Products getProductById(int id) {
         String query = "select c.con_id, c.product_name, c.product_img, c.productPrice, c.productDesc, s.sale_price\n"
-                + "from Consignment c left join Sale s on s.con_id = c.con_id\n"
-                + "where c.con_id = ?";
+                + "from Consignment c left join Sale s on s.con_id = c.con_id \n"
+                + "where c.con_id = ? ";
         try {
             ps = conn.prepareStatement(query);
             ps.setInt(1, id);
@@ -213,7 +148,7 @@ public class ProductDAO {
                 + "on s.con_id = c.con_id\n"
                 + "join Category ca \n"
                 + "on c.c_id = ca.c_id\n"
-                + "where c.c_id = ?";
+                + "where c.c_id = ? AND c.con_quantity > 0";
         try {
             ps = conn.prepareStatement(query);
             ps.setInt(1, cid);
@@ -233,11 +168,11 @@ public class ProductDAO {
     public List<Products> getProductsPriceDESC(int cid) {
         List<Products> list = new ArrayList<>();
         String query = "select c.con_id, c.product_name, c.product_img, c.productPrice, c.productDesc, s.sale_price \n"
-                + "from Consignment c\n"
-                + "left join Sale s\n"
-                + "on s.con_id = c.con_id\n"
-                + "where c.c_id = ?\n"
-                + "order by (s.sale_price * c.productPrice) DESC";
+                + "                from Consignment c\n"
+                + "                left join Sale s\n"
+                + "                on s.con_id = c.con_id\n"
+                + "                where c.c_id = ? AND c.con_quantity > 0\n"
+                + "                order by (c.productPrice) DESC ";
         try {
             ps = conn.prepareStatement(query);
             ps.setInt(1, cid);
@@ -257,11 +192,11 @@ public class ProductDAO {
     public List<Products> getProductsPriceASC(int cid) {
         List<Products> list = new ArrayList<>();
         String query = "select c.con_id, c.product_name, c.product_img, c.productPrice, c.productDesc, s.sale_price \n"
-                + "from Consignment c\n"
-                + "left join Sale s\n"
-                + "on s.con_id = c.con_id\n"
-                + "where c.c_id = ?\n"
-                + "order by (s.sale_price * c.productPrice) ASC";
+                + "                from Consignment c\n"
+                + "                left join Sale s\n"
+                + "                on s.con_id = c.con_id\n"
+                + "                where c.c_id = ? AND c.con_quantity > 0\n"
+                + "                order by (c.productPrice) ASC ";
         try {
             ps = conn.prepareStatement(query);
             ps.setInt(1, cid);
@@ -278,19 +213,19 @@ public class ProductDAO {
         return list;
     }
 
-    public Consignment getQuantityByID(int cid) {
-        String query = "select con_quantity  from Consignment where con_id = ?";
+    public int getQuantityByID(int cid) {
+        String query = "select con_quantity from Consignment where con_id = ?";
         try {
             ps = conn.prepareStatement(query);
             ps.setInt(1, cid);
             rs = ps.executeQuery();
             while (rs.next()) {
-                return new Consignment(rs.getInt(1));
+                return (rs.getInt(1));
             }
         } catch (Exception e) {
             System.out.println("Not found emptity");
         }
-        return null;
+        return 0;
     }
 
     public int updateQuantity(int cid, int quantity) {
@@ -309,30 +244,6 @@ public class ProductDAO {
         return update;
 
     }
-
-    public List<OrderProducts> getOrderProductsByOrderId(int id) {
-        List<OrderProducts> list = new ArrayList<>();
-        String query = "select o.o_id, c.product_name, c.product_img, ot.productPrice, ot.quantity from ([Order] o\n"
-                + "join OrderItem ot \n"
-                + "on o.o_id = ot.o_id )\n"
-                + "join Consignment c \n"
-                + "on c.con_id = ot.con_id\n"
-                + "where o.o_id = ?\n"
-                + "group by o.o_id, c.product_name,c.product_img, ot.productPrice, ot.quantity";
-        try {
-            ps = conn.prepareStatement(query);
-            ps.setInt(1, id);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                list.add(new OrderProducts(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getFloat(4), rs.getInt(5)));
-            }
-        } catch (Exception e) {
-            System.out.println("Not found emptity");
-        }
-        return list;
-    }
-    
-    
 
     public static void main(String[] args) {
 

@@ -10,6 +10,7 @@ import com.models.Account;
 import com.models.Cart;
 import com.models.Item;
 import com.models.Order;
+import com.models.OrderProducts;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -150,6 +151,29 @@ public class OrderDAO {
                             rs.getInt(6), rs.getString(7), rs.getInt(8)));
             }
         } catch (Exception e) {
+        }
+        return list;
+    }
+    
+    
+    public List<OrderProducts> getOrderProductsByOrderId(int id) {
+        List<OrderProducts> list = new ArrayList<>();
+        String query = "select o.o_id, c.product_name, c.product_img, ot.productPrice, ot.quantity from ([Order] o\n"
+                + "join OrderItem ot \n"
+                + "on o.o_id = ot.o_id )\n"
+                + "join Consignment c \n"
+                + "on c.con_id = ot.con_id\n"
+                + "where o.o_id = ?\n"
+                + "group by o.o_id, c.product_name,c.product_img, ot.productPrice, ot.quantity";
+        try {
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new OrderProducts(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getFloat(4), rs.getInt(5)));
+            }
+        } catch (Exception e) {
+            System.out.println("Not found emptity");
         }
         return list;
     }

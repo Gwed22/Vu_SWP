@@ -117,7 +117,7 @@
                                                         <div class="review-content-section">
                                                             <div class="input-group mg-b-pro-edt">
                                                                 <span class="input-group-addon"><i class="icon nalika-cloud" aria-hidden="true"></i></span>
-                                                                <input type="text" class="form-control" placeholder="Product Name" name="txtName" required>
+                                                                <input type="text" maxlength="100" class="form-control" placeholder="Product Name" name="txtName" required>
                                                             </div>
                                                             <div class="input-group mg-b-pro-edt">
                                                                 <span class="input-group-addon"><i class="icon nalika-new-file" aria-hidden="true"></i></span>
@@ -165,7 +165,7 @@
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                     <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon"><i class="icon nalika-favorites-button" aria-hidden="true"></i></span>
-                                                        <input type="text" class="form-control" placeholder="Product Description" name="txtDesc" required>
+                                                        <input type="text" maxlength="255" class="form-control" placeholder="Product Description" name="txtDesc" required>
                                                     </div>
                                                 </div>
                                             </div>

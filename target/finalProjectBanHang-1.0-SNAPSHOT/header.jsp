@@ -24,7 +24,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" href="css/stylee.css">
+        <link rel="stylesheet" href="css/style9.css">
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -71,7 +71,7 @@
                                         <li class="active"><a href="/login"><i class="fa fa-user-circle-o" aria-hidden="true" ></i> LogIn</a></li>
                                         </c:if>
                                     <c:set var="c" value="${sessionScope.size}"></c:set>
-                                    <li class="active cart"><a href="shopcart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <c:if test="${c != null}">${c}</c:if></a></li>                                        
+                                    <li class="active cart"><a href="shopcart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <c:if test="${c != 0}">${c}</c:if></a></li>                                        
 
                                     <c:if test="${sessionScope.acc != null}">
                                         

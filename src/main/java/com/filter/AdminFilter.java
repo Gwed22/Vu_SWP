@@ -113,7 +113,7 @@ public class AdminFilter implements Filter {
         Account user = null;
         user = (Account) session.getAttribute("acc");
         if (user != null) {
-            if (user.getRole_id() != 1) {
+            if (user.getRole_id() == 5) {
                 res.sendRedirect("/home");
             }
         } else {

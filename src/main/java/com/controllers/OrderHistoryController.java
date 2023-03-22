@@ -39,7 +39,7 @@ public class OrderHistoryController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet OrderHistoryController</title>");            
+            out.println("<title>Servlet OrderHistoryController</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet OrderHistoryController at " + request.getContextPath() + "</h1>");
@@ -60,8 +60,8 @@ public class OrderHistoryController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         HttpSession session = request.getSession();
-         Account user = (Account) session.getAttribute("acc");
+        HttpSession session = request.getSession();
+        Account user = (Account) session.getAttribute("acc");
         int UserID = user.getAccountID();
         OrderDAO dao = new OrderDAO();
         List<Order> d = dao.getOrderByUserID(UserID);

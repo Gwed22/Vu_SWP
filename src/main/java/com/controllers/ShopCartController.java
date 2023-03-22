@@ -10,6 +10,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
@@ -34,7 +35,7 @@ public class ShopCartController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ShopCartController</title>");            
+            out.println("<title>Servlet ShopCartController</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ShopCartController at " + request.getContextPath() + "</h1>");
@@ -55,7 +56,11 @@ public class ShopCartController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       request.getRequestDispatcher("shoppingcart.jsp").forward(request, response);
+        HttpSession session = request.getSession();
+        if (session.getAttribute("size") == null) {
+            request.setAttribute("size", 0);
+        } 
+        request.getRequestDispatcher("shoppingcart.jsp").forward(request, response);
     }
 
     /**

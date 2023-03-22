@@ -21,13 +21,6 @@ public class Products {
     public Products() {
     }
     
-    public Products(int conID, String productName, String productImg, float productPrice, String poductDesc) {
-        this.conID = conID;
-        this.productName = productName;
-        this.productImg = productImg;
-        this.productPrice = productPrice;
-        this.poductDesc = poductDesc;
-    }
 
     public Products(int conID, String productName, String productImg, float productPrice, String poductDesc, float salePrice) {
         this.conID = conID;

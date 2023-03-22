@@ -122,13 +122,13 @@
                             </form>
                             <table>
                                 <tr>
-                                    <th rowspan="2" style="text-align: center">ID</th>
-                                    <th rowspan="2" style="text-align: center">Product Name</th>
-                                    <th rowspan="2" style="text-align: center">Current Price</th>
-                                    <th rowspan="2" style="text-align: center">Sale Price</th>
-                                    <th colspan="2" style="text-align: center">Sale Date</th>
-                                    <th rowspan="2" style="text-align: center">Description</th>
-                                    <th rowspan="2" style="text-align: center">Action</th>
+                                    <th rowspan="2" >ID</th>
+                                    <th rowspan="2" >Product Name</th>
+                                    <th rowspan="2" >Current Price</th>
+                                    <th rowspan="2" >Sale Price (%)</th>
+                                    <th colspan="2" >Sale Date</th>
+                                    <th rowspan="2" >Description</th>
+                                    <th rowspan="2" >Action</th>
                                 </tr>
                                 <tr>
                                     <th>From</th>
@@ -141,7 +141,7 @@
                                 <tr>
                                     <td><%= rs.getInt("sale_id")%></td>
                                     <td><%= rs.getString("product_name")%></td>
-                                    <td><%= rs.getFloat("productPrice")%></td>
+                                    <td class="money"><%= rs.getFloat("productPrice")%></td>
                                     <td><%= rs.getFloat("sale_price")%></td>
                                     <td><%= rs.getDate("sale_start_date")%></td>
                                     <td><%= rs.getDate("sale_end_date")%></td>
@@ -209,6 +209,19 @@
     <!-- main JS
                 ============================================ -->
     <script src="js1/main.js"></script>
+    <script>
+                                           const formatter = new Intl.NumberFormat('vi-VN', {
+                                               style: 'currency',
+                                               currency: 'VND',
+                                               minimumFractionDigits: 0
+                                           });
+
+                                           var x = document.getElementsByClassName('money');
+                                           for (var i = 0; i < x.length; i++) {
+                                               x[i].innerHTML = formatter.format(x[i].innerHTML);
+//            console.log(x);
+                                           }
+    </script>
 </body>
 
 </html>

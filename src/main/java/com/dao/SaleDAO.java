@@ -60,7 +60,7 @@ public class SaleDAO {
         return null;
     }
 
-    public Sale getPriceById(int id) {
+    public Float getPriceById(int id) {
         
         String query = "SELECT sale_price from Sale where con_id = ?";
         try {
@@ -68,11 +68,10 @@ public class SaleDAO {
             ps.setInt(1, id);
             rs = ps.executeQuery();
             while(rs.next()) {
-                return new Sale(rs.getFloat(1));
+                return rs.getFloat(1);
             }
         } catch (Exception e) {
         }
-        
         return null;
     }
 
@@ -123,7 +122,7 @@ public class SaleDAO {
     public int deleteSale(int sale_id) {
         int count = 0;
         try {
-            PreparedStatement pst = conn.prepareStatement("Delete from Sale where sale_id=?");
+            PreparedStatement pst = conn.prepareStatement("Update Sale set sale_price = 0 where sale_id = ?");
             pst.setInt(1, sale_id);
             count = pst.executeUpdate();
         } catch (SQLException ex) {

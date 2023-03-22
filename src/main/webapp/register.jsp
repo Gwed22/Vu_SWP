@@ -24,15 +24,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- style css -->
-<<<<<<< HEAD
-
-        <link rel="stylesheet" href="css/stylee.css">
-
-        <link rel="stylesheet" href="css/stylee.css">
-
-=======
         <link rel="stylesheet" href="css/style5.css">
->>>>>>> 8197cc320cccf57114d8c649d6b96fdd394eb00c
         <!-- Responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- fevicon -->
@@ -107,9 +99,9 @@
                     mess += "The name cannot be greater than 50 characters!\n";
                     //return false;
                 }
-                if (password.length > 50) {
+                if (password.length > 20 || password.length < 6) {
                     //  alert("The name cannot be null! The name cannot be greater than 50 characters! ");
-                    mess += "The password cannot be greater than 50 characters!\n";
+                    mess += "The password must be from 6 to 20 characters!\n";
                     //return false;
                 }
                 if (password1 !== password) {
@@ -183,7 +175,6 @@
     <body>
 
         <div class="container">
-
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <h2 class="text-center text-dark mt-5">Register</h2>

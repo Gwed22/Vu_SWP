@@ -13,15 +13,11 @@ import java.util.List;
  */
 public class Cart {
     private List<Item> items;
-    private List<Sale> sale;
-    
-    
+
     public Cart() {
         items= new ArrayList<>();
         
     }
-    
-    
     
     public List<Item> getItems() {
         return items;
@@ -34,6 +30,7 @@ public class Cart {
     public int getQuantityById(int id) {
         return getItemByID(id).getQuantity();
     }
+    
     private Item getItemByID(int id) {
         for (Item item : items) {
             if (item.getProduct().getConID() == id) {
@@ -46,7 +43,6 @@ public class Cart {
         if (getItemByID(t.getProduct().getConID())!= null) {
             Item m = getItemByID(t.getProduct().getConID());
             m.setQuantity(m.getQuantity()+t.getQuantity());
-            
         } else {
             items.add(t);
         }

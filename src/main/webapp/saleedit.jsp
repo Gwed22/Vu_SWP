@@ -125,19 +125,19 @@
                                                         </div>
                                                         <div class="input-group mg-b-pro-edt">
                                                             <span class="input-group-addon">Sale Start Date</span>
-                                                            <input type="date" class="form-control" placeholder="Sale start date" name="txtSaleStartDate" value="${s.getSaleStartDate()}" required>
+                                                            <input type="date" id="date1" class="form-control" placeholder="Sale start date" name="txtSaleStartDate" value="${s.getSaleStartDate()}" required>
                                                         </div>
                                                         <div class="input-group mg-b-pro-edt">
                                                             <span class="input-group-addon">Sale End Date</span>
-                                                            <input type="date" class="form-control" placeholder="Sale end date" name="txtSaleEndDate" value="${s.getSaleEndDate()}" required>
+                                                            <input type="date" id="date2" class="form-control" placeholder="Sale end date" name="txtSaleEndDate" value="${s.getSaleEndDate()}" required>
                                                         </div>
                                                         <div class="input-group mg-b-pro-edt">
                                                             <span class="input-group-addon">Sale Price</span>
-                                                            <input type="text" class="form-control" placeholder="Sale price" name="txtSalePrice" value="${s.getSalePrice()}" required>
+                                                            <input type="price" max="0.99" min="0" class="form-control" placeholder="Sale price" name="txtSalePrice" value="${s.getSalePrice()}" required>
                                                         </div>
                                                         <div class="input-group mg-b-pro-edt">
                                                             <span class="input-group-addon">Description</span>
-                                                            <input type="text" class="form-control" placeholder="Sale Description" name="txtDesc"value="${s.getSaleDesc()}" required> 
+                                                            <input type="text" maxlength="30" class="form-control" placeholder="Sale Description" name="txtDesc"value="${s.getSaleDesc()}" required> 
                                                         </div>
                                                     </div>
                                                 </div>
@@ -145,7 +145,7 @@
                                             <div class="row">
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                     <div class="text-right custom-pro-edt-ds">
-                                                        <button type="submit" name="btnEdit" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Save</button>
+                                                        <button type="submit" name="btnEdit" onclick="return checkDate()" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Save</button>
                                                         <button type="reset" name="btnClear" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Clear</button>
                                                     </div>
                                                 </div>
@@ -206,7 +206,24 @@
         <!-- main JS
                     ============================================ -->
         <script src="js1/main.js"></script>
-
+  <script>
+        today = new Date().toJSON().slice(0, 10);
+        console.log(today);
+        document.getElementById('date1').max = today;
+        document.getElementById('date2').max = today;
+        function checkDate() {
+        d1 = document.getElementById('date1').value;
+        d2 = document.getElementById('date2').value;
+        const date1 = new Date(d1);
+        const date2 = new Date(d2);
+        if (date1 > date2) {
+        console.log("sai r");
+        alert("Start Date must be the date before End Date!!!");
+        return false;
+        }
+        return true;
+        }
+    </script>
     </body>
 
 </html>

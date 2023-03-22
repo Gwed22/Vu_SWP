@@ -128,19 +128,19 @@
                                                     </div>
                                                     <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon">Sale Start Date</span>
-                                                        <input type="date" class="form-control" placeholder="Sale start date" name="txtSaleStartDate">
+                                                        <input type="date"  id="date1" class="form-control" placeholder="Sale start date" name="txtSaleStartDate" required>
                                                     </div>
                                                     <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon">Sale End Date</span>
-                                                        <input type="date" class="form-control" placeholder="Sale end date" name="txtSaleEndDate">
+                                                        <input type="date" id="date2" class="form-control" placeholder="Sale end date" name="txtSaleEndDate" required>
                                                     </div>
                                                     <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon">Sale Price</span>
-                                                        <input type="text" class="form-control" placeholder="Sale price" name="txtSalePrice">
+                                                        <input type="price" min="0" max="0.99" class="form-control" placeholder="Sale price" name="txtSalePrice" required>
                                                     </div>
                                                     <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon">Description</span>
-                                                        <input type="text" class="form-control" placeholder="Sale Description" name="txtDesc">
+                                                        <input type="text" maxlength="30" class="form-control" placeholder="Sale Description" name="txtDesc" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -148,7 +148,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                 <div class="text-right custom-pro-edt-ds">
-                                                    <button type="submit" name="btnAdd" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Add</button>
+                                                    <button type="submit" onclick="return checkDate()" name="btnAdd" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Add</button>
                                                     <button type="reset" name="btnClear" class="btn btn-ctl-bt waves-effect waves-light m-r-10">Clear</button>
                                                 </div>
                                             </div>
@@ -213,6 +213,24 @@
     <!-- main JS
                 ============================================ -->
     <script src="js1/main.js"></script>
+        <script>
+        today = new Date().toJSON().slice(0, 10);
+        console.log(today);
+        document.getElementById('date1').max = today;
+        document.getElementById('date2').max = today;
+        function checkDate() {
+        d1 = document.getElementById('date1').value;
+        d2 = document.getElementById('date2').value;
+        const date1 = new Date(d1);
+        const date2 = new Date(d2);
+        if (date1 > date2) {
+        console.log("sai r");
+        alert("Start Date must be the date before End Date!!!");
+        return false;
+        }
+        return true;
+        }
+    </script>
 </body>
 
 </html>

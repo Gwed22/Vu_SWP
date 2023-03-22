@@ -126,12 +126,12 @@
                                                     <p>Product Name</p>
                                                     <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon"><i class="icon nalika-edit" aria-hidden="true"></i></span>
-                                                        <input type="text" class="form-control" placeholder="Product Name" name="txtName" value="">
+                                                        <input type="text" maxlength="100" class="form-control" placeholder="Product Name" name="txtName" value="">
                                                     </div>
                                                     <p>Product Price</p>
                                                     <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
-                                                        <input type="text" class="form-control" placeholder="Product Price" name="txtPrice" value="">
+                                                        <input type="price" min="1" class="form-control" placeholder="Product Price" name="txtPrice" value="">
                                                     </div>
                                                 </div>
                                             </div>

@@ -69,30 +69,25 @@ public class CartController extends HttpServlet {
         double price;
         if (o != null) {
             cart = (Cart) o;
-
         } else {
             cart = new Cart();
         }
-
-        String tid = request.getParameter("pid");
-        int id = Integer.parseInt(tid);
-
+        int id = Integer.parseInt(request.getParameter("pid"));
         try {
             ProductDAO d = new ProductDAO();
             SaleDAO sd = new SaleDAO();
-            Products p = d.getAllProductById(id);
-            Sale s = sd.getPriceById(id);
+            Products p = d.getProductById(id);
+            Float s = sd.getPriceById(id);
             if (s == null) {
                 price = p.getProductPrice();
             } else {
-                price = p.getProductPrice() - (p.getProductPrice() * s.getSalePrice());
+                price = p.getProductPrice() - (p.getProductPrice() * s);
             }
             Item t = new Item(p, 1, price);
             cart.addItem(t);
         } catch (Exception e) {
 
         }
-
         List<Item> list = cart.getItems();
         session.setAttribute("cart", cart);
         session.setAttribute("size", list.size());

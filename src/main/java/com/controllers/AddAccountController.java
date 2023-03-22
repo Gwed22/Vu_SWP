@@ -59,7 +59,7 @@ public class AddAccountController extends HttpServlet {
                 String address = request.getParameter("address");
                 String password = request.getParameter("password1");
 
-                com.models.Account acc = new com.models.Account(sq_id,full_name, phone, password, gender, address, sq_id, role_id);
+                com.models.Account acc = new com.models.Account(full_name, phone, password, gender, address, sq_id, role_id);
                 //create new account with data above
                 int count = dao.addNewAccount(acc); //insert into database
                 if (count > 0) { //Return succesful message if insert success

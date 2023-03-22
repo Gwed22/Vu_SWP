@@ -75,6 +75,9 @@ public class DeleteCartItemController extends HttpServlet {
         List<Item> list = cart.getItems();
         session.setAttribute("cart", cart);
         session.setAttribute("size", list.size());
+        if (list.size() == 0) {
+            request.setAttribute("size", 0);
+        }
         request.getRequestDispatcher("shoppingcart.jsp").forward(request, response);
         
     }

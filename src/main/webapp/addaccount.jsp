@@ -68,22 +68,7 @@
                     ============================================ -->
         <script src="js1/vendor/modernizr-2.8.3.min.js"></script>
     </head>
-<<<<<<< HEAD
-    <jsp:include page="headeradmin.jsp"></jsp:include>
-        <div class="breadcome-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="breadcome-list">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                    <div class="breadcomb-wp">
-                                        <div class="breadcomb-icon">
-                                            <a href="homeadmin"><i class="icon nalika-home"></i></a>
-                                        </div>
-                                        <div class="breadcomb-ctn">
-                                            <h2>Account Management</h2>
-=======
+
     <body>
         <jsp:include page="headeradmin.jsp"></jsp:include>
             <div class="breadcome-area">
@@ -100,7 +85,6 @@
                                             <div class="breadcomb-ctn">
                                                 <h2>Account Management</h2>
                                             </div>
->>>>>>> 4f0c8ff6d651eca7f5b52b15e041493b56c77a8d
                                         </div>
                                     </div>
                                 </div>
@@ -128,12 +112,12 @@
                                                         <div class="review-content-section">
                                                             <div class="input-group mg-b-pro-edt">
                                                                 <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                                                <input type="text" class="form-control" placeholder="Account Name" name="username" required>
+                                                                <input type="text" maxlength="50" class="form-control" placeholder="Account Name" name="username" required>
                                                                 <span id="usernameHelpBlock" class="form-text text-danger"></span>
                                                             </div>
                                                             <div class="input-group mg-b-pro-edt">
                                                                 <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
-                                                                <input type="text" class="form-control" placeholder="Password" name="password1" required>
+                                                                <input maxlength="20" type="text" class="form-control" placeholder="Password" name="password1" required>
                                                                 <span id="password1HelpBlock" class="form-text text-danger"></span>
                                                             </div>
                                                             <div class="input-group mg-b-pro-edt">
@@ -164,12 +148,12 @@
                                                     </div>
                                                     <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></span>
-                                                        <input type="text" class="form-control" placeholder="Phone Number" name="phone" required>
+                                                        <input type="number" max="99999999999" class="form-control" placeholder="Phone Number" name="phone" required>
                                                         <span id="phoneHelpBlock" class="form-text text-danger"></span>
                                                     </div>
                                                     <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon"><i class="fa fa-location-arrow" aria-hidden="true"></i></span>
-                                                        <input type="text" class="form-control" placeholder="Address" name="address" required>
+                                                        <input type="text" maxlength="100" class="form-control" placeholder="Address" name="address" required>
                                                         <span id="addressHelpBlock" class="form-text text-danger"></span>
                                                     </div>
                                                 </div>

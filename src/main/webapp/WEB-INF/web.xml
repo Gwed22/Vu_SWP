@@ -94,7 +94,7 @@
     </servlet>
     <servlet>
         <servlet-name>HistoryController</servlet-name>
-        <servlet-class>com.controllers.HistoryController</servlet-class>
+        <servlet-class>com.controllers.OrderDetailController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LogoutController</servlet-name>
@@ -143,6 +143,10 @@
     <servlet>
         <servlet-name>ContactListController</servlet-name>
         <servlet-class>com.controllers.ContactListController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditProfileController</servlet-name>
+        <servlet-class>com.controllers.EditProfileController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -419,6 +423,10 @@
     <servlet-mapping>
         <servlet-name>ContactListController</servlet-name>
         <url-pattern>/listcontact</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditProfileController</servlet-name>
+        <url-pattern>/editprofile</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

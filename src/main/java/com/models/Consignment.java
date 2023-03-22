@@ -26,10 +26,6 @@ public class Consignment {
     public Consignment() {
     }
 
-    public Consignment(int conQuantity) {
-        this.conQuantity = conQuantity;
-    }
-
     public Consignment(String productName, int cID, int conQuantity, int brandID, float conPrice, Date importDate, String productImg) {
         this.productName = productName;
         this.cID = cID;
